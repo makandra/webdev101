@@ -1,0 +1,626 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %title Web development 101
+    %meta{:content => "A framework for easily creating beautiful presentations using HTML", :name => "description"}/
+    %meta{:content => "Hakim El Hattab", :name => "author"}/
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
+    %meta{:content => "black-translucent", :name => "apple-mobile-web-app-status-bar-style"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui", :name => "viewport"}/
+    %link{:href => "css/reveal.css", :rel => "stylesheet"}/
+    %link#theme{:href => "css/theme/blood.css", :rel => "stylesheet"}/
+    %link{:href => "css/custom.css", :rel => "stylesheet"}/
+    / Code syntax highlighting
+    %link{:href => "lib/css/zenburn.css", :rel => "stylesheet"}/
+    / Printing and PDF exports
+    :javascript
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    /[if lt IE 9]
+      <script src="lib/js/html5shiv.js"></script>
+  %body
+    .reveal
+      / Any section element inside of this container is displayed as a slide
+      .slides
+
+        %section
+          %h2 Web development 101
+          %p
+            %small
+              %a{:href => "https://twitter.com/triskweline"} Henning Koch
+              \/
+              %a{:href => "http://www.makandra.de"} makandra GmbH
+
+        %section
+          %h2 In 2015 web apps are the dominant form of user-facing applications
+
+          %ul
+            %li Can be used from any device (Windows, Linux, MacOS, Android ...)
+            %li No installation
+            %li Is always the latest version
+            %li Inherently multi-user
+
+        %section
+          %h2 Web apps vs. native apps
+
+        %section
+          %h2 Native applications
+
+          %p
+            Entire app runs on a single computer
+          %p
+            Entire app is (often) written in a single language
+            %br
+            %span.subtle
+              Popular languages: Java, C#, C++
+
+        %section
+          %h2 Web applications
+
+          %p
+            Application runs on multiple computers
+            %br
+            %span.subtle
+              Typical: One server, many clients (= web browsers)
+
+          %p
+            Application is written in a "stack" of many technologies
+            %br
+            %span.subtle
+              Typical stack: HTML, CSS, Javascript, Ruby/PHP/Python, SQL
+
+          %p
+            Client and server run different parts of the application
+            %br
+            %span.subtle
+              and they communicate over HTTP
+
+        %section
+          %table
+            %tr
+              %th
+                Language
+              %th
+                Purpose
+              %th
+                Runs where?
+            %tr
+              %td
+                HTML
+              %td
+                Textual content
+              %td
+                Client
+            %tr
+              %td
+                CSS
+              %td
+                Layout & Design
+              %td
+                Client
+            %tr
+              %td
+                Javascript
+              %td
+                Client-side interaction
+              %td
+                Client
+            %tr
+              %td
+                Ruby/PHP/Python
+              %td
+                Controller & Model
+              %td
+                Server
+            %tr
+              %td
+                SQL
+              %td
+                Database access
+              %td
+                Server
+
+        %section
+          %h2 Today
+
+          %ul
+            %li HTML
+            %li CSS
+            %li Javascript
+            %li Simple web applications
+
+        %section
+
+          .columns
+            .column
+
+              %h2 HTML
+
+              %pre
+                %code.html
+                  :preserve
+                    &lt;html&gt;
+                      &lt;body&gt;
+                        &lt;h1&gt;Hi there!&lt;/h1&gt;
+                        &lt;p&gt;Look at this image:&lt;/p&gt;
+                        &lt;img src="image.png"&gt;
+                      &lt;/body&gt;
+                    &lt;/html&gt;
+              %p
+                %a(target='_blank' href='examples/1010_request_response/') Code
+
+            .column
+              %img(src='pictures/screenshot_request_response.png' width=400)
+
+
+        %section
+          %p
+            User enters into her browser's address bar:
+
+          %pre
+            %code.nohighlight
+              :preserve
+                http://www.makandra.com/page.html
+
+          %p
+            What happens?
+
+        %section
+
+          %p
+            Browser asks server:
+
+          %pre.xs.fragment
+            %code.nohighlight
+              :preserve
+                GET /page.html HTTP/1.1        # Give me /page.html
+                Host: www.makandra.com         # I know you as www.makandra.com
+                Accept: text/html, text/plain  # I understand HTML and plain text
+
+          %p.fragment
+            Server replies:
+
+          %pre.xs.fragment
+            %code.nohighlight
+              :preserve
+                HTTP/1.1 200 OK                # I found what you wanted
+                Content-Length: 114            # What you want has 114 bytes
+                Content-Type: text/html        # And it's in HTML format
+                                               # Here it comes:
+                &lt;html&gt;
+                  &lt;body&gt;
+                    &lt;h1&gt;Hi there!&lt;/h1&gt;
+                    &lt;p&gt;Look at this image:&lt;/p&gt;
+                    &lt;img src="image.jpg"&gt;
+                  &lt;/body&gt;
+                &lt;/html&gt;
+
+        %section
+          %p
+            The browser parses the HTML and encounters this tag:
+
+          %pre
+            %code.html
+              :preserve
+                &lt;img src="image.jpg"&gt;
+
+          %p
+            What happens?
+
+
+        %section
+
+          %p
+            Browser asks server:
+
+          %pre.xs.fragment
+            %code.nohighlight
+              :preserve
+                GET /image.jpg HTTP/1.1        # Give me /image.jpg
+                Host: www.makandra.com         # I know you as www.makandra.com
+                Accept: image/jpeg, image/png  # I understand JPEG and PNG
+
+          %p.fragment
+            Server replies:
+
+          %pre.xs.fragment
+            %code.nohighlight
+              :preserve
+                HTTP/1.1 200 OK                # I found what you wanted
+                Content-Length: 67840          # What you want has 66 KB
+                Content-Type: text/jpeg        # And it's in JPEG format
+                                               # Here it comes:
+                FF D8 FF E0 00 10 4A 46
+                49 46 00 01 01 01 00 48
+                00 48 00 00 FF E1 1C 13
+                45 78 69 66 00 00 49 49
+                2A 00 08 00 00 00 0D 00
+                0F 01 02 00 06 00 00 00
+                ...
+        %section
+          %pre.xxl
+            %code.nohighlight
+              telnet www.uni-augsburg.de 80
+
+
+        %section
+          %h2 HTML
+          %ul
+            %li
+              %a(target='_blank' href='examples/1015_more_tags/page.html') More tags
+            %li
+              %a(target='_blank' href='examples/1020_video/page.html') Video & fallbacks
+            %li
+              %a(target='_blank' href='examples/1025_table/page.html') Table
+            %li
+              %a(target='_blank' href='examples/1030_form/page.html') Form
+
+
+        %section
+          %h2
+            CSS<br />
+            %span.subtle Cascading Style Sheets
+
+        %section
+          .columns
+            .column
+              %h2 HTML
+              %pre
+                %code.html
+                  :preserve
+                    &lt;html&gt;
+                      &lt;body&gt;
+                        &lt;h1&gt;About Capybaras&lt;/h1&gt;
+                        &lt;p&gt;
+                          The capybara is the
+                          <b>largest</b> rodent
+                          in the world.
+                        &lt;/p&gt;
+                      &lt;/body&gt;
+                    &lt;/html&gt;
+                    &nbsp;
+
+            .column.fragment
+              %h2 CSS
+              %pre
+                %code.css
+                  :preserve
+                    body {
+                      font-family: 'Arial';
+                    }
+
+                    h1 {
+                      text-transform: uppercase;
+                      font-style: italic;
+                    }
+
+                    b {
+                      background-color: #ff0000;
+                    }
+
+          %p.center.fragment
+            %a(target='_blank' href='examples/1045_simple_css/page.html') View both together
+
+        %section
+          %h2 Colors
+          .columns
+            .column
+              %div(style='font-weight: bold; color: #ff0000') <code>#ff0000</code>
+              %div(style='font-weight: bold; color: #00ff00') <code>#00ff00</code>
+              %div(style='font-weight: bold; color: #0000ff') <code>#0000ff</code>
+              %div(style='font-weight: bold; color: #ffff00') <code>#ffff00</code>
+              %div(style='font-weight: bold; color: #ffffff') <code>#ffffff</code>
+              %div(style='font-weight: bold; color: #000000') <code>#000000</code>
+            .column
+              %div(style='font-weight: bold; color: #ff9900') <code>#ff9900</code>
+              %div(style='font-weight: bold; color: #4488bb') <code>#4488bb</code>
+              %div(style='font-weight: bold; color: #9900ff') <code>#9900ff</code>
+              %div(style='font-weight: bold; color: #777777') <code>#777777</code>
+              %div(style='font-weight: bold; color: #22aa88') <code>#22aa88</code>
+              %div(style='font-weight: bold; color: #662222') <code>#662222</code>
+
+        %section
+          %h2 How to link HTML and CSS (1)
+
+          %pre
+            %code.html
+              :preserve
+                &lt;html&gt;
+                  &lt;head&gt;
+                    &lt;style&gt;
+                      h1 {
+                        color: #ff0000;
+                      }
+                    &lt;/style&gt;
+                  &lt;/head&gt;
+                  &lt;body&gt;
+                    ...
+                  &lt;/body&gt;
+                &lt;/html&gt;
+
+        %section
+          %h2 How to link HTML and CSS (2)
+
+          %pre
+            %code.html
+              :preserve
+                &lt;html&gt;
+                  &lt;head&gt;
+                    &lt;link rel="stylesheet" href="styles.css"&gt;
+                  &lt;/head&gt;
+                  &lt;body&gt;
+                    ...
+                  &lt;/body&gt;
+                &lt;/html&gt;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+
+        %section
+          %p
+            The browser parses the HTML and encounters this tag:
+
+          %pre
+            %code.html
+              :preserve
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+          %p
+            What happens?
+
+
+        %section
+
+          %p
+            Browser asks server:
+
+          %pre.xs.fragment
+            %code.nohighlight
+              :preserve
+                GET /styles.css HTTP/1.1       # Give me /styles.css
+                Host: www.makandra.com         # I know you as www.makandra.com
+                Accept: text/css               # I understand the CSS format
+
+          %p.fragment
+            Server replies:
+
+          %pre.xs.fragment
+            %code.nohighlight
+              :preserve
+                HTTP/1.1 200 OK                # I found what you wanted
+                Content-Length: 182            # What you want has 182 bytes
+                Content-Type: text/css         # And it's in CSS format
+                                               # Here it comes:
+                body {
+                  font-family: 'Arial';
+                }
+
+                h1 {
+                  text-transform: uppercase;
+                  font-style: italic;
+                }
+
+                ...
+
+        %section
+
+          %h2 An advanced example
+
+          -#%img(src='pictures/screenshot_pretty_button.png' height=200)
+
+          %p
+            %a(target='_blank' href='examples/1050_css_button/page.html') View live
+
+        %section
+          %h2 Selectors
+
+          %div
+            %code
+              <br />
+              &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+              <br />
+              &lt;p class="introduction"&gt;<br />
+              &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+              &nbsp;&nbsp;in the world.<br />
+              &lt;/p&gt;<br />
+              <br />
+              &lt;p&gt;<br />
+              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+              &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+              &lt;/p&gt;
+
+        %section
+          %h2
+            %code h1 { ... }
+
+          %div
+            %code
+              <br />
+              %em
+                &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+              <br />
+              &lt;p class="introduction"&gt;<br />
+              &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+              &nbsp;&nbsp;in the world.<br />
+              &lt;/p&gt;<br />
+              <br />
+              &lt;p&gt;<br />
+              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+              &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+              &lt;/p&gt;
+
+        %section
+          %h2
+            %code p { ... }
+
+          %div
+            %code
+              <br />
+              &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+              <br />
+              %em
+                &lt;p class="introduction"&gt;<br />
+                &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+                &nbsp;&nbsp;in the world.<br />
+                &lt;/p&gt;<br />
+                <br />
+                &lt;p&gt;<br />
+                &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+                &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+                &lt;/p&gt;
+
+        %section
+          %h2
+            %code p.introduction { ... }
+
+          %div
+            %code
+              <br />
+              &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+              <br />
+              %em
+                &lt;p class="introduction"&gt;<br />
+                &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+                &nbsp;&nbsp;in the world.<br />
+                &lt;/p&gt;<br />
+              <br />
+              &lt;p&gt;<br />
+              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+              &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+              &lt;/p&gt;
+
+        %section
+          %h2
+            %code p:last-child { ... }
+
+          %div
+            %code
+              <br />
+              &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+              <br />
+              &lt;p class="introduction"&gt;<br />
+              &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+              &nbsp;&nbsp;in the world.<br />
+              &lt;/p&gt;<br />
+              <br />
+              %em
+                &lt;p&gt;<br />
+                &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+                &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+                &lt;/p&gt;
+
+        %section
+          %h2
+            %code h1, p:last-child { ... }
+
+          %div
+            %code
+              <br />
+              %em
+                &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+              <br />
+              &lt;p class="introduction"&gt;<br />
+              &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+              &nbsp;&nbsp;in the world.<br />
+              &lt;/p&gt;<br />
+              <br />
+              %em
+                &lt;p&gt;<br />
+                &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+                &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+                &lt;/p&gt;
+
+        %section
+          %h2
+            %code h1+p { ... }
+
+          %div
+            %code
+              <br />
+              &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+              <br />
+              %em
+                &lt;p class="introduction"&gt;<br />
+                &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+                &nbsp;&nbsp;in the world.<br />
+                &lt;/p&gt;<br />
+                <br />
+              &lt;p&gt;<br />
+              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+              &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+              &lt;/p&gt;
+
+
+        %section
+          %h2
+            %code b { ... }
+
+          %div
+            %code
+              <br />
+              &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+              <br />
+              &lt;p class="introduction"&gt;<br />
+              &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest <em>&lt;b&gt;rodent&lt;/b&gt;</em><br />
+              &nbsp;&nbsp;in the world.<br />
+              &lt;/p&gt;<br />
+              <br />
+              &lt;p&gt;<br />
+              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+              &nbsp;&nbsp;<em>&lt;b&gt;Hydrochoerinae&lt;/b&gt;</em> along with ...<br />
+              &lt;/p&gt;
+
+        %section
+          %h2
+            %code p.introduction b { ... }
+
+          %div
+            %code
+              <br />
+              &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+              <br />
+              &lt;p class="introduction"&gt;<br />
+              &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest <em>&lt;b&gt;rodent&lt;/b&gt;</em><br />
+              &nbsp;&nbsp;in the world.<br />
+              &lt;/p&gt;<br />
+              <br />
+              &lt;p&gt;<br />
+              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+              &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+              &lt;/p&gt;
+
+
+
+        %section
+          %h1 Trainee!!
+
+
+    %script{:src => "lib/js/head.min.js"}
+    %script{:src => "js/reveal.js"}
+    :javascript
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
