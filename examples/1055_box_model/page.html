@@ -1,0 +1,59 @@
+<html>
+
+  <script src="jquery-2.1.4.min.js"></script>
+
+  <style>
+
+    body {
+      margin: 0;
+      background-image: url(grid.png);
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .box.with-margin {
+      margin: 50px;
+    }
+
+    .box.with-padding {
+      padding: 50px;
+    }
+
+    .box.with-border {
+      border: 50px solid rgba(0, 100, 150, 0.2);
+    }
+
+    .box.with-border-box {
+      box-sizing: border-box
+    }
+
+    .controls {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+    }
+
+  </style>
+
+  <body>
+
+    <div class="box">
+      Box 1
+    </div>
+    <div class="box">
+      Box 2
+    </div>
+
+    <div class="controls">
+      <a href="javascript:$('.box').toggleClass('with-margin')">Toggle margin</a>
+      <a href="javascript:$('.box').toggleClass('with-padding')">Toggle padding</a>
+      <a href="javascript:$('.box').toggleClass('with-border')">Toggle border</a>
+      <a href="javascript:$('.box').toggleClass('with-border-box')">Switch box model</a>
+    </div>
+
+  </body>
+</html>

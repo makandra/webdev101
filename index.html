@@ -195,7 +195,7 @@
           <p>
             Browser asks server:
           </p>
-          <pre class='xs fragment'><code class='nohighlight'>GET /page.html HTTP/1.1        # Give me /page.html&#x000A;Host: www.makandra.com         # I know you as www.makandra.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
+          <pre class='xs fragment'><code class='nohighlight'>GET /page.html HTTP/1.1        # I want the file /page.html&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
           <p class='fragment'>
             Server replies:
           </p>
@@ -214,11 +214,11 @@
           <p>
             Browser asks server:
           </p>
-          <pre class='xs fragment'><code class='nohighlight'>GET /image.jpg HTTP/1.1        # Give me /image.jpg&#x000A;Host: www.makandra.com         # I know you as www.makandra.com&#x000A;Accept: image/jpeg, image/png  # I understand JPEG and PNG&#x000A;</code></pre>
+          <pre class='xs fragment'><code class='nohighlight'>GET /image.jpg HTTP/1.1        # I want the file /image.jpg&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: image/jpeg, image/png  # I understand JPEG and PNG&#x000A;</code></pre>
           <p class='fragment'>
             Server replies:
           </p>
-          <pre class='xs fragment'><code class='nohighlight'>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 67840          # What you want has 66 KB&#x000A;Content-Type: text/jpeg        # And it's in JPEG format&#x000A;                               # Here it comes:&#x000A;FF D8 FF E0 00 10 4A 46&#x000A;49 46 00 01 01 01 00 48&#x000A;00 48 00 00 FF E1 1C 13&#x000A;45 78 69 66 00 00 49 49&#x000A;2A 00 08 00 00 00 0D 00&#x000A;0F 01 02 00 06 00 00 00&#x000A;...</code></pre>
+          <pre class='xs fragment'><code class='nohighlight'>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 67840          # What you want has 66 KB&#x000A;Content-Type: image/jpeg       # And it's in JPEG format&#x000A;                               # Here it comes:&#x000A;FF D8 FF E0 00 10 4A 46&#x000A;49 46 00 01 01 01 00 48&#x000A;00 48 00 00 FF E1 1C 13&#x000A;45 78 69 66 00 00 49 49&#x000A;2A 00 08 00 00 00 0D 00&#x000A;0F 01 02 00 06 00 00 00&#x000A;...</code></pre>
         </section>
         <section>
           <pre class='xxl'><code class='nohighlight'>telnet www.uni-augsburg.de 80</code></pre>
@@ -250,7 +250,7 @@
           <div class='columns'>
             <div class='column'>
               <h2>HTML</h2>
-              <pre><code class='html'>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;About Capybaras&lt;/h1&gt;&#x000A;    &lt;p&gt;&#x000A;      The capybara is the&#x000A;      <b>largest</b> rodent&#x000A;      in the world.&#x000A;    &lt;/p&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;&nbsp;&#x000A;</code></pre>
+              <pre><code class='html'>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;About Capybaras&lt;/h1&gt;&#x000A;    &lt;p&gt;&#x000A;      The capybara is the&#x000A;      <b>largest</b> rodent&#x000A;      in the world.&#x000A;    &lt;/p&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
             </div>
             <div class='column fragment'>
               <h2>CSS</h2>
@@ -271,14 +271,32 @@
               <div style='font-weight: bold; color: #ffff00'><code>#ffff00</code></div>
               <div style='font-weight: bold; color: #ffffff'><code>#ffffff</code></div>
               <div style='font-weight: bold; color: #000000'><code>#000000</code></div>
-            </div>
-            <div class='column'>
               <div style='font-weight: bold; color: #ff9900'><code>#ff9900</code></div>
               <div style='font-weight: bold; color: #4488bb'><code>#4488bb</code></div>
               <div style='font-weight: bold; color: #9900ff'><code>#9900ff</code></div>
               <div style='font-weight: bold; color: #777777'><code>#777777</code></div>
               <div style='font-weight: bold; color: #22aa88'><code>#22aa88</code></div>
-              <div style='font-weight: bold; color: #662222'><code>#662222</code></div>
+              <div style='font-weight: bold; color: #885555'><code>#885555</code></div>
+            </div>
+            <div class='column'>
+              <div class='fragment'>
+                <div style='font-weight: bold; color: red'><code>red</code></div>
+                <div style='font-weight: bold; color: yellow'><code>yellow</code></div>
+                <div style='font-weight: bold; color: fuchsia'><code>fuchsia</code></div>
+                <div style='font-weight: bold; color: rebeccapurple'><code>rebeccapurple</code></div>
+              </div>
+              <div class='fragment'>
+                <div style='font-weight: bold; color: rgba(255, 0, 0, 1.0)'><code>rgba(255, 0, 0, 1.0)</code></div>
+                <div style='font-weight: bold; color: rgba(255, 0, 0, 0.75)'><code>rgba(255, 0, 0, 0.75)</code></div>
+                <div style='font-weight: bold; color: rgba(255, 0, 0, 0.5)'><code>rgba(255, 0, 0, 0.5)</code></div>
+                <div style='font-weight: bold; color: rgba(255, 0, 0, 0.25)'><code>rgba(255, 0, 0, 0.25)</code></div>
+              </div>
+              <div class='fragment'>
+                <div style='font-weight: bold; color: hsl(0, 100%, 50%)'><code>hsl(0, 100%, 50%)</code></div>
+                <div style='font-weight: bold; color: hsl(30, 100%, 50%)'><code>hsl(30, 100%, 50%)</code></div>
+                <div style='font-weight: bold; color: hsl(30, 50%, 50%)'><code>hsl(30, 50%, 50%)</code></div>
+                <div style='font-weight: bold; color: hsl(30, 50%, 70%)'><code>hsl(30, 50%, 70%)</code></div>
+              </div>
             </div>
           </div>
         </section>
@@ -288,7 +306,7 @@
         </section>
         <section>
           <h2>How to link HTML and CSS (2)</h2>
-          <pre><code class='html'>&lt;html&gt;&#x000A;  &lt;head&gt;&#x000A;    &lt;link rel="stylesheet" href="styles.css"&gt;&#x000A;  &lt;/head&gt;&#x000A;  &lt;body&gt;&#x000A;    ...&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
+          <pre><code class='html'>&lt;html&gt;&#x000A;  &lt;head&gt;&#x000A;    &lt;link rel="stylesheet" href="styles.css"&gt;&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;  &lt;/head&gt;&#x000A;  &lt;body&gt;&#x000A;    ...&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
         </section>
         <section>
           <p>
@@ -303,7 +321,7 @@
           <p>
             Browser asks server:
           </p>
-          <pre class='xs fragment'><code class='nohighlight'>GET /styles.css HTTP/1.1       # Give me /styles.css&#x000A;Host: www.makandra.com         # I know you as www.makandra.com&#x000A;Accept: text/css               # I understand the CSS format&#x000A;</code></pre>
+          <pre class='xs fragment'><code class='nohighlight'>GET /styles.css HTTP/1.1       # I want the file /styles.css&#x000A;Host: www.makandra.com         # I know you as www.makandra.com&#x000A;Accept: text/css               # I understand the CSS format&#x000A;</code></pre>
           <p class='fragment'>
             Server replies:
           </p>
@@ -311,13 +329,29 @@
         </section>
         <section>
           <h2>An advanced example</h2>
+          <img height='150' src='pictures/screenshot_pretty_button.png'>
           <p>
             <a href='examples/1050_css_button/page.html' target='_blank'>View live</a>
           </p>
         </section>
         <section>
+          <div class='columns'>
+            <div class='column'>
+              <h2>HTML</h2>
+              <pre><code class='html'>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;About Capybaras&lt;/h1&gt;&#x000A;    &lt;p&gt;&#x000A;      The capybara is the&#x000A;      <b>largest</b> rodent&#x000A;      in the world.&#x000A;    &lt;/p&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
+            </div>
+            <div class='column'>
+              <h2>CSS</h2>
+              <pre><code class='css'>body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;b {&#x000A;  background-color: #ff0000;&#x000A;}&#x000A;</code></pre>
+            </div>
+          </div>
+          <p class='center'>
+            <a href='examples/1045_simple_css/page.html' target='_blank'>View both together</a>
+          </p>
+        </section>
+        <section>
           <h2>Selectors</h2>
-          <div>
+          <div class='fragment'>
             <code><br />
             &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
             <br />
@@ -497,6 +531,54 @@
             &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
             &lt;/p&gt;</code>
           </div>
+        </section>
+        <section>
+          <h2>
+            <code>* { ... }</code>
+          </h2>
+          <div>
+            <code><em>
+              <br />
+              &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+              <br />
+              &lt;p class="introduction"&gt;<br />
+              &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+              &nbsp;&nbsp;in the world.<br />
+              &lt;/p&gt;<br />
+              <br />
+              &lt;p&gt;<br />
+              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+              &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+              &lt;/p&gt;
+            </em></code>
+          </div>
+        </section>
+        <section>
+          <h2>The box model</h2>
+          <img height='250' src='pictures/box_model.png'>
+          <p>
+            <a href='examples/1055_box_model/page.html' target='_blank'>View example</a>
+          </p>
+        </section>
+        <section>
+          <h2>Positioning</h2>
+          <img height='300' src='pictures/screenshot_positioning.png'>
+          <p>
+            <a href='examples/1066_positioning/page.html' target='_blank'>View example</a>
+          </p>
+        </section>
+        <section>
+          <h2>Application layout</h2>
+          <img height='300' src='pictures/screenshot_layout.png'>
+          <p>
+            <a href='examples/1066_positioning/page.html' target='_blank'>View example</a>
+          </p>
+        </section>
+        <section>
+          <h2>CSS frameworks</h2>
+          <p>
+            <a href='examples/1075_bootstrap/index.html' target='_blank'>View example</a>
+          </p>
         </section>
         <section>
           <h1>Trainee!!</h1>

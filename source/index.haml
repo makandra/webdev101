@@ -178,8 +178,8 @@
           %pre.xs.fragment
             %code.nohighlight
               :preserve
-                GET /page.html HTTP/1.1        # Give me /page.html
-                Host: www.makandra.com         # I know you as www.makandra.com
+                GET /page.html HTTP/1.1        # I want the file /page.html
+                Host: www.makandra.com         # I want it from www.makandra.com
                 Accept: text/html, text/plain  # I understand HTML and plain text
 
           %p.fragment
@@ -221,8 +221,8 @@
           %pre.xs.fragment
             %code.nohighlight
               :preserve
-                GET /image.jpg HTTP/1.1        # Give me /image.jpg
-                Host: www.makandra.com         # I know you as www.makandra.com
+                GET /image.jpg HTTP/1.1        # I want the file /image.jpg
+                Host: www.makandra.com         # I want it from www.makandra.com
                 Accept: image/jpeg, image/png  # I understand JPEG and PNG
 
           %p.fragment
@@ -233,7 +233,7 @@
               :preserve
                 HTTP/1.1 200 OK                # I found what you wanted
                 Content-Length: 67840          # What you want has 66 KB
-                Content-Type: text/jpeg        # And it's in JPEG format
+                Content-Type: image/jpeg       # And it's in JPEG format
                                                # Here it comes:
                 FF D8 FF E0 00 10 4A 46
                 49 46 00 01 01 01 00 48
@@ -284,6 +284,7 @@
                       &lt;/body&gt;
                     &lt;/html&gt;
                     &nbsp;
+                    &nbsp;
 
             .column.fragment
               %h2 CSS
@@ -308,6 +309,7 @@
 
         %section
           %h2 Colors
+
           .columns
             .column
               %div(style='font-weight: bold; color: #ff0000') <code>#ff0000</code>
@@ -316,13 +318,29 @@
               %div(style='font-weight: bold; color: #ffff00') <code>#ffff00</code>
               %div(style='font-weight: bold; color: #ffffff') <code>#ffffff</code>
               %div(style='font-weight: bold; color: #000000') <code>#000000</code>
-            .column
               %div(style='font-weight: bold; color: #ff9900') <code>#ff9900</code>
               %div(style='font-weight: bold; color: #4488bb') <code>#4488bb</code>
               %div(style='font-weight: bold; color: #9900ff') <code>#9900ff</code>
               %div(style='font-weight: bold; color: #777777') <code>#777777</code>
               %div(style='font-weight: bold; color: #22aa88') <code>#22aa88</code>
-              %div(style='font-weight: bold; color: #662222') <code>#662222</code>
+              %div(style='font-weight: bold; color: #885555') <code>#885555</code>
+            .column
+              .fragment
+                %div(style='font-weight: bold; color: red') <code>red</code>
+                %div(style='font-weight: bold; color: yellow') <code>yellow</code>
+                %div(style='font-weight: bold; color: fuchsia') <code>fuchsia</code>
+                %div(style='font-weight: bold; color: rebeccapurple') <code>rebeccapurple</code>
+              .fragment
+                %div(style='font-weight: bold; color: rgba(255, 0, 0, 1.0)') <code>rgba(255, 0, 0, 1.0)</code>
+                %div(style='font-weight: bold; color: rgba(255, 0, 0, 0.75)') <code>rgba(255, 0, 0, 0.75)</code>
+                %div(style='font-weight: bold; color: rgba(255, 0, 0, 0.5)') <code>rgba(255, 0, 0, 0.5)</code>
+                %div(style='font-weight: bold; color: rgba(255, 0, 0, 0.25)') <code>rgba(255, 0, 0, 0.25)</code>
+              .fragment
+                %div(style='font-weight: bold; color: hsl(0, 100%, 50%)') <code>hsl(0, 100%, 50%)</code>
+                %div(style='font-weight: bold; color: hsl(30, 100%, 50%)') <code>hsl(30, 100%, 50%)</code>
+                %div(style='font-weight: bold; color: hsl(30, 50%, 50%)') <code>hsl(30, 50%, 50%)</code>
+                %div(style='font-weight: bold; color: hsl(30, 50%, 70%)') <code>hsl(30, 50%, 70%)</code>
+
 
         %section
           %h2 How to link HTML and CSS (1)
@@ -352,15 +370,15 @@
                 &lt;html&gt;
                   &lt;head&gt;
                     &lt;link rel="stylesheet" href="styles.css"&gt;
+
+
+
+
                   &lt;/head&gt;
                   &lt;body&gt;
                     ...
                   &lt;/body&gt;
                 &lt;/html&gt;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
 
         %section
           %p
@@ -383,7 +401,7 @@
           %pre.xs.fragment
             %code.nohighlight
               :preserve
-                GET /styles.css HTTP/1.1       # Give me /styles.css
+                GET /styles.css HTTP/1.1       # I want the file /styles.css
                 Host: www.makandra.com         # I know you as www.makandra.com
                 Accept: text/css               # I understand the CSS format
 
@@ -412,15 +430,58 @@
 
           %h2 An advanced example
 
-          -#%img(src='pictures/screenshot_pretty_button.png' height=200)
+          %img(src='pictures/screenshot_pretty_button.png' height=150)
 
           %p
             %a(target='_blank' href='examples/1050_css_button/page.html') View live
 
+
+
+        %section
+          .columns
+            .column
+              %h2 HTML
+              %pre
+                %code.html
+                  :preserve
+                    &lt;html&gt;
+                      &lt;body&gt;
+                        &lt;h1&gt;About Capybaras&lt;/h1&gt;
+                        &lt;p&gt;
+                          The capybara is the
+                          <b>largest</b> rodent
+                          in the world.
+                        &lt;/p&gt;
+                      &lt;/body&gt;
+                    &lt;/html&gt;
+                    &nbsp;
+                    &nbsp;
+
+            .column
+              %h2 CSS
+              %pre
+                %code.css
+                  :preserve
+                    body {
+                      font-family: 'Arial';
+                    }
+
+                    h1 {
+                      text-transform: uppercase;
+                      font-style: italic;
+                    }
+
+                    b {
+                      background-color: #ff0000;
+                    }
+
+          %p.center
+            %a(target='_blank' href='examples/1045_simple_css/page.html') View both together
+
         %section
           %h2 Selectors
 
-          %div
+          %div.fragment
             %code
               <br />
               &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
@@ -594,6 +655,56 @@
               &nbsp;&nbsp;The capybara belongs to the subfamily<br />
               &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
               &lt;/p&gt;
+
+        %section
+          %h2
+            %code * { ... }
+
+          %div
+            %code
+              %em
+                <br />
+                &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+                <br />
+                &lt;p class="introduction"&gt;<br />
+                &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+                &nbsp;&nbsp;in the world.<br />
+                &lt;/p&gt;<br />
+                <br />
+                &lt;p&gt;<br />
+                &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+                &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+                &lt;/p&gt;
+
+        %section
+          %h2 The box model
+
+          %img(src='pictures/box_model.png' height=250)
+
+          %p
+            %a(target='_blank' href='examples/1055_box_model/page.html') View example
+
+        %section
+          %h2 Positioning
+
+          %img(src='pictures/screenshot_positioning.png' height=300)
+
+          %p
+            %a(target='_blank' href='examples/1066_positioning/page.html') View example
+
+        %section
+          %h2 Application layout
+
+          %img(src='pictures/screenshot_layout.png' height=300)
+
+          %p
+            %a(target='_blank' href='examples/1066_positioning/page.html') View example
+
+        %section
+          %h2 CSS frameworks
+
+          %p
+            %a(target='_blank' href='examples/1075_bootstrap/index.html') View example
 
 
 

@@ -77,11 +77,20 @@
   box-sizing: border-box;
 }
 
-.reveal .column:first-child {
+.reveal .columns.four .column {
+  width: 25%;
+}
+
+.reveal .columns.three .column {
+  width: 33%;
+}
+
+.reveal .column {
   padding-right: 0.5em;
 }
 
 .reveal .column:last-child {
+  padding-right: 0;
   padding-left: 0.5em;
 }
 
@@ -135,4 +144,8 @@
 
 .reveal .center {
   text-align: center;
+}
+
+.reveal section img {
+  border: none;
 }
