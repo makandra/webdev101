@@ -129,17 +129,25 @@
           %h2 Today
 
           %ul
-            %li HTML
+            %li HTML &amp; HTTP
             %li CSS
             %li Javascript
             %li Simple web applications
 
         %section
+          .s
+            %h2
+              HTML<br />
+              %span.subtle Hypertext Markup Language
+            %h2
+              HTTP<br />
+              %span.subtle Hypertext Transfer Protocol
+
+
+        %section
 
           .columns
             .column
-
-              %h2 HTML
 
               %pre
                 %code.html
@@ -152,7 +160,7 @@
                       &lt;/body&gt;
                     &lt;/html&gt;
               %p
-                %a(target='_blank' href='examples/1010_request_response/') Code
+                %a(target='_blank' href='examples/1010_request_response/') View example
 
             .column
               %img(src='pictures/screenshot_request_response.png' width=400)
@@ -183,7 +191,7 @@
                 Accept: text/html, text/plain  # I understand HTML and plain text
 
           %p.fragment
-            Server replies:
+            Server looks for a local file <code>page.html</code> and replies:
 
           %pre.xs.fragment
             %code.nohighlight
@@ -226,7 +234,7 @@
                 Accept: image/jpeg, image/png  # I understand JPEG and PNG
 
           %p.fragment
-            Server replies:
+            Server looks for a local file <code>image.jpg</code> and replies:
 
           %pre.xs.fragment
             %code.nohighlight
@@ -308,7 +316,7 @@
             %a(target='_blank' href='examples/1045_simple_css/page.html') View both together
 
         %section
-          %h2 Colors
+          %h2 Colors in CSS
 
           .columns
             .column
@@ -406,7 +414,7 @@
                 Accept: text/css               # I understand the CSS format
 
           %p.fragment
-            Server replies:
+            Server looks for a local file <code>styles.css</code> and replies:
 
           %pre.xs.fragment
             %code.nohighlight
@@ -706,10 +714,76 @@
           %p
             %a(target='_blank' href='examples/1075_bootstrap/index.html') View example
 
+        %section
+          %h1 Web applications
 
+        %section
+
+          %p
+            Browser asks server:
+
+          %pre.xs.fragment
+            %code.nohighlight
+              :preserve
+                GET /time.html HTTP/1.1        # I want the file /time.html
+                Host: www.makandra.com         # I want it from www.makandra.com
+                Accept: text/html, text/plain  # I understand HTML and plain text
+
+          %p.fragment
+            Server looks for a local file <code>time.html</code> and replies:
+
+          %pre.xs.fragment
+            %code.nohighlight
+              :preserve
+                HTTP/1.1 200 OK                # I found what you wanted
+                Content-Length: 114            # What you want has 114 bytes
+                Content-Type: text/plain       # And it's in plain text
+                                               # Here it comes:
+                The time is 15:00:00.
+
+          <br />&nbsp;
+          <br />&nbsp;
+          <br />&nbsp;
+
+        %section
+
+          %p
+            Browser asks server:
+
+          %pre.xs
+            %code.nohighlight
+              :preserve
+                GET /time.html HTTP/1.1        # I want the file /time.html
+                Host: www.makandra.com         # I want it from www.makandra.com
+                Accept: text/html, text/plain  # I understand HTML and plain text
+
+          %p
+            %span.fragment
+              Server runs a program <code>webapp.exe</code>.<br>
+            %span.fragment
+              The program <code>webapp.exe</code> writes the current time to <code>STDOUT</code>:
+
+          %pre.xs.fragment
+            %code.ruby
+              :preserve
+                print "The time is " + Time.now.to_s
+
+          %p
+            %span.fragment
+              Server takes the program output and sends it the browser:
+
+          %pre.xs.fragment
+            %code.nohighlight
+              :preserve
+                HTTP/1.1 200 OK                # I found what you wanted
+                Content-Length: 114            # What you want has 59 bytes
+                Content-Type: text/html        # And it's in plain text
+                                               # Here it comes:
+                The time is 14:37:05.
 
         %section
           %h1 Trainee!!
+          %H1 Praktikant?
 
 
     %script{:src => "lib/js/head.min.js"}

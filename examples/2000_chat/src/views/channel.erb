@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <style>
+
+      body {
+        margin: 0;
+        font-family: arial, helvetica, sans-serif;
+        font-size: 22px;
+        line-height: 26px;
+        background-color: #cccccc;
+      }
+
+      .channel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 70px;
+        overflow-y: scroll;
+      }
+
+      .message {
+        background: #ffffcc;
+        padding: 12px 14px;
+        border-radius: 3px;
+        margin: 15px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2), inset 0 10px 10px rgba(255, 255, 255, 0.5);
+      }
+
+      form {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 70px;
+        background-color: #666666;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      }
+
+      form input {
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+        border-top: 1px solid #999999;
+        padding: 0 20px;
+        font-size: 25px;
+        height: 100%;
+        font-family: arial, helvetica, sans-serif;
+        color: #349;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <div class="channel">
+      <% for message in @messages %>
+        <div class="message">
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+
+    <form action="/send">
+      <input type="text" name="message" placeholder="Enter your message" autofocus>
+    </form>
+
+  </body>
+</html>

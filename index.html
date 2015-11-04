@@ -162,19 +162,30 @@
         <section>
           <h2>Today</h2>
           <ul>
-            <li>HTML</li>
+            <li>HTML &amp; HTTP</li>
             <li>CSS</li>
             <li>Javascript</li>
             <li>Simple web applications</li>
           </ul>
         </section>
         <section>
+          <div class='s'>
+            <h2>
+              HTML<br />
+              <span class='subtle'>Hypertext Markup Language</span>
+            </h2>
+            <h2>
+              HTTP<br />
+              <span class='subtle'>Hypertext Transfer Protocol</span>
+            </h2>
+          </div>
+        </section>
+        <section>
           <div class='columns'>
             <div class='column'>
-              <h2>HTML</h2>
               <pre><code class='html'>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;Hi there!&lt;/h1&gt;&#x000A;    &lt;p&gt;Look at this image:&lt;/p&gt;&#x000A;    &lt;img src="image.png"&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;</code></pre>
               <p>
-                <a href='examples/1010_request_response/' target='_blank'>Code</a>
+                <a href='examples/1010_request_response/' target='_blank'>View example</a>
               </p>
             </div>
             <div class='column'>
@@ -197,7 +208,7 @@
           </p>
           <pre class='xs fragment'><code class='nohighlight'>GET /page.html HTTP/1.1        # I want the file /page.html&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
           <p class='fragment'>
-            Server replies:
+            Server looks for a local file <code>page.html</code> and replies:
           </p>
           <pre class='xs fragment'><code class='nohighlight'>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 114            # What you want has 114 bytes&#x000A;Content-Type: text/html        # And it's in HTML format&#x000A;                               # Here it comes:&#x000A;&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;Hi there!&lt;/h1&gt;&#x000A;    &lt;p&gt;Look at this image:&lt;/p&gt;&#x000A;    &lt;img src="image.jpg"&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
         </section>
@@ -216,7 +227,7 @@
           </p>
           <pre class='xs fragment'><code class='nohighlight'>GET /image.jpg HTTP/1.1        # I want the file /image.jpg&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: image/jpeg, image/png  # I understand JPEG and PNG&#x000A;</code></pre>
           <p class='fragment'>
-            Server replies:
+            Server looks for a local file <code>image.jpg</code> and replies:
           </p>
           <pre class='xs fragment'><code class='nohighlight'>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 67840          # What you want has 66 KB&#x000A;Content-Type: image/jpeg       # And it's in JPEG format&#x000A;                               # Here it comes:&#x000A;FF D8 FF E0 00 10 4A 46&#x000A;49 46 00 01 01 01 00 48&#x000A;00 48 00 00 FF E1 1C 13&#x000A;45 78 69 66 00 00 49 49&#x000A;2A 00 08 00 00 00 0D 00&#x000A;0F 01 02 00 06 00 00 00&#x000A;...</code></pre>
         </section>
@@ -262,7 +273,7 @@
           </p>
         </section>
         <section>
-          <h2>Colors</h2>
+          <h2>Colors in CSS</h2>
           <div class='columns'>
             <div class='column'>
               <div style='font-weight: bold; color: #ff0000'><code>#ff0000</code></div>
@@ -323,7 +334,7 @@
           </p>
           <pre class='xs fragment'><code class='nohighlight'>GET /styles.css HTTP/1.1       # I want the file /styles.css&#x000A;Host: www.makandra.com         # I know you as www.makandra.com&#x000A;Accept: text/css               # I understand the CSS format&#x000A;</code></pre>
           <p class='fragment'>
-            Server replies:
+            Server looks for a local file <code>styles.css</code> and replies:
           </p>
           <pre class='xs fragment'><code class='nohighlight'>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 182            # What you want has 182 bytes&#x000A;Content-Type: text/css         # And it's in CSS format&#x000A;                               # Here it comes:&#x000A;body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;...&#x000A;</code></pre>
         </section>
@@ -581,7 +592,45 @@
           </p>
         </section>
         <section>
+          <h1>Web applications</h1>
+        </section>
+        <section>
+          <p>
+            Browser asks server:
+          </p>
+          <pre class='xs fragment'><code class='nohighlight'>GET /time.html HTTP/1.1        # I want the file /time.html&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
+          <p class='fragment'>
+            Server looks for a local file <code>time.html</code> and replies:
+          </p>
+          <pre class='xs fragment'><code class='nohighlight'>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 114            # What you want has 114 bytes&#x000A;Content-Type: text/plain       # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 15:00:00.&#x000A;</code></pre>
+          <br />&nbsp;
+          <br />&nbsp;
+          <br />&nbsp;
+        </section>
+        <section>
+          <p>
+            Browser asks server:
+          </p>
+          <pre class='xs'><code class='nohighlight'>GET /time.html HTTP/1.1        # I want the file /time.html&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
+          <p>
+            <span class='fragment'>
+              Server runs a program <code>webapp.exe</code>.<br>
+            </span>
+            <span class='fragment'>
+              The program <code>webapp.exe</code> writes the current time to <code>STDOUT</code>:
+            </span>
+          </p>
+          <pre class='xs fragment'><code class='ruby'>print "The time is " + Time.now.to_s&#x000A;</code></pre>
+          <p>
+            <span class='fragment'>
+              Server takes the program output and sends it the browser:
+            </span>
+          </p>
+          <pre class='xs fragment'><code class='nohighlight'>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 114            # What you want has 59 bytes&#x000A;Content-Type: text/html        # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 14:37:05.&#x000A;</code></pre>
+        </section>
+        <section>
           <h1>Trainee!!</h1>
+          <H1>Praktikant?</H1>
         </section>
       </div>
     </div>
