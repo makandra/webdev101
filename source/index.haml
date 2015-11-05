@@ -43,7 +43,7 @@
           %h1 makandra
 
         %section
-          %h2 This is for beginners
+          %h2 This is a course for beginners
 
         %section
           %h2 In 2015 web apps are the dominant form of user-facing applications
@@ -55,7 +55,7 @@
             %li Inherently multi-user
 
         %section
-          %h2 Web apps vs. native apps
+          %h2 Native apps vs. web apps
 
         %section
           %h2 Native applications
@@ -119,6 +119,12 @@
                 Client-side interaction
               %td
                 Client
+            %tr
+              %td
+                HTTP
+              %td
+                Client/server communication
+              %td Client/server
             %tr
               %td
                 Ruby/PHP/Python
@@ -457,7 +463,6 @@
             %a(target='_blank' href='examples/1050_css_button/page.html') View example
 
 
-
         %section
           .columns
             .column
@@ -780,8 +785,6 @@
 
                 children[1].style.color = 'red';
 
-
-
         %section
           %h2 How to link HTML and Javascript (1)
 
@@ -826,6 +829,126 @@
           %p
           %p
             %a(target='_blank' href='examples/1200_event_listener/index.html') View example
+
+
+        %section
+          %h2 Javascript is not my favorite language
+
+          %ul
+            %li Bad standard lib (strings, numbers, arrays...) with varying support across browsers.
+            %li Not everything is an object.
+            %li There are three kinds of <code>null</code>.
+            %li Equality is confusing. Also can't define equality for your own types.
+            %li No good OOP.
+            %li No default receiver.
+            %li DOM API is often impractical and inconsistent across browsers.
+
+        %section
+          %img(src='pictures/caniuse.png' height=500)
+          %br
+          Your new friend:
+          %a(href='http://caniuse.com') caniuse.com
+
+
+
+        %section
+
+          %h3 Most people use Javascript with:
+          %ul
+            %li
+              A precompiler to make the language less horrible (Coffeescript, Babel)
+            %li
+              A utility library to patch holes in the Stdlib (Underscore, Lodash)
+            %li
+              A library to hide browser bugs and pave over the DOM API (jQuery)
+            %li
+              A number of half-broken "polyfills" which backport modern Javascript features to old browsers
+
+        %section
+          %h3 Is this object an array?
+
+          .fragment
+            %h4 Pure Javascript
+
+            %pre
+              %code.javascript
+                Object.prototype.toString.call(object) === '[object Array]'
+
+          .fragment
+            %h4 Javascript + Underscore.js
+
+            %pre
+              %code.javascript
+                _.isArray(object)
+
+        %section
+          %h3 Hide the children of all &lt;p&gt; tags
+
+          .fragment
+            %h4 Pure Javascript
+
+            %pre
+              %code.javascript
+                :preserve
+                  var paragraphs = document.querySelectorAll('p');
+                  for (var p = 0; p < paragraphs.length; p++) {
+                    var paragraph = paragraphs[p];
+                    var children = paragraphs.children;
+                    for (var c = 0; c < children.length; c++) {
+                      var child = children[c];
+                      c.style.display = 'none';
+                    }
+                  }
+
+          .fragment
+            %h4 Javascript + jQuery
+
+            %pre
+              %code.javascript
+                :preserve
+                  $('p').children().hide();
+
+        %section
+          %h3 Make a class <code>Student</code><br />which inherits from <code>Person</code>
+
+          .columns
+            .column
+              .fragment
+                %h4 Pure Javascript
+
+                %pre.xxxs
+                  %code.javascript
+                    :preserve
+                      function Student(name) {
+                        this.name = name;
+                      }
+
+                      Student.prototype = new Person();
+
+                      Student.prototype.constructor = Student;
+
+                      Student.prototype.sayHello = function() {
+                        console.log("Hello, I'm " + this.name);
+                      };
+
+            .column
+              .fragment
+                %h4 Javascript + Babel
+
+                %pre.xxxs
+                  %code.javascript
+                    :preserve
+                      class Student extends Person {
+
+                        constructor(name) {
+                          this.name = name;
+                        }
+
+                        sayHello() {
+                          console.log("Hello, I'm " + this.name);
+                        }
+
+                      }
 
         %section
           %h2 Web applications
@@ -879,9 +1002,9 @@
 
           %p
             %span.fragment
-              Server runs a program <code>webapp.exe</code>.<br>
+              Server runs a program <code>time.exe</code>.<br>
             %span.fragment
-              The program <code>webapp.exe</code> writes the current time to <code>STDOUT</code>:
+              The program <code>time.exe</code> writes the current time to <code>STDOUT</code>:
 
           %pre.xs.fragment
             %code.ruby
@@ -900,6 +1023,21 @@
                 Content-Type: text/plain       # And it's in plain text
                                                # Here it comes:
                 The time is 14:37:05.
+
+        %section
+          %h3 You can write web apps in any language
+
+          %p
+            Popular choices:
+
+          %ul
+            %li PHP
+            %li Ruby
+            %li Python
+            %li Java
+
+          %p
+            The following examples are in Ruby, but concepts apply to all languages.
 
         %section
           %h2 The chat app
@@ -1234,6 +1372,10 @@
                       end
 
                     end
+
+        %section
+          .center
+            %img(src='pictures/web_app_cluster.png' width=600)
 
         %section
           %h1 Trainee!!

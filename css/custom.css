@@ -81,6 +81,7 @@ body {
 .reveal h5 code,
 .reveal h6 code {
   text-transform: none;
+  color: #e82;
 }
 
 .reveal p {

@@ -47,7 +47,7 @@
           <h1>makandra</h1>
         </section>
         <section>
-          <h2>This is for beginners</h2>
+          <h2>This is a course for beginners</h2>
         </section>
         <section>
           <h2>In 2015 web apps are the dominant form of user-facing applications</h2>
@@ -59,7 +59,7 @@
           </ul>
         </section>
         <section>
-          <h2>Web apps vs. native apps</h2>
+          <h2>Native apps vs. web apps</h2>
         </section>
         <section>
           <h2>Native applications</h2>
@@ -143,6 +143,15 @@
               <td>
                 Client
               </td>
+            </tr>
+            <tr>
+              <td>
+                HTTP
+              </td>
+              <td>
+                Client/server communication
+              </td>
+              <td>Client/server</td>
             </tr>
             <tr>
               <td>
@@ -617,7 +626,7 @@
           <h3>HTML</h3>
           <pre><code class='html'>  <div>&#x000A;    <p>one</p>&#x000A;    <p>two</p>&#x000A;    <p>three</p>&#x000A;  </div>&#x000A;</code></pre>
           <h3>Javascript</h3>
-          <pre><code class='javascript'>var div = document.querySelector('div');&#x000A;var children = div.children;&#x000A;console.log(children);&#x000A;// [<p>one</p>, <p>two</p>, <p>three</p>]&#x000A;&#x000A;var parent = children[0].parentNode;&#x000A;console.log(parent); // [<div>...</div>]&#x000A;&#x000A;console.log(parent === div); // true&#x000A;&#x000A;children[1].style.color = 'red';&#x000A;&#x000A;&#x000A;</code></pre>
+          <pre><code class='javascript'>var div = document.querySelector('div');&#x000A;var children = div.children;&#x000A;console.log(children);&#x000A;// [<p>one</p>, <p>two</p>, <p>three</p>]&#x000A;&#x000A;var parent = children[0].parentNode;&#x000A;console.log(parent); // [<div>...</div>]&#x000A;&#x000A;console.log(parent === div); // true&#x000A;&#x000A;children[1].style.color = 'red';&#x000A;</code></pre>
         </section>
         <section>
           <h2>How to link HTML and Javascript (1)</h2>
@@ -633,6 +642,80 @@
           <p>
             <a href='examples/1200_event_listener/index.html' target='_blank'>View example</a>
           </p>
+        </section>
+        <section>
+          <h2>Javascript is not my favorite language</h2>
+          <ul>
+            <li>Bad standard lib (strings, numbers, arrays...) with varying support across browsers.</li>
+            <li>Not everything is an object.</li>
+            <li>There are three kinds of <code>null</code>.</li>
+            <li>Equality is confusing. Also can't define equality for your own types.</li>
+            <li>No good OOP.</li>
+            <li>No default receiver.</li>
+            <li>DOM API is often impractical and inconsistent across browsers.</li>
+          </ul>
+        </section>
+        <section>
+          <img height='500' src='pictures/caniuse.png'>
+          <br>
+          Your new friend:
+          <a href='http://caniuse.com'>caniuse.com</a>
+        </section>
+        <section>
+          <h3>Most people use Javascript with:</h3>
+          <ul>
+            <li>
+              A precompiler to make the language less horrible (Coffeescript, Babel)
+            </li>
+            <li>
+              A utility library to patch holes in the Stdlib (Underscore, Lodash)
+            </li>
+            <li>
+              A library to hide browser bugs and pave over the DOM API (jQuery)
+            </li>
+            <li>
+              A number of half-broken "polyfills" which backport modern Javascript features to old browsers
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>Is this object an array?</h3>
+          <div class='fragment'>
+            <h4>Pure Javascript</h4>
+            <pre><code class='javascript'>Object.prototype.toString.call(object) === '[object Array]'</code></pre>
+          </div>
+          <div class='fragment'>
+            <h4>Javascript + Underscore.js</h4>
+            <pre><code class='javascript'>_.isArray(object)</code></pre>
+          </div>
+        </section>
+        <section>
+          <h3>Hide the children of all &lt;p&gt; tags</h3>
+          <div class='fragment'>
+            <h4>Pure Javascript</h4>
+            <pre><code class='javascript'>var paragraphs = document.querySelectorAll('p');&#x000A;for (var p = 0; p < paragraphs.length; p++) {&#x000A;  var paragraph = paragraphs[p];&#x000A;  var children = paragraphs.children;&#x000A;  for (var c = 0; c < children.length; c++) {&#x000A;    var child = children[c];&#x000A;    c.style.display = 'none';&#x000A;  }&#x000A;}&#x000A;</code></pre>
+          </div>
+          <div class='fragment'>
+            <h4>Javascript + jQuery</h4>
+            <pre><code class='javascript'>$('p').children().hide();&#x000A;</code></pre>
+          </div>
+        </section>
+        <section>
+          <h3>Make a class <code>Student</code><br />which inherits from <code>Person</code></h3>
+          <div class='columns'>
+            <div class='column'>
+              <div class='fragment'>
+                <h4>Pure Javascript</h4>
+                <pre class='xxxs'><code class='javascript'>function Student(name) {&#x000A;  this.name = name;&#x000A;}&#x000A;&#x000A;Student.prototype = new Person();&#x000A;&#x000A;Student.prototype.constructor = Student;&#x000A;&#x000A;Student.prototype.sayHello = function() {&#x000A;  console.log("Hello, I'm " + this.name);&#x000A;};&#x000A;</code></pre>
+              </div>
+            </div>
+            <div class='column'>
+              <div class='fragment'>
+                <h4>Javascript + Babel</h4>
+                <pre class='xxxs'><code class='javascript'>class Student extends Person {&#x000A;&#x000A;  constructor(name) {&#x000A;    this.name = name;&#x000A;  }&#x000A;&#x000A;  sayHello() {&#x000A;    console.log("Hello, I'm " + this.name);&#x000A;  }&#x000A;&#x000A;}&#x000A;</code></pre>
+              </div>
+            </div>
+          </div>
         </section>
         <section>
           <h2>Web applications</h2>
@@ -663,10 +746,10 @@
           <pre class='xs'><code class='nohighlight'>GET /now.html HTTP/1.1         # I want the file /now.html&#x000A;Host: timeapp.com              # I want it from timeapp.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
           <p>
             <span class='fragment'>
-              Server runs a program <code>webapp.exe</code>.<br>
+              Server runs a program <code>time.exe</code>.<br>
             </span>
             <span class='fragment'>
-              The program <code>webapp.exe</code> writes the current time to <code>STDOUT</code>:
+              The program <code>time.exe</code> writes the current time to <code>STDOUT</code>:
             </span>
           </p>
           <pre class='xs fragment'><code class='ruby'>print "The time is " + Time.now.to_s&#x000A;</code></pre>
@@ -676,6 +759,21 @@
             </span>
           </p>
           <pre class='xs fragment'><code class='nohighlight'>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 114            # What you want has 59 bytes&#x000A;Content-Type: text/plain       # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 14:37:05.&#x000A;</code></pre>
+        </section>
+        <section>
+          <h3>You can write web apps in any language</h3>
+          <p>
+            Popular choices:
+          </p>
+          <ul>
+            <li>PHP</li>
+            <li>Ruby</li>
+            <li>Python</li>
+            <li>Java</li>
+          </ul>
+          <p>
+            The following examples are in Ruby, but concepts apply to all languages.
+          </p>
         </section>
         <section>
           <h2>The chat app</h2>
@@ -848,6 +946,11 @@
               <h3>Model</h3>
               <pre class='xs'><code class='ruby'>class Channel&#x000A;&#x000A;  def initialize&#x000A;    @db = Mydb::Client.new&#x000A;  end&#x000A;&#x000A;  def messages&#x000A;    @db.select_values('SELECT text FROM messages')&#x000A;  end&#x000A;&#x000A;  def add_message(message)&#x000A;    escaped = @db.escape(message)&#x000A;    @db.execute('INSERT INTO messages VALUES (' + escaped + ')')&#x000A;  end&#x000A;&#x000A;end&#x000A;</code></pre>
             </div>
+          </div>
+        </section>
+        <section>
+          <div class='center'>
+            <img src='pictures/web_app_cluster.png' width='600'>
           </div>
         </section>
         <section>
