@@ -36,8 +36,17 @@ setInterval(1000, refresh);
 function search() {
   var queryInput = document.querySelector('.query');
   var query = queryInput.value;
-  var messages = document.querySelectorAll('.message');
-  
+  var messageElements = document.querySelectorAll('.message');
+  for (var i = 0; i < messageElements.length; i++) {
+    var messageElement = messageElements[i];
+    var text = messageElement.textContent;
+    var isMatch = (text.indexOf(query) != -1);
+    if isMatch {
+      messageElement.style.display = 'block';
+    } else {
+      messageElement.style.display = 'hidden';
+    }
+  }
 }
 
 

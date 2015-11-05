@@ -143,6 +143,10 @@
             %li Javascript
             %li Simple web applications
 
+          %p
+            %a(href='http://webdev101.makandra.de') http://webdev101.makandra.de<br>
+            %a(href='https://github.com/makandra/webdev101') https://github.com/makandra/webdev101
+
         %section
           .s
             %h2
@@ -724,6 +728,15 @@
             %a(target='_blank' href='examples/1075_bootstrap/index.html') View example
 
         %section
+          %h2 Javascript
+
+        %section
+          %h2 Javascript language basics
+
+        %section
+          %h2 DOM manipulation and event handlers
+
+        %section
           %h2 Web applications
 
         %section
@@ -790,7 +803,6 @@
                                                # Here it comes:
                 The time is 14:37:05.
 
-
         %section
           %h2 The chat app
 
@@ -806,6 +818,10 @@
               :preserve
                 cd examples/2000_chat/src
                 ruby app.rb
+
+          %p
+            You can now access the app at
+            %a(href='http://localhost:4567/channel') http://localhost:4567/channel
 
         %section
           %p
@@ -831,7 +847,7 @@
           %p.fragment
             Server asks the program <code>app.rb</code> for <code>/channel</code>.<br>
           %p.fragment
-            The program writes a string of HTML to STDOUT.
+            The program outputs a string of HTTP/HTML.
           %p.fragment
             The server takes the program output and sends it the browser:
 
@@ -846,12 +862,73 @@
                   ...
                 &lt;/html&gt;
 
+        %section
+          %p
+            The user sends a message to the chat channel:
+          %pre
+            %code.nohighlight
+              Hello world
+          %p
+            What happens?
 
         %section
-          %h2 Improving the chat app
+          %p
+            Browser asks server:
+
+          %pre.xxs
+            %code.nohighlight
+              :preserve
+                POST /send HTTP/1.1                              # I'm posting data to /send
+                Host: chatapp.com                                # I'm posting it to chatapp.com
+                Content-Type: application/x-www-form-urlencoded  # I'm posting key/value pairs
+                                                                 # Here it comes:
+                message=Hello+world
+
+          %p.fragment
+            Server calls the program <code>app.rb</code> with the posted data.
+          %p.fragment
+            The program stores the message and outputs a string of HTTP.
+          %p.fragment
+            The server takes the program output and sends it the browser:
+
+          %pre.xxs.fragment
+            %code.nohighlight
+              :preserve
+                HTTP/1.1 303 See Other   # This conversation continues elsewhere
+                Location: /channel       # Request /channel to continue
+
+          %p.fragment
+            The browser automatically makes another request to <code>/channel</code>
+            and gets a fresh copy of the message list.
 
         %section
-          %h2 How do we notice when another user sends a message?
+          %h2
+            Improving the<br>user interface (1)
+
+        %section
+          %h3 Scrolling to the bottom
+          %pre.xs
+            %code.javascript
+              :preserve
+                function showLastMessage() {
+                  var lastMessage = document.querySelector('.message:last-child');
+                  if (lastMessage) {
+                    lastMessage.scrollIntoView();
+                  }
+                }
+
+                window.addEventListener('load', showLastMessage);
+
+
+        %section
+          %h2
+            Improving the<br>user interface (2)
+
+        %section
+          %h2
+            How do we notice when another user sends a message?<br>
+            %span.red.fragment
+              We don't
 
         %section
           %h2 Classic web applications are a slide show
@@ -878,6 +955,73 @@
               × Server has no way to push the update to the user
 
         %section
+          %h3 Refreshing with AJAX
+
+          %pre.xs
+            %code.javascript
+              :preserve
+                function refresh() {
+                  var request = new XMLHttpRequest();
+                  request.open('GET', '/channel', true);
+                  request.onload = function() {
+                    var newHtml = request.responseText;
+                    var parser = new DOMParser();
+                    var newDocument = parser.parseFromString(newHtml, 'text/html');
+                    var newChannel = newDocument.querySelector('.channel');
+                    var oldChannel = document.querySelector('.channel');
+                    oldChannel.innerHTML = newChannel.innerHTML;
+                  };
+                  request.send();
+                }
+
+                setInterval(refresh, 1000);
+
+        %section
+          %h2
+            Improving the<br>user interface (3)
+
+        %section
+          %h3 Client-side search
+          %pre.xxxs
+            %code.javascript
+              :preserve
+                function search() {
+                  var queryInput = document.querySelector('.search-form input');
+                  var query = queryInput.value.toLowerCase();
+                  var messageElements = document.querySelectorAll('.message');
+                  for (var i = 0; i < messageElements.length; i++) {
+                    var messageElement = messageElements[i];
+                    var text = messageElement.textContent.toLowerCase();
+                    var isMatch = (text.indexOf(query) != -1);
+                    if (isMatch) {
+                      messageElement.style.display = 'block';
+                    } else {
+                      messageElement.style.display = 'none';
+                    }
+                  }
+                }
+
+                window.addEventListener('load', function() {
+                  var queryInput = document.querySelector('.search-form input');
+                  queryInput.addEventListener('input', search);
+                });
+
+        %section
+          %h2 Improving <code>app.rb</code>
+
+          %p
+            Our current implementation has <code>app.rb</code> is a single script<br>
+            with a lot of responsibilities:
+
+          %ul
+            %li Routing
+            %li Storage
+            %li Business logic
+
+          %p
+            This is not how it's done in the real world.
+
+        %section
 
           %h3 Version 1
 
@@ -899,6 +1043,29 @@
                   redirect('/channel')
                 end
                 &nbsp;
+
+        -#%section
+        -#
+        -#  %h3 SQL database
+        -#
+        -#  %pre.xs
+        -#    %code.nohighlight
+        -#      :preserve
+        -#        +----+----------------------------------+
+        -#        | id | text                             |
+        -#        +----+----------------------------------+
+        -#        | 1  | Hello world                      |
+        -#        | 2  | Anyone here?                     |
+        -#        | 3  | Here goes another message        |
+        -#        +----+----------------------------------+
+        -#
+        -#
+        -#
+        -#
+        -#
+        -#
+        -#
+        -#        &nbsp;
 
         %section
 

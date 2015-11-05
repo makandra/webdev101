@@ -176,6 +176,10 @@
             <li>Javascript</li>
             <li>Simple web applications</li>
           </ul>
+          <p>
+            <a href='http://webdev101.makandra.de'>http://webdev101.makandra.de<br></a>
+            <a href='https://github.com/makandra/webdev101'>https://github.com/makandra/webdev101</a>
+          </p>
         </section>
         <section>
           <div class='s'>
@@ -601,6 +605,15 @@
           </p>
         </section>
         <section>
+          <h2>Javascript</h2>
+        </section>
+        <section>
+          <h2>Javascript language basics</h2>
+        </section>
+        <section>
+          <h2>DOM manipulation and event handlers</h2>
+        </section>
+        <section>
           <h2>Web applications</h2>
         </section>
         <section>
@@ -635,7 +648,7 @@
               Server takes the program output and sends it the browser:
             </span>
           </p>
-          <pre class='xs fragment'><code class='nohighlight'>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 114            # What you want has 59 bytes&#x000A;Content-Type: text/plain       # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 14:37:05.&#x000A;&#x000A;</code></pre>
+          <pre class='xs fragment'><code class='nohighlight'>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 114            # What you want has 59 bytes&#x000A;Content-Type: text/plain       # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 14:37:05.&#x000A;</code></pre>
         </section>
         <section>
           <h2>The chat app</h2>
@@ -648,6 +661,10 @@
             To run the chat app:
           </p>
           <pre><code class='nohighlight'>cd examples/2000_chat/src&#x000A;ruby app.rb&#x000A;</code></pre>
+          <p>
+            You can now access the app at
+            <a href='http://localhost:4567/channel'>http://localhost:4567/channel</a>
+          </p>
         </section>
         <section>
           <p>
@@ -667,18 +684,63 @@
             Server asks the program <code>app.rb</code> for <code>/channel</code>.<br>
           </p>
           <p class='fragment'>
-            The program writes a string of HTML to STDOUT.
+            The program outputs a string of HTTP/HTML.
           </p>
           <p class='fragment'>
             The server takes the program output and sends it the browser:
           </p>
-          <pre class='xs fragment'><code class='nohighlight'>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 1589           # What you want has 1589 bytes&#x000A;Content-Type: text/html        # And it's in HTML format&#x000A;                               # Here it comes:&#x000A;&lt;html&gt;&#x000A;  ...&#x000A;&lt;/html&gt;&#x000A;&#x000A;</code></pre>
+          <pre class='xs fragment'><code class='nohighlight'>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 1589           # What you want has 1589 bytes&#x000A;Content-Type: text/html        # And it's in HTML format&#x000A;                               # Here it comes:&#x000A;&lt;html&gt;&#x000A;  ...&#x000A;&lt;/html&gt;&#x000A;</code></pre>
         </section>
         <section>
-          <h2>Improving the chat app</h2>
+          <p>
+            The user sends a message to the chat channel:
+          </p>
+          <pre><code class='nohighlight'>Hello world</code></pre>
+          <p>
+            What happens?
+          </p>
         </section>
         <section>
-          <h2>How do we notice when another user sends a message?</h2>
+          <p>
+            Browser asks server:
+          </p>
+          <pre class='xxs'><code class='nohighlight'>POST /send HTTP/1.1                              # I'm posting data to /send&#x000A;Host: chatapp.com                                # I'm posting it to chatapp.com&#x000A;Content-Type: application/x-www-form-urlencoded  # I'm posting key/value pairs&#x000A;                                                 # Here it comes:&#x000A;message=Hello+world&#x000A;</code></pre>
+          <p class='fragment'>
+            Server calls the program <code>app.rb</code> with the posted data.
+          </p>
+          <p class='fragment'>
+            The program stores the message and outputs a string of HTTP.
+          </p>
+          <p class='fragment'>
+            The server takes the program output and sends it the browser:
+          </p>
+          <pre class='xxs fragment'><code class='nohighlight'>HTTP/1.1 303 See Other   # This conversation continues elsewhere&#x000A;Location: /channel       # Request /channel to continue&#x000A;</code></pre>
+          <p class='fragment'>
+            The browser automatically makes another request to <code>/channel</code>
+            and gets a fresh copy of the message list.
+          </p>
+        </section>
+        <section>
+          <h2>
+            Improving the<br>user interface (1)
+          </h2>
+        </section>
+        <section>
+          <h3>Scrolling to the bottom</h3>
+          <pre class='xs'><code class='javascript'>function showLastMessage() {&#x000A;  var lastMessage = document.querySelector('.message:last-child');&#x000A;  if (lastMessage) {&#x000A;    lastMessage.scrollIntoView();&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', showLastMessage);&#x000A;&#x000A;</code></pre>
+        </section>
+        <section>
+          <h2>
+            Improving the<br>user interface (2)
+          </h2>
+        </section>
+        <section>
+          <h2>
+            How do we notice when another user sends a message?<br>
+            <span class='red fragment'>
+              We don't
+            </span>
+          </h2>
         </section>
         <section>
           <h2>Classic web applications are a slide show</h2>
@@ -711,6 +773,34 @@
             <span class='red'>
               × Server has no way to push the update to the user
             </span>
+          </p>
+        </section>
+        <section>
+          <h3>Refreshing with AJAX</h3>
+          <pre class='xs'><code class='javascript'>function refresh() {&#x000A;  var request = new XMLHttpRequest();&#x000A;  request.open('GET', '/channel', true);&#x000A;  request.onload = function() {&#x000A;    var newHtml = request.responseText;&#x000A;    var parser = new DOMParser();&#x000A;    var newDocument = parser.parseFromString(newHtml, 'text/html');&#x000A;    var newChannel = newDocument.querySelector('.channel');&#x000A;    var oldChannel = document.querySelector('.channel');&#x000A;    oldChannel.innerHTML = newChannel.innerHTML;&#x000A;  };&#x000A;  request.send();&#x000A;}&#x000A;&#x000A;setInterval(refresh, 1000);&#x000A;</code></pre>
+        </section>
+        <section>
+          <h2>
+            Improving the<br>user interface (3)
+          </h2>
+        </section>
+        <section>
+          <h3>Client-side search</h3>
+          <pre class='xxxs'><code class='javascript'>function search() {&#x000A;  var queryInput = document.querySelector('.search-form input');&#x000A;  var query = queryInput.value.toLowerCase();&#x000A;  var messageElements = document.querySelectorAll('.message');&#x000A;  for (var i = 0; i < messageElements.length; i++) {&#x000A;    var messageElement = messageElements[i];&#x000A;    var text = messageElement.textContent.toLowerCase();&#x000A;    var isMatch = (text.indexOf(query) != -1);&#x000A;    if (isMatch) {&#x000A;      messageElement.style.display = 'block';&#x000A;    } else {&#x000A;      messageElement.style.display = 'none';&#x000A;    }&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', function() {&#x000A;  var queryInput = document.querySelector('.search-form input');&#x000A;  queryInput.addEventListener('input', search);&#x000A;});&#x000A;</code></pre>
+        </section>
+        <section>
+          <h2>Improving <code>app.rb</code></h2>
+          <p>
+            Our current implementation has <code>app.rb</code> is a single script<br>
+            with a lot of responsibilities:
+          </p>
+          <ul>
+            <li>Routing</li>
+            <li>Storage</li>
+            <li>Business logic</li>
+          </ul>
+          <p>
+            This is not how it's done in the real world.
           </p>
         </section>
         <section>
