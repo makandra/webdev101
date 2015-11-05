@@ -608,21 +608,48 @@
           <h2>Javascript</h2>
         </section>
         <section>
-          <h2>Javascript language basics</h2>
+          <pre class='xxl'><code class='javascript'>// This is a comment&#x000A;&#x000A;var x = 1;&#x000A;var y = x + 1;&#x000A;&#x000A;console.log(y); // 2&#x000A;</code></pre>
         </section>
         <section>
-          <h2>DOM manipulation and event handlers</h2>
+          <pre class='xxl'><code class='javascript'>function square(n) {&#x000A;  return n * n;&#x000A;}&#x000A;&#x000A;var z = square(16);&#x000A;&#x000A;console.log(z); // 256&#x000A;</code></pre>
+        </section>
+        <section>
+          <h3>HTML</h3>
+          <pre><code class='html'>  <div>&#x000A;    <p>one</p>&#x000A;    <p>two</p>&#x000A;    <p>three</p>&#x000A;  </div>&#x000A;</code></pre>
+          <h3>Javascript</h3>
+          <pre><code class='javascript'>var div = document.querySelector('div');&#x000A;var children = div.children;&#x000A;console.log(children);&#x000A;// [<p>one</p>, <p>two</p>, <p>three</p>]&#x000A;&#x000A;var parent = children[0].parentNode;&#x000A;console.log(parent); // [<div>...</div>]&#x000A;&#x000A;console.log(parent === div); // true&#x000A;&#x000A;children[1].style.color = 'red';&#x000A;&#x000A;&#x000A;</code></pre>
+        </section>
+        <section>
+          <h2>How to link HTML and Javascript (1)</h2>
+          <pre><code class='html'>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script&gt;&#x000A;      var x = 1;&#x000A;      var y = x + y;&#x000A;    &lt;/script&gt;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
+        </section>
+        <section>
+          <h2>How to link HTML and Javascript (2)</h2>
+          <pre><code class='html'>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script src="scripts.js"&gt;&lt;/script&gt;&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
+        </section>
+        <section>
+          <h2>Events</h2>
+          <p></p>
+          <p>
+            <a href='examples/1200_event_listener/index.html' target='_blank'>View example</a>
+          </p>
         </section>
         <section>
           <h2>Web applications</h2>
         </section>
         <section>
           <p>
+            Let's write a web app that returns the current time:
+          </p>
+          <pre><code class='nohighlight'>http://timeapp.com/now.html</code></pre>
+        </section>
+        <section>
+          <p>
             Browser asks server:
           </p>
-          <pre class='xs fragment'><code class='nohighlight'>GET /time.html HTTP/1.1        # I want the file /time.html&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
+          <pre class='xs fragment'><code class='nohighlight'>GET /now.html HTTP/1.1         # I want the file /now.html&#x000A;Host: timeapp.com              # I want it from timeapp.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
           <p class='fragment'>
-            Server looks for a local file <code>time.html</code> and replies:
+            Server looks for a local file <code>now.html</code> and replies:
           </p>
           <pre class='xs fragment'><code class='nohighlight'>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 114            # What you want has 114 bytes&#x000A;Content-Type: text/plain       # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 15:00:00.&#x000A;</code></pre>
           <br />&nbsp;
@@ -633,7 +660,7 @@
           <p>
             Browser asks server:
           </p>
-          <pre class='xs'><code class='nohighlight'>GET /time.html HTTP/1.1        # I want the file /time.html&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
+          <pre class='xs'><code class='nohighlight'>GET /now.html HTTP/1.1         # I want the file /now.html&#x000A;Host: timeapp.com              # I want it from timeapp.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
           <p>
             <span class='fragment'>
               Server runs a program <code>webapp.exe</code>.<br>

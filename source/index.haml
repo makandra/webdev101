@@ -731,13 +731,111 @@
           %h2 Javascript
 
         %section
-          %h2 Javascript language basics
+          %pre.xxl
+            %code.javascript
+              :preserve
+                // This is a comment
+
+                var x = 1;
+                var y = x + 1;
+
+                console.log(y); // 2
 
         %section
-          %h2 DOM manipulation and event handlers
+          %pre.xxl
+            %code.javascript
+              :preserve
+                function square(n) {
+                  return n * n;
+                }
+
+                var z = square(16);
+
+                console.log(z); // 256
+
+        %section
+          %h3 HTML
+          %pre
+            %code.html
+              :preserve
+                  <div>
+                    <p>one</p>
+                    <p>two</p>
+                    <p>three</p>
+                  </div>
+
+          %h3 Javascript
+          %pre
+            %code.javascript
+              :preserve
+                var div = document.querySelector('div');
+                var children = div.children;
+                console.log(children);
+                // [<p>one</p>, <p>two</p>, <p>three</p>]
+
+                var parent = children[0].parentNode;
+                console.log(parent); // [<div>...</div>]
+
+                console.log(parent === div); // true
+
+                children[1].style.color = 'red';
+
+
+
+        %section
+          %h2 How to link HTML and Javascript (1)
+
+          %pre
+            %code.html
+              :preserve
+                &lt;html&gt;
+                  &lt;body&gt;
+
+                    <p>Hi world</p>
+
+                    &lt;script&gt;
+                      var x = 1;
+                      var y = x + y;
+                    &lt;/script&gt;
+
+                  &lt;/body&gt;
+                &lt;/html&gt;
+
+        %section
+          %h2 How to link HTML and Javascript (2)
+
+          %pre
+            %code.html
+              :preserve
+                &lt;html&gt;
+                  &lt;body&gt;
+
+                    <p>Hi world</p>
+
+                    &lt;script src="scripts.js"&gt;&lt;/script&gt;
+
+
+
+
+                  &lt;/body&gt;
+                &lt;/html&gt;
+
+        %section
+          %h2 Events
+
+          %p
+          %p
+            %a(target='_blank' href='examples/1200_event_listener/index.html') View example
 
         %section
           %h2 Web applications
+
+        %section
+          %p
+            Let's write a web app that returns the current time:
+          %pre
+            %code.nohighlight
+              http://timeapp.com/now.html
 
         %section
 
@@ -747,12 +845,12 @@
           %pre.xs.fragment
             %code.nohighlight
               :preserve
-                GET /time.html HTTP/1.1        # I want the file /time.html
-                Host: www.makandra.com         # I want it from www.makandra.com
+                GET /now.html HTTP/1.1         # I want the file /now.html
+                Host: timeapp.com              # I want it from timeapp.com
                 Accept: text/html, text/plain  # I understand HTML and plain text
 
           %p.fragment
-            Server looks for a local file <code>time.html</code> and replies:
+            Server looks for a local file <code>now.html</code> and replies:
 
           %pre.xs.fragment
             %code.nohighlight
@@ -775,8 +873,8 @@
           %pre.xs
             %code.nohighlight
               :preserve
-                GET /time.html HTTP/1.1        # I want the file /time.html
-                Host: www.makandra.com         # I want it from www.makandra.com
+                GET /now.html HTTP/1.1         # I want the file /now.html
+                Host: timeapp.com              # I want it from timeapp.com
                 Accept: text/html, text/plain  # I understand HTML and plain text
 
           %p
