@@ -1,3 +1,12 @@
+body {
+  background-color: #1a121a;
+}
+
+.reveal a {
+  color: #e31;
+  text-decoration: underline;
+}
+
 .reveal li {
   margin-bottom: 0.2em;
   margin-top: 0.2em;
@@ -21,12 +30,31 @@
   background-color: rgba(255, 255, 255, 0.06);
 }
 
+.reveal pre code::-webkit-scrollbar {
+  background-color: transparent;
+  width: 10px;
+  height: 10px;
+}
+
+.reveal pre code::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.reveal pre code::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
 .reveal code em {
   font-style: normal;
   background-color: #4488bb;
   color: white;
   padding-top: 0.1em;
   padding-bottom: 0.1em;
+}
+
+.reveal p code {
+  background-color: transparent;
+  color: #e82;
 }
 
 /*.reveal h1 {*/
@@ -67,8 +95,10 @@
   text-transform: uppercase;
 }
 
-.reveal .columns {
-  overflow: auto; /* clearfix */
+.reveal .columns:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .reveal .column {
@@ -148,4 +178,12 @@
 
 .reveal section img {
   border: none;
+}
+
+.reveal .red {
+  color: #e31;
+}
+
+.reveal .green {
+  color: #1c3;
 }

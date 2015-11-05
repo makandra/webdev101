@@ -37,6 +37,15 @@
               %a{:href => "http://www.makandra.de"} makandra GmbH
 
         %section
+          %h1 Me
+
+        %section
+          %h1 makandra
+
+        %section
+          %h2 This is for beginners
+
+        %section
           %h2 In 2015 web apps are the dominant form of user-facing applications
 
           %ul
@@ -441,7 +450,7 @@
           %img(src='pictures/screenshot_pretty_button.png' height=150)
 
           %p
-            %a(target='_blank' href='examples/1050_css_button/page.html') View live
+            %a(target='_blank' href='examples/1050_css_button/page.html') View example
 
 
 
@@ -706,7 +715,7 @@
           %img(src='pictures/screenshot_layout.png' height=300)
 
           %p
-            %a(target='_blank' href='examples/1066_positioning/page.html') View example
+            %a(target='_blank' href='examples/1070_layout/mail1.html') View example
 
         %section
           %h2 CSS frameworks
@@ -715,7 +724,7 @@
             %a(target='_blank' href='examples/1075_bootstrap/index.html') View example
 
         %section
-          %h1 Web applications
+          %h2 Web applications
 
         %section
 
@@ -777,13 +786,194 @@
               :preserve
                 HTTP/1.1 200 OK                # I found what you wanted
                 Content-Length: 114            # What you want has 59 bytes
-                Content-Type: text/html        # And it's in plain text
+                Content-Type: text/plain       # And it's in plain text
                                                # Here it comes:
                 The time is 14:37:05.
 
+
+        %section
+          %h2 The chat app
+
+          %ul
+            %li
+              %a(target='_blank' href='examples/2000_chat/src') View source
+
+          %p
+            To run the chat app:
+
+          %pre
+            %code.nohighlight
+              :preserve
+                cd examples/2000_chat/src
+                ruby app.rb
+
+        %section
+          %p
+            The user types into her address bar:
+          %pre
+            %code.nohighlight
+              http://chatapp.com/channel
+          %p
+            What happens?
+
+        %section
+
+          %p
+            Browser asks server:
+
+          %pre.xs
+            %code.nohighlight
+              :preserve
+                GET /channel HTTP/1.1          # I want /channel
+                Host: chatapp.com              # I want it from chatapp.com
+                Accept: text/html, text/plain  # I understand HTML and plain text
+
+          %p.fragment
+            Server asks the program <code>app.rb</code> for <code>/channel</code>.<br>
+          %p.fragment
+            The program writes a string of HTML to STDOUT.
+          %p.fragment
+            The server takes the program output and sends it the browser:
+
+          %pre.xs.fragment
+            %code.nohighlight
+              :preserve
+                HTTP/1.1 200 OK                # I found what you wanted
+                Content-Length: 1589           # What you want has 1589 bytes
+                Content-Type: text/html        # And it's in HTML format
+                                               # Here it comes:
+                &lt;html&gt;
+                  ...
+                &lt;/html&gt;
+
+
+        %section
+          %h2 Improving the chat app
+
+        %section
+          %h2 How do we notice when another user sends a message?
+
+        %section
+          %h2 Classic web applications are a slide show
+
+          %p
+            ⇢ User requests a website<br>
+            %span.green
+              ⇠ Server sends a fresh copy
+          %p
+            ⇢ User clicks a link<br>
+            %span.green
+              ⇠ Server sends a fresh copy
+          %p
+            ⇢ User submits a form<br>
+            %span.green
+              ⇠ Server sends a fresh copy
+          %p
+            ⇢ User reloads the page manually<br>
+            %span.green
+              ⇠ Server sends a fresh copy
+          %p
+            ⇣ Another user sends a message<br>
+            %span.red
+              × Server has no way to push the update to the user
+
+        %section
+
+          %h3 Version 1
+
+          %pre.xs
+            %code.ruby
+              :preserve
+                &nbsp;
+
+                get '/channel' do
+                  @messages = File.read('messages.txt').lines
+                  erb(:channel)
+                end
+
+                get '/send' do
+                  message = params['message']
+                  file = File.open('messages.txt', 'a')
+                  file.puts(message)
+                  file.close()
+                  redirect('/channel')
+                end
+                &nbsp;
+
+        %section
+
+          %h3 SQL database
+
+          %pre.xs
+            %code.ruby
+              :preserve
+                db = Mydb::Client.new(host: 'localhost')
+
+                get '/channel' do
+                  @messages = db.select_values('SELECT text FROM messages')
+                  erb(:channel)
+                end
+
+                get '/send' do
+                  message = params['message']
+                  escaped = db.escape(message)
+                  db.execute('INSERT INTO messages VALUES (' + escaped + ')')
+                  redirect('/channel')
+                end
+                &nbsp;
+                &nbsp;
+
+        %section
+
+          .columns
+            .column
+              %h3 Controller
+
+              %pre.xs
+                %code.ruby
+                  :preserve
+                    channel = Channel.new
+
+                    get '/channel' do
+                      @messages = channel.messages
+                      erb(:channel)
+                    end
+
+                    get '/send' do
+                      message = params['message']
+                      channel.add_message(message)
+                      redirect('/channel')
+                    end
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+            .column
+              %h3 Model
+
+              %pre.xs
+                %code.ruby
+                  :preserve
+                    class Channel
+
+                      def initialize
+                        @db = Mydb::Client.new
+                      end
+
+                      def messages
+                        @db.select_values('SELECT text FROM messages')
+                      end
+
+                      def add_message(message)
+                        escaped = @db.escape(message)
+                        @db.execute('INSERT INTO messages VALUES (' + escaped + ')')
+                      end
+
+                    end
+
         %section
           %h1 Trainee!!
-          %H1 Praktikant?
+          %h1 Praktikant?
+          %h1 Werkstudent
 
 
     %script{:src => "lib/js/head.min.js"}
