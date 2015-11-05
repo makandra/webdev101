@@ -3,6 +3,8 @@ Web development 101
 
 To start the slides, open `index.html`
 
+Slides are also deployed at <http://webdev101.makandra.de>
+
 Code examples are in `examples`.
 
 One-line web server to serve the presentation and all examples:
