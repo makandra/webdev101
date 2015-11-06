@@ -7,6 +7,10 @@ body {
   text-decoration: underline;
 }
 
+.reveal a.blue {
+  color: #16e;
+}
+
 .reveal li {
   margin-bottom: 0.2em;
   margin-top: 0.2em;
@@ -180,6 +184,7 @@ body {
 
 .reveal section img {
   border: none;
+  background: none; /* wtf */
 }
 
 .reveal .red {

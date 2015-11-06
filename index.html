@@ -30,15 +30,91 @@
     <div class='reveal'>
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class='slides'>
-        <section>
+        <section data-background-color='#345'>
           <h2>Web development 101</h2>
+          <h4>
+            <a class='blue' href='https://twitter.com/triskweline'>Henning Koch</a>
+            /
+            <a class='blue' href='http://www.makandra.de'>makandra GmbH</a>
+          </h4>
+        </section>
+        <section data-background-size='cover' data-background='pictures/makandra/aiti-park.jpg'></section>
+        <section data-background-size='cover' data-background='pictures/makandra/office1.jpg'></section>
+        <section data-background-size='cover' data-background='pictures/makandra/office3.jpg'></section>
+        <section data-background-size='cover' data-background='pictures/makandra/office2.jpg'></section>
+        <section>
+          <table>
+            <tr>
+              <td>
+                <img src='pictures/team/andrea_biber.jpg'>
+              </td>
+              <td>
+                <img src='pictures/team/andreas_robecke.jpg'>
+              </td>
+              <td>
+                <img src='pictures/team/arne_hartherz.jpg'>
+              </td>
+              <td>
+                <img src='pictures/team/claus_theodor_riegg.jpg'>
+              </td>
+              <td>
+                <img src='pictures/team/dominik_schoeler.jpg'>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src='pictures/team/emanuel_denzel.jpg'>
+              </td>
+              <td>
+                <img src='pictures/team/henning_koch.jpg'>
+              </td>
+              <td>
+                <img src='pictures/team/judith_roth.jpg'>
+              </td>
+              <td>
+                <img src='pictures/team/kim_jahn.jpg'>
+              </td>
+              <td>
+                <img src='pictures/team/martin_straub.jpg'>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src='pictures/team/pascal_roth.jpg'>
+              </td>
+              <td>
+                <img src='pictures/team/thomas_eisenbarth.jpg'>
+              </td>
+              <td>
+                <img src='pictures/team/tobias_kraze.jpg'>
+              </td>
+              <td>
+                <img src='pictures/team/puppet.jpg'>
+              </td>
+              <td>
+                <img src='pictures/team/puppet.jpg'>
+              </td>
+            </tr>
+          </table>
+        </section>
+        <section>
           <p>
-            <small>
-              <a href='https://twitter.com/triskweline'>Henning Koch</a>
-              /
-              <a href='http://www.makandra.de'>makandra GmbH</a>
-            </small>
+            <img class='plain' src='pictures/makandra/makandra-inverted.png' width='50%'>
           </p>
+          <br>
+          <h3>Trainee?</h3>
+          <p>
+            <a href='http://start.makandra.de'>http://start.makandra.de</a>
+          </p>
+          <br>
+          <h3>Werkstudent?</h3>
+          <p>
+            <a href='mailto:info@makandra.de'>info@makandra.de</a>
+            (or talk to me)
+          </p>
+        </section>
+        <section>
+          <h2>Web applications?</h2>
         </section>
         <section>
           <img src='pictures/example_gmail.png' style='max-height: 550px'>
@@ -51,6 +127,12 @@
         </section>
         <section>
           <h2>This is a course for beginners</h2>
+          <p class='fragment'>
+            Who is here?
+          </p>
+          <p class='fragment'>
+            Have you programmed before?
+          </p>
         </section>
         <section>
           <h2>Native apps vs. web apps</h2>
@@ -69,7 +151,9 @@
           </p>
         </section>
         <section>
-          <h2>Web applications</h2>
+          <h2>
+            Web applications
+          </h2>
           <p>
             Application runs on multiple computers
             <br>
@@ -331,7 +415,7 @@
             <a href='examples/1045_simple_css/page.html' target='_blank'>View both together</a>
           </p>
         </section>
-        <section>
+        <section data-background-color='#444444'>
           <h2>Colors in CSS</h2>
           <div class='columns'>
             <div class='column'>
@@ -594,27 +678,6 @@
           </div>
         </section>
         <section>
-          <h2>
-            <code>* { ... }</code>
-          </h2>
-          <div>
-            <code data-trim><em>
-              <br />
-              &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
-              <br />
-              &lt;p class="introduction"&gt;<br />
-              &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
-              &nbsp;&nbsp;in the world.<br />
-              &lt;/p&gt;<br />
-              <br />
-              &lt;p&gt;<br />
-              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
-              &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
-              &lt;/p&gt;
-            </em></code>
-          </div>
-        </section>
-        <section>
           <h2>The box model</h2>
           <img height='250' src='pictures/box_model.png'>
           <p>
@@ -649,7 +712,11 @@
           </ul>
         </section>
         <section data-background-color='#245'>
-          <h2>Web applications</h2>
+          <h2>
+            <span class='subtle'>Server-side</span>
+            <br>
+            Web applications
+          </h2>
         </section>
         <section>
           <p>
@@ -770,21 +837,25 @@
           <p class='fragment'>
             The server takes the program output and sends it the browser:
           </p>
-          <pre class='xxs fragment'><code class='nohighlight' data-trim>HTTP/1.1 303 See Other   # This conversation continues elsewhere&#x000A;Location: /channel       # Request /channel to continue&#x000A;</code></pre>
+          <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 303 See Other   # This conversation continues elsewhere&#x000A;Location: /channel       # Request /channel to continue&#x000A;</code></pre>
           <p class='fragment'>
             The browser automatically makes another request to <code>/channel</code>
             and gets a fresh copy of the message list.
           </p>
         </section>
         <section>
-          <h2>The user interface<br>is not nice yet</h2>
+          <h2>Improving the<br>chat interface</h2>
           <ul>
             <li>
-              when another user sends us a message,<br>
+              When another user sends us a message,<br>
               we don't notice until we reload the page
             </li>
-            <li>The message list doesn't automatically scroll to the most recent message</li>
-            <li>It would be nice to be able to search through our messages</li>
+            <li>
+              The message list should automatically scroll to the most recent message
+            </li>
+            <li>
+              It would be nice to be able to search through our messages
+            </li>
           </ul>
           <p>For such things we need <b>Javascript</b>.</p>
         </section>
@@ -889,7 +960,7 @@
         </section>
         <section>
           <h2>
-            Improving the<br>user interface (1)
+            Improving the<br>chat interface (1)
           </h2>
         </section>
         <section>
@@ -898,7 +969,7 @@
         </section>
         <section>
           <h2>
-            Improving the<br>user interface (2)
+            Improving the<br>chat interface (2)
           </h2>
         </section>
         <section>
@@ -948,7 +1019,7 @@
         </section>
         <section>
           <h2>
-            Improving the<br>user interface (3)
+            Improving the<br>chat interface (3)
           </h2>
         </section>
         <section>
@@ -995,10 +1066,22 @@
             <img src='pictures/web_app_cluster.png' width='600'>
           </div>
         </section>
+        <section></section>
         <section>
-          <h1>Trainee!!</h1>
-          <h1>Praktikant?</h1>
-          <h1>Werkstudent</h1>
+          <p>
+            <img class='plain' src='pictures/makandra/makandra-inverted.png' width='50%'>
+          </p>
+          <br>
+          <h3>Trainee?</h3>
+          <p>
+            <a href='http://start.makandra.de'>http://start.makandra.de</a>
+          </p>
+          <br>
+          <h3>Werkstudent?</h3>
+          <p>
+            <a href='mailto:info@makandra.de'>info@makandra.de</a>
+            (or talk to me)
+          </p>
         </section>
       </div>
     </div>
