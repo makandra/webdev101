@@ -37,22 +37,7 @@
               %a{:href => "http://www.makandra.de"} makandra GmbH
 
         %section
-          %h1 Me
-
-        %section
-          %h1 makandra
-
-        %section
           %h2 This is a course for beginners
-
-        %section
-          %h2 In 2015 web apps are the dominant form of user-facing applications
-
-          %ul
-            %li Can be used from any device (Windows, Linux, MacOS, Android ...)
-            %li No installation
-            %li Is always the latest version
-            %li Inherently multi-user
 
         %section
           %h2 Native apps vs. web apps
@@ -66,7 +51,7 @@
             Entire app is (often) written in a single language
             %br
             %span.subtle
-              Popular languages: Java, C#, C++
+              Popular languages: Java, C#, C++, Objective-C
 
         %section
           %h2 Web applications
@@ -140,6 +125,25 @@
               %td
                 Server
 
+
+        %section
+          %h2 In 2015 web apps are the dominant form of user-facing applications
+
+          %ul
+            %li
+              Can be used from any device with a web browser
+              %br
+              %span.subtle
+                (Windows, Linux, MacOS, Android ...)
+            %li
+              No installation
+              %br
+              %span.subtle
+                Web browser downloads and "installs" a fresh copy every time
+                you visit a website
+            %li Is always the latest version
+            %li Inherently multi-user
+
         %section
           %h2 Today
 
@@ -147,13 +151,18 @@
             %li HTML &amp; HTTP
             %li CSS
             %li Javascript
-            %li Simple web applications
+            %li Server-side web applications
+
+          %br
+          %br
+
+          %h4 Read along
 
           %p
             %a(href='http://webdev101.makandra.de') http://webdev101.makandra.de<br>
             %a(href='https://github.com/makandra/webdev101') https://github.com/makandra/webdev101
 
-        %section
+        %section(data-background-color='#245')
           .s
             %h2
               HTML<br />
@@ -169,7 +178,7 @@
             .column
 
               %pre
-                %code.html
+                %code.html(data-trim)
                   :preserve
                     &lt;html&gt;
                       &lt;body&gt;
@@ -190,7 +199,7 @@
             User enters into her browser's address bar:
 
           %pre
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 http://www.makandra.com/page.html
 
@@ -203,7 +212,7 @@
             Browser asks server:
 
           %pre.xs.fragment
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 GET /page.html HTTP/1.1        # I want the file /page.html
                 Host: www.makandra.com         # I want it from www.makandra.com
@@ -213,7 +222,7 @@
             Server looks for a local file <code>page.html</code> and replies:
 
           %pre.xs.fragment
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 HTTP/1.1 200 OK                # I found what you wanted
                 Content-Length: 114            # What you want has 114 bytes
@@ -232,7 +241,7 @@
             The browser parses the HTML and encounters this tag:
 
           %pre
-            %code.html
+            %code.html(data-trim)
               :preserve
                 &lt;img src="image.jpg"&gt;
 
@@ -246,7 +255,7 @@
             Browser asks server:
 
           %pre.xs.fragment
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 GET /image.jpg HTTP/1.1        # I want the file /image.jpg
                 Host: www.makandra.com         # I want it from www.makandra.com
@@ -256,7 +265,7 @@
             Server looks for a local file <code>image.jpg</code> and replies:
 
           %pre.xs.fragment
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 HTTP/1.1 200 OK                # I found what you wanted
                 Content-Length: 67840          # What you want has 66 KB
@@ -271,7 +280,7 @@
                 ...
         %section
           %pre.xxl
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               telnet www.uni-augsburg.de 80
 
 
@@ -288,7 +297,7 @@
               %a(target='_blank' href='examples/1030_form/page.html') Form
 
 
-        %section
+        %section(data-background-color='#245')
           %h2
             CSS<br />
             %span.subtle Cascading Style Sheets
@@ -298,7 +307,7 @@
             .column
               %h2 HTML
               %pre
-                %code.html
+                %code.html(data-trim)
                   :preserve
                     &lt;html&gt;
                       &lt;body&gt;
@@ -316,7 +325,7 @@
             .column.fragment
               %h2 CSS
               %pre
-                %code.css
+                %code.css(data-trim)
                   :preserve
                     body {
                       font-family: 'Arial';
@@ -373,7 +382,7 @@
           %h2 How to link HTML and CSS (1)
 
           %pre
-            %code.html
+            %code.html(data-trim)
               :preserve
                 &lt;html&gt;
                   &lt;head&gt;
@@ -392,7 +401,7 @@
           %h2 How to link HTML and CSS (2)
 
           %pre
-            %code.html
+            %code.html(data-trim)
               :preserve
                 &lt;html&gt;
                   &lt;head&gt;
@@ -412,7 +421,7 @@
             The browser parses the HTML and encounters this tag:
 
           %pre
-            %code.html
+            %code.html(data-trim)
               :preserve
                 &lt;link rel="stylesheet" href="styles.css"&gt;
 
@@ -426,7 +435,7 @@
             Browser asks server:
 
           %pre.xs.fragment
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 GET /styles.css HTTP/1.1       # I want the file /styles.css
                 Host: www.makandra.com         # I know you as www.makandra.com
@@ -436,7 +445,7 @@
             Server looks for a local file <code>styles.css</code> and replies:
 
           %pre.xs.fragment
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 HTTP/1.1 200 OK                # I found what you wanted
                 Content-Length: 182            # What you want has 182 bytes
@@ -468,7 +477,7 @@
             .column
               %h2 HTML
               %pre
-                %code.html
+                %code.html(data-trim)
                   :preserve
                     &lt;html&gt;
                       &lt;body&gt;
@@ -486,7 +495,7 @@
             .column
               %h2 CSS
               %pre
-                %code.css
+                %code.css(data-trim)
                   :preserve
                     body {
                       font-family: 'Arial';
@@ -508,7 +517,7 @@
           %h2 Selectors
 
           %div.fragment
-            %code
+            %code(data-trim)
               <br />
               &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
               <br />
@@ -527,7 +536,7 @@
             %code h1 { ... }
 
           %div
-            %code
+            %code(data-trim)
               <br />
               %em
                 &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
@@ -547,7 +556,7 @@
             %code p { ... }
 
           %div
-            %code
+            %code(data-trim)
               <br />
               &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
               <br />
@@ -567,7 +576,7 @@
             %code p.introduction { ... }
 
           %div
-            %code
+            %code(data-trim)
               <br />
               &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
               <br />
@@ -587,7 +596,7 @@
             %code p:last-child { ... }
 
           %div
-            %code
+            %code(data-trim)
               <br />
               &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
               <br />
@@ -607,7 +616,7 @@
             %code h1, p:last-child { ... }
 
           %div
-            %code
+            %code(data-trim)
               <br />
               %em
                 &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
@@ -628,7 +637,7 @@
             %code h1+p { ... }
 
           %div
-            %code
+            %code(data-trim)
               <br />
               &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
               <br />
@@ -649,7 +658,7 @@
             %code b { ... }
 
           %div
-            %code
+            %code(data-trim)
               <br />
               &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
               <br />
@@ -668,7 +677,7 @@
             %code p.introduction b { ... }
 
           %div
-            %code
+            %code(data-trim)
               <br />
               &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
               <br />
@@ -687,7 +696,7 @@
             %code * { ... }
 
           %div
-            %code
+            %code(data-trim)
               %em
                 <br />
                 &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
@@ -732,12 +741,12 @@
           %p
             %a(target='_blank' href='examples/1075_bootstrap/index.html') View example
 
-        %section
+        %section(data-background-color='#245')
           %h2 Javascript
 
         %section
           %pre.xxl
-            %code.javascript
+            %code.javascript(data-trim)
               :preserve
                 // This is a comment
 
@@ -748,7 +757,7 @@
 
         %section
           %pre.xxl
-            %code.javascript
+            %code.javascript(data-trim)
               :preserve
                 function square(n) {
                   return n * n;
@@ -761,7 +770,7 @@
         %section
           %h3 HTML
           %pre
-            %code.html
+            %code.html(data-trim)
               :preserve
                   <div>
                     <p>one</p>
@@ -771,7 +780,7 @@
 
           %h3 Javascript
           %pre
-            %code.javascript
+            %code.javascript(data-trim)
               :preserve
                 var div = document.querySelector('div');
                 var children = div.children;
@@ -789,7 +798,7 @@
           %h2 How to link HTML and Javascript (1)
 
           %pre
-            %code.html
+            %code.html(data-trim)
               :preserve
                 &lt;html&gt;
                   &lt;body&gt;
@@ -808,7 +817,7 @@
           %h2 How to link HTML and Javascript (2)
 
           %pre
-            %code.html
+            %code.html(data-trim)
               :preserve
                 &lt;html&gt;
                   &lt;body&gt;
@@ -871,14 +880,14 @@
             %h4 Pure Javascript
 
             %pre
-              %code.javascript
+              %code.javascript(data-trim)
                 Object.prototype.toString.call(object) === '[object Array]'
 
           .fragment
             %h4 Javascript + Underscore.js
 
             %pre
-              %code.javascript
+              %code.javascript(data-trim)
                 _.isArray(object)
 
         %section
@@ -888,7 +897,7 @@
             %h4 Pure Javascript
 
             %pre
-              %code.javascript
+              %code.javascript(data-trim)
                 :preserve
                   var paragraphs = document.querySelectorAll('p');
                   for (var p = 0; p < paragraphs.length; p++) {
@@ -904,7 +913,7 @@
             %h4 Javascript + jQuery
 
             %pre
-              %code.javascript
+              %code.javascript(data-trim)
                 :preserve
                   $('p').children().hide();
 
@@ -917,7 +926,7 @@
                 %h4 Pure Javascript
 
                 %pre.xxxs
-                  %code.javascript
+                  %code.javascript(data-trim)
                     :preserve
                       function Student(name) {
                         this.name = name;
@@ -936,7 +945,7 @@
                 %h4 Javascript + Babel
 
                 %pre.xxxs
-                  %code.javascript
+                  %code.javascript(data-trim)
                     :preserve
                       class Student extends Person {
 
@@ -950,14 +959,14 @@
 
                       }
 
-        %section
+        %section(data-background-color='#245')
           %h2 Web applications
 
         %section
           %p
             Let's write a web app that returns the current time:
           %pre
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               http://timeapp.com/now.html
 
         %section
@@ -966,7 +975,7 @@
             Browser asks server:
 
           %pre.xs.fragment
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 GET /now.html HTTP/1.1         # I want the file /now.html
                 Host: timeapp.com              # I want it from timeapp.com
@@ -976,7 +985,7 @@
             Server looks for a local file <code>now.html</code> and replies:
 
           %pre.xs.fragment
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 HTTP/1.1 200 OK                # I found what you wanted
                 Content-Length: 114            # What you want has 114 bytes
@@ -994,7 +1003,7 @@
             Browser asks server:
 
           %pre.xs
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 GET /now.html HTTP/1.1         # I want the file /now.html
                 Host: timeapp.com              # I want it from timeapp.com
@@ -1007,7 +1016,7 @@
               The program <code>time.exe</code> writes the current time to <code>STDOUT</code>:
 
           %pre.xs.fragment
-            %code.ruby
+            %code.ruby(data-trim)
               :preserve
                 print "The time is " + Time.now.to_s
 
@@ -1016,7 +1025,7 @@
               Server takes the program output and sends it the browser:
 
           %pre.xs.fragment
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 HTTP/1.1 200 OK                # I found what you wanted
                 Content-Length: 114            # What you want has 59 bytes
@@ -1050,7 +1059,7 @@
             To run the chat app:
 
           %pre
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 cd examples/2000_chat/src
                 ruby app.rb
@@ -1063,7 +1072,7 @@
           %p
             The user types into her address bar:
           %pre
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               http://chatapp.com/channel
           %p
             What happens?
@@ -1074,7 +1083,7 @@
             Browser asks server:
 
           %pre.xs
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 GET /channel HTTP/1.1          # I want /channel
                 Host: chatapp.com              # I want it from chatapp.com
@@ -1088,7 +1097,7 @@
             The server takes the program output and sends it the browser:
 
           %pre.xs.fragment
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 HTTP/1.1 200 OK                # I found what you wanted
                 Content-Length: 1589           # What you want has 1589 bytes
@@ -1102,7 +1111,7 @@
           %p
             The user sends a message to the chat channel:
           %pre
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               Hello world
           %p
             What happens?
@@ -1112,7 +1121,7 @@
             Browser asks server:
 
           %pre.xxs
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 POST /send HTTP/1.1                              # I'm posting data to /send
                 Host: chatapp.com                                # I'm posting it to chatapp.com
@@ -1128,7 +1137,7 @@
             The server takes the program output and sends it the browser:
 
           %pre.xxs.fragment
-            %code.nohighlight
+            %code.nohighlight(data-trim)
               :preserve
                 HTTP/1.1 303 See Other   # This conversation continues elsewhere
                 Location: /channel       # Request /channel to continue
@@ -1144,7 +1153,7 @@
         %section
           %h3 Scrolling to the bottom
           %pre.xs
-            %code.javascript
+            %code.javascript(data-trim)
               :preserve
                 function showLastMessage() {
                   var lastMessage = document.querySelector('.message:last-child');
@@ -1194,7 +1203,7 @@
           %h3 Refreshing with AJAX
 
           %pre.xs
-            %code.javascript
+            %code.javascript(data-trim)
               :preserve
                 function refresh() {
                   var request = new XMLHttpRequest();
@@ -1219,7 +1228,7 @@
         %section
           %h3 Client-side search
           %pre.xxxs
-            %code.javascript
+            %code.javascript(data-trim)
               :preserve
                 function search() {
                   var queryInput = document.querySelector('.search-form input');
@@ -1262,7 +1271,7 @@
           %h3 Version 1
 
           %pre.xs
-            %code.ruby
+            %code.ruby(data-trim)
               :preserve
                 &nbsp;
 
@@ -1285,7 +1294,7 @@
         -#  %h3 SQL database
         -#
         -#  %pre.xs
-        -#    %code.nohighlight
+        -#    %code.nohighlight(data-trim)
         -#      :preserve
         -#        +----+----------------------------------+
         -#        | id | text                             |
@@ -1308,7 +1317,7 @@
           %h3 SQL database
 
           %pre.xs
-            %code.ruby
+            %code.ruby(data-trim)
               :preserve
                 db = Mydb::Client.new(host: 'localhost')
 
@@ -1333,7 +1342,7 @@
               %h3 Controller
 
               %pre.xs
-                %code.ruby
+                %code.ruby(data-trim)
                   :preserve
                     channel = Channel.new
 
@@ -1354,7 +1363,7 @@
               %h3 Model
 
               %pre.xs
-                %code.ruby
+                %code.ruby(data-trim)
                   :preserve
                     class Channel
 
