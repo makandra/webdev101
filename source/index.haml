@@ -37,6 +37,15 @@
               %a{:href => "http://www.makandra.de"} makandra GmbH
 
         %section
+          %img(src='pictures/example_gmail.png' style='max-height: 550px')
+
+        %section
+          %img(src='pictures/example_facebook.jpg' style='max-height: 550px')
+
+        %section
+          %img(src='pictures/example_trello.png' style='min-height: 550')
+
+        %section
           %h2 This is a course for beginners
 
         %section
@@ -63,16 +72,16 @@
               Typical: One server, many clients (= web browsers)
 
           %p
-            Application is written in a "stack" of many technologies
-            %br
-            %span.subtle
-              Typical stack: HTML, CSS, Javascript, Ruby/PHP/Python, SQL
-
-          %p
             Client and server run different parts of the application
             %br
             %span.subtle
               and they communicate over HTTP
+
+          %p
+            Application is written in a "stack" of many technologies
+            %br
+            %span.subtle
+              Typical stack: HTML, CSS, Javascript, Ruby/PHP/Python, SQL
 
         %section
           %table
@@ -148,10 +157,13 @@
           %h2 Today
 
           %ul
-            %li HTML &amp; HTTP
-            %li CSS
-            %li Javascript
-            %li Server-side web applications
+            %li <b>14:10</b> HTML &amp; HTTP
+            %li <b>14:30</b> CSS
+            %li(style='color: #ee9955') <b>15:00</b> Break
+            %li <b>15:10</b> Server-side web applications
+            %li(style='color: #ee9955') <b>16:00</b> Break
+            %li <b>16:10</b> Javascript
+            %li(style='color: #ee9955') <b>16:50</b> Discussion / end
 
           %br
           %br
@@ -184,7 +196,7 @@
                       &lt;body&gt;
                         &lt;h1&gt;Hi there!&lt;/h1&gt;
                         &lt;p&gt;Look at this image:&lt;/p&gt;
-                        &lt;img src="image.png"&gt;
+                        &lt;img src="image.jpg"&gt;
                       &lt;/body&gt;
                     &lt;/html&gt;
               %p
@@ -288,9 +300,9 @@
           %h2 HTML
           %ul
             %li
-              %a(target='_blank' href='examples/1015_more_tags/page.html') More tags
+              %a(target='_blank' href='examples/1015_more_tags') More tags
             %li
-              %a(target='_blank' href='examples/1020_video/page.html') Video & fallbacks
+              %a(target='_blank' href='examples/1020_video') Video & fallbacks
             %li
               %a(target='_blank' href='examples/1025_table/page.html') Table
             %li
@@ -322,7 +334,34 @@
                     &nbsp;
                     &nbsp;
 
-            .column.fragment
+            .column
+              %h2 CSS
+              %img(src='pictures/screenshot_simple_css.png' height=300)
+
+          %p.center(style='visibility: hidden')
+            %a(target='_blank' href='examples/1045_simple_css/page.html') View both together
+
+        %section
+          .columns
+            .column
+              %h2 HTML
+              %pre
+                %code.html(data-trim)
+                  :preserve
+                    &lt;html&gt;
+                      &lt;body&gt;
+                        &lt;h1&gt;About Capybaras&lt;/h1&gt;
+                        &lt;p&gt;
+                          The capybara is the
+                          <b>largest</b> rodent
+                          in the world.
+                        &lt;/p&gt;
+                      &lt;/body&gt;
+                    &lt;/html&gt;
+                    &nbsp;
+                    &nbsp;
+
+            .column
               %h2 CSS
               %pre
                 %code.css(data-trim)
@@ -337,7 +376,7 @@
                     }
 
                     b {
-                      background-color: #ff0000;
+                      background-color: #ff9900;
                     }
 
           %p.center.fragment
@@ -354,12 +393,13 @@
               %div(style='font-weight: bold; color: #ffff00') <code>#ffff00</code>
               %div(style='font-weight: bold; color: #ffffff') <code>#ffffff</code>
               %div(style='font-weight: bold; color: #000000') <code>#000000</code>
-              %div(style='font-weight: bold; color: #ff9900') <code>#ff9900</code>
-              %div(style='font-weight: bold; color: #4488bb') <code>#4488bb</code>
-              %div(style='font-weight: bold; color: #9900ff') <code>#9900ff</code>
-              %div(style='font-weight: bold; color: #777777') <code>#777777</code>
-              %div(style='font-weight: bold; color: #22aa88') <code>#22aa88</code>
-              %div(style='font-weight: bold; color: #885555') <code>#885555</code>
+              .fragment
+                %div(style='font-weight: bold; color: #ff9900') <code>#ff9900</code>
+                %div(style='font-weight: bold; color: #4488bb') <code>#4488bb</code>
+                %div(style='font-weight: bold; color: #9900ff') <code>#9900ff</code>
+                %div(style='font-weight: bold; color: #777777') <code>#777777</code>
+                %div(style='font-weight: bold; color: #22aa88') <code>#22aa88</code>
+                %div(style='font-weight: bold; color: #885555') <code>#885555</code>
             .column
               .fragment
                 %div(style='font-weight: bold; color: red') <code>red</code>
@@ -473,45 +513,23 @@
 
 
         %section
-          .columns
-            .column
-              %h2 HTML
-              %pre
-                %code.html(data-trim)
-                  :preserve
-                    &lt;html&gt;
-                      &lt;body&gt;
-                        &lt;h1&gt;About Capybaras&lt;/h1&gt;
-                        &lt;p&gt;
-                          The capybara is the
-                          <b>largest</b> rodent
-                          in the world.
-                        &lt;/p&gt;
-                      &lt;/body&gt;
-                    &lt;/html&gt;
-                    &nbsp;
-                    &nbsp;
+          %h2 Selectors
 
-            .column
-              %h2 CSS
-              %pre
-                %code.css(data-trim)
-                  :preserve
-                    body {
-                      font-family: 'Arial';
-                    }
+          %pre
+            %code.css(data-trim)
+              :preserve
+                body {
+                  font-family: 'Arial';
+                }
 
-                    h1 {
-                      text-transform: uppercase;
-                      font-style: italic;
-                    }
+                h1 {
+                  text-transform: uppercase;
+                  font-style: italic;
+                }
 
-                    b {
-                      background-color: #ff0000;
-                    }
-
-          %p.center
-            %a(target='_blank' href='examples/1045_simple_css/page.html') View both together
+                b {
+                  background-color: #ff0000;
+                }
 
         %section
           %h2 Selectors
@@ -733,7 +751,7 @@
           %img(src='pictures/screenshot_layout.png' height=300)
 
           %p
-            %a(target='_blank' href='examples/1070_layout/mail1.html') View example
+            %a(target='_blank' href='examples/1070_layout') View example
 
         %section
           %h2 CSS frameworks
@@ -741,223 +759,13 @@
           %p
             %a(target='_blank' href='examples/1075_bootstrap/index.html') View example
 
-        %section(data-background-color='#245')
-          %h2 Javascript
 
-        %section
-          %pre.xxl
-            %code.javascript(data-trim)
-              :preserve
-                // This is a comment
-
-                var x = 1;
-                var y = x + 1;
-
-                console.log(y); // 2
-
-        %section
-          %pre.xxl
-            %code.javascript(data-trim)
-              :preserve
-                function square(n) {
-                  return n * n;
-                }
-
-                var z = square(16);
-
-                console.log(z); // 256
-
-        %section
-          %h3 HTML
-          %pre
-            %code.html(data-trim)
-              :preserve
-                  <div>
-                    <p>one</p>
-                    <p>two</p>
-                    <p>three</p>
-                  </div>
-
-          %h3 Javascript
-          %pre
-            %code.javascript(data-trim)
-              :preserve
-                var div = document.querySelector('div');
-                var children = div.children;
-                console.log(children);
-                // [<p>one</p>, <p>two</p>, <p>three</p>]
-
-                var parent = children[0].parentNode;
-                console.log(parent); // [<div>...</div>]
-
-                console.log(parent === div); // true
-
-                children[1].style.color = 'red';
-
-        %section
-          %h2 How to link HTML and Javascript (1)
-
-          %pre
-            %code.html(data-trim)
-              :preserve
-                &lt;html&gt;
-                  &lt;body&gt;
-
-                    <p>Hi world</p>
-
-                    &lt;script&gt;
-                      var x = 1;
-                      var y = x + y;
-                    &lt;/script&gt;
-
-                  &lt;/body&gt;
-                &lt;/html&gt;
-
-        %section
-          %h2 How to link HTML and Javascript (2)
-
-          %pre
-            %code.html(data-trim)
-              :preserve
-                &lt;html&gt;
-                  &lt;body&gt;
-
-                    <p>Hi world</p>
-
-                    &lt;script src="scripts.js"&gt;&lt;/script&gt;
-
-
-
-
-                  &lt;/body&gt;
-                &lt;/html&gt;
-
-        %section
-          %h2 Events
-
-          %p
-          %p
-            %a(target='_blank' href='examples/1200_event_listener/index.html') View example
-
-
-        %section
-          %h2 Javascript is not my favorite language
+        %section(data-background-color='#172')
+          %h2 After the break
 
           %ul
-            %li Bad standard lib (strings, numbers, arrays...) with varying support across browsers.
-            %li Not everything is an object.
-            %li There are three kinds of <code>null</code>.
-            %li Equality is confusing. Also can't define equality for your own types.
-            %li No good OOP.
-            %li No default receiver.
-            %li DOM API is often impractical and inconsistent across browsers.
-
-        %section
-          %img(src='pictures/caniuse.png' height=500)
-          %br
-          Your new friend:
-          %a(href='http://caniuse.com') caniuse.com
-
-
-
-        %section
-
-          %h3 Most people use Javascript with:
-          %ul
-            %li
-              A precompiler to make the language less horrible (Coffeescript, Babel)
-            %li
-              A utility library to patch holes in the Stdlib (Underscore, Lodash)
-            %li
-              A library to hide browser bugs and pave over the DOM API (jQuery)
-            %li
-              A number of half-broken "polyfills" which backport modern Javascript features to old browsers
-
-        %section
-          %h3 Is this object an array?
-
-          .fragment
-            %h4 Pure Javascript
-
-            %pre
-              %code.javascript(data-trim)
-                Object.prototype.toString.call(object) === '[object Array]'
-
-          .fragment
-            %h4 Javascript + Underscore.js
-
-            %pre
-              %code.javascript(data-trim)
-                _.isArray(object)
-
-        %section
-          %h3 Hide the children of all &lt;p&gt; tags
-
-          .fragment
-            %h4 Pure Javascript
-
-            %pre
-              %code.javascript(data-trim)
-                :preserve
-                  var paragraphs = document.querySelectorAll('p');
-                  for (var p = 0; p < paragraphs.length; p++) {
-                    var paragraph = paragraphs[p];
-                    var children = paragraphs.children;
-                    for (var c = 0; c < children.length; c++) {
-                      var child = children[c];
-                      c.style.display = 'none';
-                    }
-                  }
-
-          .fragment
-            %h4 Javascript + jQuery
-
-            %pre
-              %code.javascript(data-trim)
-                :preserve
-                  $('p').children().hide();
-
-        %section
-          %h3 Make a class <code>Student</code><br />which inherits from <code>Person</code>
-
-          .columns
-            .column
-              .fragment
-                %h4 Pure Javascript
-
-                %pre.xxxs
-                  %code.javascript(data-trim)
-                    :preserve
-                      function Student(name) {
-                        this.name = name;
-                      }
-
-                      Student.prototype = new Person();
-
-                      Student.prototype.constructor = Student;
-
-                      Student.prototype.sayHello = function() {
-                        console.log("Hello, I'm " + this.name);
-                      };
-
-            .column
-              .fragment
-                %h4 Javascript + Babel
-
-                %pre.xxxs
-                  %code.javascript(data-trim)
-                    :preserve
-                      class Student extends Person {
-
-                        constructor(name) {
-                          this.name = name;
-                        }
-
-                        sayHello() {
-                          console.log("Hello, I'm " + this.name);
-                        }
-
-                      }
+            %li Server-side web applications
+            %li Javascript
 
         %section(data-background-color='#245')
           %h2 Web applications
@@ -988,7 +796,7 @@
             %code.nohighlight(data-trim)
               :preserve
                 HTTP/1.1 200 OK                # I found what you wanted
-                Content-Length: 114            # What you want has 114 bytes
+                Content-Length: 22             # What you want has 22 bytes
                 Content-Type: text/plain       # And it's in plain text
                                                # Here it comes:
                 The time is 15:00:00.
@@ -1028,7 +836,7 @@
             %code.nohighlight(data-trim)
               :preserve
                 HTTP/1.1 200 OK                # I found what you wanted
-                Content-Length: 114            # What you want has 59 bytes
+                Content-Length: 22             # What you want has 22 bytes
                 Content-Type: text/plain       # And it's in plain text
                                                # Here it comes:
                 The time is 14:37:05.
@@ -1145,6 +953,239 @@
           %p.fragment
             The browser automatically makes another request to <code>/channel</code>
             and gets a fresh copy of the message list.
+
+        %section
+          %h2 The user interface<br>is not nice yet
+
+          %ul
+            %li
+              when another user sends us a message,<br>
+              we don't notice until we reload the page
+            %li The message list doesn't automatically scroll to the most recent message
+            %li It would be nice to be able to search through our messages
+
+          %p For such things we need <b>Javascript</b>.
+
+
+        %section(data-background-color='#245')
+          %h2 Javascript
+
+        %section
+          %pre.xxl
+            %code.javascript(data-trim)
+              :preserve
+                // This is a comment
+
+                var x = 1;
+                var y = x + 1;
+
+                console.log(y); // 2
+
+        %section
+          %pre.xxl
+            %code.javascript(data-trim)
+              :preserve
+                function square(n) {
+                  return n * n;
+                }
+
+                var x = square(16);
+                console.log(x);    // 256
+
+                var z = square;
+                console.log(z);    // function { ... }
+                console.log(z(4)); // 16
+
+        %section
+          %h3 HTML
+          %pre
+            %code.html(data-trim)
+              :preserve
+                <div>
+                  <p>one</p>
+                  <p>two</p>
+                  <p>three</p>
+                </div>
+
+          %h3 Javascript
+          %pre
+            %code.javascript(data-trim)
+              :preserve
+                var div = document.querySelector('div');
+                var children = div.children;
+                console.log(children);
+                // [<p>one</p>, <p>two</p>, <p>three</p>]
+
+                var parent = children[0].parentNode;
+                console.log(parent); // [<div>...</div>]
+
+                console.log(parent === div); // true
+
+                children[1].style.color = 'red';
+
+        %section
+          %h2 How to link HTML and Javascript (1)
+
+          %pre
+            %code.html(data-trim)
+              :preserve
+                &lt;html&gt;
+                  &lt;body&gt;
+
+                    <p>Hi world</p>
+
+                    &lt;script&gt;
+                      var x = 1;
+                      var y = x + y;
+                    &lt;/script&gt;
+
+                  &lt;/body&gt;
+                &lt;/html&gt;
+
+        %section
+          %h2 How to link HTML and Javascript (2)
+
+          %pre
+            %code.html(data-trim)
+              :preserve
+                &lt;html&gt;
+                  &lt;body&gt;
+
+                    <p>Hi world</p>
+
+                    &lt;script src="scripts.js"&gt;&lt;/script&gt;
+
+
+
+
+                  &lt;/body&gt;
+                &lt;/html&gt;
+
+        %section
+          %h2 Events
+
+          %p
+          %p
+            %a(target='_blank' href='examples/1200_event_listener/page.html') View example
+
+
+        %section
+          %h2 Javascript is not my favorite language
+
+          %ul
+            %li Bad standard lib (strings, numbers, arrays...) with varying support across browsers.
+            %li Not everything is an object.
+            %li There are three kinds of <code>null</code>.
+            %li Equality is confusing. Also can't define equality for your own types.
+            %li No good OOP.
+            %li Explicit <code>this</code>.
+            %li DOM API is often impractical and inconsistent across browsers.
+
+        %section
+          %img(src='pictures/caniuse.png' height=500)
+          %br
+          Your new friend:
+          %a(href='http://caniuse.com/#search=file') caniuse.com
+
+
+
+        %section
+
+          %h3 Most people use Javascript with:
+          %ul
+            %li
+              A precompiler to make the language less horrible (Coffeescript, Babel)
+            %li
+              A number of half-broken "polyfills" which backport modern Javascript features to old browsers
+            %li
+              A utility library to patch holes in the Stdlib (Underscore, Lodash)
+            %li
+              A library to hide browser bugs and pave over the DOM API (jQuery)
+
+        %section
+          %h3 Is this object an array?
+
+          .fragment
+            %h4 Pure Javascript
+
+            %pre
+              %code.javascript(data-trim)
+                Object.prototype.toString.call(object) === '[object Array]'
+
+          .fragment
+            %h4 Javascript + Underscore.js
+
+            %pre
+              %code.javascript(data-trim)
+                _.isArray(object)
+
+        %section
+          %h3 Hide the children of all &lt;p&gt; tags
+
+          .fragment
+            %h4 Pure Javascript
+
+            %pre
+              %code.javascript(data-trim)
+                :preserve
+                  var paragraphs = document.querySelectorAll('p');
+                  for (var p = 0; p < paragraphs.length; p++) {
+                    var paragraph = paragraphs[p];
+                    var children = paragraph.children;
+                    for (var c = 0; c < children.length; c++) {
+                      var child = children[c];
+                      c.style.display = 'none';
+                    }
+                  }
+
+          .fragment
+            %h4 Javascript + jQuery
+
+            %pre
+              %code.javascript(data-trim)
+                :preserve
+                  $('p').children().hide();
+
+        %section
+          %h3 Make a class <code>Student</code><br />which inherits from <code>Person</code>
+
+          .fragment
+            %h4 Pure Javascript
+
+            %pre.l
+              %code.javascript(data-trim)
+                :preserve
+                  function Student(name) {
+                    this.name = name;
+                  }
+
+                  Student.prototype = new Person();
+
+                  Student.prototype.constructor = Student;
+
+                  Student.prototype.sayHello = function() {
+                    console.log("Hello, I'm " + this.name);
+                  };
+
+        %section
+          %h3 Make a class <code>Student</code><br />which inherits from <code>Person</code>
+
+          %h4 Javascript + Babel
+
+          %pre.l
+            %code.javascript(data-trim)
+              :preserve
+                class Student extends Person {
+
+                  constructor(name) {
+                    this.name = name;
+                  }
+
+                  sayHello() {
+                    console.log("Hello, I'm " + this.name);
+                  }
+
+                }
 
         %section
           %h2

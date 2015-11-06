@@ -12,3 +12,4 @@ post '/send' do
   file.close()
   redirect('/channel')
 end
+

@@ -1,5 +1,3 @@
-Hi world!
-Anyone there?
-This is a test
-Foo bar
-Bar
+Hallo Welt!
+Ist da jemand?
+Ich höre nichts!

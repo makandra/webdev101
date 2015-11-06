@@ -41,6 +41,15 @@
           </p>
         </section>
         <section>
+          <img src='pictures/example_gmail.png' style='max-height: 550px'>
+        </section>
+        <section>
+          <img src='pictures/example_facebook.jpg' style='max-height: 550px'>
+        </section>
+        <section>
+          <img src='pictures/example_trello.png' style='min-height: 550'>
+        </section>
+        <section>
           <h2>This is a course for beginners</h2>
         </section>
         <section>
@@ -69,17 +78,17 @@
             </span>
           </p>
           <p>
-            Application is written in a "stack" of many technologies
-            <br>
-            <span class='subtle'>
-              Typical stack: HTML, CSS, Javascript, Ruby/PHP/Python, SQL
-            </span>
-          </p>
-          <p>
             Client and server run different parts of the application
             <br>
             <span class='subtle'>
               and they communicate over HTTP
+            </span>
+          </p>
+          <p>
+            Application is written in a "stack" of many technologies
+            <br>
+            <span class='subtle'>
+              Typical stack: HTML, CSS, Javascript, Ruby/PHP/Python, SQL
             </span>
           </p>
         </section>
@@ -187,10 +196,13 @@
         <section>
           <h2>Today</h2>
           <ul>
-            <li>HTML &amp; HTTP</li>
-            <li>CSS</li>
-            <li>Javascript</li>
-            <li>Server-side web applications</li>
+            <li><b>14:10</b> HTML &amp; HTTP</li>
+            <li><b>14:30</b> CSS</li>
+            <li style='color: #ee9955'><b>15:00</b> Break</li>
+            <li><b>15:10</b> Server-side web applications</li>
+            <li style='color: #ee9955'><b>16:00</b> Break</li>
+            <li><b>16:10</b> Javascript</li>
+            <li style='color: #ee9955'><b>16:50</b> Discussion / end</li>
           </ul>
           <br>
           <br>
@@ -215,7 +227,7 @@
         <section>
           <div class='columns'>
             <div class='column'>
-              <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;Hi there!&lt;/h1&gt;&#x000A;    &lt;p&gt;Look at this image:&lt;/p&gt;&#x000A;    &lt;img src="image.png"&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;</code></pre>
+              <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;Hi there!&lt;/h1&gt;&#x000A;    &lt;p&gt;Look at this image:&lt;/p&gt;&#x000A;    &lt;img src="image.jpg"&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;</code></pre>
               <p>
                 <a href='examples/1010_request_response/' target='_blank'>View example</a>
               </p>
@@ -270,10 +282,10 @@
           <h2>HTML</h2>
           <ul>
             <li>
-              <a href='examples/1015_more_tags/page.html' target='_blank'>More tags</a>
+              <a href='examples/1015_more_tags' target='_blank'>More tags</a>
             </li>
             <li>
-              <a href='examples/1020_video/page.html' target='_blank'>Video & fallbacks</a>
+              <a href='examples/1020_video' target='_blank'>Video & fallbacks</a>
             </li>
             <li>
               <a href='examples/1025_table/page.html' target='_blank'>Table</a>
@@ -295,9 +307,24 @@
               <h2>HTML</h2>
               <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;About Capybaras&lt;/h1&gt;&#x000A;    &lt;p&gt;&#x000A;      The capybara is the&#x000A;      <b>largest</b> rodent&#x000A;      in the world.&#x000A;    &lt;/p&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
             </div>
-            <div class='column fragment'>
+            <div class='column'>
               <h2>CSS</h2>
-              <pre><code class='css' data-trim>body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;b {&#x000A;  background-color: #ff0000;&#x000A;}&#x000A;</code></pre>
+              <img height='300' src='pictures/screenshot_simple_css.png'>
+            </div>
+          </div>
+          <p class='center' style='visibility: hidden'>
+            <a href='examples/1045_simple_css/page.html' target='_blank'>View both together</a>
+          </p>
+        </section>
+        <section>
+          <div class='columns'>
+            <div class='column'>
+              <h2>HTML</h2>
+              <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;About Capybaras&lt;/h1&gt;&#x000A;    &lt;p&gt;&#x000A;      The capybara is the&#x000A;      <b>largest</b> rodent&#x000A;      in the world.&#x000A;    &lt;/p&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
+            </div>
+            <div class='column'>
+              <h2>CSS</h2>
+              <pre><code class='css' data-trim>body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;b {&#x000A;  background-color: #ff9900;&#x000A;}&#x000A;</code></pre>
             </div>
           </div>
           <p class='center fragment'>
@@ -314,12 +341,14 @@
               <div style='font-weight: bold; color: #ffff00'><code>#ffff00</code></div>
               <div style='font-weight: bold; color: #ffffff'><code>#ffffff</code></div>
               <div style='font-weight: bold; color: #000000'><code>#000000</code></div>
-              <div style='font-weight: bold; color: #ff9900'><code>#ff9900</code></div>
-              <div style='font-weight: bold; color: #4488bb'><code>#4488bb</code></div>
-              <div style='font-weight: bold; color: #9900ff'><code>#9900ff</code></div>
-              <div style='font-weight: bold; color: #777777'><code>#777777</code></div>
-              <div style='font-weight: bold; color: #22aa88'><code>#22aa88</code></div>
-              <div style='font-weight: bold; color: #885555'><code>#885555</code></div>
+              <div class='fragment'>
+                <div style='font-weight: bold; color: #ff9900'><code>#ff9900</code></div>
+                <div style='font-weight: bold; color: #4488bb'><code>#4488bb</code></div>
+                <div style='font-weight: bold; color: #9900ff'><code>#9900ff</code></div>
+                <div style='font-weight: bold; color: #777777'><code>#777777</code></div>
+                <div style='font-weight: bold; color: #22aa88'><code>#22aa88</code></div>
+                <div style='font-weight: bold; color: #885555'><code>#885555</code></div>
+              </div>
             </div>
             <div class='column'>
               <div class='fragment'>
@@ -378,19 +407,8 @@
           </p>
         </section>
         <section>
-          <div class='columns'>
-            <div class='column'>
-              <h2>HTML</h2>
-              <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;About Capybaras&lt;/h1&gt;&#x000A;    &lt;p&gt;&#x000A;      The capybara is the&#x000A;      <b>largest</b> rodent&#x000A;      in the world.&#x000A;    &lt;/p&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
-            </div>
-            <div class='column'>
-              <h2>CSS</h2>
-              <pre><code class='css' data-trim>body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;b {&#x000A;  background-color: #ff0000;&#x000A;}&#x000A;</code></pre>
-            </div>
-          </div>
-          <p class='center'>
-            <a href='examples/1045_simple_css/page.html' target='_blank'>View both together</a>
-          </p>
+          <h2>Selectors</h2>
+          <pre><code class='css' data-trim>body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;b {&#x000A;  background-color: #ff0000;&#x000A;}&#x000A;</code></pre>
         </section>
         <section>
           <h2>Selectors</h2>
@@ -614,7 +632,7 @@
           <h2>Application layout</h2>
           <img height='300' src='pictures/screenshot_layout.png'>
           <p>
-            <a href='examples/1070_layout/mail1.html' target='_blank'>View example</a>
+            <a href='examples/1070_layout' target='_blank'>View example</a>
           </p>
         </section>
         <section>
@@ -623,109 +641,12 @@
             <a href='examples/1075_bootstrap/index.html' target='_blank'>View example</a>
           </p>
         </section>
-        <section data-background-color='#245'>
-          <h2>Javascript</h2>
-        </section>
-        <section>
-          <pre class='xxl'><code class='javascript' data-trim>// This is a comment&#x000A;&#x000A;var x = 1;&#x000A;var y = x + 1;&#x000A;&#x000A;console.log(y); // 2&#x000A;</code></pre>
-        </section>
-        <section>
-          <pre class='xxl'><code class='javascript' data-trim>function square(n) {&#x000A;  return n * n;&#x000A;}&#x000A;&#x000A;var z = square(16);&#x000A;&#x000A;console.log(z); // 256&#x000A;</code></pre>
-        </section>
-        <section>
-          <h3>HTML</h3>
-          <pre><code class='html' data-trim>  <div>&#x000A;    <p>one</p>&#x000A;    <p>two</p>&#x000A;    <p>three</p>&#x000A;  </div>&#x000A;</code></pre>
-          <h3>Javascript</h3>
-          <pre><code class='javascript' data-trim>var div = document.querySelector('div');&#x000A;var children = div.children;&#x000A;console.log(children);&#x000A;// [<p>one</p>, <p>two</p>, <p>three</p>]&#x000A;&#x000A;var parent = children[0].parentNode;&#x000A;console.log(parent); // [<div>...</div>]&#x000A;&#x000A;console.log(parent === div); // true&#x000A;&#x000A;children[1].style.color = 'red';&#x000A;</code></pre>
-        </section>
-        <section>
-          <h2>How to link HTML and Javascript (1)</h2>
-          <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script&gt;&#x000A;      var x = 1;&#x000A;      var y = x + y;&#x000A;    &lt;/script&gt;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
-        </section>
-        <section>
-          <h2>How to link HTML and Javascript (2)</h2>
-          <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script src="scripts.js"&gt;&lt;/script&gt;&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
-        </section>
-        <section>
-          <h2>Events</h2>
-          <p></p>
-          <p>
-            <a href='examples/1200_event_listener/index.html' target='_blank'>View example</a>
-          </p>
-        </section>
-        <section>
-          <h2>Javascript is not my favorite language</h2>
+        <section data-background-color='#172'>
+          <h2>After the break</h2>
           <ul>
-            <li>Bad standard lib (strings, numbers, arrays...) with varying support across browsers.</li>
-            <li>Not everything is an object.</li>
-            <li>There are three kinds of <code>null</code>.</li>
-            <li>Equality is confusing. Also can't define equality for your own types.</li>
-            <li>No good OOP.</li>
-            <li>No default receiver.</li>
-            <li>DOM API is often impractical and inconsistent across browsers.</li>
+            <li>Server-side web applications</li>
+            <li>Javascript</li>
           </ul>
-        </section>
-        <section>
-          <img height='500' src='pictures/caniuse.png'>
-          <br>
-          Your new friend:
-          <a href='http://caniuse.com'>caniuse.com</a>
-        </section>
-        <section>
-          <h3>Most people use Javascript with:</h3>
-          <ul>
-            <li>
-              A precompiler to make the language less horrible (Coffeescript, Babel)
-            </li>
-            <li>
-              A utility library to patch holes in the Stdlib (Underscore, Lodash)
-            </li>
-            <li>
-              A library to hide browser bugs and pave over the DOM API (jQuery)
-            </li>
-            <li>
-              A number of half-broken "polyfills" which backport modern Javascript features to old browsers
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h3>Is this object an array?</h3>
-          <div class='fragment'>
-            <h4>Pure Javascript</h4>
-            <pre><code class='javascript' data-trim>Object.prototype.toString.call(object) === '[object Array]'</code></pre>
-          </div>
-          <div class='fragment'>
-            <h4>Javascript + Underscore.js</h4>
-            <pre><code class='javascript' data-trim>_.isArray(object)</code></pre>
-          </div>
-        </section>
-        <section>
-          <h3>Hide the children of all &lt;p&gt; tags</h3>
-          <div class='fragment'>
-            <h4>Pure Javascript</h4>
-            <pre><code class='javascript' data-trim>var paragraphs = document.querySelectorAll('p');&#x000A;for (var p = 0; p < paragraphs.length; p++) {&#x000A;  var paragraph = paragraphs[p];&#x000A;  var children = paragraphs.children;&#x000A;  for (var c = 0; c < children.length; c++) {&#x000A;    var child = children[c];&#x000A;    c.style.display = 'none';&#x000A;  }&#x000A;}&#x000A;</code></pre>
-          </div>
-          <div class='fragment'>
-            <h4>Javascript + jQuery</h4>
-            <pre><code class='javascript' data-trim>$('p').children().hide();&#x000A;</code></pre>
-          </div>
-        </section>
-        <section>
-          <h3>Make a class <code>Student</code><br />which inherits from <code>Person</code></h3>
-          <div class='columns'>
-            <div class='column'>
-              <div class='fragment'>
-                <h4>Pure Javascript</h4>
-                <pre class='xxxs'><code class='javascript' data-trim>function Student(name) {&#x000A;  this.name = name;&#x000A;}&#x000A;&#x000A;Student.prototype = new Person();&#x000A;&#x000A;Student.prototype.constructor = Student;&#x000A;&#x000A;Student.prototype.sayHello = function() {&#x000A;  console.log("Hello, I'm " + this.name);&#x000A;};&#x000A;</code></pre>
-              </div>
-            </div>
-            <div class='column'>
-              <div class='fragment'>
-                <h4>Javascript + Babel</h4>
-                <pre class='xxxs'><code class='javascript' data-trim>class Student extends Person {&#x000A;&#x000A;  constructor(name) {&#x000A;    this.name = name;&#x000A;  }&#x000A;&#x000A;  sayHello() {&#x000A;    console.log("Hello, I'm " + this.name);&#x000A;  }&#x000A;&#x000A;}&#x000A;</code></pre>
-              </div>
-            </div>
-          </div>
         </section>
         <section data-background-color='#245'>
           <h2>Web applications</h2>
@@ -744,7 +665,7 @@
           <p class='fragment'>
             Server looks for a local file <code>now.html</code> and replies:
           </p>
-          <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 114            # What you want has 114 bytes&#x000A;Content-Type: text/plain       # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 15:00:00.&#x000A;</code></pre>
+          <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 22             # What you want has 22 bytes&#x000A;Content-Type: text/plain       # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 15:00:00.&#x000A;</code></pre>
           <br />&nbsp;
           <br />&nbsp;
           <br />&nbsp;
@@ -768,7 +689,7 @@
               Server takes the program output and sends it the browser:
             </span>
           </p>
-          <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 114            # What you want has 59 bytes&#x000A;Content-Type: text/plain       # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 14:37:05.&#x000A;</code></pre>
+          <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 22             # What you want has 22 bytes&#x000A;Content-Type: text/plain       # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 14:37:05.&#x000A;</code></pre>
         </section>
         <section>
           <h3>You can write web apps in any language</h3>
@@ -854,6 +775,117 @@
             The browser automatically makes another request to <code>/channel</code>
             and gets a fresh copy of the message list.
           </p>
+        </section>
+        <section>
+          <h2>The user interface<br>is not nice yet</h2>
+          <ul>
+            <li>
+              when another user sends us a message,<br>
+              we don't notice until we reload the page
+            </li>
+            <li>The message list doesn't automatically scroll to the most recent message</li>
+            <li>It would be nice to be able to search through our messages</li>
+          </ul>
+          <p>For such things we need <b>Javascript</b>.</p>
+        </section>
+        <section data-background-color='#245'>
+          <h2>Javascript</h2>
+        </section>
+        <section>
+          <pre class='xxl'><code class='javascript' data-trim>// This is a comment&#x000A;&#x000A;var x = 1;&#x000A;var y = x + 1;&#x000A;&#x000A;console.log(y); // 2&#x000A;</code></pre>
+        </section>
+        <section>
+          <pre class='xxl'><code class='javascript' data-trim>function square(n) {&#x000A;  return n * n;&#x000A;}&#x000A;&#x000A;var x = square(16);&#x000A;console.log(x);    // 256&#x000A;&#x000A;var z = square;&#x000A;console.log(z);    // function { ... }&#x000A;console.log(z(4)); // 16&#x000A;</code></pre>
+        </section>
+        <section>
+          <h3>HTML</h3>
+          <pre><code class='html' data-trim><div>&#x000A;  <p>one</p>&#x000A;  <p>two</p>&#x000A;  <p>three</p>&#x000A;</div>&#x000A;</code></pre>
+          <h3>Javascript</h3>
+          <pre><code class='javascript' data-trim>var div = document.querySelector('div');&#x000A;var children = div.children;&#x000A;console.log(children);&#x000A;// [<p>one</p>, <p>two</p>, <p>three</p>]&#x000A;&#x000A;var parent = children[0].parentNode;&#x000A;console.log(parent); // [<div>...</div>]&#x000A;&#x000A;console.log(parent === div); // true&#x000A;&#x000A;children[1].style.color = 'red';&#x000A;</code></pre>
+        </section>
+        <section>
+          <h2>How to link HTML and Javascript (1)</h2>
+          <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script&gt;&#x000A;      var x = 1;&#x000A;      var y = x + y;&#x000A;    &lt;/script&gt;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
+        </section>
+        <section>
+          <h2>How to link HTML and Javascript (2)</h2>
+          <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script src="scripts.js"&gt;&lt;/script&gt;&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
+        </section>
+        <section>
+          <h2>Events</h2>
+          <p></p>
+          <p>
+            <a href='examples/1200_event_listener/page.html' target='_blank'>View example</a>
+          </p>
+        </section>
+        <section>
+          <h2>Javascript is not my favorite language</h2>
+          <ul>
+            <li>Bad standard lib (strings, numbers, arrays...) with varying support across browsers.</li>
+            <li>Not everything is an object.</li>
+            <li>There are three kinds of <code>null</code>.</li>
+            <li>Equality is confusing. Also can't define equality for your own types.</li>
+            <li>No good OOP.</li>
+            <li>Explicit <code>this</code>.</li>
+            <li>DOM API is often impractical and inconsistent across browsers.</li>
+          </ul>
+        </section>
+        <section>
+          <img height='500' src='pictures/caniuse.png'>
+          <br>
+          Your new friend:
+          <a href='http://caniuse.com/#search=file'>caniuse.com</a>
+        </section>
+        <section>
+          <h3>Most people use Javascript with:</h3>
+          <ul>
+            <li>
+              A precompiler to make the language less horrible (Coffeescript, Babel)
+            </li>
+            <li>
+              A number of half-broken "polyfills" which backport modern Javascript features to old browsers
+            </li>
+            <li>
+              A utility library to patch holes in the Stdlib (Underscore, Lodash)
+            </li>
+            <li>
+              A library to hide browser bugs and pave over the DOM API (jQuery)
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>Is this object an array?</h3>
+          <div class='fragment'>
+            <h4>Pure Javascript</h4>
+            <pre><code class='javascript' data-trim>Object.prototype.toString.call(object) === '[object Array]'</code></pre>
+          </div>
+          <div class='fragment'>
+            <h4>Javascript + Underscore.js</h4>
+            <pre><code class='javascript' data-trim>_.isArray(object)</code></pre>
+          </div>
+        </section>
+        <section>
+          <h3>Hide the children of all &lt;p&gt; tags</h3>
+          <div class='fragment'>
+            <h4>Pure Javascript</h4>
+            <pre><code class='javascript' data-trim>var paragraphs = document.querySelectorAll('p');&#x000A;for (var p = 0; p < paragraphs.length; p++) {&#x000A;  var paragraph = paragraphs[p];&#x000A;  var children = paragraph.children;&#x000A;  for (var c = 0; c < children.length; c++) {&#x000A;    var child = children[c];&#x000A;    c.style.display = 'none';&#x000A;  }&#x000A;}&#x000A;</code></pre>
+          </div>
+          <div class='fragment'>
+            <h4>Javascript + jQuery</h4>
+            <pre><code class='javascript' data-trim>$('p').children().hide();&#x000A;</code></pre>
+          </div>
+        </section>
+        <section>
+          <h3>Make a class <code>Student</code><br />which inherits from <code>Person</code></h3>
+          <div class='fragment'>
+            <h4>Pure Javascript</h4>
+            <pre class='l'><code class='javascript' data-trim>function Student(name) {&#x000A;  this.name = name;&#x000A;}&#x000A;&#x000A;Student.prototype = new Person();&#x000A;&#x000A;Student.prototype.constructor = Student;&#x000A;&#x000A;Student.prototype.sayHello = function() {&#x000A;  console.log("Hello, I'm " + this.name);&#x000A;};&#x000A;</code></pre>
+          </div>
+        </section>
+        <section>
+          <h3>Make a class <code>Student</code><br />which inherits from <code>Person</code></h3>
+          <h4>Javascript + Babel</h4>
+          <pre class='l'><code class='javascript' data-trim>class Student extends Person {&#x000A;&#x000A;  constructor(name) {&#x000A;    this.name = name;&#x000A;  }&#x000A;&#x000A;  sayHello() {&#x000A;    console.log("Hello, I'm " + this.name);&#x000A;  }&#x000A;&#x000A;}&#x000A;</code></pre>
         </section>
         <section>
           <h2>
