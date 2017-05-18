@@ -10,8 +10,8 @@ set :clear_cache, :false
 set :repository,  "git://github.com/makandra/webdev101"
 set :scm, :git
 
-server "c23.bob.makandra.de", :app, :web, :primary => true
-server "c42.bob.makandra.de", :app, :web
+server "c23.customers-2.makandra.de", :app, :web, :primary => true
+server "c42.customers-2.makandra.de", :app, :web
 
 ssh_options[:forward_agent] = true
 
