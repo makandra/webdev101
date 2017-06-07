@@ -28,73 +28,113 @@
       / Any section element inside of this container is displayed as a slide
       .slides
 
-        %section(data-background-color='#345')
+        %section(data-background-color='#111')
           %h2 Web development 101
           %h4
             %a.blue{:href => "https://twitter.com/triskweline"} Henning Koch
             \/
             %a.blue{:href => "http://www.makandra.de"} makandra GmbH
 
-        %section(data-background='pictures/makandra/aiti-park.jpg' data-background-size='cover')
-
-        %section(data-background='pictures/makandra/office1.jpg' data-background-size='cover')
-
-        %section(data-background='pictures/makandra/office3.jpg' data-background-size='cover')
-
-        %section(data-background='pictures/makandra/office2.jpg' data-background-size='cover')
+        %section
+          %img(src='pictures/makandra/aiti-park.jpg' height=600)
 
         %section
+          %img(src='pictures/makandra/makandra_office_entrance.jpg' height=600)
 
-          %table
+        %section
+          %img(src='pictures/makandra/dominik.jpg' height=600)
 
+        %section
+          %img(src='pictures/makandra/explaining2.jpg' height=600)
+
+        %section
+          %img(src='pictures/makandra/desktop.jpg' height=600)
+
+        %section
+          %img(src='pictures/makandra/andy.jpg' height=600)
+
+        %section
+          %img(src='pictures/makandra/conference.jpg' height=600)
+
+        %section
+          %img(src='pictures/makandra/crunch.jpg' height=600)
+
+        %section
+          %img(src='pictures/makandra/lunch.jpg' height=600)
+
+        %section
+          %table.team
             %tr
               %td
                 %img(src='pictures/team/andrea_biber.jpg')
+              %td
+                %img(src='pictures/team/andreas_herz.jpg')
               %td
                 %img(src='pictures/team/andreas_robecke.jpg')
               %td
                 %img(src='pictures/team/arne_hartherz.jpg')
               %td
-                %img(src='pictures/team/claus_theodor_riegg.jpg')
+                %img(src='pictures/team/claus-theodor_riegg.jpg')
+            %tr
+              %td
+                %img(src='pictures/team/daniel_strassner.jpg')
               %td
                 %img(src='pictures/team/dominik_schoeler.jpg')
-            %tr
+              %td
+                %img(src='pictures/team/judith_roth.jpg')
               %td
                 %img(src='pictures/team/emanuel_denzel.jpg')
               %td
                 %img(src='pictures/team/henning_koch.jpg')
-              %td
-                %img(src='pictures/team/judith_roth.jpg')
+
+            %tr
               %td
                 %img(src='pictures/team/kim_jahn.jpg')
               %td
-                %img(src='pictures/team/martin_straub.jpg')
+                %img(src='pictures/team/magnus_goerlitz.jpg')
+              %td
+                %img(src='pictures/team/marius_schuller.jpg')
+              %td
+                %img(src='pictures/team/michael_leimstaedtner.jpg')
+              %td
+                %img(src='pictures/team/florian_heinle.jpg')
+
             %tr
               %td
-                %img(src='pictures/team/pascal_roth.jpg')
+                %img(src='pictures/team/natalie_krehan.jpg')
+              %td
+                %img(src='pictures/team/simone_achim.jpg')
               %td
                 %img(src='pictures/team/thomas_eisenbarth.jpg')
               %td
                 %img(src='pictures/team/tobias_kraze.jpg')
-              %td
-                %img(src='pictures/team/puppet.jpg')
-              %td
+              %td.fragment
                 %img(src='pictures/team/puppet.jpg')
 
         %section
           %p
-            %img.plain(src='pictures/makandra/makandra-inverted.png' width='50%')
+            %img.plain(src='pictures/makandra/makandra-inverted.png' width='30%')
 
-          %br
-          %h3 Trainee?
           %p
-            %a(href="http://start.makandra.de") http://start.makandra.de
+            Du hast Programmiererfahrung und möchtest
+            %br
+            Dein Studium mit Praxiserfahrung kombinieren?
 
-          %br
-          %h3 Werkstudent?
+          %ul
+            %li
+              Abschlussarbeiten im Bereich Ruby, Web &amp; Operations
+            %li
+              Praktikum / Werkstudent
+            %li
+              Trainee-Programm
+              (<a href="http://start.makandra.de">start.makandra.de</a>)
+            %li
+              Reinschnuppern
+
           %p
+            ➜
             %a(href="mailto:info@makandra.de") info@makandra.de
-            (or talk to me)
+            (oder mich ansprechen)
 
         %section
           %h2 Web applications?
@@ -115,7 +155,10 @@
             Who is here?
 
           %p.fragment
-            Have you programmed before?
+            Who has programmed before (any language)?
+
+          %p.fragment
+            Who has made a website before?
 
         %section
           %h2 Native apps vs. web apps
@@ -151,7 +194,7 @@
             Application is written in a "stack" of many technologies
             %br
             %span.subtle
-              Typical stack: HTML, CSS, Javascript, Ruby/PHP/Python, SQL
+              Typical stack: HTML, CSS, JavaScript, Ruby/PHP/Python, SQL
 
         %section
           %table
@@ -178,7 +221,7 @@
                 Client
             %tr
               %td
-                Javascript
+                JavaScript
               %td
                 Client-side interaction
               %td
@@ -206,9 +249,9 @@
 
 
         %section
-          %h2 In 2015 web apps are the dominant form of user-facing applications
+          %h2 In 2017 web apps are the dominant form of user-facing applications
 
-          %ul
+          %ul.fragment
             %li
               Can be used from any device with a web browser
               %br
@@ -227,13 +270,12 @@
           %h2 Today
 
           %ul
-            %li <b>14:10</b> HTML &amp; HTTP
-            %li <b>14:30</b> CSS
-            %li(style='color: #ee9955') <b>15:00</b> Break
-            %li <b>15:10</b> Server-side web applications
-            %li(style='color: #ee9955') <b>16:00</b> Break
-            %li <b>16:10</b> Javascript
-            %li(style='color: #ee9955') <b>16:50</b> Discussion / end
+            %li HTML &amp; HTTP
+            %li CSS
+            %li(style='color: #ee9955') Break
+            %li Server-side web applications
+            %li JavaScript
+            %li(style='color: #ee9955') Discussion / end
 
           %br
           %br
@@ -269,8 +311,11 @@
                         &lt;img src="image.jpg"&gt;
                       &lt;/body&gt;
                     &lt;/html&gt;
-              %p
+              %p.fragment
                 %a(target='_blank' href='examples/1010_request_response/') View example
+                %br
+                %span.subtle
+                  (use the inspector)
 
             .column
               %img(src='pictures/screenshot_request_response.png' width=400)
@@ -404,8 +449,8 @@
                     &nbsp;
                     &nbsp;
 
-            .column
-              %h2 CSS
+            .column.fragment
+              %h2 Browser
               %img(src='pictures/screenshot_simple_css.png' height=300)
 
           %p.center(style='visibility: hidden')
@@ -604,7 +649,26 @@
         %section
           %h2 Selectors
 
-          %div.fragment
+          %pre
+            %code.css(data-trim data-noescape)
+              :preserve
+                <em>body</em> {
+                  font-family: 'Arial';
+                }
+
+                <em>h1</em> {
+                  text-transform: uppercase;
+                  font-style: italic;
+                }
+
+                <em>b</em> {
+                  background-color: #ff0000;
+                }
+
+        %section
+          %h2 &nbsp;
+
+          %div
             %code(data-trim)
               <br />
               &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
@@ -815,7 +879,7 @@
 
           %ul
             %li Server-side web applications
-            %li Javascript
+            %li JavaScript
 
         %section(data-background-color='#245')
 
@@ -896,7 +960,16 @@
                 The time is 14:37:05.
 
         %section
-          %h3 You can write web apps in any language
+          %h3 Browser don't know about web apps!
+
+          %p
+            The browser simply makes a HTTP request and gets back a string of HTML.
+
+          %p
+            The browser <b>doesn't even know</b> if the HTML was generated by an app, or was simply read from a static file.
+
+        %section
+          %h3 You can write web apps in any language that can print text
 
           %p
             Popular choices:
@@ -905,6 +978,7 @@
             %li PHP
             %li Ruby
             %li Python
+            %li Node.js
             %li Java
 
           %p
@@ -1020,11 +1094,11 @@
             %li
               It would be nice to be able to search through our messages
 
-          %p For such things we need <b>Javascript</b>.
+          %p For such things we need <b>JavaScript</b>.
 
 
         %section(data-background-color='#245')
-          %h2 Javascript
+          %h2 JavaScript
 
         %section
           %pre.xxl
@@ -1063,7 +1137,7 @@
                   <p>three</p>
                 </div>
 
-          %h3 Javascript
+          %h3 JavaScript
           %pre
             %code.javascript(data-trim)
               :preserve
@@ -1080,7 +1154,7 @@
                 children[1].style.color = 'red';
 
         %section
-          %h2 How to link HTML and Javascript (1)
+          %h2 How to link HTML and JavaScript (1)
 
           %pre
             %code.html(data-trim)
@@ -1099,7 +1173,7 @@
                 &lt;/html&gt;
 
         %section
-          %h2 How to link HTML and Javascript (2)
+          %h2 How to link HTML and JavaScript (2)
 
           %pre
             %code.html(data-trim)
@@ -1126,7 +1200,7 @@
 
 
         %section
-          %h2 Javascript is not my favorite language
+          %h2 JavaScript is not my favorite language
 
           %ul
             %li Bad standard lib (strings, numbers, arrays...) with varying support across browsers.
@@ -1135,39 +1209,39 @@
             %li Equality is confusing. Also can't define equality for your own types.
             %li No good OOP.
             %li Explicit <code>this</code>.
-            %li DOM API is often impractical and inconsistent across browsers.
+            %li Browser API is often impractical and inconsistent across browsers.
 
         %section
           %img(src='pictures/caniuse.png' height=500)
           %br
           Your new friend:
-          %a(href='http://caniuse.com/#search=file') caniuse.com
+          %a(href='http://caniuse.com/#search=media') caniuse.com
 
         %section
 
-          %h3 Most people use Javascript with:
+          %h3 Most people use JavaScript with:
           %ul
             %li
               A precompiler to make the language less horrible (Coffeescript, Babel)
             %li
-              A number of half-broken "polyfills" which backport modern Javascript features to old browsers
+              A number of half-broken "polyfills" which backport modern JavaScript features to old browsers
             %li
-              A utility library to patch holes in the Stdlib (Underscore, Lodash)
+              A utility library to patch holes in the Stdlib (Lodash, Underscore)
             %li
-              A library to hide browser bugs and pave over the DOM API (jQuery)
+              A library to hide browser bugs and pave over the DOM API (jQuery, DOM level 4 polyfills)
 
         %section
           %h3 Is this object an array?
 
           .fragment
-            %h4 Pure Javascript
+            %h4 Pure JavaScript
 
             %pre
               %code.javascript(data-trim)
                 Object.prototype.toString.call(object) === '[object Array]'
 
           .fragment
-            %h4 Javascript + Underscore.js
+            %h4 JavaScript + Lodash
 
             %pre
               %code.javascript(data-trim)
@@ -1177,7 +1251,7 @@
           %h3 Hide the children of all &lt;p&gt; tags
 
           .fragment
-            %h4 Pure Javascript
+            %h4 Pure JavaScript
 
             %pre
               %code.javascript(data-trim)
@@ -1193,7 +1267,7 @@
                   }
 
           .fragment
-            %h4 Javascript + jQuery
+            %h4 JavaScript + jQuery
 
             %pre
               %code.javascript(data-trim)
@@ -1204,7 +1278,7 @@
           %h3 Make a class <code>Student</code><br />which inherits from <code>Person</code>
 
           .fragment
-            %h4 Pure Javascript
+            %h4 Pure JavaScript
 
             %pre.l
               %code.javascript(data-trim)
@@ -1224,7 +1298,7 @@
         %section
           %h3 Make a class <code>Student</code><br />which inherits from <code>Person</code>
 
-          %h4 Javascript + Babel
+          %h4 JavaScript + Babel
 
           %pre.l
             %code.javascript(data-trim)
@@ -1271,7 +1345,7 @@
               We don't
 
         %section
-          %h2 Classic web applications are a slide show
+          %h2 Classic web applications<br>are a slide show
 
           %p
             ⇢ User requests a website<br>
@@ -1485,18 +1559,29 @@
 
         %section
           %p
-            %img.plain(src='pictures/makandra/makandra-inverted.png' width='50%')
+            %img.plain(src='pictures/makandra/makandra-inverted.png' width='30%')
 
-          %br
-          %h3 Trainee?
           %p
-            %a(href="http://start.makandra.de") http://start.makandra.de
+            Du hast Programmiererfahrung und möchtest
+            %br
+            Dein Studium mit Praxiserfahrung kombinieren?
 
-          %br
-          %h3 Werkstudent?
+          %ul
+            %li
+              Abschlussarbeiten im Bereich Ruby &amp; Web
+            %li
+              Praktikum / Werkstudent
+            %li
+              Trainee-Programm
+              (<a href="http://start.makandra.de">start.makandra.de</a>)
+            %li
+              Reinschnuppern
+
           %p
+            ➜
             %a(href="mailto:info@makandra.de") info@makandra.de
-            (or talk to me)
+            (oder mich ansprechen)
+
 
     %script{:src => "lib/js/head.min.js"}
     %script{:src => "js/reveal.js"}

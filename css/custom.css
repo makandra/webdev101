@@ -194,3 +194,19 @@ body {
 .reveal .green {
   color: #1c3;
 }
+
+.reveal section img {
+  max-height: none;
+  max-width: none;
+}
+
+.reveal table.team td {
+  padding: 10px;
+  border: none;
+}
+
+.reveal table.team img {
+  margin: 0;
+  display: block;
+  width: 130px;
+}
