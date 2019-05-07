@@ -30,10 +30,10 @@
 
         %section(data-background-color='#111')
           %h2 Web development 101
-          %h4
-            %a.blue{:href => "https://twitter.com/triskweline"} Henning Koch
-            \/
-            %a.blue{:href => "http://www.makandra.de"} makandra GmbH
+          %h3
+            %a.blue.no-underline{:href => "https://twitter.com/triskweline"} Henning Koch
+            %br
+            %a.blue.no-underline{:href => "https://makandra.de"} makandra GmbH
 
 
         -#%section(style='text-align: center')
@@ -422,7 +422,7 @@
         %section
           %pre.xxl
             %code.nohighlight(data-trim)
-              telnet www.uni-augsburg.de 80
+              telnet example.com 80
 
 
         %section
@@ -511,7 +511,7 @@
           %p.center.fragment
             %a(target='_blank' href='examples/1045_simple_css/page.html') View both together
 
-        %section(data-background-color='#444444')
+        %section(data-background-color='#333333')
           %h2 Colors in CSS
 
           .columns
@@ -633,7 +633,7 @@
 
         %section
 
-          %h2 An advanced example
+          %h2 An advanced CSS example
 
           %img(src='pictures/screenshot_pretty_button.png' height=150)
 
@@ -877,12 +877,26 @@
             %a(target='_blank' href='examples/1066_positioning/page.html') View example
 
         %section
-          %h2 Application layout
+          %h3
+            Putting elements side-by-side
+            .subtle
+              With positioning
 
           %img(src='pictures/screenshot_layout.png' height=300)
 
           %p
             %a(target='_blank' href='examples/1070_layout') View example
+
+        %section
+          %h3
+            Putting elements side-by-side
+            .subtle
+              With Flexbox
+
+          %img(src='pictures/screenshot_layout.png' height=300)
+
+          %p
+            %a(target='_blank' href='examples/1071_layout_with_flexbox') View example
 
         %section
           %h2 CSS frameworks
@@ -998,8 +1012,56 @@
             %li PHP
             %li Python
 
-          %p
+          %p.fragment
             The following examples are in Ruby, but concepts apply to all languages.
+
+
+        %section
+          .columns
+            .column
+              %h3 Ruby
+              %pre.xxs
+                %code.ruby
+                  :preserve
+                    class User
+
+                      def initialize(name, age)
+                        @name = name
+                        @age = age
+                      end
+
+                      def adult?
+                        @age >= 18
+                      end
+
+                    end
+
+                    user = User.new('Max', 18)
+                    puts user.name
+
+            .column
+              %h3 Java
+              %pre.xxs
+                %code.java
+                  :preserve
+                    class User {
+
+                      private String name;
+                      private int age;
+
+                      public User(name, age) {
+                        this.name = name;
+                        this.age = age;
+                      }
+
+                      public boolean isAdult() {
+                        return age >= 18;
+                      }
+
+                    }
+
+                    var user = new User("Max", 18);
+                    System.out.println(user.getName());
 
         %section
           %h2 The chat app
@@ -1112,6 +1174,9 @@
               It would be nice to be able to search through our messages
 
           %p For such things we need <b>JavaScript</b>.
+
+
+            
 
 
         %section(data-background-color='#245')
@@ -1402,11 +1467,6 @@
             %code.javascript(data-trim)
               :preserve
                 function refresh() {
-                  let response = await fetch('/channel');
-
-
-                  }
-
                   var request = new XMLHttpRequest();
                   request.open('GET', '/channel', true);
                   request.onload = function() {
@@ -1583,8 +1643,6 @@
 
                     end
 
-        %section
-
         -#%section
         -#  %p
         -#    %img.plain(src='pictures/makandra/makandra-inverted.png' width='40%')
@@ -1612,12 +1670,23 @@
 
 
         %section
-          %h3 Extra slides
+          %h2 Scaling the chat app
 
 
         %section
           .center
             %img(src='pictures/web_app_cluster.png' width=600)
+
+
+        %section
+          %h2 Questions?
+
+        %section(data-background-color='#111')
+          %h2 Web development 101
+          %h3
+            %a.blue.no-underline{:href => "https://twitter.com/triskweline"} Henning Koch
+            %br
+            %a.blue.no-underline{:href => "https://makandra.de"} makandra GmbH
 
 
     %script{:src => "lib/js/head.min.js"}

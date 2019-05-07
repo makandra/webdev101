@@ -32,11 +32,11 @@
       <div class='slides'>
         <section data-background-color='#111'>
           <h2>Web development 101</h2>
-          <h4>
-            <a class='blue' href='https://twitter.com/triskweline'>Henning Koch</a>
-            /
-            <a class='blue' href='http://www.makandra.de'>makandra GmbH</a>
-          </h4>
+          <h3>
+            <a class='blue no-underline' href='https://twitter.com/triskweline'>Henning Koch</a>
+            <br>
+            <a class='blue no-underline' href='https://makandra.de'>makandra GmbH</a>
+          </h3>
         </section>
         <section>
           <h2>Web applications?</h2>
@@ -293,7 +293,7 @@
           <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 67840          # What you want has 66 KB&#x000A;Content-Type: image/jpeg       # And it's in JPEG format&#x000A;                               # Here it comes:&#x000A;FF D8 FF E0 00 10 4A 46&#x000A;49 46 00 01 01 01 00 48&#x000A;00 48 00 00 FF E1 1C 13&#x000A;45 78 69 66 00 00 49 49&#x000A;2A 00 08 00 00 00 0D 00&#x000A;0F 01 02 00 06 00 00 00&#x000A;...</code></pre>
         </section>
         <section>
-          <pre class='xxl'><code class='nohighlight' data-trim>telnet www.uni-augsburg.de 80</code></pre>
+          <pre class='xxl'><code class='nohighlight' data-trim>telnet example.com 80</code></pre>
         </section>
         <section>
           <h2>HTML</h2>
@@ -348,7 +348,7 @@
             <a href='examples/1045_simple_css/page.html' target='_blank'>View both together</a>
           </p>
         </section>
-        <section data-background-color='#444444'>
+        <section data-background-color='#333333'>
           <h2>Colors in CSS</h2>
           <div class='columns'>
             <div class='column'>
@@ -417,7 +417,7 @@
           <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 182            # What you want has 182 bytes&#x000A;Content-Type: text/css         # And it's in CSS format&#x000A;                               # Here it comes:&#x000A;body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;...&#x000A;</code></pre>
         </section>
         <section>
-          <h2>An advanced example</h2>
+          <h2>An advanced CSS example</h2>
           <img height='150' src='pictures/screenshot_pretty_button.png'>
           <p>
             <a href='examples/1050_css_button/page.html' target='_blank'>View example</a>
@@ -632,10 +632,27 @@
           </p>
         </section>
         <section>
-          <h2>Application layout</h2>
+          <h3>
+            Putting elements side-by-side
+            <div class='subtle'>
+              With positioning
+            </div>
+          </h3>
           <img height='300' src='pictures/screenshot_layout.png'>
           <p>
             <a href='examples/1070_layout' target='_blank'>View example</a>
+          </p>
+        </section>
+        <section>
+          <h3>
+            Putting elements side-by-side
+            <div class='subtle'>
+              With Flexbox
+            </div>
+          </h3>
+          <img height='300' src='pictures/screenshot_layout.png'>
+          <p>
+            <a href='examples/1071_layout_with_flexbox' target='_blank'>View example</a>
           </p>
         </section>
         <section>
@@ -719,9 +736,21 @@
             <li>PHP</li>
             <li>Python</li>
           </ul>
-          <p>
+          <p class='fragment'>
             The following examples are in Ruby, but concepts apply to all languages.
           </p>
+        </section>
+        <section>
+          <div class='columns'>
+            <div class='column'>
+              <h3>Ruby</h3>
+              <pre class='xxs'><code class='ruby'>class User&#x000A;&#x000A;  def initialize(name, age)&#x000A;    @name = name&#x000A;    @age = age&#x000A;  end&#x000A;&#x000A;  def adult?&#x000A;    @age >= 18&#x000A;  end&#x000A;&#x000A;end&#x000A;&#x000A;user = User.new('Max', 18)&#x000A;puts user.name&#x000A;</code></pre>
+            </div>
+            <div class='column'>
+              <h3>Java</h3>
+              <pre class='xxs'><code class='java'>class User {&#x000A;&#x000A;  private String name;&#x000A;  private int age;&#x000A;&#x000A;  public User(name, age) {&#x000A;    this.name = name;&#x000A;    this.age = age;&#x000A;  }&#x000A;&#x000A;  public boolean isAdult() {&#x000A;    return age >= 18;&#x000A;  }&#x000A;&#x000A;}&#x000A;&#x000A;var user = new User("Max", 18);&#x000A;System.out.println(user.getName());&#x000A;</code></pre>
+            </div>
+          </div>
         </section>
         <section>
           <h2>The chat app</h2>
@@ -987,7 +1016,7 @@
         </section>
         <section>
           <h3>Refreshing with AJAX</h3>
-          <pre class='xs'><code class='javascript' data-trim>function refresh() {&#x000A;  let response = await fetch('/channel');&#x000A;&#x000A;&#x000A;  }&#x000A;&#x000A;  var request = new XMLHttpRequest();&#x000A;  request.open('GET', '/channel', true);&#x000A;  request.onload = function() {&#x000A;    var newHtml = request.responseText;&#x000A;    var parser = new DOMParser();&#x000A;    var newDocument = parser.parseFromString(newHtml, 'text/html');&#x000A;    var newChannel = newDocument.querySelector('.channel');&#x000A;    var oldChannel = document.querySelector('.channel');&#x000A;    oldChannel.innerHTML = newChannel.innerHTML;&#x000A;  };&#x000A;  request.send();&#x000A;}&#x000A;&#x000A;setInterval(refresh, 1000);&#x000A;</code></pre>
+          <pre class='xs'><code class='javascript' data-trim>function refresh() {&#x000A;  var request = new XMLHttpRequest();&#x000A;  request.open('GET', '/channel', true);&#x000A;  request.onload = function() {&#x000A;    var newHtml = request.responseText;&#x000A;    var parser = new DOMParser();&#x000A;    var newDocument = parser.parseFromString(newHtml, 'text/html');&#x000A;    var newChannel = newDocument.querySelector('.channel');&#x000A;    var oldChannel = document.querySelector('.channel');&#x000A;    oldChannel.innerHTML = newChannel.innerHTML;&#x000A;  };&#x000A;  request.send();&#x000A;}&#x000A;&#x000A;setInterval(refresh, 1000);&#x000A;</code></pre>
         </section>
         <section>
           <h2>
@@ -1033,14 +1062,24 @@
             </div>
           </div>
         </section>
-        <section></section>
         <section>
-          <h3>Extra slides</h3>
+          <h2>Scaling the chat app</h2>
         </section>
         <section>
           <div class='center'>
             <img src='pictures/web_app_cluster.png' width='600'>
           </div>
+        </section>
+        <section>
+          <h2>Questions?</h2>
+        </section>
+        <section data-background-color='#111'>
+          <h2>Web development 101</h2>
+          <h3>
+            <a class='blue no-underline' href='https://twitter.com/triskweline'>Henning Koch</a>
+            <br>
+            <a class='blue no-underline' href='https://makandra.de'>makandra GmbH</a>
+          </h3>
         </section>
       </div>
     </div>

@@ -1,5 +1,6 @@
 body {
-  background-color: #1a121a;
+  background-color: #001122;
+  /* background: linear-gradient(to bottom, #002233 0%, #001828 70%, #000814 100%) */
 }
 
 .reveal a {
@@ -9,6 +10,10 @@ body {
 
 .reveal a.blue {
   color: #16e;
+}
+
+.reveal a.no-underline {
+  text-decoration: none;
 }
 
 .reveal li {
@@ -210,4 +215,16 @@ body {
   margin: 0;
   display: block;
   width: 130px;
+}
+
+.reveal .slides {
+  background: url(../pictures/makandra.png) no-repeat bottom right;
+  background-size: 25%;
+}
+
+.reveal .controls {
+  opacity: 0.6;
+  filter: hue-rotate(230deg);
+  bottom: auto;
+  top: 10px;
 }
