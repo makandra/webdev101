@@ -1003,39 +1003,56 @@
           <h3>Most people use JavaScript with:</h3>
           <ul>
             <li>
-              A precompiler to make the language less horrible (Coffeescript, Babel)
+              A precompiler to make the language less horrible
+              <div class='subtle'>
+                (Babel, TypeScript, CoffeeScript)
+              </div>
             </li>
             <li>
-              A number of half-broken "polyfills" that backport modern JavaScript APIs to old browsers
+              A number of "polyfills" that backport modern JavaScript APIs to old browsers
             </li>
             <li>
-              A utility library to patch holes in the Stdlib (Lodash, Underscore)
+              A utility library to patch holes in the Stdlib
+              <div class='subtle'>
+                (Lodash, date-fns)
+              </div>
             </li>
             <li>
-              A library to hide browser bugs and pave over the DOM API (jQuery, DOM level 4 polyfills)
+              A library to fix and equalize DOM API across browsers
+              <div class='subtle'>
+                (DOM level 4 polyfills, jQuery)
+              </div>
             </li>
           </ul>
         </section>
         <section>
-          <h3>Is this object an array?</h3>
+          <h3>
+            Test if two variables
+            <br>
+            are equal by value
+          </h3>
           <div class='fragment'>
             <h4>Pure JavaScript</h4>
-            <pre><code class='javascript' data-trim>Object.prototype.toString.call(object) === '[object Array]'</code></pre>
+            <img src='pictures/cthulhu.cropped.jpg' style='max-height:300px'>
           </div>
           <div class='fragment'>
             <h4>JavaScript + Lodash</h4>
-            <pre><code class='javascript' data-trim>_.isArray(object)</code></pre>
+            <pre><code class='javascript' data-trim>_.isEqual(object)</code></pre>
           </div>
         </section>
         <section>
-          <h3>Hide the children of all &lt;p&gt; tags</h3>
+          <h3>
+            Replace an element
+            <br>
+            with another element
+          </h3>
           <div class='fragment'>
-            <h4>Pure JavaScript</h4>
-            <pre><code class='javascript' data-trim>var paragraphs = document.querySelectorAll('p');&#x000A;for (var p = 0; p < paragraphs.length; p++) {&#x000A;  var paragraph = paragraphs[p];&#x000A;  var children = paragraph.children;&#x000A;  for (var c = 0; c < children.length; c++) {&#x000A;    var child = children[c];&#x000A;    c.style.display = 'none';&#x000A;  }&#x000A;}&#x000A;</code></pre>
+            <h4>Cross-browser</h4>
+            <pre><code class='javascript' data-trim>oldElement.parentElement.replaceChild(newElement, oldElement)&#x000A;&#x000A;</code></pre>
           </div>
           <div class='fragment'>
-            <h4>JavaScript + jQuery</h4>
-            <pre><code class='javascript' data-trim>$('p').children().hide();&#x000A;</code></pre>
+            <h4>With DOM level 4 polyfill</h4>
+            <pre><code class='javascript' data-trim>oldElement.replaceWith(newElement)&#x000A;</code></pre>
           </div>
         </section>
         <section>
