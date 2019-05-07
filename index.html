@@ -1027,21 +1027,6 @@
         </section>
         <section>
           <h3>
-            Test if two variables
-            <br>
-            are equal by value
-          </h3>
-          <div class='fragment'>
-            <h4>Pure JavaScript</h4>
-            <img src='pictures/cthulhu.cropped.jpg' style='max-height:300px'>
-          </div>
-          <div class='fragment'>
-            <h4>JavaScript + Lodash</h4>
-            <pre><code class='javascript' data-trim>_.isEqual(object)</code></pre>
-          </div>
-        </section>
-        <section>
-          <h3>
             Replace an element
             <br>
             with another element
@@ -1059,13 +1044,28 @@
           <h3>Make a class <code>Student</code><br />which inherits from <code>Person</code></h3>
           <div class='fragment'>
             <h4>Pure JavaScript</h4>
-            <pre class='l'><code class='javascript' data-trim>function Student(name) {&#x000A;  this.name = name;&#x000A;}&#x000A;&#x000A;Student.prototype = new Person();&#x000A;&#x000A;Student.prototype.constructor = Student;&#x000A;&#x000A;Student.prototype.sayHello = function() {&#x000A;  console.log("Hello, I'm " + this.name);&#x000A;};&#x000A;</code></pre>
+            <pre><code class='javascript' data-trim>function Student(name) {&#x000A;  this.name = name;&#x000A;}&#x000A;&#x000A;Student.prototype = new Person();&#x000A;&#x000A;Student.prototype.constructor = Student;&#x000A;&#x000A;Student.prototype.sayHello = function() {&#x000A;  console.log("Hello, I'm " + this.name);&#x000A;};&#x000A;</code></pre>
           </div>
         </section>
         <section>
           <h3>Make a class <code>Student</code><br />which inherits from <code>Person</code></h3>
           <h4>JavaScript + Babel</h4>
-          <pre class='l'><code class='javascript' data-trim>class Student extends Person {&#x000A;&#x000A;  constructor(name) {&#x000A;    this.name = name;&#x000A;  }&#x000A;&#x000A;  sayHello() {&#x000A;    console.log("Hello, I'm " + this.name);&#x000A;  }&#x000A;&#x000A;}&#x000A;</code></pre>
+          <pre><code class='javascript' data-trim>class Student extends Person {&#x000A;&#x000A;  constructor(name) {&#x000A;    this.name = name;&#x000A;  }&#x000A;&#x000A;  sayHello() {&#x000A;    console.log("Hello, I'm " + this.name);&#x000A;  }&#x000A;&#x000A;}&#x000A;&#x000A;&#x000A;</code></pre>
+        </section>
+        <section>
+          <h3>
+            Test if two variables
+            <br>
+            are equal by value
+          </h3>
+          <div class='fragment'>
+            <h4>Pure JavaScript</h4>
+            <img src='pictures/cthulhu.cropped.jpg' style='max-height:300px'>
+          </div>
+          <div class='fragment'>
+            <h4>JavaScript + Lodash</h4>
+            <pre><code class='javascript' data-trim>_.isEqual(object)</code></pre>
+          </div>
         </section>
         <section>
           <h2>
@@ -1124,7 +1124,7 @@
         </section>
         <section>
           <h3>Refreshing with AJAX</h3>
-          <pre class='xs'><code class='javascript' data-trim>function refresh() {&#x000A;  var request = new XMLHttpRequest();&#x000A;  request.open('GET', '/channel', true);&#x000A;  request.onload = function() {&#x000A;    var newHtml = request.responseText;&#x000A;    var parser = new DOMParser();&#x000A;    var newDocument = parser.parseFromString(newHtml, 'text/html');&#x000A;    var newChannel = newDocument.querySelector('.channel');&#x000A;    var oldChannel = document.querySelector('.channel');&#x000A;    oldChannel.innerHTML = newChannel.innerHTML;&#x000A;  };&#x000A;  request.send();&#x000A;}&#x000A;&#x000A;setInterval(refresh, 1000);&#x000A;</code></pre>
+          <pre class='xs'><code class='javascript' data-trim>function refresh() {&#x000A;  let response = await fetch('/channel');&#x000A;&#x000A;&#x000A;  }&#x000A;&#x000A;  var request = new XMLHttpRequest();&#x000A;  request.open('GET', '/channel', true);&#x000A;  request.onload = function() {&#x000A;    var newHtml = request.responseText;&#x000A;    var parser = new DOMParser();&#x000A;    var newDocument = parser.parseFromString(newHtml, 'text/html');&#x000A;    var newChannel = newDocument.querySelector('.channel');&#x000A;    var oldChannel = document.querySelector('.channel');&#x000A;    oldChannel.innerHTML = newChannel.innerHTML;&#x000A;  };&#x000A;  request.send();&#x000A;}&#x000A;&#x000A;setInterval(refresh, 1000);&#x000A;</code></pre>
         </section>
         <section>
           <h2>

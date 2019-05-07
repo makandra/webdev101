@@ -1258,24 +1258,6 @@
 
         %section
           %h3
-            Test if two variables
-            %br
-            are equal by value
-
-          .fragment
-            %h4 Pure JavaScript
-
-            %img(src='pictures/cthulhu.cropped.jpg' style='max-height:300px')
-
-          .fragment
-            %h4 JavaScript + Lodash
-
-            %pre
-              %code.javascript(data-trim)
-                _.isEqual(object)
-
-        %section
-          %h3
             Replace an element
             %br
             with another element
@@ -1303,7 +1285,7 @@
           .fragment
             %h4 Pure JavaScript
 
-            %pre.l
+            %pre
               %code.javascript(data-trim)
                 :preserve
                   function Student(name) {
@@ -1323,7 +1305,7 @@
 
           %h4 JavaScript + Babel
 
-          %pre.l
+          %pre
             %code.javascript(data-trim)
               :preserve
                 class Student extends Person {
@@ -1337,6 +1319,27 @@
                   }
 
                 }
+
+
+
+        %section
+          %h3
+            Test if two variables
+            %br
+            are equal by value
+
+          .fragment
+            %h4 Pure JavaScript
+
+            %img(src='pictures/cthulhu.cropped.jpg' style='max-height:300px')
+
+          .fragment
+            %h4 JavaScript + Lodash
+
+            %pre
+              %code.javascript(data-trim)
+                _.isEqual(object)
+
 
         %section
           %h2
@@ -1398,6 +1401,11 @@
             %code.javascript(data-trim)
               :preserve
                 function refresh() {
+                  let response = await fetch('/channel');
+
+
+                  }
+
                   var request = new XMLHttpRequest();
                   request.open('GET', '/channel', true);
                   request.onload = function() {
