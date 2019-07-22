@@ -17,7 +17,11 @@ ruby -run -ehttpd . -p8000
 Making changes to the repo
 --------------------------
 
+Install Ruby and Bundler.
+
+To install gem dependencies, run `bundle install` in the project root.
+
 Edit slides in `source/index.haml`.
 
 You can start guard using `bundle exec guard`.
-It will compile `source/index.haml` to `index.html` whenever you change it.
+It will compile `source/index.haml` to `index.html` whenever you change it the Haml code. You may also press <kbd>Return</kbd> in the guard terminal to compile now.
