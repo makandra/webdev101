@@ -1,1111 +1,1111 @@
 <!DOCTYPE html>
 <html lang='en'>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
-    <meta charset='utf-8'>
-    <title>Web development 101</title>
-    <meta content='A framework for easily creating beautiful presentations using HTML' name='description'>
-    <meta content='Hakim El Hattab' name='author'>
-    <meta content='yes' name='apple-mobile-web-app-capable'>
-    <meta content='black-translucent' name='apple-mobile-web-app-status-bar-style'>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui' name='viewport'>
-    <link href='css/reveal.css' rel='stylesheet'>
-    <link href='css/theme/blood.css' id='theme' rel='stylesheet'>
-    <link href='css/custom.css' rel='stylesheet'>
-    <!-- Code syntax highlighting -->
-    <link href='lib/css/zenburn.css' rel='stylesheet'>
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-    <!--[if lt IE 9]>
-      <script src="lib/js/html5shiv.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class='reveal'>
-      <!-- Any section element inside of this container is displayed as a slide -->
-      <div class='slides'>
-        <section data-background-color='#111'>
-          <h2>Web development 101</h2>
-          <h3>
-            <a class='blue no-underline' href='https://twitter.com/triskweline'>Henning Koch</a>
-            <br>
-            <a class='blue no-underline' href='https://makandra.de'>makandra GmbH</a>
-          </h3>
-        </section>
-        <section>
-          <h2>Web applications?</h2>
-        </section>
-        <section>
-          <img src='pictures/example_gmail.png' style='max-height: 600px'>
-        </section>
-        <section>
-          <img src='pictures/example_facebook.png' style='max-height: 600px'>
-        </section>
-        <section>
-          <img src='pictures/example_trello.png' style='min-height: 600'>
-        </section>
-        <section>
-          <h2>This is a course for beginners</h2>
-          <p class='fragment'>
-            Who is here?
-          </p>
-          <p class='fragment'>
-            Who has programmed before (any language)?
-          </p>
-          <p class='fragment'>
-            Who has made a website before?
-          </p>
-        </section>
-        <section>
-          <h2>Native apps vs. web apps</h2>
-        </section>
-        <section>
-          <h2>Native applications</h2>
-          <p>
-            Entire app runs on a single computer
-          </p>
-          <p>
-            Entire app is (often) written in a single language
-            <br>
-            <span class='subtle'>
-              Popular languages: Java, C#, C++, Objective-C
-            </span>
-          </p>
-        </section>
-        <section>
-          <h2>
-            Web applications
-          </h2>
-          <p>
-            Application runs on multiple computers
-            <br>
-            <span class='subtle'>
-              Typical: One server, many clients (= web browsers)
-            </span>
-          </p>
-          <p>
-            Client and server run different parts of the application
-            <br>
-            <span class='subtle'>
-              and they communicate over HTTP
-            </span>
-          </p>
-          <p>
-            Application is written in a "stack" of many technologies
-            <br>
-            <span class='subtle'>
-              Typical stack: HTML, CSS, JavaScript, Ruby/PHP/Java, SQL
-            </span>
-          </p>
-        </section>
-        <section>
-          <table>
-            <tr>
-              <th>
-                Language
-              </th>
-              <th>
-                Purpose
-              </th>
-              <th>
-                Runs where?
-              </th>
-            </tr>
-            <tr>
-              <td>
-                HTML
-              </td>
-              <td>
-                Textual content
-              </td>
-              <td>
-                Client
-              </td>
-            </tr>
-            <tr>
-              <td>
-                CSS
-              </td>
-              <td>
-                Layout & Design
-              </td>
-              <td>
-                Client
-              </td>
-            </tr>
-            <tr>
-              <td>
-                JavaScript
-              </td>
-              <td>
-                Client-side interaction
-              </td>
-              <td>
-                Client
-              </td>
-            </tr>
-            <tr>
-              <td>
-                HTTP
-              </td>
-              <td>
-                Client/server communication
-              </td>
-              <td>Client/server</td>
-            </tr>
-            <tr>
-              <td>
-                Ruby/PHP/Java
-              </td>
-              <td>
-                Controller & Model
-              </td>
-              <td>
-                Server
-              </td>
-            </tr>
-            <tr>
-              <td>
-                SQL
-              </td>
-              <td>
-                Database access
-              </td>
-              <td>
-                Server
-              </td>
-            </tr>
-          </table>
-        </section>
-        <section>
-          <h2>In 2019 web apps are the dominant form of user-facing applications</h2>
-          <ul class='fragment'>
-            <li>
-              Can be used from any device with a web browser
-              <br>
-              <span class='subtle'>
-                (Windows, Linux, MacOS, Android ...)
-              </span>
-            </li>
-            <li>
-              No installation
-              <br>
-              <span class='subtle'>
-                Web browser downloads and "installs" a fresh copy every time
-                you visit a website
-              </span>
-            </li>
-            <li>Is always the latest version</li>
-            <li>Inherently multi-user</li>
-          </ul>
-        </section>
-        <section>
-          <h2>Today</h2>
-          <ul>
-            <li>HTML &amp; HTTP</li>
-            <li>CSS</li>
-            <li style='color: #ee9955'>Break</li>
-            <li>Server-side web applications</li>
-            <li>JavaScript</li>
-            <li style='color: #ee9955'>Discussion / end</li>
-          </ul>
-          <br>
-          <br>
-          <h4>Read along</h4>
-          <p>
-            <a href='http://webdev101.makandra.de'>http://webdev101.makandra.de<br></a>
-            <a href='https://github.com/makandra/webdev101'>https://github.com/makandra/webdev101</a>
-          </p>
-        </section>
-        <section data-background-color='#245'>
-          <div class='s'>
-            <h2>
-              HTML<br />
-              <span class='subtle'>Hypertext Markup Language</span>
-            </h2>
-            <h2>
-              HTTP<br />
-              <span class='subtle'>Hypertext Transfer Protocol</span>
-            </h2>
-          </div>
-        </section>
-        <section>
-          <h2>HTML</h2>
-          <div class='columns'>
-            <div class='column'>
-              <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;Hi there!&lt;/h1&gt;&#x000A;    &lt;p&gt;Look at this image:&lt;/p&gt;&#x000A;    &lt;img src="image.jpg"&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;</code></pre>
-              <p class='fragment'>
-                <a href='examples/1010_request_response/' target='_blank'>View example</a>
-                <br>
-                <span class='subtle'>
-                  (use the inspector)
-                </span>
-              </p>
-            </div>
-            <div class='column'>
-              <img src='pictures/screenshot_request_response.png' width='400'>
-            </div>
-          </div>
-        </section>
-        <section>
-          <h2>HTTP</h2>
-          <p>
-            User enters into her browser's address bar:
-          </p>
-          <pre><code class='nohighlight' data-trim>http://www.makandra.com/page.html&#x000A;</code></pre>
-          <p>
-            What happens?
-          </p>
-        </section>
-        <section>
-          <p>
-            Browser asks server:
-          </p>
-          <pre class='xs fragment'><code class='nohighlight' data-trim>GET /page.html HTTP/1.1        # I want the file /page.html&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
-          <p class='fragment'>
-            Server looks for a local file <code>page.html</code> and replies:
-          </p>
-          <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 114            # What you want has 114 bytes&#x000A;Content-Type: text/html        # And it's in HTML format&#x000A;                               # Here it comes:&#x000A;&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;Hi there!&lt;/h1&gt;&#x000A;    &lt;p&gt;Look at this image:&lt;/p&gt;&#x000A;    &lt;img src="image.jpg"&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
-        </section>
-        <section>
-          <p>
-            The browser parses the HTML and encounters this tag:
-          </p>
-          <pre><code class='html' data-trim>&lt;img src="image.jpg"&gt;&#x000A;</code></pre>
-          <p>
-            What happens?
-          </p>
-        </section>
-        <section>
-          <p>
-            Browser asks server:
-          </p>
-          <pre class='xs fragment'><code class='nohighlight' data-trim>GET /image.jpg HTTP/1.1        # I want the file /image.jpg&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: image/jpeg, image/png  # I understand JPEG and PNG&#x000A;</code></pre>
-          <p class='fragment'>
-            Server looks for a local file <code>image.jpg</code> and replies:
-          </p>
-          <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 67840          # What you want has 66 KB&#x000A;Content-Type: image/jpeg       # And it's in JPEG format&#x000A;                               # Here it comes:&#x000A;FF D8 FF E0 00 10 4A 46&#x000A;49 46 00 01 01 01 00 48&#x000A;00 48 00 00 FF E1 1C 13&#x000A;45 78 69 66 00 00 49 49&#x000A;2A 00 08 00 00 00 0D 00&#x000A;0F 01 02 00 06 00 00 00&#x000A;...</code></pre>
-        </section>
-        <section>
-          <pre class='xxl'><code class='nohighlight' data-trim>telnet example.com 80</code></pre>
-        </section>
-        <section>
-          <h2>HTML</h2>
-          <ul>
-            <li>
-              <a href='examples/1015_more_tags' target='_blank'>More tags</a>
-            </li>
-            <li>
-              <a href='examples/1020_video' target='_blank'>Video & fallbacks</a>
-            </li>
-            <li>
-              <a href='examples/1025_table/page.html' target='_blank'>Table</a>
-            </li>
-            <li>
-              <a href='examples/1030_form/page.html' target='_blank'>Form</a>
-            </li>
-          </ul>
-        </section>
-        <section data-background-color='#245'>
-          <h2>
-            CSS<br />
-            <span class='subtle'>Cascading Style Sheets</span>
-          </h2>
-        </section>
-        <section>
-          <div class='columns'>
-            <div class='column'>
-              <h2>HTML</h2>
-              <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;About Capybaras&lt;/h1&gt;&#x000A;    &lt;p&gt;&#x000A;      The capybara is the&#x000A;      <b>largest</b> rodent&#x000A;      in the world.&#x000A;    &lt;/p&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
-            </div>
-            <div class='column fragment'>
-              <h2>Browser</h2>
-              <img height='300' src='pictures/screenshot_simple_css.png'>
-            </div>
-          </div>
-          <p class='center' style='visibility: hidden'>
-            <a href='examples/1045_simple_css/page.html' target='_blank'>View both together</a>
-          </p>
-        </section>
-        <section>
-          <div class='columns'>
-            <div class='column'>
-              <h2>HTML</h2>
-              <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;About Capybaras&lt;/h1&gt;&#x000A;    &lt;p&gt;&#x000A;      The capybara is the&#x000A;      <b>largest</b> rodent&#x000A;      in the world.&#x000A;    &lt;/p&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
-            </div>
-            <div class='column'>
-              <h2>CSS</h2>
-              <pre><code class='css' data-trim>body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;b {&#x000A;  background-color: #ff9900;&#x000A;}&#x000A;</code></pre>
-            </div>
-          </div>
-          <p class='center fragment'>
-            <a href='examples/1045_simple_css/page.html' target='_blank'>View both together</a>
-          </p>
-        </section>
-        <section data-background-color='#333333'>
-          <h2>Colors in CSS</h2>
-          <div class='columns'>
-            <div class='column'>
-              <div style='font-weight: bold; color: #ff0000'><code>#ff0000</code></div>
-              <div style='font-weight: bold; color: #00ff00'><code>#00ff00</code></div>
-              <div style='font-weight: bold; color: #0000ff'><code>#0000ff</code></div>
-              <div style='font-weight: bold; color: #ffff00'><code>#ffff00</code></div>
-              <div style='font-weight: bold; color: #ffffff'><code>#ffffff</code></div>
-              <div style='font-weight: bold; color: #000000'><code>#000000</code></div>
-              <div class='fragment'>
-                <div style='font-weight: bold; color: #ff9900'><code>#ff9900</code></div>
-                <div style='font-weight: bold; color: #4488bb'><code>#4488bb</code></div>
-                <div style='font-weight: bold; color: #9900ff'><code>#9900ff</code></div>
-                <div style='font-weight: bold; color: #777777'><code>#777777</code></div>
-                <div style='font-weight: bold; color: #22aa88'><code>#22aa88</code></div>
-                <div style='font-weight: bold; color: #885555'><code>#885555</code></div>
-              </div>
-            </div>
-            <div class='column'>
-              <div class='fragment'>
-                <div style='font-weight: bold; color: red'><code>red</code></div>
-                <div style='font-weight: bold; color: yellow'><code>yellow</code></div>
-                <div style='font-weight: bold; color: fuchsia'><code>fuchsia</code></div>
-                <div style='font-weight: bold; color: rebeccapurple'><code>rebeccapurple</code></div>
-              </div>
-              <div class='fragment'>
-                <div style='font-weight: bold; color: rgba(255, 0, 0, 1.0)'><code>rgba(255, 0, 0, 1.0)</code></div>
-                <div style='font-weight: bold; color: rgba(255, 0, 0, 0.75)'><code>rgba(255, 0, 0, 0.75)</code></div>
-                <div style='font-weight: bold; color: rgba(255, 0, 0, 0.5)'><code>rgba(255, 0, 0, 0.5)</code></div>
-                <div style='font-weight: bold; color: rgba(255, 0, 0, 0.25)'><code>rgba(255, 0, 0, 0.25)</code></div>
-              </div>
-              <div class='fragment'>
-                <div style='font-weight: bold; color: hsl(0, 100%, 50%)'><code>hsl(0, 100%, 50%)</code></div>
-                <div style='font-weight: bold; color: hsl(30, 100%, 50%)'><code>hsl(30, 100%, 50%)</code></div>
-                <div style='font-weight: bold; color: hsl(30, 50%, 50%)'><code>hsl(30, 50%, 50%)</code></div>
-                <div style='font-weight: bold; color: hsl(30, 50%, 70%)'><code>hsl(30, 50%, 70%)</code></div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section>
-          <h2>How to link HTML and CSS (1)</h2>
-          <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;head&gt;&#x000A;    &lt;style&gt;&#x000A;      h1 {&#x000A;        color: #ff0000;&#x000A;      }&#x000A;    &lt;/style&gt;&#x000A;  &lt;/head&gt;&#x000A;  &lt;body&gt;&#x000A;    ...&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
-        </section>
-        <section>
-          <h2>How to link HTML and CSS (2)</h2>
-          <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;head&gt;&#x000A;    &lt;link rel="stylesheet" href="styles.css"&gt;&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;  &lt;/head&gt;&#x000A;  &lt;body&gt;&#x000A;    ...&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
-        </section>
-        <section>
-          <p>
-            The browser parses the HTML and encounters this tag:
-          </p>
-          <pre><code class='html' data-trim>&lt;link rel="stylesheet" href="styles.css"&gt;&#x000A;</code></pre>
-          <p>
-            What happens?
-          </p>
-        </section>
-        <section>
-          <p>
-            Browser asks server:
-          </p>
-          <pre class='xs fragment'><code class='nohighlight' data-trim>GET /styles.css HTTP/1.1       # I want the file /styles.css&#x000A;Host: www.makandra.com         # I know you as www.makandra.com&#x000A;Accept: text/css               # I understand the CSS format&#x000A;</code></pre>
-          <p class='fragment'>
-            Server looks for a local file <code>styles.css</code> and replies:
-          </p>
-          <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 182            # What you want has 182 bytes&#x000A;Content-Type: text/css         # And it's in CSS format&#x000A;                               # Here it comes:&#x000A;body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;...&#x000A;</code></pre>
-        </section>
-        <section>
-          <h2>An advanced CSS example</h2>
-          <img height='150' src='pictures/screenshot_pretty_button.png'>
-          <p>
-            <a href='examples/1050_css_button/page.html' target='_blank'>View example</a>
-          </p>
-        </section>
-        <section>
-          <h2>Selectors</h2>
-          <pre><code class='css' data-trim>body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;b {&#x000A;  background-color: #ff0000;&#x000A;}&#x000A;</code></pre>
-        </section>
-        <section>
-          <h2>Selectors</h2>
-          <pre><code class='css' data-noescape data-trim><em>body</em> {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;<em>h1</em> {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;<em>b</em> {&#x000A;  background-color: #ff0000;&#x000A;}&#x000A;</code></pre>
-        </section>
-        <section>
-          <h2>&nbsp;</h2>
-          <div>
-            <code data-trim><br />
-            &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
-            <br />
-            &lt;p class="introduction"&gt;<br />
-            &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
-            &nbsp;&nbsp;in the world.<br />
-            &lt;/p&gt;<br />
-            <br />
-            &lt;p&gt;<br />
-            &nbsp;&nbsp;The capybara belongs to the subfamily<br />
-            &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
-            &lt;/p&gt;</code>
-          </div>
-        </section>
-        <section>
-          <h2>
-            <code>h1 { ... }</code>
-          </h2>
-          <div>
-            <code data-trim><br />
-            <em>
-              &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
-            </em>
-            <br />
-            &lt;p class="introduction"&gt;<br />
-            &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
-            &nbsp;&nbsp;in the world.<br />
-            &lt;/p&gt;<br />
-            <br />
-            &lt;p&gt;<br />
-            &nbsp;&nbsp;The capybara belongs to the subfamily<br />
-            &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
-            &lt;/p&gt;</code>
-          </div>
-        </section>
-        <section>
-          <h2>
-            <code>p { ... }</code>
-          </h2>
-          <div>
-            <code data-trim><br />
-            &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
-            <br />
-            <em>
-              &lt;p class="introduction"&gt;<br />
-              &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
-              &nbsp;&nbsp;in the world.<br />
-              &lt;/p&gt;<br />
-              <br />
-              &lt;p&gt;<br />
-              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
-              &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
-              &lt;/p&gt;
-            </em></code>
-          </div>
-        </section>
-        <section>
-          <h2>
-            <code>p.introduction { ... }</code>
-          </h2>
-          <div>
-            <code data-trim><br />
-            &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
-            <br />
-            <em>
-              &lt;p class="introduction"&gt;<br />
-              &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
-              &nbsp;&nbsp;in the world.<br />
-              &lt;/p&gt;<br />
-            </em>
-            <br />
-            &lt;p&gt;<br />
-            &nbsp;&nbsp;The capybara belongs to the subfamily<br />
-            &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
-            &lt;/p&gt;</code>
-          </div>
-        </section>
-        <section>
-          <h2>
-            <code>p:last-child { ... }</code>
-          </h2>
-          <div>
-            <code data-trim><br />
-            &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
-            <br />
-            &lt;p class="introduction"&gt;<br />
-            &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
-            &nbsp;&nbsp;in the world.<br />
-            &lt;/p&gt;<br />
-            <br />
-            <em>
-              &lt;p&gt;<br />
-              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
-              &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
-              &lt;/p&gt;
-            </em></code>
-          </div>
-        </section>
-        <section>
-          <h2>
-            <code>h1, p:last-child { ... }</code>
-          </h2>
-          <div>
-            <code data-trim><br />
-            <em>
-              &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
-            </em>
-            <br />
-            &lt;p class="introduction"&gt;<br />
-            &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
-            &nbsp;&nbsp;in the world.<br />
-            &lt;/p&gt;<br />
-            <br />
-            <em>
-              &lt;p&gt;<br />
-              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
-              &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
-              &lt;/p&gt;
-            </em></code>
-          </div>
-        </section>
-        <section>
-          <h2>
-            <code>h1+p { ... }</code>
-          </h2>
-          <div>
-            <code data-trim><br />
-            &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
-            <br />
-            <em>
-              &lt;p class="introduction"&gt;<br />
-              &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
-              &nbsp;&nbsp;in the world.<br />
-              &lt;/p&gt;<br />
-              <br />
-            </em>
-            &lt;p&gt;<br />
-            &nbsp;&nbsp;The capybara belongs to the subfamily<br />
-            &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
-            &lt;/p&gt;</code>
-          </div>
-        </section>
-        <section>
-          <h2>
-            <code>b { ... }</code>
-          </h2>
-          <div>
-            <code data-trim><br />
-            &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
-            <br />
-            &lt;p class="introduction"&gt;<br />
-            &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest <em>&lt;b&gt;rodent&lt;/b&gt;</em><br />
-            &nbsp;&nbsp;in the world.<br />
-            &lt;/p&gt;<br />
-            <br />
-            &lt;p&gt;<br />
-            &nbsp;&nbsp;The capybara belongs to the subfamily<br />
-            &nbsp;&nbsp;<em>&lt;b&gt;Hydrochoerinae&lt;/b&gt;</em> along with ...<br />
-            &lt;/p&gt;</code>
-          </div>
-        </section>
-        <section>
-          <h2>
-            <code>p.introduction b { ... }</code>
-          </h2>
-          <div>
-            <code data-trim><br />
-            &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
-            <br />
-            &lt;p class="introduction"&gt;<br />
-            &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest <em>&lt;b&gt;rodent&lt;/b&gt;</em><br />
-            &nbsp;&nbsp;in the world.<br />
-            &lt;/p&gt;<br />
-            <br />
-            &lt;p&gt;<br />
-            &nbsp;&nbsp;The capybara belongs to the subfamily<br />
-            &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
-            &lt;/p&gt;</code>
-          </div>
-        </section>
-        <section>
-          <div class='subtle'>(Time check)</div>
-        </section>
-        <section>
-          <h2>The box model</h2>
-          <img height='250' src='pictures/box_model.png'>
-          <p>
-            <a href='examples/1055_box_model/page.html' target='_blank'>View example</a>
-          </p>
-        </section>
-        <section>
-          <h2>Positioning</h2>
-          <img height='300' src='pictures/screenshot_positioning.png'>
-          <p>
-            <a href='examples/1066_positioning/page.html' target='_blank'>View example</a>
-          </p>
-        </section>
-        <section>
-          <h3>
-            Putting elements side-by-side
-            <div class='subtle'>
-              With positioning
-            </div>
-          </h3>
-          <img height='300' src='pictures/screenshot_layout.png'>
-          <p>
-            <a href='examples/1070_layout' target='_blank'>View example</a>
-          </p>
-        </section>
-        <section>
-          <h3>
-            Putting elements side-by-side
-            <div class='subtle'>
-              With Flexbox
-            </div>
-          </h3>
-          <img height='300' src='pictures/screenshot_layout.png'>
-          <p>
-            <a href='examples/1071_layout_with_flexbox' target='_blank'>View example</a>
-          </p>
-        </section>
-        <section>
-          <h2>CSS frameworks</h2>
-          <p>
-            <a href='examples/1075_bootstrap/index.html' target='_blank'>View example</a>
-          </p>
-        </section>
-        <section data-background-color='#172'>
-          <h2>After the break</h2>
-          <ul>
-            <li>Server-side web applications</li>
-            <li>JavaScript</li>
-          </ul>
-        </section>
-        <section data-background-color='#245'>
-          <h2>
-            <span class='subtle'>Server-side</span>
-            <br>
-            Web applications
-          </h2>
-        </section>
-        <section>
-          <p>
-            Let's write a web app that returns the current time:
-          </p>
-          <pre><code class='nohighlight' data-trim>http://timeapp.com/now.html</code></pre>
-        </section>
-        <section>
-          <p>
-            Browser asks server:
-          </p>
-          <pre class='xs fragment'><code class='nohighlight' data-trim>GET /now.html HTTP/1.1         # I want the file /now.html&#x000A;Host: timeapp.com              # I want it from timeapp.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
-          <p class='fragment'>
-            Server looks for a local file <code>now.html</code> and replies:
-          </p>
-          <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 22             # What you want has 22 bytes&#x000A;Content-Type: text/plain       # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 15:00:00.&#x000A;</code></pre>
-          <br />&nbsp;
-          <br />&nbsp;
-          <br />&nbsp;
-        </section>
-        <section>
-          <p>
-            Browser asks server:
-          </p>
-          <pre class='xs'><code class='nohighlight' data-trim>GET /now.html HTTP/1.1         # I want the file /now.html&#x000A;Host: timeapp.com              # I want it from timeapp.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
-          <p>
-            <span class='fragment'>
-              Server runs a program <code>time.exe</code>.<br>
-            </span>
-            <span class='fragment'>
-              The program <code>time.exe</code> writes the current time to <code>STDOUT</code>:
-            </span>
-          </p>
-          <pre class='xs fragment'><code class='ruby' data-trim>print "The time is " + Time.now.to_s&#x000A;</code></pre>
-          <p>
-            <span class='fragment'>
-              Server takes the program output and sends it the browser:
-            </span>
-          </p>
-          <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 22             # What you want has 22 bytes&#x000A;Content-Type: text/plain       # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 14:37:05.&#x000A;</code></pre>
-        </section>
-        <section>
-          <h3>Browser don't know about web apps!</h3>
-          <p>
-            The browser simply makes a request and gets back a string of HTML.
-          </p>
-          <p>
-            The browser <b>doesn't even know</b> if the HTML was generated by an app, or was simply read from a static file.
-          </p>
-        </section>
-        <section>
-          <h3>You can write web apps in any language that can print text</h3>
-          <p>
-            Popular choices:
-          </p>
-          <ul>
-            <li>Node.js</li>
-            <li>Ruby</li>
-            <li>Java</li>
-            <li>PHP</li>
-            <li>Python</li>
-          </ul>
-          <p class='fragment'>
-            The following examples are in Ruby, but concepts apply to all languages.
-          </p>
-        </section>
-        <section>
-          <div class='columns'>
-            <div class='column'>
-              <h3>Ruby</h3>
-              <pre class='xxs'><code class='ruby'>class User&#x000A;&#x000A;  def initialize(name, age)&#x000A;    @name = name&#x000A;    @age = age&#x000A;  end&#x000A;&#x000A;  def adult?&#x000A;    @age >= 18&#x000A;  end&#x000A;&#x000A;end&#x000A;&#x000A;user = User.new('Max', 18)&#x000A;puts user.name&#x000A;</code></pre>
-            </div>
-            <div class='column'>
-              <h3>Java</h3>
-              <pre class='xxs'><code class='java'>class User {&#x000A;&#x000A;  private String name;&#x000A;  private int age;&#x000A;&#x000A;  public User(name, age) {&#x000A;    this.name = name;&#x000A;    this.age = age;&#x000A;  }&#x000A;&#x000A;  public boolean isAdult() {&#x000A;    return age >= 18;&#x000A;  }&#x000A;&#x000A;}&#x000A;&#x000A;var user = new User("Max", 18);&#x000A;System.out.println(user.getName());&#x000A;</code></pre>
-            </div>
-          </div>
-        </section>
-        <section>
-          <h2>The chat app</h2>
-          <ul>
-            <li>
-              <a href='examples/2000_chat/src' target='_blank'>View source</a>
-            </li>
-          </ul>
-          <p>
-            To run the chat app:
-          </p>
-          <pre><code class='nohighlight' data-trim>cd examples/2000_chat/src&#x000A;ruby app.rb&#x000A;</code></pre>
-          <p>
-            You can now access the app at
-            <a href='http://localhost:4567/channel'>http://localhost:4567/channel</a>
-          </p>
-        </section>
-        <section>
-          <p>
-            The user types into her address bar:
-          </p>
-          <pre><code class='nohighlight' data-trim>http://chatapp.com/channel</code></pre>
-          <p>
-            What happens?
-          </p>
-        </section>
-        <section>
-          <p>
-            Browser asks server:
-          </p>
-          <pre class='xs'><code class='nohighlight' data-trim>GET /channel HTTP/1.1          # I want /channel&#x000A;Host: chatapp.com              # I want it from chatapp.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
-          <p class='fragment'>
-            Server asks the program <code>app.rb</code> for <code>/channel</code>.<br>
-          </p>
-          <p class='fragment'>
-            The program prints a new HTML page with the latest chat messages.
-          </p>
-          <p class='fragment'>
-            The server takes the program output and sends it the browser:
-          </p>
-          <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 1589           # What you want has 1589 bytes&#x000A;Content-Type: text/html        # And it's in HTML format&#x000A;                               # Here it comes:&#x000A;&lt;html&gt;&#x000A;  ...&#x000A;&lt;/html&gt;&#x000A;</code></pre>
-        </section>
-        <section>
-          <p>
-            The user sends a message to the chat channel:
-          </p>
-          <pre><code class='nohighlight' data-trim>Hello world</code></pre>
-          <p>
-            What happens?
-          </p>
-        </section>
-        <section>
-          <p>
-            Browser asks server:
-          </p>
-          <pre class='xxs'><code class='nohighlight' data-trim>POST /send HTTP/1.1                              # I'm posting data to /send&#x000A;Host: chatapp.com                                # I'm posting it to chatapp.com&#x000A;Content-Type: application/x-www-form-urlencoded  # I'm posting key/value pairs&#x000A;                                                 # Here it comes:&#x000A;message=Hello+world&#x000A;</code></pre>
-          <p class='fragment'>
-            Server calls the program <code>app.rb</code> with the posted data.
-          </p>
-          <p class='fragment'>
-            The program stores the message and prints a string of HTTP.
-          </p>
-          <p class='fragment'>
-            The server takes the program output and sends it the browser:
-          </p>
-          <pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 303 See Other   # This conversation continues elsewhere&#x000A;Location: /channel       # Request /channel to continue&#x000A;</code></pre>
-          <p class='fragment'>
-            The browser automatically makes another request to <code>/channel</code>
-            and gets a fresh copy of the message list.
-          </p>
-        </section>
-        <section>
-          <h2>Improving the<br>chat interface</h2>
-          <ul>
-            <li>
-              When another user sends us a message,<br>
-              we don't notice until we reload the page
-            </li>
-            <li>
-              The message list should automatically scroll to the most recent message
-            </li>
-            <li>
-              It would be nice to be able to search through our messages
-            </li>
-          </ul>
-          <p>For such things we need <b>JavaScript</b>.</p>
-        </section>
-        <section data-background-color='#245'>
-          <h2>JavaScript</h2>
-        </section>
-        <section>
-          <pre class='xxl'><code class='javascript' data-trim>// This is a comment&#x000A;&#x000A;var x = 1;&#x000A;var y = x + 1;&#x000A;&#x000A;console.log(y); // 2&#x000A;</code></pre>
-        </section>
-        <section>
-          <pre class='xxl'><code class='javascript' data-trim>function square(n) {&#x000A;  return n * n;&#x000A;}&#x000A;&#x000A;var x = square(16);&#x000A;console.log(x);    // 256&#x000A;&#x000A;var z = square;&#x000A;console.log(z);    // function { ... }&#x000A;console.log(z(4)); // 16&#x000A;</code></pre>
-        </section>
-        <section>
-          <h3>
-            HTML
-          </h3>
-          <pre class='xs'><code class='html' data-trim><div>&#x000A;  <p>one</p>&#x000A;  <p>two</p>&#x000A;  <p>three</p>&#x000A;</div>&#x000A;</code></pre>
-          <h3>Browser API</h3>
-          <pre class='xs'><code class='javascript' data-trim>var div = document.querySelector('div');&#x000A;var children = div.children;&#x000A;console.log(children);&#x000A;// [<p>one</p>, <p>two</p>, <p>three</p>]&#x000A;&#x000A;var parent = children[0].parentNode;&#x000A;console.log(parent); // [<div>...</div>]&#x000A;&#x000A;console.log(parent === div); // true&#x000A;&#x000A;children[1].style.color = 'red';</code></pre>
-          <p>
-            <a href='examples/1150_browser_api/page.html' target='_blank'>View example</a>
-          </p>
-        </section>
-        <section>
-          <h2>How to link HTML and JavaScript (1)</h2>
-          <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script&gt;&#x000A;      var x = 1;&#x000A;      var y = x + y;&#x000A;    &lt;/script&gt;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
-        </section>
-        <section>
-          <h2>How to link HTML and JavaScript (2)</h2>
-          <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script src="scripts.js"&gt;&lt;/script&gt;&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
-        </section>
-        <section>
-          <h2>Events</h2>
-          <p></p>
-          <p>
-            <a href='examples/1200_event_listener/page.html' target='_blank'>View example</a>
-          </p>
-        </section>
-        <section>
-          <h2>JavaScript is not my favorite language</h2>
-          <ul>
-            <li>Bad standard lib (strings, numbers, arrays...) with varying support across browsers.</li>
-            <li>Not everything is an object.</li>
-            <li>There are three kinds of <code>null</code>.</li>
-            <li>Equality is confusing. Also can't define equality for your own types.</li>
-            <li>No good OOP.</li>
-            <li>Explicit <code>this</code>.</li>
-            <li>Browser API is often impractical and inconsistent across browsers.</li>
-          </ul>
-        </section>
-        <section>
-          Your new friend:
-          <a href='http://caniuse.com/#search=media'>caniuse.com</a>
-          <br>
-          <img height='500' src='pictures/caniuse.png'>
-        </section>
-        <section>
-          <h3>Most people use JavaScript with:</h3>
-          <ul>
-            <li>
-              A precompiler to make the language less horrible
-              <div class='subtle'>
-                (Babel, TypeScript, CoffeeScript)
-              </div>
-            </li>
-            <li>
-              A number of "polyfills" that backport modern JavaScript APIs to old browsers
-            </li>
-            <li>
-              A utility library to patch holes in the Stdlib
-              <div class='subtle'>
-                (Lodash, date-fns)
-              </div>
-            </li>
-            <li>
-              A library to fix and equalize DOM API across browsers
-              <div class='subtle'>
-                (DOM level 4 polyfills, jQuery)
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h3>
-            Replace an element
-            <br>
-            with another element
-          </h3>
-          <div class='fragment'>
-            <h4>Cross-browser</h4>
-            <pre><code class='javascript' data-trim>oldElement.parentElement.replaceChild(newElement, oldElement)&#x000A;&#x000A;</code></pre>
-          </div>
-          <div class='fragment'>
-            <h4>With DOM level 4 polyfill</h4>
-            <pre><code class='javascript' data-trim>oldElement.replaceWith(newElement)&#x000A;</code></pre>
-          </div>
-        </section>
-        <section>
-          <h3>Make a class <code>Student</code><br />which inherits from <code>Person</code></h3>
-          <div class='fragment'>
-            <h4>Pure JavaScript</h4>
-            <pre><code class='javascript' data-trim>function Student(name) {&#x000A;  this.name = name;&#x000A;}&#x000A;&#x000A;Student.prototype = new Person();&#x000A;&#x000A;Student.prototype.constructor = Student;&#x000A;&#x000A;Student.prototype.sayHello = function() {&#x000A;  console.log("Hello, I'm " + this.name);&#x000A;};&#x000A;</code></pre>
-          </div>
-        </section>
-        <section>
-          <h3>Make a class <code>Student</code><br />which inherits from <code>Person</code></h3>
-          <h4>JavaScript + Babel</h4>
-          <pre><code class='javascript' data-trim>class Student extends Person {&#x000A;&#x000A;  constructor(name) {&#x000A;    this.name = name;&#x000A;  }&#x000A;&#x000A;  sayHello() {&#x000A;    console.log("Hello, I'm " + this.name);&#x000A;  }&#x000A;&#x000A;}&#x000A;&#x000A;&#x000A;</code></pre>
-        </section>
-        <section>
-          <h3>
-            Test if two variables
-            <br>
-            are equal by value
-          </h3>
-          <div class='fragment'>
-            <h4>Pure JavaScript</h4>
-            <img src='pictures/cthulhu.cropped.jpg' style='max-height:300px'>
-          </div>
-          <div class='fragment'>
-            <h4>JavaScript + Lodash</h4>
-            <pre><code class='javascript' data-trim>_.isEqual(object)</code></pre>
-          </div>
-        </section>
-        <section>
-          <h2>
-            Improving the<br>chat interface (1)
-          </h2>
-        </section>
-        <section>
-          <h3>Scrolling to the bottom</h3>
-          <pre class='xs'><code class='javascript' data-trim>function showLastMessage() {&#x000A;  var lastMessage = document.querySelector('.message:last-child');&#x000A;  if (lastMessage) {&#x000A;    lastMessage.scrollIntoView();&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', showLastMessage);&#x000A;&#x000A;</code></pre>
-        </section>
-        <section>
-          <h2>
-            Improving the<br>chat interface (2)
-          </h2>
-        </section>
-        <section>
-          <h2>
-            How do we notice when another user sends a message?<br>
-            <span class='red fragment'>
-              We don't
-            </span>
-          </h2>
-        </section>
-        <section>
-          <h2>Classic web applications<br>are a slide show</h2>
-          <p>
-            ⇢ User requests a website<br>
-            <span class='green'>
-              ⇠ Server sends a fresh copy
-            </span>
-          </p>
-          <p>
-            ⇢ User clicks a link<br>
-            <span class='green'>
-              ⇠ Server sends a fresh copy
-            </span>
-          </p>
-          <p>
-            ⇢ User submits a form<br>
-            <span class='green'>
-              ⇠ Server sends a fresh copy
-            </span>
-          </p>
-          <p>
-            ⇢ User reloads the page manually<br>
-            <span class='green'>
-              ⇠ Server sends a fresh copy
-            </span>
-          </p>
-          <p>
-            ⇣ Another user sends a message<br>
-            <span class='red'>
-              × Server has no way to push the update to the user
-            </span>
-          </p>
-        </section>
-        <section>
-          <h3>Refreshing with AJAX</h3>
-          <pre class='xs'><code class='javascript' data-trim>function refresh() {&#x000A;  var request = new XMLHttpRequest();&#x000A;  request.open('GET', '/channel', true);&#x000A;  request.onload = function() {&#x000A;    var newHtml = request.responseText;&#x000A;    var parser = new DOMParser();&#x000A;    var newDocument = parser.parseFromString(newHtml, 'text/html');&#x000A;    var newChannel = newDocument.querySelector('.channel');&#x000A;    var oldChannel = document.querySelector('.channel');&#x000A;    oldChannel.innerHTML = newChannel.innerHTML;&#x000A;  };&#x000A;  request.send();&#x000A;}&#x000A;&#x000A;setInterval(refresh, 1000);&#x000A;</code></pre>
-        </section>
-        <section>
-          <h2>
-            Improving the<br>chat interface (3)
-          </h2>
-        </section>
-        <section>
-          <h3>Client-side search</h3>
-          <pre class='xxxs'><code class='javascript' data-trim>function search() {&#x000A;  var queryInput = document.querySelector('.search-form input');&#x000A;  var query = queryInput.value.toLowerCase();&#x000A;  var messageElements = document.querySelectorAll('.message');&#x000A;  for (var i = 0; i < messageElements.length; i++) {&#x000A;    var messageElement = messageElements[i];&#x000A;    var text = messageElement.textContent.toLowerCase();&#x000A;    var isMatch = (text.indexOf(query) != -1);&#x000A;    if (isMatch) {&#x000A;      messageElement.style.display = 'block';&#x000A;    } else {&#x000A;      messageElement.style.display = 'none';&#x000A;    }&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', function() {&#x000A;  var queryInput = document.querySelector('.search-form input');&#x000A;  queryInput.addEventListener('input', search);&#x000A;});&#x000A;</code></pre>
-        </section>
-        <section>
-          <h2>Improving <code>app.rb</code></h2>
-          <p>
-            Our current implementation has <code>app.rb</code> is a single script<br>
-            with a lot of responsibilities:
-          </p>
-          <ul>
-            <li>Routing</li>
-            <li>Storage</li>
-            <li>Business logic</li>
-          </ul>
-          <p>
-            This is not how it's done in the real world.
-          </p>
-        </section>
-        <section>
-          <h3>Version 1</h3>
-          <pre class='xs'><code class='ruby' data-trim>&nbsp;&#x000A;&#x000A;get '/channel' do&#x000A;  @messages = File.read('messages.txt').lines&#x000A;  erb(:channel)&#x000A;end&#x000A;&#x000A;get '/send' do&#x000A;  message = params['message']&#x000A;  file = File.open('messages.txt', 'a')&#x000A;  file.puts(message)&#x000A;  file.close()&#x000A;  redirect('/channel')&#x000A;end&#x000A;&nbsp;&#x000A;</code></pre>
-        </section>
-        <section>
-          <h3>SQL database</h3>
-          <pre class='xs'><code class='ruby' data-trim>db = Mydb::Client.new(host: 'localhost')&#x000A;&#x000A;get '/channel' do&#x000A;  @messages = db.select_values('SELECT text FROM messages')&#x000A;  erb(:channel)&#x000A;end&#x000A;&#x000A;get '/send' do&#x000A;  message = params['message']&#x000A;  escaped = db.escape(message)&#x000A;  db.execute('INSERT INTO messages VALUES (' + escaped + ')')&#x000A;  redirect('/channel')&#x000A;end&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
-        </section>
-        <section>
-          <div class='columns'>
-            <div class='column'>
-              <h3>Controller</h3>
-              <pre class='xs'><code class='ruby' data-trim>channel = Channel.new&#x000A;&#x000A;get '/channel' do&#x000A;  @messages = channel.messages&#x000A;  erb(:channel)&#x000A;end&#x000A;&#x000A;get '/send' do&#x000A;  message = params['message']&#x000A;  channel.add_message(message)&#x000A;  redirect('/channel')&#x000A;end&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;&nbsp;</code></pre>
-            </div>
-            <div class='column'>
-              <h3>Model</h3>
-              <pre class='xs'><code class='ruby' data-trim>class Channel&#x000A;&#x000A;  def initialize&#x000A;    @db = Mydb::Client.new&#x000A;  end&#x000A;&#x000A;  def messages&#x000A;    @db.select_values('SELECT text FROM messages')&#x000A;  end&#x000A;&#x000A;  def add_message(message)&#x000A;    escaped = @db.escape(message)&#x000A;    @db.execute('INSERT INTO messages VALUES (' + escaped + ')')&#x000A;  end&#x000A;&#x000A;end&#x000A;</code></pre>
-            </div>
-          </div>
-        </section>
-        <section>
-          <h2>Scaling the chat app</h2>
-        </section>
-        <section>
-          <div class='center'>
-            <img src='pictures/web_app_cluster.png' width='600'>
-          </div>
-        </section>
-        <section>
-          <h2>Questions?</h2>
-        </section>
-        <section data-background-color='#111'>
-          <h2>Web development 101</h2>
-          <h3>
-            <a class='blue no-underline' href='https://twitter.com/triskweline'>Henning Koch</a>
-            <br>
-            <a class='blue no-underline' href='https://makandra.de'>makandra GmbH</a>
-          </h3>
-        </section>
-      </div>
-    </div>
-    <script src='lib/js/head.min.js'></script>
-    <script src='js/reveal.js'></script>
-    <script>
-      // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-      
-        transition: 'none', // none/fade/slide/convex/concave/zoom
-      
-        // Optional reveal.js plugins
-        dependencies: [
-          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: 'plugin/zoom-js/zoom.js', async: true },
-          { src: 'plugin/notes/notes.js', async: true }
-        ]
-      });
-    </script>
-  </body>
+<head>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta charset='utf-8'>
+<title>Web development 101</title>
+<meta content='A framework for easily creating beautiful presentations using HTML' name='description'>
+<meta content='Hakim El Hattab' name='author'>
+<meta content='yes' name='apple-mobile-web-app-capable'>
+<meta content='black-translucent' name='apple-mobile-web-app-status-bar-style'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui' name='viewport'>
+<link href='css/reveal.css' rel='stylesheet'>
+<link href='css/theme/blood.css' id='theme' rel='stylesheet'>
+<link href='css/custom.css' rel='stylesheet'>
+<!-- Code syntax highlighting -->
+<link href='lib/css/zenburn.css' rel='stylesheet'>
+<!-- Printing and PDF exports -->
+<script>
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class='reveal'>
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class='slides'>
+<section data-background-color='#111'>
+<h2>Web development 101</h2>
+<h3>
+<a class='blue no-underline' href='https://twitter.com/triskweline'>Henning Koch</a>
+<br>
+<a class='blue no-underline' href='https://makandra.de'>makandra GmbH</a>
+</h3>
+</section>
+<section>
+<h2>Web applications?</h2>
+</section>
+<section>
+<img src='pictures/example_gmail.png' style='max-height: 600px'>
+</section>
+<section>
+<img src='pictures/example_facebook.png' style='max-height: 600px'>
+</section>
+<section>
+<img src='pictures/example_trello.png' style='min-height: 600'>
+</section>
+<section>
+<h2>This is a course for beginners</h2>
+<p class='fragment'>
+Who is here?
+</p>
+<p class='fragment'>
+Who has programmed before (any language)?
+</p>
+<p class='fragment'>
+Who has made a website before?
+</p>
+</section>
+<section>
+<h2>Native apps vs. web apps</h2>
+</section>
+<section>
+<h2>Native applications</h2>
+<p>
+Entire app runs on a single computer
+</p>
+<p>
+Entire app is (often) written in a single language
+<br>
+<span class='subtle'>
+Popular languages: Java, C#, C++, Objective-C
+</span>
+</p>
+</section>
+<section>
+<h2>
+Web applications
+</h2>
+<p>
+Application runs on multiple computers
+<br>
+<span class='subtle'>
+Typical: One server, many clients (= web browsers)
+</span>
+</p>
+<p>
+Client and server run different parts of the application
+<br>
+<span class='subtle'>
+and they communicate over HTTP
+</span>
+</p>
+<p>
+Application is written in a "stack" of many technologies
+<br>
+<span class='subtle'>
+Typical stack: HTML, CSS, JavaScript, Ruby/PHP/Java, SQL
+</span>
+</p>
+</section>
+<section>
+<table>
+<tr>
+<th>
+Language
+</th>
+<th>
+Purpose
+</th>
+<th>
+Runs where?
+</th>
+</tr>
+<tr>
+<td>
+HTML
+</td>
+<td>
+Textual content
+</td>
+<td>
+Client
+</td>
+</tr>
+<tr>
+<td>
+CSS
+</td>
+<td>
+Layout & Design
+</td>
+<td>
+Client
+</td>
+</tr>
+<tr>
+<td>
+JavaScript
+</td>
+<td>
+Client-side interaction
+</td>
+<td>
+Client
+</td>
+</tr>
+<tr>
+<td>
+HTTP
+</td>
+<td>
+Client/server communication
+</td>
+<td>Client/server</td>
+</tr>
+<tr>
+<td>
+Ruby/PHP/Java
+</td>
+<td>
+Controller & Model
+</td>
+<td>
+Server
+</td>
+</tr>
+<tr>
+<td>
+SQL
+</td>
+<td>
+Database access
+</td>
+<td>
+Server
+</td>
+</tr>
+</table>
+</section>
+<section>
+<h2>In 2020 web apps are the dominant form of user-facing applications</h2>
+<ul class='fragment'>
+<li>
+Can be used from any device with a web browser
+<br>
+<span class='subtle'>
+(Windows, Linux, MacOS, Android ...)
+</span>
+</li>
+<li>
+No installation
+<br>
+<span class='subtle'>
+Web browser downloads and "installs" a fresh copy every time
+you visit a website
+</span>
+</li>
+<li>Is always the latest version</li>
+<li>Inherently multi-user</li>
+</ul>
+</section>
+<section>
+<h2>Today</h2>
+<ul>
+<li>HTML &amp; HTTP</li>
+<li>CSS</li>
+<li style='color: #ee9955'>Break</li>
+<li>Server-side web applications</li>
+<li>JavaScript</li>
+<li style='color: #ee9955'>Discussion / end</li>
+</ul>
+<br>
+<br>
+<h4>Read along</h4>
+<p>
+<a href='http://webdev101.makandra.de'>http://webdev101.makandra.de<br></a>
+<a href='https://github.com/makandra/webdev101'>https://github.com/makandra/webdev101</a>
+</p>
+</section>
+<section data-background-color='#245'>
+<div class='s'>
+<h2>
+HTML<br />
+<span class='subtle'>Hypertext Markup Language</span>
+</h2>
+<h2>
+HTTP<br />
+<span class='subtle'>Hypertext Transfer Protocol</span>
+</h2>
+</div>
+</section>
+<section>
+<h2>HTML</h2>
+<div class='columns'>
+<div class='column'>
+<pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;Hi there!&lt;/h1&gt;&#x000A;    &lt;p&gt;Look at this image:&lt;/p&gt;&#x000A;    &lt;img src="image.jpg"&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;</code></pre>
+<p class='fragment'>
+<a href='examples/1010_request_response/' target='_blank'>View example</a>
+<br>
+<span class='subtle'>
+(use the inspector)
+</span>
+</p>
+</div>
+<div class='column'>
+<img src='pictures/screenshot_request_response.png' width='400'>
+</div>
+</div>
+</section>
+<section>
+<h2>HTTP</h2>
+<p>
+User enters into her browser's address bar:
+</p>
+<pre><code class='nohighlight' data-trim>http://www.makandra.com/page.html&#x000A;</code></pre>
+<p>
+What happens?
+</p>
+</section>
+<section>
+<p>
+Browser asks server:
+</p>
+<pre class='xs fragment'><code class='nohighlight' data-trim>GET /page.html HTTP/1.1        # I want the file /page.html&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
+<p class='fragment'>
+Server looks for a local file <code>page.html</code> and replies:
+</p>
+<pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 114            # What you want has 114 bytes&#x000A;Content-Type: text/html        # And it's in HTML format&#x000A;                               # Here it comes:&#x000A;&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;Hi there!&lt;/h1&gt;&#x000A;    &lt;p&gt;Look at this image:&lt;/p&gt;&#x000A;    &lt;img src="image.jpg"&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
+</section>
+<section>
+<p>
+The browser parses the HTML and encounters this tag:
+</p>
+<pre><code class='html' data-trim>&lt;img src="image.jpg"&gt;&#x000A;</code></pre>
+<p>
+What happens?
+</p>
+</section>
+<section>
+<p>
+Browser asks server:
+</p>
+<pre class='xs fragment'><code class='nohighlight' data-trim>GET /image.jpg HTTP/1.1        # I want the file /image.jpg&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: image/jpeg, image/png  # I understand JPEG and PNG&#x000A;</code></pre>
+<p class='fragment'>
+Server looks for a local file <code>image.jpg</code> and replies:
+</p>
+<pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 67840          # What you want has 66 KB&#x000A;Content-Type: image/jpeg       # And it's in JPEG format&#x000A;                               # Here it comes:&#x000A;FF D8 FF E0 00 10 4A 46&#x000A;49 46 00 01 01 01 00 48&#x000A;00 48 00 00 FF E1 1C 13&#x000A;45 78 69 66 00 00 49 49&#x000A;2A 00 08 00 00 00 0D 00&#x000A;0F 01 02 00 06 00 00 00&#x000A;...</code></pre>
+</section>
+<section>
+<pre class='xxl'><code class='nohighlight' data-trim>telnet example.com 80</code></pre>
+</section>
+<section>
+<h2>HTML</h2>
+<ul>
+<li>
+<a href='examples/1015_more_tags' target='_blank'>More tags</a>
+</li>
+<li>
+<a href='examples/1020_video' target='_blank'>Video & fallbacks</a>
+</li>
+<li>
+<a href='examples/1025_table/page.html' target='_blank'>Table</a>
+</li>
+<li>
+<a href='examples/1030_form/page.html' target='_blank'>Form</a>
+</li>
+</ul>
+</section>
+<section data-background-color='#245'>
+<h2>
+CSS<br />
+<span class='subtle'>Cascading Style Sheets</span>
+</h2>
+</section>
+<section>
+<div class='columns'>
+<div class='column'>
+<h2>HTML</h2>
+<pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;About Capybaras&lt;/h1&gt;&#x000A;    &lt;p&gt;&#x000A;      The capybara is the&#x000A;      <b>largest</b> rodent&#x000A;      in the world.&#x000A;    &lt;/p&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
+</div>
+<div class='column fragment'>
+<h2>Browser</h2>
+<img height='300' src='pictures/screenshot_simple_css.png'>
+</div>
+</div>
+<p class='center' style='visibility: hidden'>
+<a href='examples/1045_simple_css/page.html' target='_blank'>View both together</a>
+</p>
+</section>
+<section>
+<div class='columns'>
+<div class='column'>
+<h2>HTML</h2>
+<pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    &lt;h1&gt;About Capybaras&lt;/h1&gt;&#x000A;    &lt;p&gt;&#x000A;      The capybara is the&#x000A;      <b>largest</b> rodent&#x000A;      in the world.&#x000A;    &lt;/p&gt;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
+</div>
+<div class='column'>
+<h2>CSS</h2>
+<pre><code class='css' data-trim>body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;b {&#x000A;  background-color: #ff9900;&#x000A;}&#x000A;</code></pre>
+</div>
+</div>
+<p class='center fragment'>
+<a href='examples/1045_simple_css/page.html' target='_blank'>View both together</a>
+</p>
+</section>
+<section data-background-color='#333333'>
+<h2>Colors in CSS</h2>
+<div class='columns'>
+<div class='column'>
+<div style='font-weight: bold; color: #ff0000'><code>#ff0000</code></div>
+<div style='font-weight: bold; color: #00ff00'><code>#00ff00</code></div>
+<div style='font-weight: bold; color: #0000ff'><code>#0000ff</code></div>
+<div style='font-weight: bold; color: #ffff00'><code>#ffff00</code></div>
+<div style='font-weight: bold; color: #ffffff'><code>#ffffff</code></div>
+<div style='font-weight: bold; color: #000000'><code>#000000</code></div>
+<div class='fragment'>
+<div style='font-weight: bold; color: #ff9900'><code>#ff9900</code></div>
+<div style='font-weight: bold; color: #4488bb'><code>#4488bb</code></div>
+<div style='font-weight: bold; color: #9900ff'><code>#9900ff</code></div>
+<div style='font-weight: bold; color: #777777'><code>#777777</code></div>
+<div style='font-weight: bold; color: #22aa88'><code>#22aa88</code></div>
+<div style='font-weight: bold; color: #885555'><code>#885555</code></div>
+</div>
+</div>
+<div class='column'>
+<div class='fragment'>
+<div style='font-weight: bold; color: red'><code>red</code></div>
+<div style='font-weight: bold; color: yellow'><code>yellow</code></div>
+<div style='font-weight: bold; color: fuchsia'><code>fuchsia</code></div>
+<div style='font-weight: bold; color: rebeccapurple'><code>rebeccapurple</code></div>
+</div>
+<div class='fragment'>
+<div style='font-weight: bold; color: rgba(255, 0, 0, 1.0)'><code>rgba(255, 0, 0, 1.0)</code></div>
+<div style='font-weight: bold; color: rgba(255, 0, 0, 0.75)'><code>rgba(255, 0, 0, 0.75)</code></div>
+<div style='font-weight: bold; color: rgba(255, 0, 0, 0.5)'><code>rgba(255, 0, 0, 0.5)</code></div>
+<div style='font-weight: bold; color: rgba(255, 0, 0, 0.25)'><code>rgba(255, 0, 0, 0.25)</code></div>
+</div>
+<div class='fragment'>
+<div style='font-weight: bold; color: hsl(0, 100%, 50%)'><code>hsl(0, 100%, 50%)</code></div>
+<div style='font-weight: bold; color: hsl(30, 100%, 50%)'><code>hsl(30, 100%, 50%)</code></div>
+<div style='font-weight: bold; color: hsl(30, 50%, 50%)'><code>hsl(30, 50%, 50%)</code></div>
+<div style='font-weight: bold; color: hsl(30, 50%, 70%)'><code>hsl(30, 50%, 70%)</code></div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>How to link HTML and CSS (1)</h2>
+<pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;head&gt;&#x000A;    &lt;style&gt;&#x000A;      h1 {&#x000A;        color: #ff0000;&#x000A;      }&#x000A;    &lt;/style&gt;&#x000A;  &lt;/head&gt;&#x000A;  &lt;body&gt;&#x000A;    ...&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
+</section>
+<section>
+<h2>How to link HTML and CSS (2)</h2>
+<pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;head&gt;&#x000A;    &lt;link rel="stylesheet" href="styles.css"&gt;&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;  &lt;/head&gt;&#x000A;  &lt;body&gt;&#x000A;    ...&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
+</section>
+<section>
+<p>
+The browser parses the HTML and encounters this tag:
+</p>
+<pre><code class='html' data-trim>&lt;link rel="stylesheet" href="styles.css"&gt;&#x000A;</code></pre>
+<p>
+What happens?
+</p>
+</section>
+<section>
+<p>
+Browser asks server:
+</p>
+<pre class='xs fragment'><code class='nohighlight' data-trim>GET /styles.css HTTP/1.1       # I want the file /styles.css&#x000A;Host: www.makandra.com         # I know you as www.makandra.com&#x000A;Accept: text/css               # I understand the CSS format&#x000A;</code></pre>
+<p class='fragment'>
+Server looks for a local file <code>styles.css</code> and replies:
+</p>
+<pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 182            # What you want has 182 bytes&#x000A;Content-Type: text/css         # And it's in CSS format&#x000A;                               # Here it comes:&#x000A;body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;...&#x000A;</code></pre>
+</section>
+<section>
+<h2>An advanced CSS example</h2>
+<img height='150' src='pictures/screenshot_pretty_button.png'>
+<p>
+<a href='examples/1050_css_button/page.html' target='_blank'>View example</a>
+</p>
+</section>
+<section>
+<h2>Selectors</h2>
+<pre><code class='css' data-trim>body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;b {&#x000A;  background-color: #ff0000;&#x000A;}&#x000A;</code></pre>
+</section>
+<section>
+<h2>Selectors</h2>
+<pre><code class='css' data-noescape data-trim><em>body</em> {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;<em>h1</em> {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;<em>b</em> {&#x000A;  background-color: #ff0000;&#x000A;}&#x000A;</code></pre>
+</section>
+<section>
+<h2>&nbsp;</h2>
+<div>
+<code data-trim><br />
+&lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+<br />
+&lt;p class="introduction"&gt;<br />
+&nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+&nbsp;&nbsp;in the world.<br />
+&lt;/p&gt;<br />
+<br />
+&lt;p&gt;<br />
+&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+&lt;/p&gt;</code>
+</div>
+</section>
+<section>
+<h2>
+<code>h1 { ... }</code>
+</h2>
+<div>
+<code data-trim><br />
+<em>
+&lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+</em>
+<br />
+&lt;p class="introduction"&gt;<br />
+&nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+&nbsp;&nbsp;in the world.<br />
+&lt;/p&gt;<br />
+<br />
+&lt;p&gt;<br />
+&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+&lt;/p&gt;</code>
+</div>
+</section>
+<section>
+<h2>
+<code>p { ... }</code>
+</h2>
+<div>
+<code data-trim><br />
+&lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+<br />
+<em>
+&lt;p class="introduction"&gt;<br />
+&nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+&nbsp;&nbsp;in the world.<br />
+&lt;/p&gt;<br />
+<br />
+&lt;p&gt;<br />
+&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+&lt;/p&gt;
+</em></code>
+</div>
+</section>
+<section>
+<h2>
+<code>p.introduction { ... }</code>
+</h2>
+<div>
+<code data-trim><br />
+&lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+<br />
+<em>
+&lt;p class="introduction"&gt;<br />
+&nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+&nbsp;&nbsp;in the world.<br />
+&lt;/p&gt;<br />
+</em>
+<br />
+&lt;p&gt;<br />
+&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+&lt;/p&gt;</code>
+</div>
+</section>
+<section>
+<h2>
+<code>p:last-child { ... }</code>
+</h2>
+<div>
+<code data-trim><br />
+&lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+<br />
+&lt;p class="introduction"&gt;<br />
+&nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+&nbsp;&nbsp;in the world.<br />
+&lt;/p&gt;<br />
+<br />
+<em>
+&lt;p&gt;<br />
+&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+&lt;/p&gt;
+</em></code>
+</div>
+</section>
+<section>
+<h2>
+<code>h1, p:last-child { ... }</code>
+</h2>
+<div>
+<code data-trim><br />
+<em>
+&lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+</em>
+<br />
+&lt;p class="introduction"&gt;<br />
+&nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+&nbsp;&nbsp;in the world.<br />
+&lt;/p&gt;<br />
+<br />
+<em>
+&lt;p&gt;<br />
+&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+&lt;/p&gt;
+</em></code>
+</div>
+</section>
+<section>
+<h2>
+<code>h1+p { ... }</code>
+</h2>
+<div>
+<code data-trim><br />
+&lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+<br />
+<em>
+&lt;p class="introduction"&gt;<br />
+&nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+&nbsp;&nbsp;in the world.<br />
+&lt;/p&gt;<br />
+<br />
+</em>
+&lt;p&gt;<br />
+&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+&lt;/p&gt;</code>
+</div>
+</section>
+<section>
+<h2>
+<code>b { ... }</code>
+</h2>
+<div>
+<code data-trim><br />
+&lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+<br />
+&lt;p class="introduction"&gt;<br />
+&nbsp;&nbsp;The <span class="foo">capybara</span> is the largest <em>&lt;b&gt;rodent&lt;/b&gt;</em><br />
+&nbsp;&nbsp;in the world.<br />
+&lt;/p&gt;<br />
+<br />
+&lt;p&gt;<br />
+&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;<em>&lt;b&gt;Hydrochoerinae&lt;/b&gt;</em> along with ...<br />
+&lt;/p&gt;</code>
+</div>
+</section>
+<section>
+<h2>
+<code>p.introduction b { ... }</code>
+</h2>
+<div>
+<code data-trim><br />
+&lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+<br />
+&lt;p class="introduction"&gt;<br />
+&nbsp;&nbsp;The <span class="foo">capybara</span> is the largest <em>&lt;b&gt;rodent&lt;/b&gt;</em><br />
+&nbsp;&nbsp;in the world.<br />
+&lt;/p&gt;<br />
+<br />
+&lt;p&gt;<br />
+&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+&lt;/p&gt;</code>
+</div>
+</section>
+<section>
+<div class='subtle'>(Time check)</div>
+</section>
+<section>
+<h2>The box model</h2>
+<img height='250' src='pictures/box_model.png'>
+<p>
+<a href='examples/1055_box_model/page.html' target='_blank'>View example</a>
+</p>
+</section>
+<section>
+<h2>Positioning</h2>
+<img height='300' src='pictures/screenshot_positioning.png'>
+<p>
+<a href='examples/1066_positioning/page.html' target='_blank'>View example</a>
+</p>
+</section>
+<section>
+<h3>
+Putting elements side-by-side
+<div class='subtle'>
+With positioning
+</div>
+</h3>
+<img height='300' src='pictures/screenshot_layout.png'>
+<p>
+<a href='examples/1070_layout' target='_blank'>View example</a>
+</p>
+</section>
+<section>
+<h3>
+Putting elements side-by-side
+<div class='subtle'>
+With Flexbox
+</div>
+</h3>
+<img height='300' src='pictures/screenshot_layout.png'>
+<p>
+<a href='examples/1071_layout_with_flexbox' target='_blank'>View example</a>
+</p>
+</section>
+<section>
+<h2>CSS frameworks</h2>
+<p>
+<a href='examples/1075_bootstrap/index.html' target='_blank'>View example</a>
+</p>
+</section>
+<section data-background-color='#172'>
+<h2>After the break</h2>
+<ul>
+<li>Server-side web applications</li>
+<li>JavaScript</li>
+</ul>
+</section>
+<section data-background-color='#245'>
+<h2>
+<span class='subtle'>Server-side</span>
+<br>
+Web applications
+</h2>
+</section>
+<section>
+<p>
+Let's write a web app that returns the current time:
+</p>
+<pre><code class='nohighlight' data-trim>http://timeapp.com/now.html</code></pre>
+</section>
+<section>
+<p>
+Browser asks server:
+</p>
+<pre class='xs fragment'><code class='nohighlight' data-trim>GET /now.html HTTP/1.1         # I want the file /now.html&#x000A;Host: timeapp.com              # I want it from timeapp.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
+<p class='fragment'>
+Server looks for a local file <code>now.html</code> and replies:
+</p>
+<pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 22             # What you want has 22 bytes&#x000A;Content-Type: text/plain       # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 15:00:00.&#x000A;</code></pre>
+<br />&nbsp;
+<br />&nbsp;
+<br />&nbsp;
+</section>
+<section>
+<p>
+Browser asks server:
+</p>
+<pre class='xs'><code class='nohighlight' data-trim>GET /now.html HTTP/1.1         # I want the file /now.html&#x000A;Host: timeapp.com              # I want it from timeapp.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
+<p>
+<span class='fragment'>
+Server runs a program <code>time.exe</code>.<br>
+</span>
+<span class='fragment'>
+The program <code>time.exe</code> writes the current time to <code>STDOUT</code>:
+</span>
+</p>
+<pre class='xs fragment'><code class='ruby' data-trim>print "The time is " + Time.now.to_s&#x000A;</code></pre>
+<p>
+<span class='fragment'>
+Server takes the program output and sends it the browser:
+</span>
+</p>
+<pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 22             # What you want has 22 bytes&#x000A;Content-Type: text/plain       # And it's in plain text&#x000A;                               # Here it comes:&#x000A;The time is 14:37:05.&#x000A;</code></pre>
+</section>
+<section>
+<h3>Browser don't know about web apps!</h3>
+<p>
+The browser simply makes a request and gets back a string of HTML.
+</p>
+<p>
+The browser <b>doesn't even know</b> if the HTML was generated by an app, or was simply read from a static file.
+</p>
+</section>
+<section>
+<h3>You can write web apps in any language that can print text</h3>
+<p>
+Popular choices:
+</p>
+<ul>
+<li>Node.js</li>
+<li>Ruby</li>
+<li>Java</li>
+<li>PHP</li>
+<li>Python</li>
+</ul>
+<p class='fragment'>
+The following examples are in Ruby, but concepts apply to all languages.
+</p>
+</section>
+<section>
+<div class='columns'>
+<div class='column'>
+<h3>Ruby</h3>
+<pre class='xxs'><code class='ruby'>class User&#x000A;&#x000A;  def initialize(name, age)&#x000A;    @name = name&#x000A;    @age = age&#x000A;  end&#x000A;&#x000A;  def adult?&#x000A;    @age >= 18&#x000A;  end&#x000A;&#x000A;end&#x000A;&#x000A;user = User.new('Max', 18)&#x000A;puts user.name&#x000A;</code></pre>
+</div>
+<div class='column'>
+<h3>Java</h3>
+<pre class='xxs'><code class='java'>class User {&#x000A;&#x000A;  private String name;&#x000A;  private int age;&#x000A;&#x000A;  public User(name, age) {&#x000A;    this.name = name;&#x000A;    this.age = age;&#x000A;  }&#x000A;&#x000A;  public boolean isAdult() {&#x000A;    return age >= 18;&#x000A;  }&#x000A;&#x000A;}&#x000A;&#x000A;var user = new User("Max", 18);&#x000A;System.out.println(user.getName());&#x000A;</code></pre>
+</div>
+</div>
+</section>
+<section>
+<h2>The chat app</h2>
+<ul>
+<li>
+<a href='examples/2000_chat/src' target='_blank'>View source</a>
+</li>
+</ul>
+<p>
+To run the chat app:
+</p>
+<pre><code class='nohighlight' data-trim>cd examples/2000_chat/src&#x000A;ruby app.rb&#x000A;</code></pre>
+<p>
+You can now access the app at
+<a href='http://localhost:4567/channel'>http://localhost:4567/channel</a>
+</p>
+</section>
+<section>
+<p>
+The user types into her address bar:
+</p>
+<pre><code class='nohighlight' data-trim>http://chatapp.com/channel</code></pre>
+<p>
+What happens?
+</p>
+</section>
+<section>
+<p>
+Browser asks server:
+</p>
+<pre class='xs'><code class='nohighlight' data-trim>GET /channel HTTP/1.1          # I want /channel&#x000A;Host: chatapp.com              # I want it from chatapp.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
+<p class='fragment'>
+Server asks the program <code>app.rb</code> for <code>/channel</code>.<br>
+</p>
+<p class='fragment'>
+The program prints a new HTML page with the latest chat messages.
+</p>
+<p class='fragment'>
+The server takes the program output and sends it the browser:
+</p>
+<pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 1589           # What you want has 1589 bytes&#x000A;Content-Type: text/html        # And it's in HTML format&#x000A;                               # Here it comes:&#x000A;&lt;html&gt;&#x000A;  ...&#x000A;&lt;/html&gt;&#x000A;</code></pre>
+</section>
+<section>
+<p>
+The user sends a message to the chat channel:
+</p>
+<pre><code class='nohighlight' data-trim>Hello world</code></pre>
+<p>
+What happens?
+</p>
+</section>
+<section>
+<p>
+Browser asks server:
+</p>
+<pre class='xxs'><code class='nohighlight' data-trim>POST /send HTTP/1.1                              # I'm posting data to /send&#x000A;Host: chatapp.com                                # I'm posting it to chatapp.com&#x000A;Content-Type: application/x-www-form-urlencoded  # I'm posting key/value pairs&#x000A;                                                 # Here it comes:&#x000A;message=Hello+world&#x000A;</code></pre>
+<p class='fragment'>
+Server calls the program <code>app.rb</code> with the posted data.
+</p>
+<p class='fragment'>
+The program stores the message and prints a string of HTTP.
+</p>
+<p class='fragment'>
+The server takes the program output and sends it the browser:
+</p>
+<pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 303 See Other   # This conversation continues elsewhere&#x000A;Location: /channel       # Request /channel to continue&#x000A;</code></pre>
+<p class='fragment'>
+The browser automatically makes another request to <code>/channel</code>
+and gets a fresh copy of the message list.
+</p>
+</section>
+<section>
+<h2>Improving the<br>chat interface</h2>
+<ul>
+<li>
+When another user sends us a message,<br>
+we don't notice until we reload the page
+</li>
+<li>
+The message list should automatically scroll to the most recent message
+</li>
+<li>
+It would be nice to be able to search through our messages
+</li>
+</ul>
+<p>For such things we need <b>JavaScript</b>.</p>
+</section>
+<section data-background-color='#245'>
+<h2>JavaScript</h2>
+</section>
+<section>
+<pre class='xxl'><code class='javascript' data-trim>// This is a comment&#x000A;&#x000A;var x = 1;&#x000A;var y = x + 1;&#x000A;&#x000A;console.log(y); // 2&#x000A;</code></pre>
+</section>
+<section>
+<pre class='xxl'><code class='javascript' data-trim>function square(n) {&#x000A;  return n * n;&#x000A;}&#x000A;&#x000A;var x = square(16);&#x000A;console.log(x);    // 256&#x000A;&#x000A;var z = square;&#x000A;console.log(z);    // function { ... }&#x000A;console.log(z(4)); // 16&#x000A;</code></pre>
+</section>
+<section>
+<h3>
+HTML
+</h3>
+<pre class='xs'><code class='html' data-trim><div>&#x000A;  <p>one</p>&#x000A;  <p>two</p>&#x000A;  <p>three</p>&#x000A;</div>&#x000A;</code></pre>
+<h3>Browser API</h3>
+<pre class='xs'><code class='javascript' data-trim>var div = document.querySelector('div');&#x000A;var children = div.children;&#x000A;console.log(children);&#x000A;// [<p>one</p>, <p>two</p>, <p>three</p>]&#x000A;&#x000A;var parent = children[0].parentNode;&#x000A;console.log(parent); // [<div>...</div>]&#x000A;&#x000A;console.log(parent === div); // true&#x000A;&#x000A;children[1].style.color = 'red';</code></pre>
+<p>
+<a href='examples/1150_browser_api/page.html' target='_blank'>View example</a>
+</p>
+</section>
+<section>
+<h2>How to link HTML and JavaScript (1)</h2>
+<pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script&gt;&#x000A;      var x = 1;&#x000A;      var y = x + y;&#x000A;    &lt;/script&gt;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
+</section>
+<section>
+<h2>How to link HTML and JavaScript (2)</h2>
+<pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script src="scripts.js"&gt;&lt;/script&gt;&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
+</section>
+<section>
+<h2>Events</h2>
+<p></p>
+<p>
+<a href='examples/1200_event_listener/page.html' target='_blank'>View example</a>
+</p>
+</section>
+<section>
+<h2>JavaScript is not my favorite language</h2>
+<ul>
+<li>Bad standard lib (strings, numbers, arrays...) with varying support across browsers.</li>
+<li>Not everything is an object.</li>
+<li>There are three kinds of <code>null</code>.</li>
+<li>Equality is confusing. Also can't define equality for your own types.</li>
+<li>No good OOP.</li>
+<li>Explicit <code>this</code>.</li>
+<li>Browser API is often impractical and inconsistent across browsers.</li>
+</ul>
+</section>
+<section>
+Your new friend:
+<a href='http://caniuse.com/#search=media'>caniuse.com</a>
+<br>
+<img height='500' src='pictures/caniuse.png'>
+</section>
+<section>
+<h3>Most people use JavaScript with:</h3>
+<ul>
+<li>
+A precompiler to make the language less horrible
+<div class='subtle'>
+(Babel, TypeScript, CoffeeScript)
+</div>
+</li>
+<li>
+A number of "polyfills" that backport modern JavaScript APIs to old browsers
+</li>
+<li>
+A utility library to patch holes in the Stdlib
+<div class='subtle'>
+(Lodash, date-fns)
+</div>
+</li>
+<li>
+A library to fix and equalize DOM API across browsers
+<div class='subtle'>
+(DOM level 4 polyfills, jQuery)
+</div>
+</li>
+</ul>
+</section>
+<section>
+<h3>
+Replace an element
+<br>
+with another element
+</h3>
+<div class='fragment'>
+<h4>Cross-browser</h4>
+<pre><code class='javascript' data-trim>oldElement.parentElement.replaceChild(newElement, oldElement)&#x000A;&#x000A;</code></pre>
+</div>
+<div class='fragment'>
+<h4>With DOM level 4 polyfill</h4>
+<pre><code class='javascript' data-trim>oldElement.replaceWith(newElement)&#x000A;</code></pre>
+</div>
+</section>
+<section>
+<h3>Make a class <code>Student</code><br />which inherits from <code>Person</code></h3>
+<div class='fragment'>
+<h4>Pure JavaScript</h4>
+<pre><code class='javascript' data-trim>function Student(name) {&#x000A;  this.name = name;&#x000A;}&#x000A;&#x000A;Student.prototype = new Person();&#x000A;&#x000A;Student.prototype.constructor = Student;&#x000A;&#x000A;Student.prototype.sayHello = function() {&#x000A;  console.log("Hello, I'm " + this.name);&#x000A;};&#x000A;</code></pre>
+</div>
+</section>
+<section>
+<h3>Make a class <code>Student</code><br />which inherits from <code>Person</code></h3>
+<h4>JavaScript + Babel</h4>
+<pre><code class='javascript' data-trim>class Student extends Person {&#x000A;&#x000A;  constructor(name) {&#x000A;    this.name = name;&#x000A;  }&#x000A;&#x000A;  sayHello() {&#x000A;    console.log("Hello, I'm " + this.name);&#x000A;  }&#x000A;&#x000A;}&#x000A;&#x000A;&#x000A;</code></pre>
+</section>
+<section>
+<h3>
+Test if two variables
+<br>
+are equal by value
+</h3>
+<div class='fragment'>
+<h4>Pure JavaScript</h4>
+<img src='pictures/cthulhu.cropped.jpg' style='max-height:300px'>
+</div>
+<div class='fragment'>
+<h4>JavaScript + Lodash</h4>
+<pre><code class='javascript' data-trim>_.isEqual(object)</code></pre>
+</div>
+</section>
+<section>
+<h2>
+Improving the<br>chat interface (1)
+</h2>
+</section>
+<section>
+<h3>Scrolling to the bottom</h3>
+<pre class='xs'><code class='javascript' data-trim>function showLastMessage() {&#x000A;  var lastMessage = document.querySelector('.message:last-child');&#x000A;  if (lastMessage) {&#x000A;    lastMessage.scrollIntoView();&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', showLastMessage);&#x000A;&#x000A;</code></pre>
+</section>
+<section>
+<h2>
+Improving the<br>chat interface (2)
+</h2>
+</section>
+<section>
+<h2>
+How do we notice when another user sends a message?<br>
+<span class='red fragment'>
+We don't
+</span>
+</h2>
+</section>
+<section>
+<h2>Classic web applications<br>are a slide show</h2>
+<p>
+⇢ User requests a website<br>
+<span class='green'>
+⇠ Server sends a fresh copy
+</span>
+</p>
+<p>
+⇢ User clicks a link<br>
+<span class='green'>
+⇠ Server sends a fresh copy
+</span>
+</p>
+<p>
+⇢ User submits a form<br>
+<span class='green'>
+⇠ Server sends a fresh copy
+</span>
+</p>
+<p>
+⇢ User reloads the page manually<br>
+<span class='green'>
+⇠ Server sends a fresh copy
+</span>
+</p>
+<p>
+⇣ Another user sends a message<br>
+<span class='red'>
+× Server has no way to push the update to the user
+</span>
+</p>
+</section>
+<section>
+<h3>Refreshing with AJAX</h3>
+<pre class='xs'><code class='javascript' data-trim>function refresh() {&#x000A;  var request = new XMLHttpRequest();&#x000A;  request.open('GET', '/channel', true);&#x000A;  request.onload = function() {&#x000A;    var newHtml = request.responseText;&#x000A;    var parser = new DOMParser();&#x000A;    var newDocument = parser.parseFromString(newHtml, 'text/html');&#x000A;    var newChannel = newDocument.querySelector('.channel');&#x000A;    var oldChannel = document.querySelector('.channel');&#x000A;    oldChannel.innerHTML = newChannel.innerHTML;&#x000A;  };&#x000A;  request.send();&#x000A;}&#x000A;&#x000A;setInterval(refresh, 1000);&#x000A;</code></pre>
+</section>
+<section>
+<h2>
+Improving the<br>chat interface (3)
+</h2>
+</section>
+<section>
+<h3>Client-side search</h3>
+<pre class='xxxs'><code class='javascript' data-trim>function search() {&#x000A;  var queryInput = document.querySelector('.search-form input');&#x000A;  var query = queryInput.value.toLowerCase();&#x000A;  var messageElements = document.querySelectorAll('.message');&#x000A;  for (var i = 0; i < messageElements.length; i++) {&#x000A;    var messageElement = messageElements[i];&#x000A;    var text = messageElement.textContent.toLowerCase();&#x000A;    var isMatch = (text.indexOf(query) != -1);&#x000A;    if (isMatch) {&#x000A;      messageElement.style.display = 'block';&#x000A;    } else {&#x000A;      messageElement.style.display = 'none';&#x000A;    }&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', function() {&#x000A;  var queryInput = document.querySelector('.search-form input');&#x000A;  queryInput.addEventListener('input', search);&#x000A;});&#x000A;</code></pre>
+</section>
+<section>
+<h2>Improving <code>app.rb</code></h2>
+<p>
+Our current implementation has <code>app.rb</code> is a single script<br>
+with a lot of responsibilities:
+</p>
+<ul>
+<li>Routing</li>
+<li>Storage</li>
+<li>Business logic</li>
+</ul>
+<p>
+This is not how it's done in the real world.
+</p>
+</section>
+<section>
+<h3>Version 1</h3>
+<pre class='xs'><code class='ruby' data-trim>&nbsp;&#x000A;&#x000A;get '/channel' do&#x000A;  @messages = File.read('messages.txt').lines&#x000A;  erb(:channel)&#x000A;end&#x000A;&#x000A;get '/send' do&#x000A;  message = params['message']&#x000A;  file = File.open('messages.txt', 'a')&#x000A;  file.puts(message)&#x000A;  file.close()&#x000A;  redirect('/channel')&#x000A;end&#x000A;&nbsp;&#x000A;</code></pre>
+</section>
+<section>
+<h3>SQL database</h3>
+<pre class='xs'><code class='ruby' data-trim>db = Mydb::Client.new(host: 'localhost')&#x000A;&#x000A;get '/channel' do&#x000A;  @messages = db.select_values('SELECT text FROM messages')&#x000A;  erb(:channel)&#x000A;end&#x000A;&#x000A;get '/send' do&#x000A;  message = params['message']&#x000A;  escaped = db.escape(message)&#x000A;  db.execute('INSERT INTO messages VALUES (' + escaped + ')')&#x000A;  redirect('/channel')&#x000A;end&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
+</section>
+<section>
+<div class='columns'>
+<div class='column'>
+<h3>Controller</h3>
+<pre class='xs'><code class='ruby' data-trim>channel = Channel.new&#x000A;&#x000A;get '/channel' do&#x000A;  @messages = channel.messages&#x000A;  erb(:channel)&#x000A;end&#x000A;&#x000A;get '/send' do&#x000A;  message = params['message']&#x000A;  channel.add_message(message)&#x000A;  redirect('/channel')&#x000A;end&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;&nbsp;</code></pre>
+</div>
+<div class='column'>
+<h3>Model</h3>
+<pre class='xs'><code class='ruby' data-trim>class Channel&#x000A;&#x000A;  def initialize&#x000A;    @db = Mydb::Client.new&#x000A;  end&#x000A;&#x000A;  def messages&#x000A;    @db.select_values('SELECT text FROM messages')&#x000A;  end&#x000A;&#x000A;  def add_message(message)&#x000A;    escaped = @db.escape(message)&#x000A;    @db.execute('INSERT INTO messages VALUES (' + escaped + ')')&#x000A;  end&#x000A;&#x000A;end&#x000A;</code></pre>
+</div>
+</div>
+</section>
+<section>
+<h2>Scaling the chat app</h2>
+</section>
+<section>
+<div class='center'>
+<img src='pictures/web_app_cluster.png' width='600'>
+</div>
+</section>
+<section>
+<h2>Questions?</h2>
+</section>
+<section data-background-color='#111'>
+<h2>Web development 101</h2>
+<h3>
+<a class='blue no-underline' href='https://twitter.com/triskweline'>Henning Koch</a>
+<br>
+<a class='blue no-underline' href='https://makandra.de'>makandra GmbH</a>
+</h3>
+</section>
+</div>
+</div>
+<script src='lib/js/head.min.js'></script>
+<script src='js/reveal.js'></script>
+<script>
+  // Full list of configuration options available at:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+  
+    transition: 'none', // none/fade/slide/convex/concave/zoom
+  
+    // Optional reveal.js plugins
+    dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+    ]
+  });
+</script>
+</body>
 </html>
