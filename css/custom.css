@@ -1,10 +1,32 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400i,700&amp;display=swap);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&amp;display=swap);
+
 body {
   background-color: #001122;
   /* background: linear-gradient(to bottom, #002233 0%, #001828 70%, #000814 100%) */
 }
 
+.reveal {
+  font-family: Roboto, sans-serif;
+  font-size: 28px;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+}
+
+.reveal code, .reveal pre {
+  font-family: Roboto Mono, monospace;
+}
+
+
+.reveal .slides > section, .reveal .slides > section > section {
+  line-height: 1.25; /* default in blood.css is 1.3 */
+}
+
 .reveal a {
-  color: #e31;
+  color: #e61d47;
   text-decoration: underline;
 }
 
@@ -21,9 +43,6 @@ body {
   margin-top: 0.2em;
 }
 
-.reveal {
-  font-size: 28px;
-}
 
 .reveal .slides {
   text-align: left;
