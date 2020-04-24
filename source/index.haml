@@ -30,18 +30,24 @@
 
         %section(data-background-color='#111')
           %h2 Web development 101
-          %h3
-            %a.no-underline{:href => "https://twitter.com/triskweline"} Henning Koch
+          -#%h3
+          -#  %a.no-underline{:href => "https://twitter.com/triskweline"} Henning Koch
+          -#  %br
+          -#  %a.no-underline{:href => "https://makandra.de"} makandra GmbH
+
+
+        %section(style='text-align: center')
+          %img(src='pictures/henning.jpg' height=300)
+
+          %p
+            %b Henning Koch
             %br
-            %a.no-underline{:href => "https://makandra.de"} makandra GmbH
-
-
-        -#%section(style='text-align: center')
-        -#  %img(src='pictures/henning.png' height=300)
-        -#  %p
-        -#    %a(href='mailto:henning.koch@makandra.de') henning.koch@makandra.de
-        -#    %br
-        -#    %a(href='https://twitter.com/triskweline') @triskweline
+            Head of Development at
+            %a(href='https://makandra.de/') makandra
+            %br
+            -#%a(href='mailto:henning.koch@makandra.de') henning.koch@makandra.de
+            -#%br
+            %a(href='https://twitter.com/triskweline') @triskweline
 
         -#%section
         -#  %img(src='pictures/makandra/aiti-park.jpg' height=600)
@@ -203,7 +209,7 @@
             Application is written in a "stack" of many technologies
             %br
             %span.subtle
-              Typical stack: HTML, CSS, JavaScript, Ruby/PHP/Java, SQL
+              Typical stack: HTML, CSS, JavaScript, Ruby / Node.js / Java, SQL
 
         %section
           %table
@@ -243,7 +249,7 @@
               %td Client/server
             %tr
               %td
-                Ruby/PHP/Java
+                Ruby / Node.js / Java
               %td
                 Controller & Model
               %td
