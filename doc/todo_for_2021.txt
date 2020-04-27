@@ -1,0 +1,6 @@
+- Einstieg in den server side app Teil ist holprig. Nochmal überlegen in welcher Reihenfolge ich hier was zeigen möchte.
+- _.isEqual() braucht 2 argumente
+- "React-Folie": server-seitig vs. client-seitig erklären
+- fetch() statt XHR
+- TypeScript
+
