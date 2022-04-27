@@ -2,8 +2,21 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&amp;display=swap);
 
 body {
-  background-color: #001122;
-  /* background: linear-gradient(to bottom, #002233 0%, #001828 70%, #000814 100%) */
+  --color-licorice: #141210;
+  --color-amaranth: #e61d47;
+  --color-lemming: #0D3F94;
+  --color-galaxy: #20304c;
+  --color-ash: #4d5456;
+  --color-silver: #ccd4d9;
+  background: var(--color-licorice);
+}
+
+.reveal .red {
+  color: var(--color-amaranth);
+}
+
+.reveal .blue {
+  color: var(--color-lemming);
 }
 
 .reveal {
@@ -28,10 +41,6 @@ body {
 .reveal a {
   color: #e61d47;
   text-decoration: underline;
-}
-
-.reveal a.blue {
-  color: #16e;
 }
 
 .reveal a.no-underline {
@@ -75,7 +84,7 @@ body {
 
 .reveal code em {
   font-style: normal;
-  background-color: #4488bb;
+  background-color: var(--color-lemming);
   color: white;
   padding-top: 0.1em;
   padding-bottom: 0.1em;
@@ -102,6 +111,7 @@ body {
 .reveal h6 {
   line-height: 1.05;
   text-transform: none;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .reveal h1 code,
@@ -111,7 +121,7 @@ body {
 .reveal h5 code,
 .reveal h6 code {
   text-transform: none;
-  color: #e82;
+  color: var(--color-amaranth);
 }
 
 .reveal p {
@@ -211,10 +221,6 @@ body {
 .reveal section img {
   border: none;
   background: none; /* wtf */
-}
-
-.reveal .red {
-  color: #e31;
 }
 
 .reveal .green {

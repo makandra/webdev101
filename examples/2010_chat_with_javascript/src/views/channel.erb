@@ -87,56 +87,51 @@
 
       // Scrolls the channel so the last message is visible
       function showLastMessage() {
-        var lastMessage = document.querySelector('.message:last-child');
+        let lastMessage = document.querySelector('.message:last-child')
         if (lastMessage) {
-          lastMessage.scrollIntoView();
+          lastMessage.scrollIntoView()
         }
       }
 
       // Show the last message when the page has loaded
-      window.addEventListener('load', showLastMessage);
+      window.addEventListener('load', showLastMessage)
 
       // Loads a fresh list of messages from the server
-      function refresh() {
-        var request = new XMLHttpRequest();
-        request.open('GET', '/channel', true);
-        request.onload = function() {
-          var newHtml = request.responseText;
-          var parser = new DOMParser();
-          var newDocument = parser.parseFromString(newHtml, 'text/html');
-          var newChannel = newDocument.querySelector('.channel');
-          var oldChannel = document.querySelector('.channel');
-          oldChannel.innerHTML = newChannel.innerHTML;
-          search();
-          showLastMessage();
-        };
-        request.send();
+      async function refresh() {
+        let response = await fetch('/channel')
+        let newHTML = await response.text()
+        let parser = new DOMParser()
+        let newDocument = parser.parseFromString(newHTML, 'text/html')
+        let newChannel = newDocument.querySelector('.channel')
+        let oldChannel = document.querySelector('.channel')
+        oldChannel.replaceWith(newChannel)
+
+        search()
+        showLastMessage()
       }
 
       setInterval(refresh, 1000);
 
       // Only shows messages that contain the search query
       function search() {
-        var queryInput = document.querySelector('.search-form input');
-        var query = queryInput.value.toLowerCase();
-        var messageElements = document.querySelectorAll('.message');
-        for (var i = 0; i < messageElements.length; i++) {
-          var messageElement = messageElements[i];
-          var text = messageElement.textContent.toLowerCase();
-          var isMatch = (text.indexOf(query) != -1);
-          if (isMatch) {
-            messageElement.style.display = 'block';
+        let queryInput = document.querySelector('.search-form input')
+        let query = queryInput.value.toLowerCase()
+        let messageElements = document.querySelectorAll('.message')
+        for (let messageElement of messageElements) {
+          let text = messageElement.textContent.toLowerCase()
+          if (text.includes(query)) {
+            messageElement.style.display = 'block'
           } else {
-            messageElement.style.display = 'none';
+            messageElement.style.display = 'none'
           }
         }
-        showLastMessage();
+        showLastMessage()
       }
 
       window.addEventListener('load', function() {
-        var queryInput = document.querySelector('.search-form input');
-        queryInput.addEventListener('input', search);
-      });
+        let queryInput = document.querySelector('.search-form input')
+        queryInput.addEventListener('input', search)
+      })
 
     </script>
 

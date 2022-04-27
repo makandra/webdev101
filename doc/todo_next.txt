@@ -2,8 +2,13 @@ Backlog
 -------
 
 - Einstieg in den server side app Teil ist holprig. Nochmal überlegen in welcher Reihenfolge ich hier was zeigen möchte.
+- Bootstrap
 - "React-Folie": server-seitig vs. client-seitig erklären
-- fetch() statt XHR
+- Things you may encounter:
+  - Single page apps
+  - Bundlers
+  - TypeScript
+- Foto mit Fred
 
 
 Icebox

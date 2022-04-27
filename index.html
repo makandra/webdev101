@@ -13,7 +13,7 @@
 <link href='css/theme/blood.css' id='theme' rel='stylesheet'>
 <link href='css/custom.css' rel='stylesheet'>
 <!-- Code syntax highlighting -->
-<link href='lib/css/zenburn.css' rel='stylesheet'>
+<link href='lib/css/tomorrow-night-bright.css' rel='stylesheet'>
 <!-- Printing and PDF exports -->
 <script>
   var link = document.createElement( 'link' );
@@ -30,10 +30,10 @@
 <div class='reveal'>
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class='slides'>
-<section data-background-color='#111'>
-<h2>Web development 101</h2>
+<section>
+<h2>Web development <span class="red">101</span></h2>
 </section>
-<section style='text-align: center'>
+<section>
 <img height='300' src='pictures/henning.jpg'>
 <p>
 <b>Henning Koch</b>
@@ -48,24 +48,21 @@ Head of Development at
 <h2>Web applications?</h2>
 </section>
 <section>
-<img src='pictures/example_gmail.png' style='max-height: 600px'>
+<img src='pictures/example_gmail.jpg' style='max-height: 600px'>
 </section>
 <section>
-<img src='pictures/example_facebook.png' style='max-height: 600px'>
+<img src='pictures/example_facebook.jpg' style='max-height: 600px'>
 </section>
 <section>
-<img src='pictures/example_trello.png' style='min-height: 600'>
+<img src='pictures/example_trello.png' style='max-height: 550px'>
 </section>
 <section>
 <h2>This is a course for beginners</h2>
 <p class='fragment'>
-Who is here?
+Who has made a static website?
 </p>
 <p class='fragment'>
-Who has programmed before (any language)?
-</p>
-<p class='fragment'>
-Who has made a website before?
+Who has worked on a web application?
 </p>
 </section>
 <section>
@@ -106,7 +103,7 @@ and they communicate over HTTP
 Application is written in a "stack" of many technologies
 <br>
 <span class='subtle'>
-Typical stack: HTML, CSS, JavaScript, Ruby / Node.js / Java, SQL
+Typical stack: HTML, CSS, JavaScript, Ruby/Node/Java/C#, SQL
 </span>
 </p>
 </section>
@@ -167,7 +164,7 @@ Client/server communication
 </tr>
 <tr>
 <td>
-Ruby / Node.js / Java
+Ruby/Node/Java/C#
 </td>
 <td>
 Controller & Model
@@ -190,7 +187,7 @@ Server
 </table>
 </section>
 <section>
-<h2>In 2020 web apps are the dominant form of user-facing applications</h2>
+<h2>In 2022 web apps are the dominant form of user-facing applications</h2>
 <ul class='fragment'>
 <li>
 Can be used from any device with a web browser
@@ -229,7 +226,7 @@ you visit a website
 <a href='https://github.com/makandra/webdev101'>https://github.com/makandra/webdev101</a>
 </p>
 </section>
-<section data-background-color='#245'>
+<section data-background-color='var(--color-galaxy)'>
 <div class='s'>
 <h2>
 HTML<br />
@@ -264,7 +261,7 @@ HTTP<br />
 <p>
 User enters into her browser's address bar:
 </p>
-<pre><code class='nohighlight' data-trim>http://www.makandra.com/page.html&#x000A;</code></pre>
+<pre><code class='nohighlight' data-trim>http://makandra.com/page.html&#x000A;</code></pre>
 <p>
 What happens?
 </p>
@@ -273,7 +270,7 @@ What happens?
 <p>
 Browser asks server:
 </p>
-<pre class='xs fragment'><code class='nohighlight' data-trim>GET /page.html HTTP/1.1        # I want the file /page.html&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
+<pre class='xs fragment'><code class='nohighlight' data-trim>GET /page.html HTTP/1.1        # I want the file /page.html&#x000A;Host: makandra.com             # I want it from makandra.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
 <p class='fragment'>
 Server looks for a local file <code>page.html</code> and replies:
 </p>
@@ -292,7 +289,7 @@ What happens?
 <p>
 Browser asks server:
 </p>
-<pre class='xs fragment'><code class='nohighlight' data-trim>GET /image.jpg HTTP/1.1        # I want the file /image.jpg&#x000A;Host: www.makandra.com         # I want it from www.makandra.com&#x000A;Accept: image/jpeg, image/png  # I understand JPEG and PNG&#x000A;</code></pre>
+<pre class='xs fragment'><code class='nohighlight' data-trim>GET /image.jpg HTTP/1.1        # I want the file /image.jpg&#x000A;Host: makandra.com             # I want it from makandra.com&#x000A;Accept: image/jpeg, image/png  # I understand JPEG and PNG&#x000A;</code></pre>
 <p class='fragment'>
 Server looks for a local file <code>image.jpg</code> and replies:
 </p>
@@ -318,7 +315,7 @@ Server looks for a local file <code>image.jpg</code> and replies:
 </li>
 </ul>
 </section>
-<section data-background-color='#245'>
+<section data-background-color='var(--color-galaxy)'>
 <h2>
 CSS<br />
 <span class='subtle'>Cascading Style Sheets</span>
@@ -416,7 +413,7 @@ What happens?
 <p>
 Browser asks server:
 </p>
-<pre class='xs fragment'><code class='nohighlight' data-trim>GET /styles.css HTTP/1.1       # I want the file /styles.css&#x000A;Host: www.makandra.com         # I know you as www.makandra.com&#x000A;Accept: text/css               # I understand the CSS format&#x000A;</code></pre>
+<pre class='xs fragment'><code class='nohighlight' data-trim>GET /styles.css HTTP/1.1       # I want the file /styles.css&#x000A;Host: makandra.com             # I know you as makandra.com&#x000A;Accept: text/css               # I understand the CSS format&#x000A;</code></pre>
 <p class='fragment'>
 Server looks for a local file <code>styles.css</code> and replies:
 </p>
@@ -631,25 +628,6 @@ Server looks for a local file <code>styles.css</code> and replies:
 </p>
 </section>
 <section>
-<h2>Positioning</h2>
-<img height='300' src='pictures/screenshot_positioning.png'>
-<p>
-<a href='examples/1066_positioning/page.html' target='_blank'>View example</a>
-</p>
-</section>
-<section>
-<h3>
-Putting elements side-by-side
-<div class='subtle'>
-With positioning
-</div>
-</h3>
-<img height='300' src='pictures/screenshot_layout.png'>
-<p>
-<a href='examples/1070_layout' target='_blank'>View example</a>
-</p>
-</section>
-<section>
 <h3>
 Putting elements side-by-side
 <div class='subtle'>
@@ -663,18 +641,26 @@ With Flexbox
 </section>
 <section>
 <h2>CSS frameworks</h2>
+<ul>
+<li>Normalized base styles</li>
+<li>Typography</li>
+<li>Grid system</li>
+<li>Form styles</li>
+<li>Components (cards, modals, tabs, etc.)</li>
+<li>Utility classes</li>
+</ul>
 <p>
-<a href='examples/1075_bootstrap/index.html' target='_blank'>View example</a>
+<a href='https://getbootstrap.com' target='_blank'>View example</a>
 </p>
 </section>
-<section data-background-color='#172'>
+<section data-background-color='var(--color-ash)'>
 <h2>After the break</h2>
 <ul>
 <li>Server-side web applications</li>
 <li>JavaScript</li>
 </ul>
 </section>
-<section data-background-color='#245'>
+<section data-background-color='var(--color-galaxy)'>
 <h2>
 <span class='subtle'>Server-side</span>
 <br>
@@ -739,6 +725,7 @@ Popular choices:
 <li>Node.js</li>
 <li>Ruby</li>
 <li>Java</li>
+<li>C#</li>
 <li>PHP</li>
 <li>Python</li>
 </ul>
@@ -787,7 +774,7 @@ What happens?
 <p>
 Browser asks server:
 </p>
-<pre class='xs'><code class='nohighlight' data-trim>GET /channel HTTP/1.1          # I want /channel&#x000A;Host: chatapp.com              # I want it from chatapp.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
+<pre class='xs'><code class='http' data-trim>GET /channel HTTP/1.1          # I want /channel&#x000A;Host: chatapp.com              # I want it from chatapp.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
 <p class='fragment'>
 Server asks the program <code>app.rb</code> for <code>/channel</code>.<br>
 </p>
@@ -797,7 +784,7 @@ The program prints a new HTML page with the latest chat messages.
 <p class='fragment'>
 The server takes the program output and sends it the browser:
 </p>
-<pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 1589           # What you want has 1589 bytes&#x000A;Content-Type: text/html        # And it's in HTML format&#x000A;                               # Here it comes:&#x000A;&lt;html&gt;&#x000A;  ...&#x000A;&lt;/html&gt;&#x000A;</code></pre>
+<pre class='xs fragment'><code class='http' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 1589           # What you want has 1589 bytes&#x000A;Content-Type: text/html        # And it's in HTML format&#x000A;                               # Here it comes:&#x000A;&lt;html&gt;&#x000A;  ...&#x000A;&lt;/html&gt;&#x000A;</code></pre>
 </section>
 <section>
 <p>
@@ -817,7 +804,7 @@ Browser asks server:
 Server calls the program <code>app.rb</code> with the posted data.
 </p>
 <p class='fragment'>
-The program stores the message and prints a string of HTTP.
+The program stores the message and prints a HTTP response.
 </p>
 <p class='fragment'>
 The server takes the program output and sends it the browser:
@@ -844,14 +831,14 @@ It would be nice to be able to search through our messages
 </ul>
 <p>For such things we need <b>JavaScript</b>.</p>
 </section>
-<section data-background-color='#245'>
+<section data-background-color='var(--color-lemming)'>
 <h2>JavaScript</h2>
 </section>
 <section>
-<pre class='xxl'><code class='javascript' data-trim>// This is a comment&#x000A;&#x000A;var x = 1;&#x000A;var y = x + 1;&#x000A;&#x000A;console.log(y); // 2&#x000A;</code></pre>
+<pre class='xxl'><code class='javascript' data-trim>// This is a comment&#x000A;&#x000A;let x = 1&#x000A;let y = x + 1&#x000A;&#x000A;console.log(y) // 2&#x000A;</code></pre>
 </section>
 <section>
-<pre class='xxl'><code class='javascript' data-trim>function square(n) {&#x000A;  return n * n;&#x000A;}&#x000A;&#x000A;var x = square(16);&#x000A;console.log(x);    // 256&#x000A;&#x000A;var z = square;&#x000A;console.log(z);    // function { ... }&#x000A;console.log(z(4)); // 16&#x000A;</code></pre>
+<pre class='xxl'><code class='javascript' data-trim>function square(n) {&#x000A;  return n * n&#x000A;}&#x000A;&#x000A;let x = square(16)&#x000A;console.log(x)    // 256&#x000A;&#x000A;let z = square&#x000A;console.log(z)    // function { ... }&#x000A;console.log(z(4)) // 16&#x000A;</code></pre>
 </section>
 <section>
 <h3>
@@ -859,17 +846,17 @@ HTML
 </h3>
 <pre class='xs'><code class='html' data-trim><div>&#x000A;  <p>one</p>&#x000A;  <p>two</p>&#x000A;  <p>three</p>&#x000A;</div>&#x000A;</code></pre>
 <h3>Browser API</h3>
-<pre class='xs'><code class='javascript' data-trim>var div = document.querySelector('div');&#x000A;var children = div.children;&#x000A;console.log(children);&#x000A;// [<p>one</p>, <p>two</p>, <p>three</p>]&#x000A;&#x000A;var parent = children[0].parentNode;&#x000A;console.log(parent); // [<div>...</div>]&#x000A;&#x000A;console.log(parent === div); // true&#x000A;&#x000A;children[1].style.color = 'red';</code></pre>
+<pre class='xs'><code class='javascript' data-trim>let div = document.querySelector('div')&#x000A;let children = div.children&#x000A;console.log(children) // [<p>one</p>, <p>two</p>, <p>three</p>]&#x000A;&#x000A;let parent = children[0].parentNode&#x000A;console.log(parent) // [<div>...</div>]&#x000A;console.log(parent === div) // true&#x000A;&#x000A;children[1].style.color = 'red'</code></pre>
 <p>
 <a href='examples/1150_browser_api/page.html' target='_blank'>View example</a>
 </p>
 </section>
 <section>
-<h2>How to link HTML and JavaScript (1)</h2>
+<h3>How to link HTML and JavaScript (1)</h3>
 <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script&gt;&#x000A;      var x = 1;&#x000A;      var y = x + y;&#x000A;    &lt;/script&gt;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
 </section>
 <section>
-<h2>How to link HTML and JavaScript (2)</h2>
+<h3>How to link HTML and JavaScript (2)</h3>
 <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script src="scripts.js"&gt;&lt;/script&gt;&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
 </section>
 <section>
@@ -880,90 +867,25 @@ HTML
 </p>
 </section>
 <section>
-<h2>JavaScript is not my favorite language</h2>
+<h2 class='red'>JavaScript is a wacky language</h2>
+<p>
+JavaScript was designed in 10 days in 1995. Since then people have been bolting on new
+</p>
 <ul>
-<li>Bad standard lib (strings, numbers, arrays...) with varying support across browsers.</li>
 <li>Not everything is an object.</li>
 <li>There are three kinds of <code>null</code>.</li>
 <li>Equality is confusing. Also can't define equality for your own types.</li>
-<li>No good OOP.</li>
-<li>Explicit <code>this</code>.</li>
-<li>Browser API is often impractical and inconsistent across browsers.</li>
+<li>Explicit <code>this</code> in methods.</li>
+<li>People are still arguing how one JavaScript file can load another.</li>
+<li>Weak standard lib (strings, numbers, arrays...).</li>
 </ul>
 </section>
 <section>
+<h2>Browser compatibility</h2>
 Your new friend:
-<a href='http://caniuse.com/#search=media'>caniuse.com</a>
+<a href='http://caniuse.com/#search=navigation'>caniuse.com</a>
 <br>
-<img height='500' src='pictures/caniuse.png'>
-</section>
-<section>
-<h3>Most people use JavaScript with:</h3>
-<ul>
-<li>
-A precompiler to make the language less horrible
-<div class='subtle'>
-(Babel, TypeScript, CoffeeScript)
-</div>
-</li>
-<li>
-A number of "polyfills" that backport modern JavaScript APIs to old browsers
-</li>
-<li>
-A utility library to patch holes in the Stdlib
-<div class='subtle'>
-(Lodash, date-fns)
-</div>
-</li>
-<li>
-A library to fix and equalize DOM API across browsers
-<div class='subtle'>
-(DOM level 4 polyfills, jQuery)
-</div>
-</li>
-</ul>
-</section>
-<section>
-<h3>
-Replace an element
-<br>
-with another element
-</h3>
-<div class='fragment'>
-<h4>Cross-browser</h4>
-<pre><code class='javascript' data-trim>oldElement.parentElement.replaceChild(newElement, oldElement)&#x000A;&#x000A;</code></pre>
-</div>
-<div class='fragment'>
-<h4>With DOM level 4 polyfill</h4>
-<pre><code class='javascript' data-trim>oldElement.replaceWith(newElement)&#x000A;</code></pre>
-</div>
-</section>
-<section>
-<h3>Make a class <code>Student</code><br />which inherits from <code>Person</code></h3>
-<div class='fragment'>
-<h4>Pure JavaScript</h4>
-<pre><code class='javascript' data-trim>function Student(name) {&#x000A;  this.name = name;&#x000A;}&#x000A;&#x000A;Student.prototype = new Person();&#x000A;&#x000A;Student.prototype.constructor = Student;&#x000A;&#x000A;Student.prototype.sayHello = function() {&#x000A;  console.log("Hello, I'm " + this.name);&#x000A;};&#x000A;</code></pre>
-</div>
-</section>
-<section>
-<h3>Make a class <code>Student</code><br />which inherits from <code>Person</code></h3>
-<h4>JavaScript + Babel</h4>
-<pre><code class='javascript' data-trim>class Student extends Person {&#x000A;&#x000A;  constructor(name) {&#x000A;    this.name = name;&#x000A;  }&#x000A;&#x000A;  sayHello() {&#x000A;    console.log("Hello, I'm " + this.name);&#x000A;  }&#x000A;&#x000A;}&#x000A;&#x000A;&#x000A;</code></pre>
-</section>
-<section>
-<h3>
-Test if two variables
-<br>
-are equal by value
-</h3>
-<div class='fragment'>
-<h4>Pure JavaScript</h4>
-<img src='pictures/cthulhu.cropped.jpg' style='max-height:300px'>
-</div>
-<div class='fragment'>
-<h4>JavaScript + Lodash</h4>
-<pre><code class='javascript' data-trim>_.isEqual(object, other)</code></pre>
-</div>
+<img height='370' src='pictures/caniuse.png'>
 </section>
 <section>
 <h2>
@@ -972,7 +894,7 @@ Improving the<br>chat interface (1)
 </section>
 <section>
 <h3>Scrolling to the bottom</h3>
-<pre class='xs'><code class='javascript' data-trim>function showLastMessage() {&#x000A;  var lastMessage = document.querySelector('.message:last-child');&#x000A;  if (lastMessage) {&#x000A;    lastMessage.scrollIntoView();&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', showLastMessage);&#x000A;&#x000A;</code></pre>
+<pre class='xs'><code class='javascript' data-trim>function showLastMessage() {&#x000A;  let lastMessage = document.querySelector('.message:last-child')&#x000A;  if (lastMessage) {&#x000A;    lastMessage.scrollIntoView()&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', showLastMessage)&#x000A;&#x000A;</code></pre>
 </section>
 <section>
 <h2>
@@ -1022,7 +944,7 @@ We don't
 </section>
 <section>
 <h3>Refreshing with AJAX</h3>
-<pre class='xs'><code class='javascript' data-trim>function refresh() {&#x000A;  var request = new XMLHttpRequest();&#x000A;  request.open('GET', '/channel', true);&#x000A;  request.onload = function() {&#x000A;    var newHtml = request.responseText;&#x000A;    var parser = new DOMParser();&#x000A;    var newDocument = parser.parseFromString(newHtml, 'text/html');&#x000A;    var newChannel = newDocument.querySelector('.channel');&#x000A;    var oldChannel = document.querySelector('.channel');&#x000A;    oldChannel.innerHTML = newChannel.innerHTML;&#x000A;  };&#x000A;  request.send();&#x000A;}&#x000A;&#x000A;setInterval(refresh, 1000);&#x000A;</code></pre>
+<pre class='xs'><code class='javascript' data-trim>async function refresh() {&#x000A;  let response = await fetch('/channel')&#x000A;  let newHTML = await response.text()&#x000A;  let parser = new DOMParser()&#x000A;  let newDocument = parser.parseFromString(newHTML, 'text/html')&#x000A;  let newChannel = newDocument.querySelector('.channel')&#x000A;  let oldChannel = document.querySelector('.channel')&#x000A;  oldChannel.replaceWith(newChannel)&#x000A;}&#x000A;&#x000A;setInterval(refresh, 1000)&#x000A;</code></pre>
 </section>
 <section>
 <h2>
@@ -1031,7 +953,7 @@ Improving the<br>chat interface (3)
 </section>
 <section>
 <h3>Client-side search</h3>
-<pre class='xxxs'><code class='javascript' data-trim>function search() {&#x000A;  var queryInput = document.querySelector('.search-form input');&#x000A;  var query = queryInput.value.toLowerCase();&#x000A;  var messageElements = document.querySelectorAll('.message');&#x000A;  for (var i = 0; i < messageElements.length; i++) {&#x000A;    var messageElement = messageElements[i];&#x000A;    var text = messageElement.textContent.toLowerCase();&#x000A;    var isMatch = (text.indexOf(query) != -1);&#x000A;    if (isMatch) {&#x000A;      messageElement.style.display = 'block';&#x000A;    } else {&#x000A;      messageElement.style.display = 'none';&#x000A;    }&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', function() {&#x000A;  var queryInput = document.querySelector('.search-form input');&#x000A;  queryInput.addEventListener('input', search);&#x000A;});&#x000A;</code></pre>
+<pre class='xxxs'><code class='javascript' data-trim>function search() {&#x000A;  let queryInput = document.querySelector('.search-form input')&#x000A;  let query = queryInput.value.toLowerCase()&#x000A;  let messageElements = document.querySelectorAll('.message')&#x000A;  for (let messageElement of messageElements) {&#x000A;    var text = messageElement.textContent.toLowerCase()&#x000A;    if (text.includes(query)) {&#x000A;      messageElement.style.display = 'block'&#x000A;    } else {&#x000A;      messageElement.style.display = 'none'&#x000A;    }&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', function() {&#x000A;  let queryInput = document.querySelector('.search-form input')&#x000A;  queryInput.addEventListener('input', search)&#x000A;})&#x000A;</code></pre>
 </section>
 <section>
 <h2>Improving <code>app.rb</code></h2>
@@ -1082,9 +1004,9 @@ This is not how it's done in the real world.
 <section data-background-color='#111'>
 <h2>Web development 101</h2>
 <h3>
-<a class='blue no-underline' href='https://twitter.com/triskweline'>Henning Koch</a>
+<a class='red no-underline' href='https://twitter.com/triskweline'>Henning Koch</a>
 <br>
-<a class='blue no-underline' href='https://makandra.de'>makandra GmbH</a>
+<a class='red no-underline' href='https://makandra.de'>makandra GmbH</a>
 </h3>
 </section>
 </div>

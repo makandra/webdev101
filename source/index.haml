@@ -13,7 +13,7 @@
     %link#theme{:href => "css/theme/blood.css", :rel => "stylesheet"}/
     %link{:href => "css/custom.css", :rel => "stylesheet"}/
     / Code syntax highlighting
-    %link{:href => "lib/css/zenburn.css", :rel => "stylesheet"}/
+    %link{:href => "lib/css/tomorrow-night-bright.css", :rel => "stylesheet"}/
     / Printing and PDF exports
     :javascript
       var link = document.createElement( 'link' );
@@ -28,15 +28,15 @@
       / Any section element inside of this container is displayed as a slide
       .slides
 
-        %section(data-background-color='#111')
-          %h2 Web development 101
+        %section
+          %h2 Web development <span class="red">101</span>
           -#%h3
           -#  %a.no-underline{:href => "https://twitter.com/triskweline"} Henning Koch
           -#  %br
           -#  %a.no-underline{:href => "https://makandra.de"} makandra GmbH
 
 
-        %section(style='text-align: center')
+        %section
           %img(src='pictures/henning.jpg' height=300)
 
           %p
@@ -155,25 +155,22 @@
           %h2 Web applications?
 
         %section
-          %img(src='pictures/example_gmail.png' style='max-height: 600px')
+          %img(src='pictures/example_gmail.jpg' style='max-height: 600px')
 
         %section
-          %img(src='pictures/example_facebook.png' style='max-height: 600px')
+          %img(src='pictures/example_facebook.jpg' style='max-height: 600px')
 
         %section
-          %img(src='pictures/example_trello.png' style='min-height: 600')
+          %img(src='pictures/example_trello.png' style='max-height: 550px')
 
         %section
           %h2 This is a course for beginners
 
           %p.fragment
-            Who is here?
+            Who has made a static website?
 
           %p.fragment
-            Who has programmed before (any language)?
-
-          %p.fragment
-            Who has made a website before?
+            Who has worked on a web application?
 
         %section
           %h2 Native apps vs. web apps
@@ -209,7 +206,7 @@
             Application is written in a "stack" of many technologies
             %br
             %span.subtle
-              Typical stack: HTML, CSS, JavaScript, Ruby / Node.js / Java, SQL
+              Typical stack: HTML, CSS, JavaScript, Ruby/Node/Java/C#, SQL
 
         %section
           %table
@@ -249,7 +246,7 @@
               %td Client/server
             %tr
               %td
-                Ruby / Node.js / Java
+                Ruby/Node/Java/C#
               %td
                 Controller & Model
               %td
@@ -264,7 +261,7 @@
 
 
         %section
-          %h2 In 2020 web apps are the dominant form of user-facing applications
+          %h2 In 2022 web apps are the dominant form of user-facing applications
 
           %ul.fragment
             %li
@@ -301,7 +298,7 @@
             %a(href='http://webdev101.makandra.de') http://webdev101.makandra.de<br>
             %a(href='https://github.com/makandra/webdev101') https://github.com/makandra/webdev101
 
-        %section(data-background-color='#245')
+        %section(data-background-color='var(--color-galaxy)')
           .s
             %h2
               HTML<br />
@@ -348,7 +345,7 @@
           %pre
             %code.nohighlight(data-trim)
               :preserve
-                http://www.makandra.com/page.html
+                http://makandra.com/page.html
 
           %p
             What happens?
@@ -362,7 +359,7 @@
             %code.nohighlight(data-trim)
               :preserve
                 GET /page.html HTTP/1.1        # I want the file /page.html
-                Host: www.makandra.com         # I want it from www.makandra.com
+                Host: makandra.com             # I want it from makandra.com
                 Accept: text/html, text/plain  # I understand HTML and plain text
 
           %p.fragment
@@ -405,7 +402,7 @@
             %code.nohighlight(data-trim)
               :preserve
                 GET /image.jpg HTTP/1.1        # I want the file /image.jpg
-                Host: www.makandra.com         # I want it from www.makandra.com
+                Host: makandra.com             # I want it from makandra.com
                 Accept: image/jpeg, image/png  # I understand JPEG and PNG
 
           %p.fragment
@@ -444,7 +441,7 @@
               %a(target='_blank' href='examples/1030_form/page.html') Form
 
 
-        %section(data-background-color='#245')
+        %section(data-background-color='var(--color-galaxy)')
           %h2
             CSS<br />
             %span.subtle Cascading Style Sheets
@@ -613,7 +610,7 @@
             %code.nohighlight(data-trim)
               :preserve
                 GET /styles.css HTTP/1.1       # I want the file /styles.css
-                Host: www.makandra.com         # I know you as www.makandra.com
+                Host: makandra.com             # I know you as makandra.com
                 Accept: text/css               # I understand the CSS format
 
           %p.fragment
@@ -874,24 +871,24 @@
           %p
             %a(target='_blank' href='examples/1055_box_model/page.html') View example
 
-        %section
-          %h2 Positioning
-
-          %img(src='pictures/screenshot_positioning.png' height=300)
-
-          %p
-            %a(target='_blank' href='examples/1066_positioning/page.html') View example
-
-        %section
-          %h3
-            Putting elements side-by-side
-            .subtle
-              With positioning
-
-          %img(src='pictures/screenshot_layout.png' height=300)
-
-          %p
-            %a(target='_blank' href='examples/1070_layout') View example
+        -#%section
+        -#  %h2 Positioning
+        -#
+        -#  %img(src='pictures/screenshot_positioning.png' height=300)
+        -#
+        -#  %p
+        -#    %a(target='_blank' href='examples/1066_positioning/page.html') View example
+        -#
+        -#%section
+        -#  %h3
+        -#    Putting elements side-by-side
+        -#    .subtle
+        -#      With positioning
+        -#
+        -#  %img(src='pictures/screenshot_layout.png' height=300)
+        -#
+        -#  %p
+        -#    %a(target='_blank' href='examples/1070_layout') View example
 
         %section
           %h3
@@ -907,18 +904,26 @@
         %section
           %h2 CSS frameworks
 
+          %ul
+            %li Normalized base styles
+            %li Typography
+            %li Grid system
+            %li Form styles
+            %li Components (cards, modals, tabs, etc.)
+            %li Utility classes
+
           %p
-            %a(target='_blank' href='examples/1075_bootstrap/index.html') View example
+            %a(target='_blank' href='https://getbootstrap.com') View example
 
 
-        %section(data-background-color='#172')
+        %section(data-background-color='var(--color-ash)')
           %h2 After the break
 
           %ul
             %li Server-side web applications
             %li JavaScript
 
-        %section(data-background-color='#245')
+        %section(data-background-color='var(--color-galaxy)')
 
           %h2
             %span.subtle Server-side
@@ -1015,6 +1020,7 @@
             %li Node.js
             %li Ruby
             %li Java
+            %li C#
             %li PHP
             %li Python
 
@@ -1104,7 +1110,7 @@
             Browser asks server:
 
           %pre.xs
-            %code.nohighlight(data-trim)
+            %code.http(data-trim)
               :preserve
                 GET /channel HTTP/1.1          # I want /channel
                 Host: chatapp.com              # I want it from chatapp.com
@@ -1118,7 +1124,7 @@
             The server takes the program output and sends it the browser:
 
           %pre.xs.fragment
-            %code.nohighlight(data-trim)
+            %code.http(data-trim)
               :preserve
                 HTTP/1.1 200 OK                # I found what you wanted
                 Content-Length: 1589           # What you want has 1589 bytes
@@ -1153,7 +1159,7 @@
           %p.fragment
             Server calls the program <code>app.rb</code> with the posted data.
           %p.fragment
-            The program stores the message and prints a string of HTTP.
+            The program stores the message and prints a HTTP response.
           %p.fragment
             The server takes the program output and sends it the browser:
 
@@ -1183,9 +1189,7 @@
 
 
 
-
-
-        %section(data-background-color='#245')
+        %section(data-background-color='var(--color-lemming)')
           %h2 JavaScript
 
         %section
@@ -1194,25 +1198,25 @@
               :preserve
                 // This is a comment
 
-                var x = 1;
-                var y = x + 1;
+                let x = 1
+                let y = x + 1
 
-                console.log(y); // 2
+                console.log(y) // 2
 
         %section
           %pre.xxl
             %code.javascript(data-trim)
               :preserve
                 function square(n) {
-                  return n * n;
+                  return n * n
                 }
 
-                var x = square(16);
-                console.log(x);    // 256
+                let x = square(16)
+                console.log(x)    // 256
 
-                var z = square;
-                console.log(z);    // function { ... }
-                console.log(z(4)); // 16
+                let z = square
+                console.log(z)    // function { ... }
+                console.log(z(4)) // 16
 
         %section
           %h3
@@ -1230,22 +1234,20 @@
           %pre.xs
             %code.javascript(data-trim)
               :preserve
-                var div = document.querySelector('div');
-                var children = div.children;
-                console.log(children);
-                // [<p>one</p>, <p>two</p>, <p>three</p>]
+                let div = document.querySelector('div')
+                let children = div.children
+                console.log(children) // [<p>one</p>, <p>two</p>, <p>three</p>]
 
-                var parent = children[0].parentNode;
-                console.log(parent); // [<div>...</div>]
+                let parent = children[0].parentNode
+                console.log(parent) // [<div>...</div>]
+                console.log(parent === div) // true
 
-                console.log(parent === div); // true
-
-                children[1].style.color = 'red';
+                children[1].style.color = 'red'
           %p
             %a(target='_blank' href='examples/1150_browser_api/page.html') View example
 
         %section
-          %h2 How to link HTML and JavaScript (1)
+          %h3 How to link HTML and JavaScript (1)
 
           %pre
             %code.html(data-trim)
@@ -1264,7 +1266,7 @@
                 &lt;/html&gt;
 
         %section
-          %h2 How to link HTML and JavaScript (2)
+          %h3 How to link HTML and JavaScript (2)
 
           %pre
             %code.html(data-trim)
@@ -1291,126 +1293,27 @@
 
 
         %section
-          %h2 JavaScript is not my favorite language
+          %h2.red JavaScript is a wacky language
+
+          %p
+            JavaScript was designed in 10 days in 1995. Since then people have been bolting on new
 
           %ul
-            %li Bad standard lib (strings, numbers, arrays...) with varying support across browsers.
             %li Not everything is an object.
             %li There are three kinds of <code>null</code>.
             %li Equality is confusing. Also can't define equality for your own types.
-            %li No good OOP.
-            %li Explicit <code>this</code>.
-            %li Browser API is often impractical and inconsistent across browsers.
+            %li Explicit <code>this</code> in methods.
+            %li People are still arguing how one JavaScript file can load another.
+            %li Weak standard lib (strings, numbers, arrays...).
 
         %section
+          %h2 Browser compatibility
+
           Your new friend:
-          %a(href='http://caniuse.com/#search=media') caniuse.com
+          %a(href='http://caniuse.com/#search=navigation') caniuse.com
           %br
 
-          %img(src='pictures/caniuse.png' height=500)
-
-        %section
-
-          %h3 Most people use JavaScript with:
-          %ul
-            %li
-              A precompiler to make the language less horrible
-              .subtle
-                (Babel, TypeScript, CoffeeScript)
-            %li
-              A number of "polyfills" that backport modern JavaScript APIs to old browsers
-            %li
-              A utility library to patch holes in the Stdlib
-              .subtle
-                (Lodash, date-fns)
-            %li
-              A library to fix and equalize DOM API across browsers
-              .subtle
-                (DOM level 4 polyfills, jQuery)
-
-        %section
-          %h3
-            Replace an element
-            %br
-            with another element
-
-          .fragment
-            %h4 Cross-browser
-
-            %pre
-              %code.javascript(data-trim)
-                :preserve
-                  oldElement.parentElement.replaceChild(newElement, oldElement)
-
-
-          .fragment
-            %h4 With DOM level 4 polyfill
-
-            %pre
-              %code.javascript(data-trim)
-                :preserve
-                  oldElement.replaceWith(newElement)
-
-        %section
-          %h3 Make a class <code>Student</code><br />which inherits from <code>Person</code>
-
-          .fragment
-            %h4 Pure JavaScript
-
-            %pre
-              %code.javascript(data-trim)
-                :preserve
-                  function Student(name) {
-                    this.name = name;
-                  }
-
-                  Student.prototype = new Person();
-
-                  Student.prototype.constructor = Student;
-
-                  Student.prototype.sayHello = function() {
-                    console.log("Hello, I'm " + this.name);
-                  };
-
-        %section
-          %h3 Make a class <code>Student</code><br />which inherits from <code>Person</code>
-
-          %h4 JavaScript + Babel
-
-          %pre
-            %code.javascript(data-trim)
-              :preserve
-                class Student extends Person {
-
-                  constructor(name) {
-                    this.name = name;
-                  }
-
-                  sayHello() {
-                    console.log("Hello, I'm " + this.name);
-                  }
-
-                }
-
-
-
-        %section
-          %h3
-            Test if two variables
-            %br
-            are equal by value
-
-          .fragment
-            %h4 Pure JavaScript
-
-            %img(src='pictures/cthulhu.cropped.jpg' style='max-height:300px')
-
-          .fragment
-            %h4 JavaScript + Lodash
-
-            %pre
-              %code.javascript(data-trim)
-                _.isEqual(object, other)
+          %img(src='pictures/caniuse.png' height=370)
 
         %section
           %h2
@@ -1422,13 +1325,13 @@
             %code.javascript(data-trim)
               :preserve
                 function showLastMessage() {
-                  var lastMessage = document.querySelector('.message:last-child');
+                  let lastMessage = document.querySelector('.message:last-child')
                   if (lastMessage) {
-                    lastMessage.scrollIntoView();
+                    lastMessage.scrollIntoView()
                   }
                 }
 
-                window.addEventListener('load', showLastMessage);
+                window.addEventListener('load', showLastMessage)
 
 
         %section
@@ -1471,21 +1374,17 @@
           %pre.xs
             %code.javascript(data-trim)
               :preserve
-                function refresh() {
-                  var request = new XMLHttpRequest();
-                  request.open('GET', '/channel', true);
-                  request.onload = function() {
-                    var newHtml = request.responseText;
-                    var parser = new DOMParser();
-                    var newDocument = parser.parseFromString(newHtml, 'text/html');
-                    var newChannel = newDocument.querySelector('.channel');
-                    var oldChannel = document.querySelector('.channel');
-                    oldChannel.innerHTML = newChannel.innerHTML;
-                  };
-                  request.send();
+                async function refresh() {
+                  let response = await fetch('/channel')
+                  let newHTML = await response.text()
+                  let parser = new DOMParser()
+                  let newDocument = parser.parseFromString(newHTML, 'text/html')
+                  let newChannel = newDocument.querySelector('.channel')
+                  let oldChannel = document.querySelector('.channel')
+                  oldChannel.replaceWith(newChannel)
                 }
 
-                setInterval(refresh, 1000);
+                setInterval(refresh, 1000)
 
         %section
           %h2
@@ -1497,25 +1396,23 @@
             %code.javascript(data-trim)
               :preserve
                 function search() {
-                  var queryInput = document.querySelector('.search-form input');
-                  var query = queryInput.value.toLowerCase();
-                  var messageElements = document.querySelectorAll('.message');
-                  for (var i = 0; i < messageElements.length; i++) {
-                    var messageElement = messageElements[i];
-                    var text = messageElement.textContent.toLowerCase();
-                    var isMatch = (text.indexOf(query) != -1);
-                    if (isMatch) {
-                      messageElement.style.display = 'block';
+                  let queryInput = document.querySelector('.search-form input')
+                  let query = queryInput.value.toLowerCase()
+                  let messageElements = document.querySelectorAll('.message')
+                  for (let messageElement of messageElements) {
+                    var text = messageElement.textContent.toLowerCase()
+                    if (text.includes(query)) {
+                      messageElement.style.display = 'block'
                     } else {
-                      messageElement.style.display = 'none';
+                      messageElement.style.display = 'none'
                     }
                   }
                 }
 
                 window.addEventListener('load', function() {
-                  var queryInput = document.querySelector('.search-form input');
-                  queryInput.addEventListener('input', search);
-                });
+                  let queryInput = document.querySelector('.search-form input')
+                  queryInput.addEventListener('input', search)
+                })
 
         %section
           %h2 Improving <code>app.rb</code>
@@ -1689,9 +1586,9 @@
         %section(data-background-color='#111')
           %h2 Web development 101
           %h3
-            %a.blue.no-underline{:href => "https://twitter.com/triskweline"} Henning Koch
+            %a.red.no-underline{:href => "https://twitter.com/triskweline"} Henning Koch
             %br
-            %a.blue.no-underline{:href => "https://makandra.de"} makandra GmbH
+            %a.red.no-underline{:href => "https://makandra.de"} makandra GmbH
 
 
     %script{:src => "lib/js/head.min.js"}
