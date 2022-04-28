@@ -193,7 +193,7 @@ Server
 Can be used from any device with a web browser
 <br>
 <span class='subtle'>
-(Windows, Linux, MacOS, Android ...)
+(Windows, Linux, macOS, Android, iOS, ...)
 </span>
 </li>
 <li>
@@ -206,6 +206,12 @@ you visit a website
 </li>
 <li>Is always the latest version</li>
 <li>Inherently multi-user</li>
+<li>
+Gets better every year (vs. native apps)
+<div class='subtle'>
+File access, offline, audio processing, 3D graphics, ...
+</div>
+</li>
 </ul>
 </section>
 <section>
@@ -351,7 +357,7 @@ CSS<br />
 <a href='examples/1045_simple_css/page.html' target='_blank'>View both together</a>
 </p>
 </section>
-<section data-background-color='#333333'>
+<section>
 <h2>Colors in CSS</h2>
 <div class='columns'>
 <div class='column'>
@@ -360,7 +366,7 @@ CSS<br />
 <div style='font-weight: bold; color: #0000ff'><code>#0000ff</code></div>
 <div style='font-weight: bold; color: #ffff00'><code>#ffff00</code></div>
 <div style='font-weight: bold; color: #ffffff'><code>#ffffff</code></div>
-<div style='font-weight: bold; color: #000000'><code>#000000</code></div>
+<div style='font-weight: bold; color: #000000'><code style="background-color: #444444">#000000</code></div>
 <div class='fragment'>
 <div style='font-weight: bold; color: #ff9900'><code>#ff9900</code></div>
 <div style='font-weight: bold; color: #4488bb'><code>#4488bb</code></div>
@@ -393,11 +399,17 @@ CSS<br />
 </div>
 </section>
 <section>
-<h2>How to link HTML and CSS (1)</h2>
+<h2>
+How to link HTML and CSS
+<span class='subtle'>(1)</span>
+</h2>
 <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;head&gt;&#x000A;    &lt;style&gt;&#x000A;      h1 {&#x000A;        color: #ff0000;&#x000A;      }&#x000A;    &lt;/style&gt;&#x000A;  &lt;/head&gt;&#x000A;  &lt;body&gt;&#x000A;    ...&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
 </section>
 <section>
-<h2>How to link HTML and CSS (2)</h2>
+<h2>
+How to link HTML and CSS
+<span class='subtle'>(2)</span>
+</h2>
 <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;head&gt;&#x000A;    &lt;link rel="stylesheet" href="styles.css"&gt;&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;  &lt;/head&gt;&#x000A;  &lt;body&gt;&#x000A;    ...&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
 </section>
 <section>
@@ -437,7 +449,7 @@ Server looks for a local file <code>styles.css</code> and replies:
 <section>
 <h2>&nbsp;</h2>
 <div>
-<code data-trim><br />
+<code class='html' data-trim><br />
 &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
 <br />
 &lt;p class="introduction"&gt;<br />
@@ -641,6 +653,11 @@ With Flexbox
 </section>
 <section>
 <h2>CSS frameworks</h2>
+<p>
+Instead of starting from scratch you can build upon someone else's CSS.
+<br>
+CSS frameworks like <a href="https://getbootstrap.com/">Bootstrap</a> or <a href="https://foundation.zurb.com/">Foundation</a> give you:
+</p>
 <ul>
 <li>Normalized base styles</li>
 <li>Typography</li>
@@ -774,7 +791,7 @@ What happens?
 <p>
 Browser asks server:
 </p>
-<pre class='xs'><code class='http' data-trim>GET /channel HTTP/1.1          # I want /channel&#x000A;Host: chatapp.com              # I want it from chatapp.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
+<pre class='xs'><code class='nohighlight' data-trim>GET /channel HTTP/1.1          # I want /channel&#x000A;Host: chatapp.com              # I want it from chatapp.com&#x000A;Accept: text/html, text/plain  # I understand HTML and plain text&#x000A;</code></pre>
 <p class='fragment'>
 Server asks the program <code>app.rb</code> for <code>/channel</code>.<br>
 </p>
@@ -784,7 +801,7 @@ The program prints a new HTML page with the latest chat messages.
 <p class='fragment'>
 The server takes the program output and sends it the browser:
 </p>
-<pre class='xs fragment'><code class='http' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 1589           # What you want has 1589 bytes&#x000A;Content-Type: text/html        # And it's in HTML format&#x000A;                               # Here it comes:&#x000A;&lt;html&gt;&#x000A;  ...&#x000A;&lt;/html&gt;&#x000A;</code></pre>
+<pre class='xs fragment'><code class='nohighlight' data-trim>HTTP/1.1 200 OK                # I found what you wanted&#x000A;Content-Length: 1589           # What you want has 1589 bytes&#x000A;Content-Type: text/html        # And it's in HTML format&#x000A;                               # Here it comes:&#x000A;&lt;html&gt;&#x000A;  ...&#x000A;&lt;/html&gt;&#x000A;</code></pre>
 </section>
 <section>
 <p>
@@ -852,32 +869,36 @@ HTML
 </p>
 </section>
 <section>
-<h3>How to link HTML and JavaScript (1)</h3>
+<h3>
+How to link HTML and JavaScript
+<span class='subtle'>(1)</span>
+</h3>
 <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script&gt;&#x000A;      var x = 1;&#x000A;      var y = x + y;&#x000A;    &lt;/script&gt;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
 </section>
 <section>
-<h3>How to link HTML and JavaScript (2)</h3>
+<h3>
+How to link HTML and JavaScript
+<span class='subtle'>(2)</span>
+</h3>
 <pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;&#x000A;    <p>Hi world</p>&#x000A;&#x000A;    &lt;script src="scripts.js"&gt;&lt;/script&gt;&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
 </section>
 <section>
 <h2>Events</h2>
-<p></p>
-<p>
-<a href='examples/1200_event_listener/page.html' target='_blank'>View example</a>
-</p>
+<h4>HTML</h4>
+<pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    <button>Click me</button>&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
+<h4>JavaScript</h4>
+<pre><code class='javascript' data-trim>let button = document.querySelector('button')&#x000A;button.addEventListener('click', function(event) {&#x000A;  alert('Button was clicked!')&#x000A;})&#x000A;&#x000A;window.addEventListener(function(event) {&#x000A;  alert('User scrolled!')&#x000A;})&#x000A;&#x000A;</code></pre>
 </section>
 <section>
 <h2 class='red'>JavaScript is a wacky language</h2>
-<p>
-JavaScript was designed in 10 days in 1995. Since then people have been bolting on new
-</p>
 <ul>
 <li>Not everything is an object.</li>
 <li>There are three kinds of <code>null</code>.</li>
 <li>Equality is confusing. Also can't define equality for your own types.</li>
-<li>Explicit <code>this</code> in methods.</li>
-<li>People are still arguing how one JavaScript file can load another.</li>
+<li>Objects don't crash when accessing missing properties.</li>
+<li>Explicit <code>this.foo()</code> to call your own methods.</li>
 <li>Weak standard lib (strings, numbers, arrays...).</li>
+<li>People are still arguing how one JavaScript file can load another.</li>
 </ul>
 </section>
 <section>
@@ -889,7 +910,8 @@ Your new friend:
 </section>
 <section>
 <h2>
-Improving the<br>chat interface (1)
+Improving the<br>chat interface
+<span class='subtle'>(1)</span>
 </h2>
 </section>
 <section>
@@ -898,7 +920,8 @@ Improving the<br>chat interface (1)
 </section>
 <section>
 <h2>
-Improving the<br>chat interface (2)
+Improving the<br>chat interface
+<span class='subtle'>(2)</span>
 </h2>
 </section>
 <section>
@@ -948,7 +971,8 @@ We don't
 </section>
 <section>
 <h2>
-Improving the<br>chat interface (3)
+Improving the<br>chat interface
+<span class='subtle'>(3)</span>
 </h2>
 </section>
 <section>
@@ -972,11 +996,11 @@ This is not how it's done in the real world.
 </section>
 <section>
 <h3>Version 1</h3>
-<pre class='xs'><code class='ruby' data-trim>&nbsp;&#x000A;&#x000A;get '/channel' do&#x000A;  @messages = File.read('messages.txt').lines&#x000A;  erb(:channel)&#x000A;end&#x000A;&#x000A;get '/send' do&#x000A;  message = params['message']&#x000A;  file = File.open('messages.txt', 'a')&#x000A;  file.puts(message)&#x000A;  file.close()&#x000A;  redirect('/channel')&#x000A;end&#x000A;&nbsp;&#x000A;</code></pre>
+<pre class='xs'><code class='ruby' data-trim>&nbsp;&#x000A;&#x000A;get '/channel' do&#x000A;  @messages = File.read('messages.txt').lines&#x000A;  erb(:channel)&#x000A;end&#x000A;&#x000A;get '/send' do&#x000A;  message = params['message']&#x000A;  file = File.open('messages.txt', 'a')&#x000A;  file.puts(message)&#x000A;  file.close()&#x000A;  redirect('/channel')&#x000A;end&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
 </section>
 <section>
 <h3>SQL database</h3>
-<pre class='xs'><code class='ruby' data-trim>db = Mydb::Client.new(host: 'localhost')&#x000A;&#x000A;get '/channel' do&#x000A;  @messages = db.select_values('SELECT text FROM messages')&#x000A;  erb(:channel)&#x000A;end&#x000A;&#x000A;get '/send' do&#x000A;  message = params['message']&#x000A;  escaped = db.escape(message)&#x000A;  db.execute('INSERT INTO messages VALUES (' + escaped + ')')&#x000A;  redirect('/channel')&#x000A;end&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
+<pre class='xs'><code class='ruby' data-trim>db = Mydb::Client.new(host: 'localhost')&#x000A;&#x000A;get '/channel' do&#x000A;  @messages = db.select_values('SELECT text FROM messages')&#x000A;  erb(:channel)&#x000A;end&#x000A;&#x000A;get '/send' do&#x000A;  message = params['message']&#x000A;  escaped = db.escape(message)&#x000A;  db.execute('INSERT INTO messages VALUES (' + escaped + ')')&#x000A;  redirect('/channel')&#x000A;end&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;&nbsp;&#x000A;</code></pre>
 </section>
 <section>
 <div class='columns'>
@@ -991,12 +1015,67 @@ This is not how it's done in the real world.
 </div>
 </section>
 <section>
-<h2>Scaling the chat app</h2>
-</section>
-<section>
-<div class='center'>
-<img src='pictures/web_app_cluster.png' width='600'>
-</div>
+<h2>Layer cake</h2>
+<table>
+<tr>
+<th>
+Layer
+</th>
+<th>
+Responsibility
+</th>
+</tr>
+<tr>
+<td>
+Database
+</td>
+<td>
+Data storage &amp; queries
+</td>
+</tr>
+<tr>
+<td>
+Model
+</td>
+<td>
+O/R mapping, business logic
+</td>
+</tr>
+<tr>
+<td>
+Controller
+</td>
+<td>
+Layer orchestration
+</td>
+</tr>
+<tr>
+<td>
+View
+</td>
+<td>
+Content
+</td>
+</tr>
+<tr>
+<td>
+Stylesheets
+</td>
+<td>
+Optics
+<span class='subtle'>(optional)</span>
+</td>
+</tr>
+<tr>
+<td>
+JavaScript
+</td>
+<td>
+Behavior enhancements
+<span class='subtle'>(optional)</span>
+</td>
+</tr>
+</table>
 </section>
 <section>
 <h2>Questions?</h2>
@@ -1008,6 +1087,14 @@ This is not how it's done in the real world.
 <br>
 <a class='red no-underline' href='https://makandra.de'>makandra GmbH</a>
 </h3>
+</section>
+<section>
+<h2>Scaling the chat app</h2>
+</section>
+<section>
+<div class='center'>
+<img src='pictures/web_app_cluster.png' width='600'>
+</div>
 </section>
 </div>
 </div>

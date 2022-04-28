@@ -92,7 +92,7 @@ body {
 
 .reveal p code {
   background-color: transparent;
-  color: #e82;
+  color: var(--color-amaranth);
 }
 
 /*.reveal h1 {*/
@@ -127,6 +127,11 @@ body {
 .reveal p {
   font-weight: 400;
   line-height: 1.2;
+}
+
+.reveal table {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .reveal table td {
@@ -245,7 +250,7 @@ body {
 
 .reveal .slides {
   background: url(../pictures/makandra.svg) no-repeat bottom right;
-  background-size: 25%;
+  background-size: 20%;
 }
 
 .reveal .controls {

@@ -268,7 +268,7 @@
               Can be used from any device with a web browser
               %br
               %span.subtle
-                (Windows, Linux, MacOS, Android ...)
+                (Windows, Linux, macOS, Android, iOS, ...)
             %li
               No installation
               %br
@@ -277,6 +277,10 @@
                 you visit a website
             %li Is always the latest version
             %li Inherently multi-user
+            %li
+              Gets better every year (vs. native apps)
+              .subtle
+                File access, offline, audio processing, 3D graphics, ...
 
         %section
           %h2 Today
@@ -514,7 +518,7 @@
           %p.center.fragment
             %a(target='_blank' href='examples/1045_simple_css/page.html') View both together
 
-        %section(data-background-color='#333333')
+        %section
           %h2 Colors in CSS
 
           .columns
@@ -524,7 +528,7 @@
               %div(style='font-weight: bold; color: #0000ff') <code>#0000ff</code>
               %div(style='font-weight: bold; color: #ffff00') <code>#ffff00</code>
               %div(style='font-weight: bold; color: #ffffff') <code>#ffffff</code>
-              %div(style='font-weight: bold; color: #000000') <code>#000000</code>
+              %div(style='font-weight: bold; color: #000000') <code style="background-color: #444444">#000000</code>
               .fragment
                 %div(style='font-weight: bold; color: #ff9900') <code>#ff9900</code>
                 %div(style='font-weight: bold; color: #4488bb') <code>#4488bb</code>
@@ -551,7 +555,9 @@
 
 
         %section
-          %h2 How to link HTML and CSS (1)
+          %h2
+            How to link HTML and CSS
+            %span.subtle (1)
 
           %pre
             %code.html(data-trim)
@@ -570,7 +576,9 @@
                 &lt;/html&gt;
 
         %section
-          %h2 How to link HTML and CSS (2)
+          %h2
+            How to link HTML and CSS
+            %span.subtle (2)
 
           %pre
             %code.html(data-trim)
@@ -686,7 +694,7 @@
           %h2 &nbsp;
 
           %div
-            %code(data-trim)
+            %code.html(data-trim)
               <br />
               &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
               <br />
@@ -904,6 +912,11 @@
         %section
           %h2 CSS frameworks
 
+          %p
+            Instead of starting from scratch you can build upon someone else's CSS.
+            %br
+            CSS frameworks like <a href="https://getbootstrap.com/">Bootstrap</a> or <a href="https://foundation.zurb.com/">Foundation</a> give you:
+
           %ul
             %li Normalized base styles
             %li Typography
@@ -1110,7 +1123,7 @@
             Browser asks server:
 
           %pre.xs
-            %code.http(data-trim)
+            %code.nohighlight(data-trim)
               :preserve
                 GET /channel HTTP/1.1          # I want /channel
                 Host: chatapp.com              # I want it from chatapp.com
@@ -1124,7 +1137,7 @@
             The server takes the program output and sends it the browser:
 
           %pre.xs.fragment
-            %code.http(data-trim)
+            %code.nohighlight(data-trim)
               :preserve
                 HTTP/1.1 200 OK                # I found what you wanted
                 Content-Length: 1589           # What you want has 1589 bytes
@@ -1247,7 +1260,9 @@
             %a(target='_blank' href='examples/1150_browser_api/page.html') View example
 
         %section
-          %h3 How to link HTML and JavaScript (1)
+          %h3
+            How to link HTML and JavaScript
+            %span.subtle (1)
 
           %pre
             %code.html(data-trim)
@@ -1266,7 +1281,9 @@
                 &lt;/html&gt;
 
         %section
-          %h3 How to link HTML and JavaScript (2)
+          %h3
+            How to link HTML and JavaScript
+            %span.subtle (2)
 
           %pre
             %code.html(data-trim)
@@ -1287,24 +1304,42 @@
         %section
           %h2 Events
 
-          %p
-          %p
-            %a(target='_blank' href='examples/1200_event_listener/page.html') View example
+          %h4 HTML
+
+          %pre
+            %code.html(data-trim)
+              :preserve
+                &lt;html&gt;
+                  &lt;body&gt;
+                    <button>Click me</button>
+                  &lt;/body&gt;
+                &lt;/html&gt;
+
+          %h4 JavaScript
+          %pre
+            %code.javascript(data-trim)
+              :preserve
+                let button = document.querySelector('button')
+                button.addEventListener('click', function(event) {
+                  alert('Button was clicked!')
+                })
+
+                window.addEventListener(function(event) {
+                  alert('User scrolled!')
+                })
 
 
         %section
           %h2.red JavaScript is a wacky language
 
-          %p
-            JavaScript was designed in 10 days in 1995. Since then people have been bolting on new
-
           %ul
             %li Not everything is an object.
             %li There are three kinds of <code>null</code>.
             %li Equality is confusing. Also can't define equality for your own types.
-            %li Explicit <code>this</code> in methods.
-            %li People are still arguing how one JavaScript file can load another.
+            %li Objects don't crash when accessing missing properties.
+            %li Explicit <code>this.foo()</code> to call your own methods.
             %li Weak standard lib (strings, numbers, arrays...).
+            %li People are still arguing how one JavaScript file can load another.
 
         %section
           %h2 Browser compatibility
@@ -1317,7 +1352,8 @@
 
         %section
           %h2
-            Improving the<br>chat interface (1)
+            Improving the<br>chat interface
+            %span.subtle (1)
 
         %section
           %h3 Scrolling to the bottom
@@ -1336,7 +1372,8 @@
 
         %section
           %h2
-            Improving the<br>chat interface (2)
+            Improving the<br>chat interface
+            %span.subtle (2)
 
         %section
           %h2
@@ -1388,7 +1425,8 @@
 
         %section
           %h2
-            Improving the<br>chat interface (3)
+            Improving the<br>chat interface
+            %span.subtle (3)
 
         %section
           %h3 Client-side search
@@ -1451,6 +1489,7 @@
                   redirect('/channel')
                 end
                 &nbsp;
+                &nbsp;
 
         -#%section
         -#
@@ -1495,6 +1534,7 @@
                   db.execute('INSERT INTO messages VALUES (' + escaped + ')')
                   redirect('/channel')
                 end
+                &nbsp;
                 &nbsp;
                 &nbsp;
 
@@ -1545,6 +1585,51 @@
 
                     end
 
+        %section
+          %h2 Layer cake
+
+          %table
+            %tr
+              %th
+                Layer
+              %th
+                Responsibility
+            %tr
+              %td
+                Database
+              %td
+                Data storage &amp; queries
+            %tr
+              %td
+                Model
+              %td
+                O/R mapping, business logic
+            %tr
+              %td
+                Controller
+              %td
+                Layer orchestration
+            %tr
+              %td
+                View
+              %td
+                Content
+            %tr
+              %td
+                Stylesheets
+              %td
+                Optics
+                %span.subtle (optional)
+            %tr
+              %td
+                JavaScript
+              %td
+                Behavior enhancements
+                %span.subtle (optional)
+
+
+
+
         -#%section
         -#  %p
         -#    %img.plain(src='pictures/makandra/makandra-inverted.png' width='40%')
@@ -1572,15 +1657,6 @@
 
 
         %section
-          %h2 Scaling the chat app
-
-
-        %section
-          .center
-            %img(src='pictures/web_app_cluster.png' width=600)
-
-
-        %section
           %h2 Questions?
 
         %section(data-background-color='#111')
@@ -1589,6 +1665,15 @@
             %a.red.no-underline{:href => "https://twitter.com/triskweline"} Henning Koch
             %br
             %a.red.no-underline{:href => "https://makandra.de"} makandra GmbH
+
+        %section
+          %h2 Scaling the chat app
+
+
+        %section
+          .center
+            %img(src='pictures/web_app_cluster.png' width=600)
+
 
 
     %script{:src => "lib/js/head.min.js"}
