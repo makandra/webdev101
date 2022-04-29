@@ -57,16 +57,7 @@ Head of Development at
 <img src='pictures/example_trello.png' style='max-height: 550px'>
 </section>
 <section>
-<h2>This is a course for beginners</h2>
-<p class='fragment'>
-Who has made a static website?
-</p>
-<p class='fragment'>
-Who has worked on a web application?
-</p>
-</section>
-<section>
-<h2>Native apps vs. web apps</h2>
+<h2>Native apps <span class="red">vs.</span> web apps</h2>
 </section>
 <section>
 <h2>Native applications</h2>
@@ -668,6 +659,14 @@ CSS frameworks like <a href="https://getbootstrap.com/">Bootstrap</a> or <a href
 <a href='https://getbootstrap.com' target='_blank'>View example</a>
 </p>
 </section>
+<section>
+<h3>More CSS resources and exercises</h3>
+<ul>
+<li>
+<a href='https://makandracards.com/curriculum/34343-css-basics-3d'>Card: CSS Basics</a>
+</li>
+</ul>
+</section>
 <section data-background-color='var(--color-ash)'>
 <h2>After the break</h2>
 <ul>
@@ -845,9 +844,11 @@ The message list should automatically scroll to the most recent message
 It would be nice to be able to search through our messages
 </li>
 </ul>
-<p>For such things we need <b>JavaScript</b>.</p>
+<p>
+These things require code that runs in the browser, not on the server.
+</p>
 </section>
-<section data-background-color='var(--color-lemming)'>
+<section data-background-color='var(--color-galaxy)'>
 <h2>JavaScript</h2>
 </section>
 <section>
@@ -900,13 +901,6 @@ How to link HTML and JavaScript
 <li>Weak standard library (strings, numbers, arrays...).</li>
 <li>People are still arguing how one JavaScript file can load another.</li>
 </ul>
-</section>
-<section>
-<h2>Browser compatibility</h2>
-Your new friend:
-<a href='http://caniuse.com/#search=navigation'>caniuse.com</a>
-<br>
-<img height='370' src='pictures/caniuse.png'>
 </section>
 <section>
 <h2>
@@ -977,7 +971,24 @@ Improving the<br>chat interface
 </section>
 <section>
 <h3>Client-side search</h3>
-<pre class='xxxs'><code class='javascript' data-trim>function search() {&#x000A;  let queryInput = document.querySelector('.search-form input')&#x000A;  let query = queryInput.value.toLowerCase()&#x000A;  let messageElements = document.querySelectorAll('.message')&#x000A;  for (let messageElement of messageElements) {&#x000A;    var text = messageElement.textContent.toLowerCase()&#x000A;    if (text.includes(query)) {&#x000A;      messageElement.style.display = 'block'&#x000A;    } else {&#x000A;      messageElement.style.display = 'none'&#x000A;    }&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', function() {&#x000A;  let queryInput = document.querySelector('.search-form input')&#x000A;  queryInput.addEventListener('input', search)&#x000A;})&#x000A;</code></pre>
+<pre class='xxxs'><code class='javascript' data-trim>function search() {&#x000A;  let queryInput = document.querySelector('.search-form input')&#x000A;  let query = queryInput.value.toLowerCase()&#x000A;  let messageElements = document.querySelectorAll('.message')&#x000A;  for (let messageElement of messageElements) {&#x000A;    var text = messageElement.textContent.toLowerCase()&#x000A;    if (text.includes(query)) {&#x000A;      messageElement.style.display = 'block'&#x000A;    } else {&#x000A;      messageElement.style.display = 'none'&#x000A;    }&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', function() {&#x000A;  let queryInput = document.querySelector('.search-form input')&#x000A;  queryInput.addEventListener('input', search)&#x000A;})&#x000A;&#x000A;</code></pre>
+</section>
+<section>
+<h3>More JavaScript resources and exercises</h3>
+<ul>
+<li>
+<a href='https://makandracards.com/curriculum/34347-javascript-basics-2d'>Card: JavaScript Basics</a>
+</li>
+<li>
+<a href='https://makandracards.com/curriculum/508438-working-with-the-dom-1-5d'>Card: Working with the DOM</a>
+</li>
+<li>
+<a href='https://makandracards.com/curriculum/35275-javascript-writing-asynchronous-code-2-5d'>Card: Writing asynchronous code</a>
+</li>
+<li>
+<a href='https://makandracards.com/curriculum/34977-unobtrusive-javascript-components-3d'>Card: Unobtrusive JavaScript components</a>
+</li>
+</ul>
 </section>
 <section>
 <h2>Improving <code>app.rb</code></h2>
@@ -991,7 +1002,8 @@ with a lot of responsibilities:
 <li>Business logic</li>
 </ul>
 <p>
-This is not how it's done in the real world.
+As software engineers we always try to separate responsibilities
+into individual modules.
 </p>
 </section>
 <section>
@@ -1078,18 +1090,140 @@ Behavior enhancements
 </table>
 </section>
 <section>
-<h2>Questions?</h2>
+<h2>
+Client-side web apps
+</h2>
+<p>
+Also known as <b>Single-page apps</b> or <b>SPAs</b>.
+</p>
+<ul>
+<li>
+HTML is rendered on the browser.
+</li>
+<li>
+Client-side state management.
+</li>
+<li>
+Server is reduced to a JSON API.
+</li>
+<li>
+Optimistic rendering.
+</li>
+</ul>
+<p>
+<a href='examples/2020_chat_spa/src' target='_blank'>View source</a>
+</p>
+</section>
+<section>
+<h3>
+Pick your trade-off
+</h3>
+<table>
+<tr>
+<th></th>
+<th>
+Server-side app
+</th>
+<th>
+Client-side app
+</th>
+</tr>
+<tr>
+<td>
+<b>Code complexity</b>
+</td>
+<td>
+low
+</td>
+<td>
+high
+</td>
+</tr>
+<tr>
+<td>
+<b>Language</b>
+</td>
+<td>
+your choice
+</td>
+<td>
+JavaScript
+</td>
+</tr>
+<tr>
+<td>
+<b>Data access</b>
+</td>
+<td>
+sync
+</td>
+<td>
+async via API
+</td>
+</tr>
+<tr>
+<td>
+<b>Initial load time</b>
+</td>
+<td>
+fast
+</td>
+<td>
+slow
+</td>
+</tr>
+<tr>
+<td>
+<b>Optimistic rendering</b>
+</td>
+<td>
+duplicates logic
+</td>
+<td>
+view bound to client-side state
+</td>
+</tr>
+<tr>
+<td>
+<b>Offline</b>
+</td>
+<td>
+very hard
+</td>
+<td>
+hard
+</td>
+</tr>
+</table>
+<p>
+There are also hybrid solutions like
+<a href="https://unpoly.com">Unpoly</a>, <a href="https://htmx.org/">htmx</a>
+or <a href="https://remix.run/">Remix</a>.
+</p>
 </section>
 <section data-background-color='#111'>
-<h2>Web development 101</h2>
-<h3>
-<a class='red no-underline' href='https://twitter.com/triskweline'>Henning Koch</a>
+<h2>Questions?</h2>
+<h4>Get in touch</h4>
+<p>
+<a class='no-underline' href='https://twitter.com/triskweline'>@triskweline</a>
 <br>
-<a class='red no-underline' href='https://makandra.de'>makandra GmbH</a>
-</h3>
+<a class='no-underline' href='mailto:henning.koch@makandra.de'>henning.koch@makandra.de</a>
+</p>
+<h4>Slides</h4>
+<p>
+<a class='no-underline' href='http://webdev101.makandra.de'>http://webdev101.makandra.de<br></a>
+<a class='no-underline' href='https://github.com/makandra/webdev101'>https://github.com/makandra/webdev101</a>
+</p>
 </section>
 <section>
 <pre class='xxl'><code class='nohighlight' data-trim>telnet example.com 80</code></pre>
+</section>
+<section>
+<h2>Browser compatibility</h2>
+Your new friend:
+<a href='http://caniuse.com/#search=navigation'>caniuse.com</a>
+<br>
+<img height='370' src='pictures/caniuse.png'>
 </section>
 <section>
 <h2>Scaling the chat app</h2>

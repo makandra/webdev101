@@ -163,17 +163,17 @@
         %section
           %img(src='pictures/example_trello.png' style='max-height: 550px')
 
+        -#%section
+        -#  %h2 This is a course for beginners
+        -#
+        -#  %p.fragment
+        -#    Who has made a static website?
+        -#
+        -#  %p.fragment
+        -#    Who has worked on a web application?
+
         %section
-          %h2 This is a course for beginners
-
-          %p.fragment
-            Who has made a static website?
-
-          %p.fragment
-            Who has worked on a web application?
-
-        %section
-          %h2 Native apps vs. web apps
+          %h2 Native apps <span class="red">vs.</span> web apps
 
         %section
           %h2 Native applications
@@ -925,6 +925,13 @@
           %p
             %a(target='_blank' href='https://getbootstrap.com') View example
 
+        %section
+          %h3 More CSS resources and exercises
+
+          %ul
+            %li
+              %a(href='https://makandracards.com/curriculum/34343-css-basics-3d') Card: CSS Basics
+
 
         %section(data-background-color='var(--color-ash)')
           %h2 After the break
@@ -1196,11 +1203,12 @@
             %li
               It would be nice to be able to search through our messages
 
-          %p For such things we need <b>JavaScript</b>.
+          %p
+            These things require code that runs in the browser, not on the server.
 
 
 
-        %section(data-background-color='var(--color-lemming)')
+        %section(data-background-color='var(--color-galaxy)')
           %h2 JavaScript
 
         %section
@@ -1340,14 +1348,6 @@
             %li Weak standard library (strings, numbers, arrays...).
             %li People are still arguing how one JavaScript file can load another.
 
-        %section
-          %h2 Browser compatibility
-
-          Your new friend:
-          %a(href='http://caniuse.com/#search=navigation') caniuse.com
-          %br
-
-          %img(src='pictures/caniuse.png' height=370)
 
         %section
           %h2
@@ -1451,6 +1451,21 @@
                   queryInput.addEventListener('input', search)
                 })
 
+
+        %section
+          %h3 More JavaScript resources and exercises
+
+          %ul
+            %li
+              %a(href='https://makandracards.com/curriculum/34347-javascript-basics-2d') Card: JavaScript Basics
+            %li
+              %a(href='https://makandracards.com/curriculum/508438-working-with-the-dom-1-5d') Card: Working with the DOM
+            %li
+              %a(href='https://makandracards.com/curriculum/35275-javascript-writing-asynchronous-code-2-5d') Card: Writing asynchronous code
+            %li
+              %a(href='https://makandracards.com/curriculum/34977-unobtrusive-javascript-components-3d') Card: Unobtrusive JavaScript components
+
+
         %section
           %h2 Improving <code>app.rb</code>
 
@@ -1464,7 +1479,8 @@
             %li Business logic
 
           %p
-            This is not how it's done in the real world.
+            As software engineers we always try to separate responsibilities
+            into individual modules.
 
         %section
 
@@ -1656,19 +1672,114 @@
 
 
         %section
-          %h2 Questions?
+          %h2
+            Client-side web apps
+
+          %p
+            Also known as <b>Single-page apps</b> or <b>SPAs</b>.
+
+          %ul
+            %li
+              HTML is rendered on the browser.
+            %li
+              Client-side state management.
+            %li
+              Server is reduced to a JSON API.
+            %li
+              Optimistic rendering.
+
+          %p
+            %a(target='_blank' href='examples/2020_chat_spa/src') View source
+
+        %section
+          %h3
+            Pick your trade-off
+
+          %table
+            %tr
+              %th
+              %th
+                Server-side app
+              %th
+                Client-side app
+            %tr
+              %td
+                <b>Code complexity</b>
+              %td
+                low
+              %td
+                high
+            %tr
+              %td
+                <b>Language</b>
+              %td
+                your choice
+              %td
+                JavaScript
+            %tr
+              %td
+                <b>Data access</b>
+              %td
+                sync
+              %td
+                async via API
+            %tr
+              %td
+                <b>Initial load time</b>
+              %td
+                fast
+              %td
+                slow
+            %tr
+              %td
+                <b>Optimistic rendering</b>
+              %td
+                duplicates logic
+              %td
+                view bound to client-side state
+            %tr
+              %td
+                <b>Offline</b>
+              %td
+                very hard
+              %td
+                hard
+
+          %p
+            There are also hybrid solutions like
+            <a href="https://unpoly.com">Unpoly</a>, <a href="https://htmx.org/">htmx</a>
+            or <a href="https://remix.run/">Remix</a>.
 
         %section(data-background-color='#111')
-          %h2 Web development 101
-          %h3
-            %a.red.no-underline{:href => "https://twitter.com/triskweline"} Henning Koch
+          %h2 Questions?
+
+          %h4 Get in touch
+
+          %p
+            %a.no-underline{:href => "https://twitter.com/triskweline"} @triskweline
             %br
-            %a.red.no-underline{:href => "https://makandra.de"} makandra GmbH
+            %a.no-underline{:href => "mailto:henning.koch@makandra.de"} henning.koch@makandra.de
+          %h4 Slides
+
+          %p
+            %a.no-underline(href='http://webdev101.makandra.de') http://webdev101.makandra.de<br>
+            %a.no-underline(href='https://github.com/makandra/webdev101') https://github.com/makandra/webdev101
+
 
         %section
           %pre.xxl
             %code.nohighlight(data-trim)
               telnet example.com 80
+
+
+        %section
+          %h2 Browser compatibility
+
+          Your new friend:
+          %a(href='http://caniuse.com/#search=navigation') caniuse.com
+          %br
+
+          %img(src='pictures/caniuse.png' height=370)
 
         %section
           %h2 Scaling the chat app

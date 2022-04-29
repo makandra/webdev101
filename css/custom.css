@@ -142,6 +142,11 @@ body {
   text-transform: uppercase;
 }
 
+.reveal table tr:last-child td,
+.reveal table tr:last-child th {
+  border-bottom: 0
+}
+
 .reveal .columns:after {
   content: "";
   display: table;
