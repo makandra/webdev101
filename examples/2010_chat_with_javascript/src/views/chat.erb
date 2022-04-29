@@ -98,7 +98,7 @@
 
       // Loads a fresh list of messages from the server
       async function refresh() {
-        let response = await fetch('/channel')
+        let response = await fetch('/')
         let newHTML = await response.text()
         let parser = new DOMParser()
         let newDocument = parser.parseFromString(newHTML, 'text/html')

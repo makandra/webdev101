@@ -1,14 +1,12 @@
 require 'sinatra'
 
-get '/channel' do
+get '/' do
   @messages = File.read('messages.txt').lines
-  erb(:channel)
+  erb(:chat)
 end
 
 post '/send' do
-  message = params['message']
-  file = File.open('messages.txt', 'a')
-  file.puts(message)
-  file.close()
-  redirect('/channel')
+  message = params['message'] + "\n"
+  File.write('messages.txt', message, mode: 'a')
+  redirect('/')
 end

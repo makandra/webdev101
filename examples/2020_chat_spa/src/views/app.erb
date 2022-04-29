@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--suppress JSUnresolvedFunction -->
+<html>
+
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <style>
+
+      body {
+        margin: 0;
+        font-family: arial, helvetica, sans-serif;
+        font-size: 22px;
+        line-height: 26px;
+        background-color: #cccccc;
+      }
+
+      .channel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 70px;
+        overflow-y: scroll;
+      }
+
+      .message {
+        background: #ffffcc;
+        padding: 12px 14px;
+        border-radius: 3px;
+        margin: 15px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2), inset 0 10px 10px rgba(255, 255, 255, 0.5);
+      }
+
+      form {
+        margin: 0;
+        position: absolute;
+        bottom: 0;
+        height: 70px;
+        background-color: #666666;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        border-top: 1px solid #999999;
+      }
+
+      form.message-form {
+        left: 0;
+        right: 200px;
+      }
+
+      form.search-form {
+        right: 0;
+        width: 200px;
+      }
+
+      input {
+        box-sizing: border-box;
+        border: none;
+        padding: 0 20px;
+        font-size: 25px;
+        height: 100%;
+        width: 100%;
+        font-family: arial, helvetica, sans-serif;
+        color: #349;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/mithril@2.0.4/mithril.js"></script>
+
+    <script>
+      function Chat() {
+        let newMessage = ''
+        let messages = []
+        let query = ''
+
+        function sendMessage(event) {
+          event.preventDefault()
+
+          if (!newMessage) return
+
+          messages.push(newMessage) // Optimistic rendering
+
+          m.request({
+            url: '/send',
+            method: 'POST',
+            params: { message: newMessage }
+          })
+
+          newMessage = ''
+          query = ''
+        }
+
+        async function loadMessages() {
+          messages = await m.request({ url: '/messages' })
+          setTimeout(loadMessages, 1000)
+        }
+
+        function matchingMessages() {
+          return messages.filter((message) => message.includes(query))
+        }
+
+        function showLastMessage() {
+          document.querySelector('.message:last-child')?.scrollIntoView?.()
+        }
+
+        return {
+          oncreate: loadMessages,
+          view: () => [
+            m('div.channel',
+              matchingMessages().map((message) => m('div.message', message))
+            ),
+            m('form.message-form', { onsubmit: sendMessage },
+              m('input', {
+                type: 'text',
+                name: 'message',
+                placeholder: 'Enter your message',
+                autocomplete: 'off',
+                value: newMessage,
+                oninput: (event) => newMessage = event.target.value,
+              })
+            ),
+            m('form.search-form',
+              m('input', {
+                type: 'search',
+                placeholder: 'Search...',
+                value: query,
+                oninput: (event) => query = event.target.value
+              })
+            )
+          ],
+          onupdate: showLastMessage
+        }
+      }
+
+      m.mount(document.body, Chat)
+    </script>
+
+  </body>
+</html>

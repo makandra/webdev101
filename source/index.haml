@@ -289,8 +289,9 @@
             %li HTML &amp; HTTP
             %li CSS
             %li(style='color: #ee9955') Break
-            %li Server-side web applications
+            %li Server-side web apps
             %li JavaScript
+            %li Client-side web apps (SPAs)
             %li(style='color: #ee9955') Discussion / end
 
           %br
@@ -426,10 +427,6 @@
                 2A 00 08 00 00 00 0D 00
                 0F 01 02 00 06 00 00 00
                 ...
-        %section
-          %pre.xxl
-            %code.nohighlight(data-trim)
-              telnet example.com 80
 
 
         %section
@@ -933,8 +930,9 @@
           %h2 After the break
 
           %ul
-            %li Server-side web applications
+            %li Server-side web apps
             %li JavaScript
+            %li Client-side web apps
 
         %section(data-background-color='var(--color-galaxy)')
 
@@ -1106,14 +1104,14 @@
 
           %p
             You can now access the app at
-            %a(href='http://localhost:4567/channel') http://localhost:4567/channel
+            %a(href='http://localhost:4567/') http://localhost:4567/
 
         %section
           %p
             The user types into her address bar:
           %pre
             %code.nohighlight(data-trim)
-              http://chatapp.com/channel
+              http://chatapp.com/
           %p
             What happens?
 
@@ -1125,12 +1123,12 @@
           %pre.xs
             %code.nohighlight(data-trim)
               :preserve
-                GET /channel HTTP/1.1          # I want /channel
+                GET / HTTP/1.1                 # I want /
                 Host: chatapp.com              # I want it from chatapp.com
                 Accept: text/html, text/plain  # I understand HTML and plain text
 
           %p.fragment
-            Server asks the program <code>app.rb</code> for <code>/channel</code>.<br>
+            Server asks the program <code>app.rb</code> for <code>/</code>.<br>
           %p.fragment
             The program prints a new HTML page with the latest chat messages.
           %p.fragment
@@ -1180,10 +1178,10 @@
             %code.nohighlight(data-trim)
               :preserve
                 HTTP/1.1 303 See Other   # This conversation continues elsewhere
-                Location: /channel       # Request /channel to continue
+                Location: /              # Request / to continue
 
           %p.fragment
-            The browser automatically makes another request to <code>/channel</code>
+            The browser automatically makes another request to <code>/</code>
             and gets a fresh copy of the message list.
 
         %section
@@ -1330,15 +1328,16 @@
 
 
         %section
-          %h2.red JavaScript is a wacky language
+          %h3.red JavaScript is not my favorite language
 
           %ul
             %li Not everything is an object.
             %li There are three kinds of <code>null</code>.
-            %li Equality is confusing. Also can't define equality for your own types.
+            %li Equality is confusing. Also you can't define equality for your own types.
             %li Objects don't crash when accessing missing properties.
             %li Explicit <code>this.foo()</code> to call your own methods.
-            %li Weak standard lib (strings, numbers, arrays...).
+            %li Arcane rules around <code>this</code>.
+            %li Weak standard library (strings, numbers, arrays...).
             %li People are still arguing how one JavaScript file can load another.
 
         %section
@@ -1412,7 +1411,7 @@
             %code.javascript(data-trim)
               :preserve
                 async function refresh() {
-                  let response = await fetch('/channel')
+                  let response = await fetch('/')
                   let newHTML = await response.text()
                   let parser = new DOMParser()
                   let newDocument = parser.parseFromString(newHTML, 'text/html')
@@ -1474,20 +1473,20 @@
           %pre.xs
             %code.ruby(data-trim)
               :preserve
-                &nbsp;
-
-                get '/channel' do
+                get '/' do
                   @messages = File.read('messages.txt').lines
                   erb(:channel)
                 end
 
                 get '/send' do
-                  message = params['message']
-                  file = File.open('messages.txt', 'a')
-                  file.puts(message)
-                  file.close()
-                  redirect('/channel')
+                  message = params['message'] + "\n"
+                  File.write('messages.txt', message, mode: 'a')
+                  redirect('/')
                 end
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
                 &nbsp;
                 &nbsp;
 
@@ -1523,7 +1522,7 @@
               :preserve
                 db = Mydb::Client.new(host: 'localhost')
 
-                get '/channel' do
+                get '/' do
                   @messages = db.select_values('SELECT text FROM messages')
                   erb(:channel)
                 end
@@ -1532,7 +1531,7 @@
                   message = params['message']
                   escaped = db.escape(message)
                   db.execute('INSERT INTO messages VALUES (' + escaped + ')')
-                  redirect('/channel')
+                  redirect('/')
                 end
                 &nbsp;
                 &nbsp;
@@ -1549,7 +1548,7 @@
                   :preserve
                     channel = Channel.new
 
-                    get '/channel' do
+                    get '/' do
                       @messages = channel.messages
                       erb(:channel)
                     end
@@ -1557,7 +1556,7 @@
                     get '/send' do
                       message = params['message']
                       channel.add_message(message)
-                      redirect('/channel')
+                      redirect('/')
                     end
                     &nbsp;
                     &nbsp;
@@ -1667,8 +1666,12 @@
             %a.red.no-underline{:href => "https://makandra.de"} makandra GmbH
 
         %section
-          %h2 Scaling the chat app
+          %pre.xxl
+            %code.nohighlight(data-trim)
+              telnet example.com 80
 
+        %section
+          %h2 Scaling the chat app
 
         %section
           .center
