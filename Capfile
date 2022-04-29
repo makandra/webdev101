@@ -7,11 +7,11 @@ set :deploy_via, :remote_cache
 set :copy_exclude, [ '.git' ]
 set :clear_cache, :false
 
-set :repository,  "git://github.com/makandra/webdev101"
+set :repository,  "git@github.com:makandra/webdev101.git"
 set :scm, :git
 
-server "c23.customers-2.makandra.de", :app, :web, :primary => true
-server "c42.customers-2.makandra.de", :app, :web
+server "app01-prod.sharedhosting.makandra.de", :app, :web, :primary => true
+server "app02-prod.sharedhosting.makandra.de", :app, :web
 
 ssh_options[:forward_agent] = true
 
