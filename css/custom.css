@@ -264,3 +264,75 @@ body {
   bottom: auto;
   top: 10px;
 }
+
+/* Flexbox slides begin */
+
+.reveal section.flexbox {
+  height: 600px;
+}
+
+.reveal section.flexbox pre code {
+  min-height: 280px;
+}
+
+
+.reveal .container {
+  background: rgba(0,0,0,0.3);
+  box-shadow: 0 0 1rem rgba(0,0,0,0.2);
+  margin: 20px auto;
+  width: 90%;
+  xpadding: 0.5rem;
+  box-sizing: border-box;
+  border: 3px solid #666666;
+}
+.reveal .container > .child {
+  padding: 10px 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 30px;
+  box-sizing: border-box;
+}
+.reveal .container > .child:nth-child(1)::before {
+  content: '1. Alpha';
+}
+.reveal .container > .child:nth-child(1) {
+  background: rgba(64,64,255,0.4);
+}
+.reveal .container > .child:nth-child(2)::before {
+  content: '2. Beta';
+}
+.reveal .container > .child:nth-child(2) {
+  background: rgba(64,255,64,0.4);
+}
+.reveal .container > .child:nth-child(3)::before {
+  content: '3. Gamma';
+}
+.reveal .container > .child:nth-child(3) {
+  background: rgba(255,255,64,0.4);
+}
+.reveal .container > .child:nth-child(4)::before {
+  content: '4. Delta';
+}
+.reveal .container > .child:nth-child(4) {
+  background: rgba(255,64,64,0.4);
+}
+.reveal .container > .child:nth-child(5)::before {
+  content: '5. Epsilon';
+}
+.reveal .container > .child:nth-child(5) {
+  background: rgba(64,255,255,0.4);
+}
+.reveal .container > .child:nth-child(6)::before {
+  content: '6. Zeta';
+}
+.reveal .container > .child:nth-child(6) {
+  background: rgba(255,64,255,0.4);
+}
+.reveal .container > .child:nth-child(7)::before {
+  content: '7. Eta';
+}
+.reveal .container > .child:nth-child(7) {
+  background: rgba(255,255,255,0.4);
+}
+
+/* Flexbox slides end */

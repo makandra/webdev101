@@ -288,6 +288,7 @@
           %ul
             %li HTML &amp; HTTP
             %li CSS
+            %li Layout with Flexbox
             %li(style='color: #ee9955') Break
             %li Server-side web apps
             %li JavaScript
@@ -526,29 +527,25 @@
               %div(style='font-weight: bold; color: #ffff00') <code>#ffff00</code>
               %div(style='font-weight: bold; color: #ffffff') <code>#ffffff</code>
               %div(style='font-weight: bold; color: #000000') <code style="background-color: #444444">#000000</code>
-              .fragment
-                %div(style='font-weight: bold; color: #ff9900') <code>#ff9900</code>
-                %div(style='font-weight: bold; color: #4488bb') <code>#4488bb</code>
-                %div(style='font-weight: bold; color: #9900ff') <code>#9900ff</code>
-                %div(style='font-weight: bold; color: #777777') <code>#777777</code>
-                %div(style='font-weight: bold; color: #22aa88') <code>#22aa88</code>
-                %div(style='font-weight: bold; color: #885555') <code>#885555</code>
+              %div(style='font-weight: bold; color: #ff9900') <code>#ff9900</code>
+              %div(style='font-weight: bold; color: #4488bb') <code>#4488bb</code>
+              %div(style='font-weight: bold; color: #9900ff') <code>#9900ff</code>
+              %div(style='font-weight: bold; color: #777777') <code>#777777</code>
+              %div(style='font-weight: bold; color: #22aa88') <code>#22aa88</code>
+              %div(style='font-weight: bold; color: #885555') <code>#885555</code>
             .column
-              .fragment
-                %div(style='font-weight: bold; color: red') <code>red</code>
-                %div(style='font-weight: bold; color: yellow') <code>yellow</code>
-                %div(style='font-weight: bold; color: fuchsia') <code>fuchsia</code>
-                %div(style='font-weight: bold; color: rebeccapurple') <code>rebeccapurple</code>
-              .fragment
-                %div(style='font-weight: bold; color: rgba(255, 0, 0, 1.0)') <code>rgba(255, 0, 0, 1.0)</code>
-                %div(style='font-weight: bold; color: rgba(255, 0, 0, 0.75)') <code>rgba(255, 0, 0, 0.75)</code>
-                %div(style='font-weight: bold; color: rgba(255, 0, 0, 0.5)') <code>rgba(255, 0, 0, 0.5)</code>
-                %div(style='font-weight: bold; color: rgba(255, 0, 0, 0.25)') <code>rgba(255, 0, 0, 0.25)</code>
-              .fragment
-                %div(style='font-weight: bold; color: hsl(0, 100%, 50%)') <code>hsl(0, 100%, 50%)</code>
-                %div(style='font-weight: bold; color: hsl(30, 100%, 50%)') <code>hsl(30, 100%, 50%)</code>
-                %div(style='font-weight: bold; color: hsl(30, 50%, 50%)') <code>hsl(30, 50%, 50%)</code>
-                %div(style='font-weight: bold; color: hsl(30, 50%, 70%)') <code>hsl(30, 50%, 70%)</code>
+              %div(style='font-weight: bold; color: red') <code>red</code>
+              %div(style='font-weight: bold; color: yellow') <code>yellow</code>
+              %div(style='font-weight: bold; color: fuchsia') <code>fuchsia</code>
+              %div(style='font-weight: bold; color: rebeccapurple') <code>rebeccapurple</code>
+              %div(style='font-weight: bold; color: rgba(255, 0, 0, 1.0)') <code>rgba(255, 0, 0, 1.0)</code>
+              %div(style='font-weight: bold; color: rgba(255, 0, 0, 0.75)') <code>rgba(255, 0, 0, 0.75)</code>
+              %div(style='font-weight: bold; color: rgba(255, 0, 0, 0.5)') <code>rgba(255, 0, 0, 0.5)</code>
+              %div(style='font-weight: bold; color: rgba(255, 0, 0, 0.25)') <code>rgba(255, 0, 0, 0.25)</code>
+              %div(style='font-weight: bold; color: hsl(0, 100%, 50%)') <code>hsl(0, 100%, 50%)</code>
+              %div(style='font-weight: bold; color: hsl(30, 100%, 50%)') <code>hsl(30, 100%, 50%)</code>
+              %div(style='font-weight: bold; color: hsl(30, 50%, 50%)') <code>hsl(30, 50%, 50%)</code>
+              %div(style='font-weight: bold; color: hsl(30, 50%, 70%)') <code>hsl(30, 50%, 70%)</code>
 
 
         %section
@@ -638,6 +635,11 @@
                 }
 
                 ...
+
+        %section
+          %p
+            %a(href='https://developer.chrome.com/docs/devtools/network/') DevTools Network Tab
+
 
         %section
 
@@ -896,15 +898,755 @@
         -#    %a(target='_blank' href='examples/1070_layout') View example
 
         %section
-          %h3
-            Putting elements side-by-side
-            .subtle
-              With Flexbox
+          %h2
+            Layout with Flexbox
 
           %img(src='pictures/screenshot_layout.png' height=300)
 
           %p
             %a(target='_blank' href='examples/1071_layout_with_flexbox') View example
+
+        :plain
+          <section class="flexbox">
+            <h2>Block elements stack</h2>
+
+            <pre><code data-trim class="css">
+          .container {
+            display: block; /* default */
+          }
+            </code></pre>
+            <div class="container" style="">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>Flexbox children are columns</h2>
+
+            <pre><code data-trim class="css">
+          .container {
+            display: flex;
+          }
+            </code></pre>
+            <div class="container" style="display: flex;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>justify-content</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            justify-content: flex-start; /* default */
+          }
+            </code></pre>
+            <div class="container" style="display: flex; justify-content: flex-start;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>justify-content</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            justify-content: flex-end;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; justify-content: flex-end;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>justify-content</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            justify-content: space-between;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; justify-content: space-between;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>justify-content</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            justify-content: space-around;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; justify-content: space-around;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>justify-content</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            justify-content: center;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; justify-content: center;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>Pushing siblings</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+          }
+          .child:nth-child(1) {
+            margin-right: auto;
+          }
+            </code></pre>
+            <div class="container" style="display: flex;">
+              <div class="child" style="margin-right: auto"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <!--
+          <section class="flexbox">
+            <h2>Pushing siblings</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+          }
+          .child:nth-child(2) {
+            margin-left: auto;
+            margin-right: auto;
+          }
+            </code></pre>
+            <div class="container" style="display: flex;">
+              <div class="child"></div>
+              <div class="child" style="margin-left: auto; margin-right: auto;"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+          -->
+
+          <section class="flexbox">
+            <h2>flex-grow</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+          }
+          .child {
+            flex-grow: 1;
+          }
+            </code></pre>
+            <div class="container" style="display: flex;">
+              <div class="child" style="flex-grow: 1;"></div>
+              <div class="child" style="flex-grow: 1;"></div>
+              <div class="child" style="flex-grow: 1;"></div>
+              <div class="child" style="flex-grow: 1;"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>flex-grow</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+          }
+          .child:nth-child(2) {
+            flex-grow: 1;
+          }
+            </code></pre>
+            <div class="container" style="display: flex;">
+              <div class="child"></div>
+              <div class="child" style="flex-grow: 1;"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>flex-grow</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+          }
+          .child:nth-child(1) {
+            flex-grow: 1;
+          }
+          .child:nth-child(2) {
+            flex-grow: 2;
+          }
+            </code></pre>
+            <div class="container" style="display: flex;">
+              <div class="child"></div>
+              <div class="child" style="flex-grow: 1;"></div>
+              <div class="child" style="flex-grow: 2;"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>flex-basis</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+          }
+          .child {
+            flex-basis: 200px;
+          }
+            </code></pre>
+            <div class="container" style="display: flex;">
+              <div class="child" style="flex-basis: 200px;"></div>
+              <div class="child" style="flex-basis: 200px;"></div>
+              <div class="child" style="flex-basis: 200px;"></div>
+              <div class="child" style="flex-basis: 200px;"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>flex-basis</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+          }
+          .child {
+            flex-basis: 200px;
+          }
+          .child:nth-child(2) {
+            flex-grow: 1;
+          }
+            </code></pre>
+            <div class="container" style="display: flex;">
+              <div class="child" style="flex-basis: 200px;"></div>
+              <div class="child" style="flex-basis: 200px; flex-grow: 1;"></div>
+              <div class="child" style="flex-basis: 200px;"></div>
+              <div class="child" style="flex-basis: 200px;"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>Many elements</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+          }
+            </code></pre>
+            <div class="container" style="display: flex;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>Many elements</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+          }
+          .child {
+            flex-shrink: 0;
+          }
+            </code></pre>
+            <div class="container" style="display: flex;">
+              <div class="child" style="flex-shrink: 0;"></div>
+              <div class="child" style="flex-shrink: 0;"></div>
+              <div class="child" style="flex-shrink: 0;"></div>
+              <div class="child" style="flex-shrink: 0;"></div>
+              <div class="child" style="flex-shrink: 0;"></div>
+              <div class="child" style="flex-shrink: 0;"></div>
+              <div class="child" style="flex-shrink: 0;"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>Many elements</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            flex-wrap: wrap;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; flex-wrap: wrap;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>Many elements</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .child {
+            flex-basis: 25%;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; flex-wrap: wrap;">
+              <div class="child" style="flex-basis: 25%;"></div>
+              <div class="child" style="flex-basis: 25%;"></div>
+              <div class="child" style="flex-basis: 25%;"></div>
+              <div class="child" style="flex-basis: 25%;"></div>
+              <div class="child" style="flex-basis: 25%;"></div>
+              <div class="child" style="flex-basis: 25%;"></div>
+              <div class="child" style="flex-basis: 25%;"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>Many elements</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .child {
+            flex-basis: 25%;
+            flex-grow: 1;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; flex-wrap: wrap;">
+              <div class="child" style="flex-basis: 25%; flex-grow: 1"></div>
+              <div class="child" style="flex-basis: 25%; flex-grow: 1"></div>
+              <div class="child" style="flex-basis: 25%; flex-grow: 1"></div>
+              <div class="child" style="flex-basis: 25%; flex-grow: 1"></div>
+              <div class="child" style="flex-basis: 25%; flex-grow: 1"></div>
+              <div class="child" style="flex-basis: 25%; flex-grow: 1"></div>
+              <div class="child" style="flex-basis: 25%; flex-grow: 1"></div>
+            </div>
+          </section>
+
+          <!--
+          <section class="flexbox">
+            <h2>flex</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+          }
+          .child {
+            flex-grow: 0; /* default */
+            flex-shrink: 1; /* default */
+            flex-basis: auto; /* default */
+          }
+             </code></pre>
+            <div class="container" style="display: flex;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>flex</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+          }
+          .child {
+            flex: 0 1 auto; /* default */
+          }
+            </code></pre>
+            <div class="container" style="display: flex;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>flex</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .child {
+            flex: 0 0 250px;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; flex-wrap: wrap;">
+              <div class="child" style="flex: 0 0 250px;"></div>
+              <div class="child" style="flex: 0 0 250px;"></div>
+              <div class="child" style="flex: 0 0 250px;"></div>
+              <div class="child" style="flex: 0 0 250px;"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>flex</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .child {
+            flex: 1 0 250px;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; flex-wrap: wrap;">
+              <div class="child" style="flex: 1 0 250px;"></div>
+              <div class="child" style="flex: 1 0 250px;"></div>
+              <div class="child" style="flex: 1 0 250px;"></div>
+              <div class="child" style="flex: 1 0 250px;"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>flex</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .child {
+            flex: 0 0 33.33%;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; flex-wrap: wrap;">
+              <div class="child" style="flex: 0 0 33.33%;"></div>
+              <div class="child" style="flex: 0 0 33.33%;"></div>
+              <div class="child" style="flex: 0 0 33.33%;"></div>
+              <div class="child" style="flex: 0 0 33.33%;"></div>
+            </div>
+          </section>
+          -->
+
+          <section class="flexbox">
+            <h2>flex-direction</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            flex-direction: row;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; flex-direction: row;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>flex-direction</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            flex-direction: row-reverse;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; flex-direction: row-reverse;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>flex-direction</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            flex-direction: column;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; flex-direction: column;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>flex-direction</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            flex-direction: column-reverse;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; flex-direction: column-reverse;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>align-items</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            height: 200px;
+            align-items: stretch; /* default */
+          }
+            </code></pre>
+            <div class="container" style="display: flex; height: 200px;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>align-items</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            height: 200px;
+            align-items: flex-start;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; height: 200px; align-items: flex-start;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>align-items</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            height: 200px;
+            align-items: flex-end;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; height: 200px; align-items: flex-end;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>align-items</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            height: 200px;
+            align-items: center;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; height: 200px; align-items: center;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>align-items</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            height: 200px;
+            align-items: center;
+          }
+          .child:nth-child(2) {
+            align-self: stretch;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; height: 200px; align-items: center;">
+              <div class="child"></div>
+              <div class="child" style="align-self: stretch;"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <section class="flexbox">
+            <h2>align-items</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: flex;
+            height: 200px;
+            align-items: center;
+            justify-content: center;
+          }
+            </code></pre>
+            <div class="container" style="display: flex; height: 200px; align-items: center; justify-content: center;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+          </section>
+
+          <!--
+          <section class="flexbox">
+            <h2>inline-flex</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: inline-flex;
+          }
+            </code></pre>
+
+            Hello
+            <div class="container" style="display: inline-flex; width: auto;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+            World
+          </section>
+
+          <section class="flexbox">
+            <h2>inline-flex</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: inline-flex;
+            width: 600px;
+          }
+            </code></pre>
+
+            Hello
+            <div class="container" style="display: inline-flex; width: 600px;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+            World
+          </section>
+
+          <section class="flexbox">
+            <h2>inline-flex</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: inline-flex;
+            width: 600px;
+            justify-content: space-between;
+          }
+            </code></pre>
+
+            Hello
+            <div class="container" style="display: inline-flex; width: 600px; justify-content: space-between;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+            World
+          </section>
+
+          <section class="flexbox">
+            <h2>inline-flex</h2>
+
+            <pre class=""><code data-trim class="css">
+          .container {
+            display: inline-flex;
+            width: 600px;
+            justify-content: center;
+          }
+            </code></pre>
+
+            Hello
+            <div class="container" style="display: inline-flex; width: 600px; justify-content: center;">
+              <div class="child"></div>
+              <div class="child"></div>
+              <div class="child"></div>
+            </div>
+            World
+          </section>
+          -->
+
+
+        %section
+          %h2 Flexbox resources
+
+          %ul
+            %li
+              %a(href='https://web.dev/learn/css/flexbox/') Learn CSS: Flexbox
+            %li
+              %a(href='https://flexboxfroggy.com/') Flexbox Froggy: A game for learning Flexbox
+            %li
+              %a(href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/') Flexbox Cheat Sheet
+
 
         %section
           %h2 CSS frameworks
@@ -931,6 +1673,8 @@
           %ul
             %li
               %a(href='https://makandracards.com/curriculum/34343-css-basics-3d') Card: CSS Basics
+            %li
+              %a(href='https://web.dev/learn/css/') Learn CSS
 
 
         %section(data-background-color='var(--color-ash)')
@@ -999,34 +1743,30 @@
             %span.fragment
               Server runs a program <code>time.exe</code>.<br>
             %span.fragment
-              The program <code>time.exe</code> writes the current time to <code>STDOUT</code>:
+              The program <code>time.exe</code> writes a HTTP response
+              %br
+              with the current time to <code>STDOUT</code>:
 
           %pre.xs.fragment
             %code.ruby(data-trim)
               :preserve
-                print "The time is " + Time.now.to_s
+                puts "HTTP/1.1 200 OK"
+                puts "Content-Length: 22"
+                puts "Content-Type: text/plain"
+                puts
+                puts "The time is " + Time.now.to_s
 
-          %p
-            %span.fragment
-              Server takes the program output and sends it the browser:
-
-          %pre.xs.fragment
-            %code.nohighlight(data-trim)
-              :preserve
-                HTTP/1.1 200 OK                # I found what you wanted
-                Content-Length: 22             # What you want has 22 bytes
-                Content-Type: text/plain       # And it's in plain text
-                                               # Here it comes:
-                The time is 14:37:05.
 
         %section
           %h3 Browser don't know about web apps!
 
           %p
-            The browser simply makes a request and gets back a string of HTML.
+            The browser simply makes a request and gets back a string of HTML (wrapped in HTTP).
 
           %p
-            The browser <b>doesn't even know</b> if the HTML was generated by an app, or was simply read from a static file.
+            The browser <b>doesn't even know</b> if the HTML was generated by an app,
+            %br
+            or if it was simply read from a static file.
 
         %section
           %h3 You can write web apps in any language that can print text
@@ -1068,6 +1808,7 @@
 
                     user = User.new('Max', 18)
                     puts user.name
+                    puts user.adult?
 
             .column
               %h3 Java
@@ -1092,6 +1833,7 @@
 
                     var user = new User("Max", 18);
                     System.out.println(user.getName());
+                    System.out.println(user.isAdult());
 
         %section
           %h2 The chat app
@@ -1221,6 +1963,9 @@
                 let y = x + 1
 
                 console.log(y) // 2
+
+          %p.fragment
+            Try it in your browser console! (<code>CTRL+Shift+J</code>)
 
         %section
           %pre.xxl
@@ -1405,7 +2150,7 @@
               × Server has no way to push the update to the user
 
         %section
-          %h3 Refreshing with AJAX
+          %h3 Reloading messages with <code>fetch()</code>
 
           %pre.xs
             %code.javascript(data-trim)
@@ -1464,6 +2209,130 @@
               %a(href='https://makandracards.com/curriculum/35275-javascript-writing-asynchronous-code-2-5d') Card: Writing asynchronous code
             %li
               %a(href='https://makandracards.com/curriculum/34977-unobtrusive-javascript-components-3d') Card: Unobtrusive JavaScript components
+
+
+
+
+        -#%section
+        -#  %p
+        -#    %img.plain(src='pictures/makandra/makandra-inverted.png' width='40%')
+        -#
+        -#  %p
+        -#    Du hast Programmiererfahrung und möchtest
+        -#    %br
+        -#    Dein Studium mit Praxiserfahrung kombinieren?
+        -#
+        -#  %ul
+        -#    %li
+        -#      Abschlussarbeiten im Bereich Ruby &amp; Web
+        -#    %li
+        -#      Praktikum / Werkstudent
+        -#    %li
+        -#      Trainee-Programm
+        -#      (<a href="http://start.makandra.de">start.makandra.de</a>)
+        -#    %li
+        -#      Reinschnuppern
+        -#
+        -#  %p
+        -#    ➜
+        -#    %a(href="mailto:info@makandra.de") info@makandra.de
+        -#    (oder mich ansprechen)
+
+
+        %section
+          %h2
+            Client-side web apps
+
+          %p
+            Also known as <b>Single-page apps</b> or <b>SPAs</b>.
+
+          %ul
+            %li
+              HTML is rendered on the browser.
+            %li
+              Client-side state management.
+            %li
+              Server is reduced to a database with a JSON API.
+            %li
+              Optimistic rendering.
+
+          %p
+            %a(target='_blank' href='examples/2020_chat_spa/src') View source
+
+        %section
+          %h2
+            Pick your trade-off
+
+          %table
+            %tr
+              %th
+              %th
+                Server-side app
+              %th
+                Client-side app
+            %tr
+              %td
+                <b>Code complexity</b>
+              %td
+                low
+              %td
+                high
+            %tr
+              %td
+                <b>Language</b>
+              %td
+                your choice
+              %td
+                JavaScript
+            %tr
+              %td
+                <b>Data access</b>
+              %td
+                sync
+              %td
+                async via API
+            %tr
+              %td
+                <b>Initial load time</b>
+              %td
+                fast
+              %td
+                slow
+            %tr
+              %td
+                <b>Optimistic rendering</b>
+              %td
+                duplicates logic
+              %td
+                view bound to client-side state
+            %tr
+              %td
+                <b>Offline</b>
+              %td
+                very hard
+              %td
+                hard
+
+          %p
+            There are also hybrid solutions like
+            <a href="https://unpoly.com">Unpoly</a>, <a href="https://htmx.org/">htmx</a>
+            or <a href="https://remix.run/">Remix</a>.
+
+        %section(data-background-color='#111')
+          %h2 Questions?
+
+          %h4 Get in touch
+
+          %p
+            %a.no-underline{:href => "https://twitter.com/triskweline"} @triskweline
+            %br
+            %a.no-underline{:href => "mailto:henning.koch@makandra.de"} henning.koch@makandra.de
+          %h4 Slides
+
+          %p
+            %a.no-underline(href='http://webdev101.makandra.de') http://webdev101.makandra.de<br>
+            %a.no-underline(href='https://github.com/makandra/webdev101') https://github.com/makandra/webdev101
+
 
 
         %section
@@ -1642,128 +2511,6 @@
                 Behavior enhancements
                 %span.subtle (optional)
 
-
-
-
-        -#%section
-        -#  %p
-        -#    %img.plain(src='pictures/makandra/makandra-inverted.png' width='40%')
-        -#
-        -#  %p
-        -#    Du hast Programmiererfahrung und möchtest
-        -#    %br
-        -#    Dein Studium mit Praxiserfahrung kombinieren?
-        -#
-        -#  %ul
-        -#    %li
-        -#      Abschlussarbeiten im Bereich Ruby &amp; Web
-        -#    %li
-        -#      Praktikum / Werkstudent
-        -#    %li
-        -#      Trainee-Programm
-        -#      (<a href="http://start.makandra.de">start.makandra.de</a>)
-        -#    %li
-        -#      Reinschnuppern
-        -#
-        -#  %p
-        -#    ➜
-        -#    %a(href="mailto:info@makandra.de") info@makandra.de
-        -#    (oder mich ansprechen)
-
-
-        %section
-          %h2
-            Client-side web apps
-
-          %p
-            Also known as <b>Single-page apps</b> or <b>SPAs</b>.
-
-          %ul
-            %li
-              HTML is rendered on the browser.
-            %li
-              Client-side state management.
-            %li
-              Server is reduced to a JSON API.
-            %li
-              Optimistic rendering.
-
-          %p
-            %a(target='_blank' href='examples/2020_chat_spa/src') View source
-
-        %section
-          %h3
-            Pick your trade-off
-
-          %table
-            %tr
-              %th
-              %th
-                Server-side app
-              %th
-                Client-side app
-            %tr
-              %td
-                <b>Code complexity</b>
-              %td
-                low
-              %td
-                high
-            %tr
-              %td
-                <b>Language</b>
-              %td
-                your choice
-              %td
-                JavaScript
-            %tr
-              %td
-                <b>Data access</b>
-              %td
-                sync
-              %td
-                async via API
-            %tr
-              %td
-                <b>Initial load time</b>
-              %td
-                fast
-              %td
-                slow
-            %tr
-              %td
-                <b>Optimistic rendering</b>
-              %td
-                duplicates logic
-              %td
-                view bound to client-side state
-            %tr
-              %td
-                <b>Offline</b>
-              %td
-                very hard
-              %td
-                hard
-
-          %p
-            There are also hybrid solutions like
-            <a href="https://unpoly.com">Unpoly</a>, <a href="https://htmx.org/">htmx</a>
-            or <a href="https://remix.run/">Remix</a>.
-
-        %section(data-background-color='#111')
-          %h2 Questions?
-
-          %h4 Get in touch
-
-          %p
-            %a.no-underline{:href => "https://twitter.com/triskweline"} @triskweline
-            %br
-            %a.no-underline{:href => "mailto:henning.koch@makandra.de"} henning.koch@makandra.de
-          %h4 Slides
-
-          %p
-            %a.no-underline(href='http://webdev101.makandra.de') http://webdev101.makandra.de<br>
-            %a.no-underline(href='https://github.com/makandra/webdev101') https://github.com/makandra/webdev101
 
 
         %section

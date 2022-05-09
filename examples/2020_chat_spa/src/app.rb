@@ -4,8 +4,9 @@ get '/' do
   erb(:app)
 end
 
-get '/messages' do
+get '/messages.json' do
   content_type :json
+  cache_control :no_store
   send_file 'messages.json'
 end
 
@@ -15,6 +16,5 @@ post '/send' do
   messages << params['message']
   messages = JSON.generate(messages)
   File.write('messages.json', messages)
-  send_file 'messages.json'
   halt 201
 end

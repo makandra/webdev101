@@ -40,7 +40,7 @@ body {
 }
 
 .main {
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   padding: 30px;
 }
 
