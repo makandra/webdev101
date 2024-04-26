@@ -94,7 +94,7 @@
 
         async function loadMessages() {
           messages = await m.request({ url: '/messages.json' })
-          setTimeout(loadMessages, 5000)
+          setTimeout(loadMessages, 1000)
         }
 
         function matchingMessages() {
