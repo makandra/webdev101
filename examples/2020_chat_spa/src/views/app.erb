@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--suppress JSUnresolvedFunction -->
 <html>
 
   <head>
@@ -67,74 +66,74 @@
   </head>
 
   <body>
-    <script src="https://unpkg.com/mithril@2.0.4/mithril.js"></script>
+    <script type="module">
+      import { render } from 'https://esm.sh/preact@10.7.2'
+      import { useState, useRef, useEffect } from 'https://esm.sh/preact@10.7.2/hooks'
+      import { html } from 'https://esm.sh/htm@3.0.4/preact'
 
-    <script>
       function Chat() {
-        let newMessage = ''
-        let messages = []
-        let query = ''
+        const [messages, setMessages] = useState([])
+        const [query, setQuery] = useState('')
+        const matchingMessages = messages.filter((message) => message.includes(query)) // TODO: Reicht das schon?
+        const [newMessage, setNewMessage] = useState('')
+        const channelElement = useRef()
 
-        function sendMessage(event) {
+        function onSubmitMessage(event) {
           event.preventDefault()
 
           if (!newMessage) return
+          setMessages([...messages, newMessage])
 
-          messages.push(newMessage) // Optimistic rendering
-
-          m.request({
-            url: '/send',
+          fetch('/send', {
             method: 'POST',
-            params: { message: newMessage }
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: newMessage })
           })
 
-          newMessage = ''
-          query = ''
+          setNewMessage('')
+          setQuery('')
         }
 
-        async function loadMessages() {
-          messages = await m.request({ url: '/messages.json' })
-          setTimeout(loadMessages, 1000)
+        useEffect(() => {
+          let lastTimeout
+
+          async function loadMessages() {
+            const response = await fetch('/messages.json')
+            if (response.ok) {
+              const text = await response.text()
+              setMessages(JSON.parse(text))
+            }
+            lastTimeout = setTimeout(loadMessages, 1000)
+          }
+
+          loadMessages()
+
+          return () => clearTimeout(lastTimeout)
+        }, [])
+
+        useEffect(() => {
+          if (channelElement.current) {
+            channelElement.current.scrollTop = channelElement.current.offsetHeight
+          }
+        }, [channelElement.current, messages])
+
+        return html`
+          <main>
+            <div class="channel" ref=${channelElement}>
+              ${matchingMessages.map((message) => html`<div class="message">${message}</div>`)}
+            </div>
+
+            <form class="message-form" onSubmit=${onSubmitMessage}>
+              <input type="text" name="message" placeholder="Enter your message" autofocus autocomplete="off" onInput=${({ currentTarget }) => setNewMessage(currentTarget.value)} />
+            </form>
+
+            <form class="search-form">
+              <input type="search" placeholder="Search..." onInput=${({ currentTarget }) => setQuery(currentTarget.value)} />
+            </form>
+          </main>`
         }
 
-        function matchingMessages() {
-          return messages.filter((message) => message.includes(query))
-        }
-
-        function showLastMessage() {
-          document.querySelector('.message:last-child')?.scrollIntoView?.()
-        }
-
-        return {
-          oncreate: loadMessages,
-          view: () => [
-            m('div.channel',
-              matchingMessages().map((message) => m('div.message', message))
-            ),
-            m('form.message-form', { onsubmit: sendMessage },
-              m('input', {
-                type: 'text',
-                name: 'message',
-                placeholder: 'Enter your message',
-                autocomplete: 'off',
-                value: newMessage,
-                oninput: (event) => newMessage = event.target.value,
-              })
-            ),
-            m('form.search-form',
-              m('input', {
-                type: 'search',
-                placeholder: 'Search...',
-                value: query,
-                oninput: (event) => query = event.target.value
-              })
-            )
-          ],
-          onupdate: showLastMessage
-        }
-      }
-
-      m.mount(document.body, Chat)
+        render(html`<${Chat} />`, document.body)
     </script>
 
   </body>

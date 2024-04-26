@@ -13,7 +13,7 @@ end
 post '/send' do
   messages = File.read('messages.json')
   messages = JSON.parse(messages)
-  messages << params['message']
+  messages << JSON.parse(request.body.read.to_s)['message']
   messages = JSON.generate(messages)
   File.write('messages.json', messages)
   halt 201
