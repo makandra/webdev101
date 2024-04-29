@@ -178,7 +178,7 @@ Server
 </table>
 </section>
 <section>
-<h2>In 2022 web apps are the dominant form of user-facing applications</h2>
+<h2>In 2024 web apps are the dominant form of user-facing applications</h2>
 <ul class='fragment'>
 <li>
 Can be used from any device with a web browser
@@ -1138,7 +1138,7 @@ Layout with Flexbox
 <p>
 Instead of starting from scratch you can build upon someone else's CSS.
 <br>
-CSS frameworks like <a href="https://getbootstrap.com/">Bootstrap</a> or <a href="https://foundation.zurb.com/">Foundation</a> give you:
+CSS frameworks like <a href="https://getbootstrap.com/">Bootstrap</a>, <a href="https://bulma.io/">Bulma</a> or <a href="https://primer.style/">Primer</a> give you:
 </p>
 <ul>
 <li>Normalized base styles</li>
@@ -1258,13 +1258,13 @@ The following examples are in Ruby, but concepts apply to all languages.
 <h2>The chat app</h2>
 <ul>
 <li>
-<a href='examples/2000_chat/src' target='_blank'>View source</a>
+<a href='examples/2000_chat' target='_blank'>View source</a>
 </li>
 </ul>
 <p>
 To run the chat app:
 </p>
-<pre><code class='nohighlight' data-trim>cd examples/2000_chat/src&#x000A;ruby app.rb&#x000A;</code></pre>
+<pre><code class='nohighlight' data-trim>cd examples/2000_chat&#x000A;bundle install&#x000A;bundle exec ruby app.rb&#x000A;</code></pre>
 <p>
 You can now access the app at
 <a href='http://localhost:4567/'>http://localhost:4567/</a>
@@ -1381,13 +1381,14 @@ How to link HTML and JavaScript
 </section>
 <section>
 <h2>Events</h2>
-<h4>HTML</h4>
-<pre><code class='html' data-trim>&lt;html&gt;&#x000A;  &lt;body&gt;&#x000A;    <button>Click me</button>&#x000A;  &lt;/body&gt;&#x000A;&lt;/html&gt;&#x000A;</code></pre>
-<h4>JavaScript</h4>
-<pre><code class='javascript' data-trim>let button = document.querySelector('button')&#x000A;button.addEventListener('click', function(event) {&#x000A;  alert('Button was clicked!')&#x000A;})&#x000A;&#x000A;window.addEventListener(function(event) {&#x000A;  alert('User scrolled!')&#x000A;})&#x000A;&#x000A;</code></pre>
+<pre><code class='html' data-trim>&lt;button&gt;Click me&lt;/button&gt;&#x000A;&#x000A;&lt;script&gt;&#x000A;  let button = document.querySelector('button')&#x000A;  button.addEventListener('click', function(event) {&#x000A;    alert('Button was clicked!')&#x000A;  })&#x000A;&#x000A;  window.addEventListener(function(event) {&#x000A;    alert('User scrolled!')&#x000A;  })&#x000A;&lt;/script&gt;&#x000A;</code></pre>
+<p>
+Client-side JavaScript that enhances server-rendered HTML
+is often called <i>Progressive Enhancement</i> or <i>JavaScript Sprinkles</i>.
+</p>
 </section>
 <section>
-<h3 class='red'>JavaScript is not my favorite language</h3>
+<h3 class='red'>JavaScript has sharp edges</h3>
 <ul>
 <li>Not everything is an object.</li>
 <li>There are three kinds of <code>null</code>.</li>
@@ -1398,10 +1399,13 @@ How to link HTML and JavaScript
 <li>Weak standard library (strings, numbers, arrays...).</li>
 <li>People are still arguing how one JavaScript file can load another.</li>
 </ul>
+<p class='subtle'>
+(But it's the only language we get in the browser, so deal with it.)
+</p>
 </section>
 <section>
 <h2>
-Improving the<br>chat interface
+Progressive enhancement<br>for the chat
 <span class='subtle'>(1)</span>
 </h2>
 </section>
@@ -1411,7 +1415,7 @@ Improving the<br>chat interface
 </section>
 <section>
 <h2>
-Improving the<br>chat interface
+Progressive enhancement<br>for the chat
 <span class='subtle'>(2)</span>
 </h2>
 </section>
@@ -1462,13 +1466,25 @@ We don't
 </section>
 <section>
 <h2>
-Improving the<br>chat interface
+Progressive enhancement<br>for the chat
 <span class='subtle'>(3)</span>
 </h2>
 </section>
 <section>
 <h3>Client-side search</h3>
-<pre class='xxxs'><code class='javascript' data-trim>function search() {&#x000A;  let queryInput = document.querySelector('.search-form input')&#x000A;  let query = queryInput.value.toLowerCase()&#x000A;  let messageElements = document.querySelectorAll('.message')&#x000A;  for (let messageElement of messageElements) {&#x000A;    var text = messageElement.textContent.toLowerCase()&#x000A;    if (text.includes(query)) {&#x000A;      messageElement.style.display = 'block'&#x000A;    } else {&#x000A;      messageElement.style.display = 'none'&#x000A;    }&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', function() {&#x000A;  let queryInput = document.querySelector('.search-form input')&#x000A;  queryInput.addEventListener('input', search)&#x000A;})&#x000A;&#x000A;</code></pre>
+<pre class='xxxs'><code class='javascript' data-trim>function search() {&#x000A;  let queryInput = document.querySelector('.search-form input')&#x000A;  let query = queryInput.value.toLowerCase()&#x000A;  let messageElements = document.querySelectorAll('.message')&#x000A;  for (let messageElement of messageElements) {&#x000A;    var text = messageElement.textContent.toLowerCase()&#x000A;    if (text.includes(query)) {&#x000A;      messageElement.style.display = 'block'&#x000A;    } else {&#x000A;      messageElement.style.display = 'none'&#x000A;    }&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', function() {&#x000A;  let queryInput = document.querySelector('.search-form input')&#x000A;  queryInput.addEventListener('input', search)&#x000A;})&#x000A;&#x000A;&#x000A;</code></pre>
+</section>
+<section>
+<h2>The JavaScript-enhanced chat app</h2>
+<ul>
+<li>
+<a href='examples/2010_chat_with_javascript' target='_blank'>View source</a>
+</li>
+</ul>
+<p>
+To run the chat app:
+</p>
+<pre><code class='nohighlight' data-trim>cd examples/2010_chat_with_javascript&#x000A;bundle install&#x000A;bundle exec ruby src/app.rb&#x000A;&#x000A;</code></pre>
 </section>
 <section>
 <h3>More JavaScript resources and exercises</h3>
@@ -1499,7 +1515,10 @@ Also known as <b>Single-page apps</b> or <b>SPAs</b>.
 HTML is rendered on the browser.
 </li>
 <li>
-Client-side state management.
+Often implemented using a framework (React, Angular, Vue.js, Svelte)
+</li>
+<li>
+State lives in the client. State changes update the UI automatically.
 </li>
 <li>
 Server is reduced to a database with a JSON API.
@@ -1511,6 +1530,18 @@ Optimistic rendering.
 <p>
 <a href='examples/2020_chat_spa/src' target='_blank'>View source</a>
 </p>
+</section>
+<section>
+<h2>Chat as an SPA</h2>
+<ul>
+<li>
+<a href='examples/2020_chat_spa' target='_blank'>View source</a>
+</li>
+</ul>
+<p>
+To run the chat app:
+</p>
+<pre><code class='nohighlight' data-trim>cd examples/2020_chat_spa&#x000A;bundle install&#x000A;bundle exec ruby src/app.rb&#x000A;&#x000A;</code></pre>
 </section>
 <section>
 <h2>
