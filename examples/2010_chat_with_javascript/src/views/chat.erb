@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
-    <style>
 
+    <style>
       body {
         margin: 0;
         font-family: arial, helvetica, sans-serif;
@@ -60,31 +59,9 @@
         font-family: arial, helvetica, sans-serif;
         color: #349;
       }
-
     </style>
 
-  </head>
-
-  <body>
-
-    <div class="channel">
-      <% for message in @messages %>
-        <div class="message">
-          <%= message %>
-        </div>
-      <% end %>
-    </div>
-
-    <form class="message-form" method="post" action="/send">
-      <input type="text" name="message" placeholder="Enter your message" autofocus autocomplete="off">
-    </form>
-
-    <form class="search-form">
-      <input type="search" placeholder="Search..." />
-    </form>
-
     <script>
-
       // Scrolls the channel so the last message is visible
       function showLastMessage() {
         let lastMessage = document.querySelector('.message:last-child')
@@ -132,8 +109,26 @@
         let queryInput = document.querySelector('.search-form input')
         queryInput.addEventListener('input', search)
       })
-
     </script>
+  </head>
+
+  <body>
+
+    <div class="channel">
+      <% for message in @messages %>
+        <div class="message">
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+
+    <form class="message-form" method="post" action="/send">
+      <input type="text" name="message" placeholder="Enter your message" autofocus autocomplete="off">
+    </form>
+
+    <form class="search-form">
+      <input type="search" placeholder="Search..." />
+    </form>
 
   </body>
 </html>

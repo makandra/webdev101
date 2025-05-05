@@ -4,8 +4,6 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "utf-8"}/
     %title Web development 101
-    %meta{:content => "A framework for easily creating beautiful presentations using HTML", :name => "description"}/
-    %meta{:content => "Hakim El Hattab", :name => "author"}/
     %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
     %meta{:content => "black-translucent", :name => "apple-mobile-web-app-status-bar-style"}/
     %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui", :name => "viewport"}/
@@ -166,8 +164,8 @@
         %section
           %img(src='pictures/example_airbnb.png' style='max-width: 100%')
 
-        %section
-          %img(src='pictures/example_website.png' style='max-width: 100%')
+        -# %section
+        -#   %img(src='pictures/example_website.png' style='max-width: 100%')
 
 
         %section
@@ -271,7 +269,7 @@
 
 
         %section
-          %h2 In 2024 web apps are the dominant form of user-facing applications
+          %h2 In 2025 web apps are the dominant form of user-facing applications
 
           %ul.fragment
             %li
@@ -290,7 +288,7 @@
             %li
               Gets better every year (vs. native apps)
               .subtle
-                File access, offline, audio processing, 3D graphics, ...
+                File access, offline, audio processing, 3D graphics, USB devices...
 
         %section
           %h2 Today
@@ -444,13 +442,13 @@
           %h2 HTML
           %ul
             %li
-              %a(target='_blank' href='examples/1015_more_tags') More tags
+              %a(target='_blank' href='examples/1015_more_tags') More tags and hyperlinks
+            %li
+              %a(target='_blank' href='examples/1030_form/page.html') Form controls
             %li
               %a(target='_blank' href='examples/1020_video') Video & fallbacks
             %li
               %a(target='_blank' href='examples/1025_table/page.html') Table
-            %li
-              %a(target='_blank' href='examples/1030_form/page.html') Form
 
 
         %section(data-background-color='var(--color-galaxy)')
@@ -713,7 +711,7 @@
               &lt;/p&gt;<br />
               <br />
               &lt;p&gt;<br />
-              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+              &nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
               &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
               &lt;/p&gt;
 
@@ -733,7 +731,7 @@
               &lt;/p&gt;<br />
               <br />
               &lt;p&gt;<br />
-              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+              &nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
               &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
               &lt;/p&gt;
 
@@ -753,7 +751,7 @@
                 &lt;/p&gt;<br />
                 <br />
                 &lt;p&gt;<br />
-                &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+                &nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
                 &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
                 &lt;/p&gt;
 
@@ -773,7 +771,7 @@
                 &lt;/p&gt;<br />
               <br />
               &lt;p&gt;<br />
-              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+              &nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
               &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
               &lt;/p&gt;
 
@@ -793,7 +791,7 @@
               <br />
               %em
                 &lt;p&gt;<br />
-                &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+                &nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
                 &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
                 &lt;/p&gt;
 
@@ -814,29 +812,29 @@
               <br />
               %em
                 &lt;p&gt;<br />
-                &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+                &nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
                 &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
                 &lt;/p&gt;
 
-        %section
-          %h2
-            %code h1+p { ... }
-
-          %div
-            %code(data-trim)
-              <br />
-              &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
-              <br />
-              %em
-                &lt;p class="introduction"&gt;<br />
-                &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
-                &nbsp;&nbsp;in the world.<br />
-                &lt;/p&gt;<br />
-                <br />
-              &lt;p&gt;<br />
-              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
-              &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
-              &lt;/p&gt;
+        -# %section
+        -#   %h2
+        -#     %code h1+p { ... }
+        -#
+        -#   %div
+        -#     %code(data-trim)
+        -#       <br />
+        -#       &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+        -#       <br />
+        -#       %em
+        -#         &lt;p class="introduction"&gt;<br />
+        -#         &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+        -#         &nbsp;&nbsp;in the world.<br />
+        -#         &lt;/p&gt;<br />
+        -#         <br />
+        -#       &lt;p&gt;<br />
+        -#       &nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
+        -#       &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+        -#       &lt;/p&gt;
 
 
         %section
@@ -854,7 +852,7 @@
               &lt;/p&gt;<br />
               <br />
               &lt;p&gt;<br />
-              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+              &nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
               &nbsp;&nbsp;<em>&lt;b&gt;Hydrochoerinae&lt;/b&gt;</em> along with ...<br />
               &lt;/p&gt;
 
@@ -873,9 +871,28 @@
               &lt;/p&gt;<br />
               <br />
               &lt;p&gt;<br />
-              &nbsp;&nbsp;The capybara belongs to the subfamily<br />
+              &nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
               &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
               &lt;/p&gt;
+
+        %section
+          %h2
+            %code p:has(i) { ... }
+
+          %div
+            %code(data-trim)
+              <br />
+              &lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+              <br />
+              &lt;p class="introduction"&gt;<br />
+              &nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+              &nbsp;&nbsp;in the world.<br />
+              &lt;/p&gt;<br />
+              <br />
+              <em>&lt;p&gt;<br />
+              &nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
+              &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+              &lt;/p&gt;</em>
 
         %section
           .subtle (Time check)
@@ -1260,6 +1277,7 @@
             </div>
           </section>
 
+          <!--
           <section class="flexbox">
             <h2>Many elements</h2>
 
@@ -1283,6 +1301,7 @@
               <div class="child" style="flex-basis: 25%; flex-grow: 1"></div>
             </div>
           </section>
+          -->
 
           <!--
           <section class="flexbox">
@@ -1403,6 +1422,7 @@
             </div>
           </section>
 
+          <!--
           <section class="flexbox">
             <h2>flex-direction</h2>
 
@@ -1419,6 +1439,7 @@
               <div class="child"></div>
             </div>
           </section>
+          -->
 
           <section class="flexbox">
             <h2>flex-direction</h2>
@@ -1437,6 +1458,7 @@
             </div>
           </section>
 
+          <!--
           <section class="flexbox">
             <h2>flex-direction</h2>
 
@@ -1453,6 +1475,7 @@
               <div class="child"></div>
             </div>
           </section>
+          -->
 
           <section class="flexbox">
             <h2>align-items</h2>
@@ -1547,6 +1570,7 @@
             </div>
           </section>
 
+          <!--
           <section class="flexbox">
             <h2>align-items</h2>
 
@@ -1565,6 +1589,7 @@
               <div class="child"></div>
             </div>
           </section>
+          -->
 
           <!--
           <section class="flexbox">
@@ -1657,6 +1682,8 @@
             %li
               %a(href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/') Flexbox Cheat Sheet
 
+          %p.fragment
+            Advanced users can take a look at <a href="https://makandracards.com/curriculum/525354-css-grids-2d">CSS grids</a>.
 
         %section
           %h2 CSS frameworks
@@ -1671,11 +1698,31 @@
             %li Typography
             %li Grid system
             %li Form styles
-            %li Components (cards, modals, tabs, etc.)
+            %li Components (cards, buttons, modals, tabs, etc.)
             %li Utility classes
 
           %p
             %a(target='_blank' href='https://getbootstrap.com') View example
+
+        %section
+          %h3 Utility-first CSS frameworks
+
+          %p
+            Frameworks like <a href="https://tailwindcss.com/">Tailwind</a> do not extract components (cards, buttons, etc.).<br>
+            They <i>only</i> offer utility classes:
+
+          %pre
+            %code.html
+              :preserve
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Button
+                </button>
+
+
+          %p
+            De-duplicate with a component system that abstracts away your HTML.
+          %p
+            Wouldn't recommend when you're just learning CSS.
 
         %section
           %h3 More CSS resources and exercises
@@ -2287,10 +2334,6 @@
             %li
               Optimistic rendering.
 
-          %p
-            %a(target='_blank' href='examples/2020_chat_spa/src') View source
-
-
 
         -# %section
         -#   %h2 Minimal SPA example
@@ -2390,9 +2433,9 @@
                 hard
 
           %p
-            There are also hybrid solutions like
+            There are also hybrid solutions like<br>
             <a href="https://unpoly.com">Unpoly</a>, <a href="https://htmx.org/">htmx</a>
-            or <a href="https://remix.run/">Remix</a>.
+            or <a href="https://vercel.com/blog/understanding-react-server-components">React Server Components</a>.
 
         %section(data-background-color='#111')
           %h2 Questions?

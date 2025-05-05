@@ -4,8 +4,6 @@
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta charset='utf-8'>
 <title>Web development 101</title>
-<meta content='A framework for easily creating beautiful presentations using HTML' name='description'>
-<meta content='Hakim El Hattab' name='author'>
 <meta content='yes' name='apple-mobile-web-app-capable'>
 <meta content='black-translucent' name='apple-mobile-web-app-status-bar-style'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui' name='viewport'>
@@ -58,9 +56,6 @@ Head of Development at
 </section>
 <section>
 <img src='pictures/example_airbnb.png' style='max-width: 100%'>
-</section>
-<section>
-<img src='pictures/example_website.png' style='max-width: 100%'>
 </section>
 <section>
 <img src='pictures/example_spotify.png' style='max-width: 100%'>
@@ -187,7 +182,7 @@ Server
 </table>
 </section>
 <section>
-<h2>In 2024 web apps are the dominant form of user-facing applications</h2>
+<h2>In 2025 web apps are the dominant form of user-facing applications</h2>
 <ul class='fragment'>
 <li>
 Can be used from any device with a web browser
@@ -209,7 +204,7 @@ you visit a website
 <li>
 Gets better every year (vs. native apps)
 <div class='subtle'>
-File access, offline, audio processing, 3D graphics, ...
+File access, offline, audio processing, 3D graphics, USB devices...
 </div>
 </li>
 </ul>
@@ -307,16 +302,16 @@ Server looks for a local file <code>image.jpg</code> and replies:
 <h2>HTML</h2>
 <ul>
 <li>
-<a href='examples/1015_more_tags' target='_blank'>More tags</a>
+<a href='examples/1015_more_tags' target='_blank'>More tags and hyperlinks</a>
+</li>
+<li>
+<a href='examples/1030_form/page.html' target='_blank'>Form controls</a>
 </li>
 <li>
 <a href='examples/1020_video' target='_blank'>Video & fallbacks</a>
 </li>
 <li>
 <a href='examples/1025_table/page.html' target='_blank'>Table</a>
-</li>
-<li>
-<a href='examples/1030_form/page.html' target='_blank'>Form</a>
 </li>
 </ul>
 </section>
@@ -454,7 +449,7 @@ Server looks for a local file <code>styles.css</code> and replies:
 &lt;/p&gt;<br />
 <br />
 &lt;p&gt;<br />
-&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
 &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
 &lt;/p&gt;</code>
 </div>
@@ -475,7 +470,7 @@ Server looks for a local file <code>styles.css</code> and replies:
 &lt;/p&gt;<br />
 <br />
 &lt;p&gt;<br />
-&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
 &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
 &lt;/p&gt;</code>
 </div>
@@ -495,7 +490,7 @@ Server looks for a local file <code>styles.css</code> and replies:
 &lt;/p&gt;<br />
 <br />
 &lt;p&gt;<br />
-&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
 &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
 &lt;/p&gt;
 </em></code>
@@ -517,7 +512,7 @@ Server looks for a local file <code>styles.css</code> and replies:
 </em>
 <br />
 &lt;p&gt;<br />
-&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
 &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
 &lt;/p&gt;</code>
 </div>
@@ -537,7 +532,7 @@ Server looks for a local file <code>styles.css</code> and replies:
 <br />
 <em>
 &lt;p&gt;<br />
-&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
 &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
 &lt;/p&gt;
 </em></code>
@@ -560,31 +555,10 @@ Server looks for a local file <code>styles.css</code> and replies:
 <br />
 <em>
 &lt;p&gt;<br />
-&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
 &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
 &lt;/p&gt;
 </em></code>
-</div>
-</section>
-<section>
-<h2>
-<code>h1+p { ... }</code>
-</h2>
-<div>
-<code data-trim><br />
-&lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
-<br />
-<em>
-&lt;p class="introduction"&gt;<br />
-&nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
-&nbsp;&nbsp;in the world.<br />
-&lt;/p&gt;<br />
-<br />
-</em>
-&lt;p&gt;<br />
-&nbsp;&nbsp;The capybara belongs to the subfamily<br />
-&nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
-&lt;/p&gt;</code>
 </div>
 </section>
 <section>
@@ -601,7 +575,7 @@ Server looks for a local file <code>styles.css</code> and replies:
 &lt;/p&gt;<br />
 <br />
 &lt;p&gt;<br />
-&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
 &nbsp;&nbsp;<em>&lt;b&gt;Hydrochoerinae&lt;/b&gt;</em> along with ...<br />
 &lt;/p&gt;</code>
 </div>
@@ -620,9 +594,28 @@ Server looks for a local file <code>styles.css</code> and replies:
 &lt;/p&gt;<br />
 <br />
 &lt;p&gt;<br />
-&nbsp;&nbsp;The capybara belongs to the subfamily<br />
+&nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
 &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
 &lt;/p&gt;</code>
+</div>
+</section>
+<section>
+<h2>
+<code>p:has(i) { ... }</code>
+</h2>
+<div>
+<code data-trim><br />
+&lt;h1&gt;About Capybaras&lt;/h1&gt;<br />
+<br />
+&lt;p class="introduction"&gt;<br />
+&nbsp;&nbsp;The <span class="foo">capybara</span> is the largest &lt;b&gt;rodent&lt;/b&gt;<br />
+&nbsp;&nbsp;in the world.<br />
+&lt;/p&gt;<br />
+<br />
+<em>&lt;p&gt;<br />
+&nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
+&nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
+&lt;/p&gt;</em></code>
 </div>
 </section>
 <section>
@@ -874,6 +867,7 @@ Layout with Flexbox
   </div>
 </section>
 
+<!--
 <section class="flexbox">
   <h2>Many elements</h2>
 
@@ -888,6 +882,7 @@ Layout with Flexbox
     <div class="child" style="flex-basis: 25%; flex-grow: 1"></div>
   </div>
 </section>
+-->
 
 <!--
 <section class="flexbox">
@@ -963,6 +958,7 @@ Layout with Flexbox
   </div>
 </section>
 
+<!--
 <section class="flexbox">
   <h2>flex-direction</h2>
 
@@ -974,6 +970,7 @@ Layout with Flexbox
     <div class="child"></div>
   </div>
 </section>
+-->
 
 <section class="flexbox">
   <h2>flex-direction</h2>
@@ -987,6 +984,7 @@ Layout with Flexbox
   </div>
 </section>
 
+<!--
 <section class="flexbox">
   <h2>flex-direction</h2>
 
@@ -998,6 +996,7 @@ Layout with Flexbox
     <div class="child"></div>
   </div>
 </section>
+-->
 
 <section class="flexbox">
   <h2>align-items</h2>
@@ -1059,6 +1058,7 @@ Layout with Flexbox
   </div>
 </section>
 
+<!--
 <section class="flexbox">
   <h2>align-items</h2>
 
@@ -1070,6 +1070,7 @@ Layout with Flexbox
     <div class="child"></div>
   </div>
 </section>
+-->
 
 <!--
 <section class="flexbox">
@@ -1141,6 +1142,9 @@ Layout with Flexbox
 <a href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/'>Flexbox Cheat Sheet</a>
 </li>
 </ul>
+<p class='fragment'>
+Advanced users can take a look at <a href="https://makandracards.com/curriculum/525354-css-grids-2d">CSS grids</a>.
+</p>
 </section>
 <section>
 <h2>CSS frameworks</h2>
@@ -1154,11 +1158,25 @@ CSS frameworks like <a href="https://getbootstrap.com/">Bootstrap</a>, <a href="
 <li>Typography</li>
 <li>Grid system</li>
 <li>Form styles</li>
-<li>Components (cards, modals, tabs, etc.)</li>
+<li>Components (cards, buttons, modals, tabs, etc.)</li>
 <li>Utility classes</li>
 </ul>
 <p>
 <a href='https://getbootstrap.com' target='_blank'>View example</a>
+</p>
+</section>
+<section>
+<h3>Utility-first CSS frameworks</h3>
+<p>
+Frameworks like <a href="https://tailwindcss.com/">Tailwind</a> do not extract components (cards, buttons, etc.).<br>
+They <i>only</i> offer utility classes:
+</p>
+<pre><code class='html'><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">&#x000A;  Button&#x000A;</button>&#x000A;&#x000A;</code></pre>
+<p>
+De-duplicate with a component system that abstracts away your HTML.
+</p>
+<p>
+Wouldn't recommend when you're just learning CSS.
 </p>
 </section>
 <section>
@@ -1536,9 +1554,6 @@ Server is reduced to a database with a JSON API.
 Optimistic rendering.
 </li>
 </ul>
-<p>
-<a href='examples/2020_chat_spa/src' target='_blank'>View source</a>
-</p>
 </section>
 <section>
 <h2>Chat as an SPA</h2>
@@ -1634,9 +1649,9 @@ hard
 </tr>
 </table>
 <p>
-There are also hybrid solutions like
+There are also hybrid solutions like<br>
 <a href="https://unpoly.com">Unpoly</a>, <a href="https://htmx.org/">htmx</a>
-or <a href="https://remix.run/">Remix</a>.
+or <a href="https://vercel.com/blog/understanding-react-server-components">React Server Components</a>.
 </p>
 </section>
 <section data-background-color='#111'>
