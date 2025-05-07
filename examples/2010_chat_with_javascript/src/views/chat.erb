@@ -10,14 +10,13 @@
         font-size: 22px;
         line-height: 26px;
         background-color: #cccccc;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
       }
 
       .channel {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 70px;
+        flex: 1 1 0;
         overflow-y: scroll;
       }
 
@@ -31,31 +30,19 @@
 
       form {
         margin: 0;
-        position: absolute;
-        bottom: 0;
-        height: 70px;
+        flex: 0 0 70px;
         background-color: #666666;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-        border-top: 1px solid #999999;
-      }
-
-      form.message-form {
-        left: 0;
-        right: 200px;
-      }
-
-      form.search-form {
-        right: 0;
-        width: 200px;
       }
 
       input {
-        box-sizing: border-box;
-        border: none;
-        padding: 0 20px;
-        font-size: 25px;
         height: 100%;
         width: 100%;
+        box-sizing: border-box;
+        border: none;
+        border-top: 1px solid #999999;
+        padding: 0 20px;
+        font-size: 25px;
         font-family: arial, helvetica, sans-serif;
         color: #349;
       }
@@ -83,32 +70,10 @@
         let oldChannel = document.querySelector('.channel')
         oldChannel.replaceWith(newChannel)
 
-        search()
         showLastMessage()
       }
 
       setInterval(refresh, 1000);
-
-      // Only shows messages that contain the search query
-      function search() {
-        let queryInput = document.querySelector('.search-form input')
-        let query = queryInput.value.toLowerCase()
-        let messageElements = document.querySelectorAll('.message')
-        for (let messageElement of messageElements) {
-          let text = messageElement.textContent.toLowerCase()
-          if (text.includes(query)) {
-            messageElement.style.display = 'block'
-          } else {
-            messageElement.style.display = 'none'
-          }
-        }
-        showLastMessage()
-      }
-
-      window.addEventListener('load', function() {
-        let queryInput = document.querySelector('.search-form input')
-        queryInput.addEventListener('input', search)
-      })
     </script>
   </head>
 
@@ -122,12 +87,8 @@
       <% end %>
     </div>
 
-    <form class="message-form" method="post" action="/send">
+    <form method="post" action="/send">
       <input type="text" name="message" placeholder="Enter your message" autofocus autocomplete="off">
-    </form>
-
-    <form class="search-form">
-      <input type="search" placeholder="Search..." />
     </form>
 
   </body>

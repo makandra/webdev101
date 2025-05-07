@@ -229,7 +229,7 @@
               %td
                 HTML
               %td
-                Textual content
+                Content
               %td
                 Client
             %tr
@@ -660,6 +660,10 @@
 
 
         %section
+          .subtle (Time check 25%)
+
+
+        %section
           %h2 Selectors
 
           %pre
@@ -893,9 +897,6 @@
               &nbsp;&nbsp;The &lt;i&gt;capybara&lt;/i&gt; belongs to the subfamily<br />
               &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
               &lt;/p&gt;</em>
-
-        %section
-          .subtle (Time check)
 
         %section
           %h2 The box model
@@ -1682,7 +1683,7 @@
             %li
               %a(href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/') Flexbox Cheat Sheet
 
-          %p.fragment
+          %p
             Advanced users can take a look at <a href="https://makandracards.com/curriculum/525354-css-grids-2d">CSS grids</a>.
 
         %section
@@ -1708,7 +1709,7 @@
           %h3 Utility-first CSS frameworks
 
           %p
-            Frameworks like <a href="https://tailwindcss.com/">Tailwind</a> do not extract components (cards, buttons, etc.).<br>
+            Frameworks like <a href="https://tailwindcss.com/">Tailwind</a> do not extract components like cards or buttons.
             They <i>only</i> offer utility classes:
 
           %pre
@@ -1717,7 +1718,6 @@
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                   Button
                 </button>
-
 
           %p
             De-duplicate with a component system that abstracts away your HTML.
@@ -1999,9 +1999,8 @@
               When another user sends us a message,<br>
               we don't notice until we reload the page
             %li
-              The message list should automatically scroll to the most recent message
-            %li
-              It would be nice to be able to search through our messages
+              The message list should automatically scroll<br>
+              to the most recent message at the bottom
 
           %p
             These things require code that runs in the browser, not on the server.
@@ -2141,9 +2140,10 @@
           %ul
             %li Not everything is an object.
             %li There are three kinds of <code>null</code>.
-            %li Equality is confusing. Also you can't define equality for your own types.
-            %li Objects don't crash when accessing missing properties.
-            %li Explicit <code>this.foo()</code> to call your own methods.
+            %li Equality of basic values is <a href="https://dorey.github.io/JavaScript-Equality-Table">confusing</a>.
+            %li No built-in way to compare structured objects or arrays.
+            %li Objects are hash maps. Calling undefined properties does not crash and returns <code>undefined</code>.
+            %li Explicit <code>this.foo()</code> required to call your own methods.
             %li Arcane rules around <code>this</code>.
             %li Weak standard library (strings, numbers, arrays...).
             %li People are still arguing how one JavaScript file can load another.
@@ -2224,34 +2224,39 @@
 
                 setInterval(refresh, 1000)
 
-        %section
-          %h2
-            Progressive enhancement<br>for the chat
-            %span.subtle (3)
+          %p
+            Advanced users can take a look at <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket">WebSockets</a> or
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events">Server-Sent Events</a>.
 
-        %section
-          %h3 Client-side search
-          %pre.xxxs
-            %code.javascript(data-trim)
-              :preserve
-                function search() {
-                  let queryInput = document.querySelector('.search-form input')
-                  let query = queryInput.value.toLowerCase()
-                  let messageElements = document.querySelectorAll('.message')
-                  for (let messageElement of messageElements) {
-                    var text = messageElement.textContent.toLowerCase()
-                    if (text.includes(query)) {
-                      messageElement.style.display = 'block'
-                    } else {
-                      messageElement.style.display = 'none'
-                    }
-                  }
-                }
 
-                window.addEventListener('load', function() {
-                  let queryInput = document.querySelector('.search-form input')
-                  queryInput.addEventListener('input', search)
-                })
+        -# %section
+        -#   %h2
+        -#     Progressive enhancement<br>for the chat
+        -#     %span.subtle (3)
+        -#
+        -# %section
+        -#   %h3 Client-side search
+        -#   %pre.xxxs
+        -#     %code.javascript(data-trim)
+        -#       :preserve
+        -#         function search() {
+        -#           let queryInput = document.querySelector('.search-form input')
+        -#           let query = queryInput.value.toLowerCase()
+        -#           let messageElements = document.querySelectorAll('.message')
+        -#           for (let messageElement of messageElements) {
+        -#             var text = messageElement.textContent.toLowerCase()
+        -#             if (text.includes(query)) {
+        -#               messageElement.style.display = 'block'
+        -#             } else {
+        -#               messageElement.style.display = 'none'
+        -#             }
+        -#           }
+        -#         }
+        -#
+        -#         window.addEventListener('load', function() {
+        -#           let queryInput = document.querySelector('.search-form input')
+        -#           queryInput.addEventListener('input', search)
+        -#         })
 
 
 

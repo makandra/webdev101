@@ -120,7 +120,7 @@ Runs where?
 HTML
 </td>
 <td>
-Textual content
+Content
 </td>
 <td>
 Client
@@ -430,6 +430,9 @@ Server looks for a local file <code>styles.css</code> and replies:
 </p>
 </section>
 <section>
+<div class='subtle'>(Time check 25%)</div>
+</section>
+<section>
 <h2>Selectors</h2>
 <pre><code class='css' data-trim>body {&#x000A;  font-family: 'Arial';&#x000A;}&#x000A;&#x000A;h1 {&#x000A;  text-transform: uppercase;&#x000A;  font-style: italic;&#x000A;}&#x000A;&#x000A;b {&#x000A;  background-color: #ff0000;&#x000A;}&#x000A;</code></pre>
 </section>
@@ -617,9 +620,6 @@ Server looks for a local file <code>styles.css</code> and replies:
 &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
 &lt;/p&gt;</em></code>
 </div>
-</section>
-<section>
-<div class='subtle'>(Time check)</div>
 </section>
 <section>
 <h2>The box model</h2>
@@ -1142,7 +1142,7 @@ Layout with Flexbox
 <a href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/'>Flexbox Cheat Sheet</a>
 </li>
 </ul>
-<p class='fragment'>
+<p>
 Advanced users can take a look at <a href="https://makandracards.com/curriculum/525354-css-grids-2d">CSS grids</a>.
 </p>
 </section>
@@ -1168,10 +1168,10 @@ CSS frameworks like <a href="https://getbootstrap.com/">Bootstrap</a>, <a href="
 <section>
 <h3>Utility-first CSS frameworks</h3>
 <p>
-Frameworks like <a href="https://tailwindcss.com/">Tailwind</a> do not extract components (cards, buttons, etc.).<br>
+Frameworks like <a href="https://tailwindcss.com/">Tailwind</a> do not extract components like cards or buttons.
 They <i>only</i> offer utility classes:
 </p>
-<pre><code class='html'><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">&#x000A;  Button&#x000A;</button>&#x000A;&#x000A;</code></pre>
+<pre><code class='html'><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">&#x000A;  Button&#x000A;</button>&#x000A;</code></pre>
 <p>
 De-duplicate with a component system that abstracts away your HTML.
 </p>
@@ -1359,10 +1359,8 @@ When another user sends us a message,<br>
 we don't notice until we reload the page
 </li>
 <li>
-The message list should automatically scroll to the most recent message
-</li>
-<li>
-It would be nice to be able to search through our messages
+The message list should automatically scroll<br>
+to the most recent message at the bottom
 </li>
 </ul>
 <p>
@@ -1419,9 +1417,10 @@ is often called <i>Progressive Enhancement</i> or <i>JavaScript Sprinkles</i>.
 <ul>
 <li>Not everything is an object.</li>
 <li>There are three kinds of <code>null</code>.</li>
-<li>Equality is confusing. Also you can't define equality for your own types.</li>
-<li>Objects don't crash when accessing missing properties.</li>
-<li>Explicit <code>this.foo()</code> to call your own methods.</li>
+<li>Equality of basic values is <a href="https://dorey.github.io/JavaScript-Equality-Table">confusing</a>.</li>
+<li>No built-in way to compare structured objects or arrays.</li>
+<li>Objects are hash maps. Calling undefined properties does not crash and returns <code>undefined</code>.</li>
+<li>Explicit <code>this.foo()</code> required to call your own methods.</li>
 <li>Arcane rules around <code>this</code>.</li>
 <li>Weak standard library (strings, numbers, arrays...).</li>
 <li>People are still arguing how one JavaScript file can load another.</li>
@@ -1490,16 +1489,10 @@ We don't
 <section>
 <h3>Reloading messages with <code>fetch()</code></h3>
 <pre class='xs'><code class='javascript' data-trim>async function refresh() {&#x000A;  let response = await fetch('/')&#x000A;  let newHTML = await response.text()&#x000A;  let parser = new DOMParser()&#x000A;  let newDocument = parser.parseFromString(newHTML, 'text/html')&#x000A;  let newChannel = newDocument.querySelector('.channel')&#x000A;  let oldChannel = document.querySelector('.channel')&#x000A;  oldChannel.replaceWith(newChannel)&#x000A;}&#x000A;&#x000A;setInterval(refresh, 1000)&#x000A;</code></pre>
-</section>
-<section>
-<h2>
-Progressive enhancement<br>for the chat
-<span class='subtle'>(3)</span>
-</h2>
-</section>
-<section>
-<h3>Client-side search</h3>
-<pre class='xxxs'><code class='javascript' data-trim>function search() {&#x000A;  let queryInput = document.querySelector('.search-form input')&#x000A;  let query = queryInput.value.toLowerCase()&#x000A;  let messageElements = document.querySelectorAll('.message')&#x000A;  for (let messageElement of messageElements) {&#x000A;    var text = messageElement.textContent.toLowerCase()&#x000A;    if (text.includes(query)) {&#x000A;      messageElement.style.display = 'block'&#x000A;    } else {&#x000A;      messageElement.style.display = 'none'&#x000A;    }&#x000A;  }&#x000A;}&#x000A;&#x000A;window.addEventListener('load', function() {&#x000A;  let queryInput = document.querySelector('.search-form input')&#x000A;  queryInput.addEventListener('input', search)&#x000A;})&#x000A;&#x000A;&#x000A;</code></pre>
+<p>
+Advanced users can take a look at <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket">WebSockets</a> or
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events">Server-Sent Events</a>.
+</p>
 </section>
 <section>
 <h2>The JavaScript-enhanced chat app</h2>
