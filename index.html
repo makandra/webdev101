@@ -1406,7 +1406,7 @@ How to link HTML and JavaScript
 </section>
 <section>
 <h2>Events</h2>
-<pre><code class='html' data-trim>&lt;button&gt;Click me&lt;/button&gt;&#x000A;&#x000A;&lt;script&gt;&#x000A;  let button = document.querySelector('button')&#x000A;  button.addEventListener('click', function(event) {&#x000A;    alert('Button was clicked!')&#x000A;  })&#x000A;&#x000A;  window.addEventListener(function(event) {&#x000A;    alert('User scrolled!')&#x000A;  })&#x000A;&lt;/script&gt;&#x000A;</code></pre>
+<pre><code class='html' data-trim>&lt;button&gt;Click me&lt;/button&gt;&#x000A;&#x000A;&lt;script&gt;&#x000A;  let button = document.querySelector('button')&#x000A;  button.addEventListener('click', function(event) {&#x000A;    alert('Button was clicked!')&#x000A;  })&#x000A;&#x000A;  window.addEventListener('scroll', function(event) {&#x000A;    alert('User scrolled!')&#x000A;  })&#x000A;&lt;/script&gt;&#x000A;</code></pre>
 <p>
 Client-side JavaScript that enhances server-rendered HTML
 is often called <i>Progressive Enhancement</i> or <i>JavaScript Sprinkles</i>.
