@@ -1,0 +1,25 @@
+<html>
+  <body>
+    <current-time></current-time>
+
+    <script>
+      class CurrentTime extends HTMLElement {
+        connectedCallback() {
+          this.update()
+          this.timer = setInterval(() => this.update(), 1000)
+        }
+
+        disconnectedCallback() {
+          clearInterval(this.timer)
+        }
+
+        update() {
+          this.textContent = new Date().toLocaleTimeString()
+        }
+      }
+
+      customElements.define('current-time', CurrentTime)
+    </script>
+
+  </body>
+</html>

@@ -12,6 +12,7 @@
 <link href='css/custom.css' rel='stylesheet'>
 <!-- Code syntax highlighting -->
 <link href='lib/css/tomorrow-night-bright.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' rel='stylesheet'>
 <!-- Printing and PDF exports -->
 <script>
   var link = document.createElement( 'link' );
@@ -40,6 +41,12 @@ Head of Development at
 <a href='https://makandra.de/'>makandra</a>
 <br>
 <a href='https://twitter.com/triskweline'>@triskweline</a>
+<span class='subtle'>
+<i class='fa-brands fa-x-twitter'></i>
+<i class='fa-brands fa-github'></i>
+<i class='fa-brands fa-linkedin'></i>
+<i class='fa-brands fa-bluesky'></i>
+</span>
 </p>
 </section>
 <section>
@@ -182,7 +189,7 @@ Server
 </table>
 </section>
 <section>
-<h2>In 2025 web apps are the dominant form of user-facing applications</h2>
+<h2>In 2026 web apps are the dominant form of user-facing applications</h2>
 <ul class='fragment'>
 <li>
 Can be used from any device with a web browser
@@ -195,7 +202,7 @@ Can be used from any device with a web browser
 No installation
 <br>
 <span class='subtle'>
-Web browser downloads and "installs" a fresh copy every time
+Web browser streams a fresh copy every time
 you visit a website
 </span>
 </li>
@@ -207,23 +214,36 @@ Gets better every year (vs. native apps)
 File access, offline, audio processing, 3D graphics, USB devices...
 </div>
 </li>
+<li class='fragment red'>
+Weirdly, native apps are increasingly built using web technology
+<div class='subtle'>
+(Electron, Tauri)
+</div>
+</li>
 </ul>
 </section>
 <section>
 <h2>Today</h2>
 <ul>
-<li>HTML &amp; HTTP</li>
-<li>CSS</li>
-<li>Layout with Flexbox</li>
-<li style='color: #ee9955'>Break</li>
+<li>Delivering content with HTML &amp; HTTP</li>
+<li>Styling with CSS</li>
+<li style='color: #ee9955'>Short break</li>
 <li>Server-side web apps</li>
-<li>JavaScript</li>
-<li>Client-side web apps (SPAs)</li>
+<li>Interactivity with JavaScript</li>
+<li>
+Single-page apps
+<span class='subtle'>(maybe)</span>
+</li>
 <li style='color: #ee9955'>Discussion / end</li>
 </ul>
 <br>
 <br>
-<h4>Read along</h4>
+<h4>
+Slides and code examples
+<span class='subtle'>
+(pace will be fast!)
+</span>
+</h4>
 <p>
 <a href='http://webdev101.makandra.de'>http://webdev101.makandra.de<br></a>
 <a href='https://github.com/makandra/webdev101'>https://github.com/makandra/webdev101</a>
@@ -313,6 +333,9 @@ Server looks for a local file <code>image.jpg</code> and replies:
 <li>
 <a href='examples/1025_table/page.html' target='_blank'>Table</a>
 </li>
+<li>
+<a href='examples/1032_custom_element/page.html' target='_blank'>Custom elements</a>
+</li>
 </ul>
 </section>
 <section data-background-color='var(--color-galaxy)'>
@@ -373,14 +396,14 @@ CSS<br />
 <div style='font-weight: bold; color: yellow'><code>yellow</code></div>
 <div style='font-weight: bold; color: fuchsia'><code>fuchsia</code></div>
 <div style='font-weight: bold; color: rebeccapurple'><code>rebeccapurple</code></div>
-<div style='font-weight: bold; color: rgba(255, 0, 0, 1.0)'><code>rgba(255, 0, 0, 1.0)</code></div>
-<div style='font-weight: bold; color: rgba(255, 0, 0, 0.75)'><code>rgba(255, 0, 0, 0.75)</code></div>
-<div style='font-weight: bold; color: rgba(255, 0, 0, 0.5)'><code>rgba(255, 0, 0, 0.5)</code></div>
-<div style='font-weight: bold; color: rgba(255, 0, 0, 0.25)'><code>rgba(255, 0, 0, 0.25)</code></div>
-<div style='font-weight: bold; color: hsl(0, 100%, 50%)'><code>hsl(0, 100%, 50%)</code></div>
-<div style='font-weight: bold; color: hsl(30, 100%, 50%)'><code>hsl(30, 100%, 50%)</code></div>
-<div style='font-weight: bold; color: hsl(30, 50%, 50%)'><code>hsl(30, 50%, 50%)</code></div>
-<div style='font-weight: bold; color: hsl(30, 50%, 70%)'><code>hsl(30, 50%, 70%)</code></div>
+<div style='font-weight: bold; color: rgb(255 0 0 / 100%)'><code>rgb(255 0 0 / 100%)</code></div>
+<div style='font-weight: bold; color: rgb(255 0 0 / 50%)'><code>rgb(255 0 0 / 50%)</code></div>
+<div style='font-weight: bold; color: rgb(255 0 0 / 25%)'><code>rgb(255 0 0 / 25%)</code></div>
+<div style='font-weight: bold; color: hsl(0 100% 50%)'><code>hsl(0 100% 50%)</code></div>
+<div style='font-weight: bold; color: hsl(30 100% 50%)'><code>hsl(30 100% 50%)</code></div>
+<div style='font-weight: bold; color: hsl(30 50% 50%)'><code>hsl(30 50% 50%)</code></div>
+<div style='font-weight: bold; color: hsl(30 50% 70%)'><code>hsl(30 50% 70%)</code></div>
+<div style='font-weight: bold; color: oklch(62.8% 0.2577 29.23)'><code>oklch(62.8% 0.2577 29.23)</code></div>
 </div>
 </div>
 </section>
@@ -622,11 +645,51 @@ Server looks for a local file <code>styles.css</code> and replies:
 </div>
 </section>
 <section>
-<h2>The box model</h2>
-<img height='250' src='pictures/box_model.png'>
-<p>
-<a href='examples/1055_box_model/page.html' target='_blank'>View example</a>
-</p>
+<h2>Sizes in CSS</h2>
+<div class='columns'>
+<div class='column'>
+<div class='fragment'>
+<h4>Absolute pixels</h4>
+<pre><code class='css' data-trim>.card {&#x000A;  width: 100px;&#x000A;}</code></pre>
+</div>
+<div class='fragment'>
+<h4>Relative to font size</h4>
+<pre><code class='css' data-trim>.card {&#x000A;  width: 20em;&#x000A;}&#x000A;</code></pre>
+</div>
+</div>
+<div class='column'>
+<div class='fragment'>
+<h4>Percentage of container</h4>
+<pre><code class='css' data-trim>.card {&#x000A;  width: 50%;&#x000A;}&#x000A;</code></pre>
+</div>
+<div class='fragment'>
+<h4>Expression</h4>
+<pre><code class='css' data-trim>.card {&#x000A;  width: calc(50% + 15px);&#x000A;}&#x000A;</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Shorthand properties</h2>
+<div class='columns'>
+<div class='column'>
+<pre><code class='css' data-trim>.card {&#x000A;  padding-top: 10px;&#x000A;  padding-right: 20px;&#x000A;  padding-bottom: 10px;&#x000A;  padding-left: 10px;&#x000A;}&#x000A;</code></pre>
+</div>
+<div class='column fragment'>
+<pre><code class='css' data-trim>.card {&#x000A;  padding: 10px 20px;&#x000A;}&#x000A;</code></pre>
+</div>
+</div>
+</section>
+<section>
+<h2>Custom properties <span class="subtle">(variables)</span></h2>
+<div class='columns'>
+<div class='column' style='width: 45%'>
+<pre class='xs'><code class='css' data-trim>a {&#x000A;  color: #ff2200;&#x000A;}&#x000A;&#x000A;.card {&#x000A;  border-style: solid;&#x000A;  border-width: 2px;&#x000A;  border-color: #ff2200;&#x000A;}&#x000A;</code></pre>
+</div>
+<div class='column fragment' style='width: 55%'>
+<pre class='xs'><code class='css' data-trim>html {&#x000A;  --accent: #ff2200;&#x000A;}&#x000A;&#x000A;a {&#x000A;  color: var(--accent);&#x000A;}&#x000A;&#x000A;.card {&#x000A;  border-style: solid;&#x000A;  border-width: 2px;&#x000A;  border-color: var(--accent);&#x000A;}&#x000A;&#x000A;</code></pre>
+</div>
+</div>
 </section>
 <section>
 <h2>
@@ -1186,7 +1249,7 @@ Wouldn't recommend when you're just learning CSS.
 <a href='https://makandracards.com/curriculum/34343-css-basics-3d'>Card: CSS Basics</a>
 </li>
 <li>
-<a href='https://web.dev/learn/css/'>Learn CSS</a>
+<a href='https://web.dev/learn/css/'>web.dev: Learn CSS</a>
 </li>
 </ul>
 </section>
@@ -1415,6 +1478,7 @@ is often called <i>Progressive Enhancement</i> or <i>JavaScript Sprinkles</i>.
 <section>
 <h3 class='red'>JavaScript has sharp edges</h3>
 <ul>
+<li>Designed in 10 days in 1995, 30 years of design-by-committee.</li>
 <li>Not everything is an object.</li>
 <li>There are three kinds of <code>null</code>.</li>
 <li>Equality of basic values is <a href="https://dorey.github.io/JavaScript-Equality-Table">confusing</a>.</li>
@@ -1425,9 +1489,6 @@ is often called <i>Progressive Enhancement</i> or <i>JavaScript Sprinkles</i>.
 <li>Weak standard library (strings, numbers, arrays...).</li>
 <li>People are still arguing how one JavaScript file can load another.</li>
 </ul>
-<p class='subtle'>
-(But it's the only language we get in the browser, so deal with it.)
-</p>
 </section>
 <section>
 <h2>
@@ -1520,6 +1581,9 @@ To run the chat app:
 </li>
 <li>
 <a href='https://makandracards.com/curriculum/34977-unobtrusive-javascript-components-3d'>Card: Unobtrusive JavaScript components</a>
+</li>
+<li>
+<a href='https://web.dev/learn/javascript'>web.dev: Learn JavaScript</a>
 </li>
 </ul>
 </section>
@@ -1651,7 +1715,15 @@ or <a href="https://vercel.com/blog/understanding-react-server-components">React
 <h2>Questions?</h2>
 <h4>Get in touch</h4>
 <p>
-<a class='no-underline' href='https://twitter.com/triskweline'>@triskweline</a>
+<a class='no-underline' href='https://x.com/triskweline'>
+@triskweline
+</a>
+<span class='subtle'>
+<i class='fa-brands fa-x-twitter'></i>
+<i class='fa-brands fa-github'></i>
+<i class='fa-brands fa-linkedin'></i>
+<i class='fa-brands fa-bluesky'></i>
+</span>
 <br>
 <a class='no-underline' href='mailto:henning.koch@makandra.de'>henning.koch@makandra.de</a>
 </p>
@@ -1659,6 +1731,13 @@ or <a href="https://vercel.com/blog/understanding-react-server-components">React
 <p>
 <a class='no-underline' href='http://webdev101.makandra.de'>http://webdev101.makandra.de<br></a>
 <a class='no-underline' href='https://github.com/makandra/webdev101'>https://github.com/makandra/webdev101</a>
+</p>
+</section>
+<section>
+<h2>The box model</h2>
+<img height='250' src='pictures/box_model.png'>
+<p>
+<a href='examples/1055_box_model/page.html' target='_blank'>View example</a>
 </p>
 </section>
 <section>

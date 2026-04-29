@@ -12,6 +12,7 @@
     %link{:href => "css/custom.css", :rel => "stylesheet"}/
     / Code syntax highlighting
     %link{:href => "lib/css/tomorrow-night-bright.css", :rel => "stylesheet"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css", :rel => "stylesheet"}/
     / Printing and PDF exports
     :javascript
       var link = document.createElement( 'link' );
@@ -46,6 +47,11 @@
             -#%a(href='mailto:henning.koch@makandra.de') henning.koch@makandra.de
             -#%br
             %a(href='https://twitter.com/triskweline') @triskweline
+            %span.subtle
+              %i.fa-brands.fa-x-twitter
+              %i.fa-brands.fa-github
+              %i.fa-brands.fa-linkedin
+              %i.fa-brands.fa-bluesky
 
         -#%section
         -#  %img(src='pictures/makandra/aiti-park.jpg' height=600)
@@ -269,7 +275,7 @@
 
 
         %section
-          %h2 In 2025 web apps are the dominant form of user-facing applications
+          %h2 In 2026 web apps are the dominant form of user-facing applications
 
           %ul.fragment
             %li
@@ -281,7 +287,7 @@
               No installation
               %br
               %span.subtle
-                Web browser downloads and "installs" a fresh copy every time
+                Web browser streams a fresh copy every time
                 you visit a website
             %li Is always the latest version
             %li Inherently multi-user
@@ -289,24 +295,33 @@
               Gets better every year (vs. native apps)
               .subtle
                 File access, offline, audio processing, 3D graphics, USB devices...
+            %li.fragment.red
+              Weirdly, native apps are increasingly built using web technology
+              .subtle
+                (Electron, Tauri)
+
 
         %section
           %h2 Today
 
           %ul
-            %li HTML &amp; HTTP
-            %li CSS
-            %li Layout with Flexbox
-            %li(style='color: #ee9955') Break
+            %li Delivering content with HTML &amp; HTTP
+            %li Styling with CSS
+            %li(style='color: #ee9955') Short break
             %li Server-side web apps
-            %li JavaScript
-            %li Client-side web apps (SPAs)
+            %li Interactivity with JavaScript
+            %li
+              Single-page apps
+              %span.subtle (maybe)
             %li(style='color: #ee9955') Discussion / end
 
           %br
           %br
 
-          %h4 Read along
+          %h4
+            Slides and code examples
+            %span.subtle
+              (pace will be fast!)
 
           %p
             %a(href='http://webdev101.makandra.de') http://webdev101.makandra.de<br>
@@ -449,6 +464,8 @@
               %a(target='_blank' href='examples/1020_video') Video & fallbacks
             %li
               %a(target='_blank' href='examples/1025_table/page.html') Table
+            %li
+              %a(target='_blank' href='examples/1032_custom_element/page.html') Custom elements
 
 
         %section(data-background-color='var(--color-galaxy)')
@@ -546,14 +563,14 @@
               %div(style='font-weight: bold; color: yellow') <code>yellow</code>
               %div(style='font-weight: bold; color: fuchsia') <code>fuchsia</code>
               %div(style='font-weight: bold; color: rebeccapurple') <code>rebeccapurple</code>
-              %div(style='font-weight: bold; color: rgba(255, 0, 0, 1.0)') <code>rgba(255, 0, 0, 1.0)</code>
-              %div(style='font-weight: bold; color: rgba(255, 0, 0, 0.75)') <code>rgba(255, 0, 0, 0.75)</code>
-              %div(style='font-weight: bold; color: rgba(255, 0, 0, 0.5)') <code>rgba(255, 0, 0, 0.5)</code>
-              %div(style='font-weight: bold; color: rgba(255, 0, 0, 0.25)') <code>rgba(255, 0, 0, 0.25)</code>
-              %div(style='font-weight: bold; color: hsl(0, 100%, 50%)') <code>hsl(0, 100%, 50%)</code>
-              %div(style='font-weight: bold; color: hsl(30, 100%, 50%)') <code>hsl(30, 100%, 50%)</code>
-              %div(style='font-weight: bold; color: hsl(30, 50%, 50%)') <code>hsl(30, 50%, 50%)</code>
-              %div(style='font-weight: bold; color: hsl(30, 50%, 70%)') <code>hsl(30, 50%, 70%)</code>
+              %div(style='font-weight: bold; color: rgb(255 0 0 / 100%)') <code>rgb(255 0 0 / 100%)</code>
+              %div(style='font-weight: bold; color: rgb(255 0 0 / 50%)') <code>rgb(255 0 0 / 50%)</code>
+              %div(style='font-weight: bold; color: rgb(255 0 0 / 25%)') <code>rgb(255 0 0 / 25%)</code>
+              %div(style='font-weight: bold; color: hsl(0 100% 50%)') <code>hsl(0 100% 50%)</code>
+              %div(style='font-weight: bold; color: hsl(30 100% 50%)') <code>hsl(30 100% 50%)</code>
+              %div(style='font-weight: bold; color: hsl(30 50% 50%)') <code>hsl(30 50% 50%)</code>
+              %div(style='font-weight: bold; color: hsl(30 50% 70%)') <code>hsl(30 50% 70%)</code>
+              %div(style='font-weight: bold; color: oklch(62.8% 0.2577 29.23)') <code>oklch(62.8% 0.2577 29.23)</code>
 
 
         %section
@@ -898,14 +915,6 @@
               &nbsp;&nbsp;&lt;b&gt;Hydrochoerinae&lt;/b&gt; along with ...<br />
               &lt;/p&gt;</em>
 
-        %section
-          %h2 The box model
-
-          %img(src='pictures/box_model.png' height=250)
-
-          %p
-            %a(target='_blank' href='examples/1055_box_model/page.html') View example
-
         -#%section
         -#  %h2 Positioning
         -#
@@ -924,6 +933,109 @@
         -#
         -#  %p
         -#    %a(target='_blank' href='examples/1070_layout') View example
+
+
+
+        %section
+          %h2 Sizes in CSS
+
+          .columns
+            .column
+              .fragment
+                %h4 Absolute pixels
+                %pre
+                  %code.css(data-trim)
+                    :preserve
+                      .card {
+                        width: 100px;
+                      }
+              .fragment
+                %h4 Relative to font size
+                %pre
+                  %code.css(data-trim)
+                    :preserve
+                      .card {
+                        width: 20em;
+                      }
+
+            .column
+              .fragment
+                %h4 Percentage of container
+                %pre
+                  %code.css(data-trim)
+                    :preserve
+                      .card {
+                        width: 50%;
+                      }
+
+              .fragment
+                %h4 Expression
+                %pre
+                  %code.css(data-trim)
+                    :preserve
+                      .card {
+                        width: calc(50% + 15px);
+                      }
+
+        %section
+          %h2 Shorthand properties
+
+          .columns
+            .column
+              %pre
+                %code.css(data-trim)
+                  :preserve
+                    .card {
+                      padding-top: 10px;
+                      padding-right: 20px;
+                      padding-bottom: 10px;
+                      padding-left: 10px;
+                    }
+
+            .column.fragment
+              %pre
+                %code.css(data-trim)
+                  :preserve
+                    .card {
+                      padding: 10px 20px;
+                    }
+
+        %section
+          %h2 Custom properties <span class="subtle">(variables)</span>
+
+          .columns
+            .column(style="width: 45%")
+              %pre.xs
+                %code.css(data-trim)
+                  :preserve
+                    a {
+                      color: #ff2200;
+                    }
+
+                    .card {
+                      border-style: solid;
+                      border-width: 2px;
+                      border-color: #ff2200;
+                    }
+
+            .column.fragment(style="width: 55%")
+              %pre.xs
+                %code.css(data-trim)
+                  :preserve
+                    html {
+                      --accent: #ff2200;
+                    }
+
+                    a {
+                      color: var(--accent);
+                    }
+
+                    .card {
+                      border-style: solid;
+                      border-width: 2px;
+                      border-color: var(--accent);
+                    }
+
 
         %section
           %h2
@@ -1731,7 +1843,7 @@
             %li
               %a(href='https://makandracards.com/curriculum/34343-css-basics-3d') Card: CSS Basics
             %li
-              %a(href='https://web.dev/learn/css/') Learn CSS
+              %a(href='https://web.dev/learn/css/') web.dev: Learn CSS
 
 
         %section(data-background-color='var(--color-ash)')
@@ -2138,6 +2250,7 @@
           %h3.red JavaScript has sharp edges
 
           %ul
+            %li Designed in 10 days in 1995, 30 years of design-by-committee.
             %li Not everything is an object.
             %li There are three kinds of <code>null</code>.
             %li Equality of basic values is <a href="https://dorey.github.io/JavaScript-Equality-Table">confusing</a>.
@@ -2147,9 +2260,6 @@
             %li Arcane rules around <code>this</code>.
             %li Weak standard library (strings, numbers, arrays...).
             %li People are still arguing how one JavaScript file can load another.
-
-          %p.subtle
-            (But it's the only language we get in the browser, so deal with it.)
 
         %section
           %h2
@@ -2290,6 +2400,8 @@
               %a(href='https://makandracards.com/curriculum/35275-javascript-writing-asynchronous-code-2-5d') Card: Writing asynchronous code
             %li
               %a(href='https://makandracards.com/curriculum/34977-unobtrusive-javascript-components-3d') Card: Unobtrusive JavaScript components
+            %li
+              %a(href='https://web.dev/learn/javascript') web.dev: Learn JavaScript
 
 
 
@@ -2448,7 +2560,13 @@
           %h4 Get in touch
 
           %p
-            %a.no-underline{:href => "https://twitter.com/triskweline"} @triskweline
+            %a.no-underline{:href => "https://x.com/triskweline"}
+              @triskweline
+            %span.subtle
+              %i.fa-brands.fa-x-twitter
+              %i.fa-brands.fa-github
+              %i.fa-brands.fa-linkedin
+              %i.fa-brands.fa-bluesky
             %br
             %a.no-underline{:href => "mailto:henning.koch@makandra.de"} henning.koch@makandra.de
           %h4 Slides
@@ -2456,6 +2574,16 @@
           %p
             %a.no-underline(href='http://webdev101.makandra.de') http://webdev101.makandra.de<br>
             %a.no-underline(href='https://github.com/makandra/webdev101') https://github.com/makandra/webdev101
+
+
+
+        %section
+          %h2 The box model
+
+          %img(src='pictures/box_model.png' height=250)
+
+          %p
+            %a(target='_blank' href='examples/1055_box_model/page.html') View example
 
 
 
